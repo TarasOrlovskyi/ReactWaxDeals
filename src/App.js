@@ -4,6 +4,7 @@ import Footer from "./component/Footer/Footer";
 import {Route} from "react-router-dom";
 import Catalog from "./component/VinylPages/Catalog/Catalog";
 import SearchHeader from "./component/Header/SearchHeader";
+import Profile from "./component/RegistrationPages/Profile/Profile";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route exact path="/catalog" render={() =>
         <>
           <SearchHeader />
-          <Catalog />
+          <Profile />
         </>
       }/>
       <Footer/>

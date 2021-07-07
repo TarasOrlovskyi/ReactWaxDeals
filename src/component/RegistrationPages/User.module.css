@@ -69,3 +69,9 @@
 .contentUser__title{
   height: 5.28em;
 }
+
+.discogsLogo{
+  position: absolute;
+  right: -5em;
+  bottom: 0.5em;
+}
