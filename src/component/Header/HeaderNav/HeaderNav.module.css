@@ -1,0 +1,26 @@
+.header__menu{
+  flex: 1 1 auto;
+  height: 5.22em;
+}
+
+.header__menuList{
+  display: flex;
+  height: 3.6em;
+  width: 49.5em;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+
+.header__menuList li{
+  line-height: 1;
+}
+
+.header__menuItem{
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.header__menuItem_active{
+  color: #F7A325;
+}

@@ -1,0 +1,28 @@
+.header__loginSigns{
+  height: 4.78em;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__loginButtons{
+  position: relative;
+}
+
+.header__loginButtons .tooltiptext {
+  visibility: hidden;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 19px;
+  position: absolute;
+  z-index: 1;
+  top:50px;
+  right: 0;
+}
+
+.header__loginButtons:hover .tooltiptext {
+  visibility: visible;
+}

@@ -1,3 +1,5 @@
+/*clear style*/
+
 *{
   padding: 0;
   margin: 0;
@@ -36,7 +38,69 @@ img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base */
+
+body{
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.wrapper{
+  min-height: 100%;
+  overflow: hidden;
+  background: url("./img/background.jpg") no-repeat fixed center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em;
+}
+
+.wrapperHome{
+  background: url("./img/background_home.jpg") no-repeat fixed center;
+  background-size: cover;
+}
+
+.container{
+  max-width: 96.7em;
+  margin: 0 auto;
+}
+
+a{
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 2.67em;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+h2{
+  font-size: 2em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* main */
+
+.main{
+  flex: 1 1 auto;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.contentColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }

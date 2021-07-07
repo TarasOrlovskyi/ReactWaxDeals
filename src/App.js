@@ -1,18 +1,19 @@
-import {BrowserRouter, Route} from "react-router-dom";
-import Header from "./component/Header/Header";
+import SimpleHeader from "./component/Header/SimpleHeader";
 import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
-import s from './Common.module.css';
+import {Route} from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className={s.wrapper + ' ' + s.wrapperHome}>
-        <Header />
-        <Home />
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="wrapper wrapperHome">
+      <Route path="/" render={() =>
+        <>
+          <SimpleHeader/>
+          <Home/>
+        </>
+      }/>
+      <Footer/>
+    </div>
   );
 }
 
