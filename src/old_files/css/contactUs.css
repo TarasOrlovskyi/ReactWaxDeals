@@ -1,0 +1,22 @@
+/* main of contactUs page */
+
+.content-contact-us-page{
+  height: 44.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-contact-us-page__column{
+  height: 41.72em;
+  width: 19.44em;
+}
+
+.contact-us-page-user{
+  height: 36.38em;
+}
+
+.contact-us-page-user__fields{
+  height: 30em;
+}
