@@ -5,6 +5,7 @@ import {Route} from "react-router-dom";
 import Catalog from "./component/VinylPages/Catalog/Catalog";
 import SearchHeader from "./component/Header/SearchHeader";
 import Profile from "./component/RegistrationPages/Profile/Profile";
+import Stores from "./component/Stores/Stores";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Route exact path="/" render={() =>
         <>
           <SimpleHeader/>
-          <Home />
+          <Stores />
         </>
       }/>
       <Route exact path="/catalog" render={() =>
