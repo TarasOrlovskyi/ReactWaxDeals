@@ -118,7 +118,7 @@
                                 </label>
                                 <script language='javascript'>
                                     function checkEmail(emailInput) {
-                                    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                                    let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                                         if(emailInput.value.match(mailformat))
                                         {
                                             document.getElementById('user_message').innerHTML=" ";

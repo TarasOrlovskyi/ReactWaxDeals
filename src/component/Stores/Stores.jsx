@@ -1,6 +1,6 @@
 import s from './Stores.module.css';
 import Store from './Store/Store';
-import imageLink from '../../img/junorecords_logo.png';
+import imageLink from '../../assets/img/junorecords_logo.png';
 
 const Stores = (props) => {
 

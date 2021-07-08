@@ -24,19 +24,6 @@ const RecoveryPassword = (props) => {
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
                            onBlur="checkEmail(this)" value={props.email} required />
                   </label>
-                  {/*{
-                    function checkEmail(emailInput) {
-                      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-                      if (emailInput.value.match(mailformat)) {
-                        document.getElementById('user_message').innerHTML = " ";
-                        return true;
-                      } else {
-                        document.getElementById('user_message').innerHTML = "You have entered an invalid email address!";
-                        document.form_reg.email.focus();
-                        return false;
-                      }
-                    }
-                  }*/}
                 </div>
               </div>
               <label className={userStyle.user__submitLabel}>

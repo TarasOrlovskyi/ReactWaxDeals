@@ -1,5 +1,5 @@
 import s from './HeaderNav.module.css';
-import logo from '../../../img/svg/wax_deals.svg';
+import logo from '../../../assets/img/svg/wax_deals.svg';
 import {NavLink} from "react-router-dom";
 
 const HeaderNav = () => {
@@ -10,12 +10,12 @@ const HeaderNav = () => {
           <NavLink to="/about" activeClassName={s.header__menuItem_active} className={s.header__menuItem}>about</NavLink>
         </li>
         <li>
-          <NavLink to="catalog" activeClassName={s.header__menuItem_active} className={s.header__menuItem}>catalog</NavLink>
+          <NavLink to="/catalog" activeClassName={s.header__menuItem_active} className={s.header__menuItem}>catalog</NavLink>
         </li>
         <li>
-          <a href="/">
+          <NavLink to="/">
             <img src={logo} alt="wax deals logo"/>
-          </a>
+          </NavLink>
         </li>
         <li>
           <NavLink to="/stores" activeClassName={s.header__menuItem_active} className={s.header__menuItem}>stores</NavLink>
