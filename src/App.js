@@ -8,6 +8,7 @@ import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import Registration from "./component/RegistrationPages/Registration/Registration";
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
+import About from "./component/About/About";
 
 function App() {
   return (
@@ -48,6 +49,12 @@ function App() {
           <Stores />
         </>
       }/>
+        <Route exact path="/about" render={() =>
+            <>
+                <SearchHeader />
+                <About />
+            </>
+        }/>
       <Footer/>
     </div>
   );
