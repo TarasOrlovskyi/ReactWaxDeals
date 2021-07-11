@@ -1,21 +1,19 @@
 import s from './Home.module.css';
-import SearchField from "../SearchField/SearchField";
+import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
-const Home = () => {
+const Home = (props) => {
+  /*document.body.style.background = "url(/static/media/background_home.b74ccf94.jpg) no-repeat fixed center";*/
   return (
     <main className="main">
-
       <div className="container">
         <div className={s.contentHome + ' content'}>
-
           <div className={s.contentHome__column + ' contentColumn'}>
 
             <div className={s.contentHome__title}>
               <h1>COMPARE PRICES of VINYL RECORDS</h1>
             </div>
 
-            <SearchField/>
-
+            <SearchFieldContainer state={props.searchState} dispatch={props.dispatch}/>
             <div>
               <h2>
                 You can find here a huge number of records from<br/>
@@ -23,11 +21,10 @@ const Home = () => {
                 Welcome!
               </h2>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
-
     </main>
   );
 }

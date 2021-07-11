@@ -6,46 +6,46 @@ import Catalog from "./component/VinylPages/Catalog/Catalog";
 import SearchHeader from "./component/Header/SearchHeader";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
-import Registration from "./component/RegistrationPages/Registration/Registration";
+import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 
-function App() {
+function App(props) {
   return (
     <div className="wrapper">
       <Route exact path="/" render={() =>
         <>
           <SimpleHeader/>
-          <Home />
+          <Home searchState={props.state.searchField} dispatch={props.dispatch}/>
         </>
       }/>
       <Route exact path="/catalog" render={() =>
         <>
-          <SearchHeader />
-          <Catalog />
+          <SearchHeader searchState={props.state.searchField} dispatch={props.dispatch}/>
+          <Catalog/>
         </>
       }/>
       <Route exact path="/signUp" render={() =>
         <>
-          <SimpleHeader />
-          <Registration />
+          <SimpleHeader/>
+          <RegistrationContainer state={props.state.registrationPage} dispatch={props.dispatch}/>
         </>
       }/>
       <Route exact path="/profile" render={() =>
         <>
-          <SimpleHeader />
-          <Profile />
+          <SimpleHeader/>
+          <Profile/>
         </>
       }/>
       <Route exact path="/recoveryPassword" render={() =>
         <>
-          <SimpleHeader />
-          <RecoveryPassword />
+          <SimpleHeader/>
+          <RecoveryPassword/>
         </>
       }/>
       <Route exact path="/stores" render={() =>
         <>
-          <SimpleHeader />
-          <Stores />
+          <SimpleHeader/>
+          <Stores/>
         </>
       }/>
       <Footer/>
