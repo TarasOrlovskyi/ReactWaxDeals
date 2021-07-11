@@ -38,7 +38,8 @@ const Stores = (props) => {
     ]
   };
 
-  /*document.body.style.background = "url(/static/media/background.9d72ccb1.jpg) no-repeat fixed center";*/
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
 
   let stores = storesPage.stores.map(store => <Store linkToShop={store.linkToShop} imageLink={imageLink}/>);
   return (

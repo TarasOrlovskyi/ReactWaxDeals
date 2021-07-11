@@ -3,6 +3,8 @@ import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 
 const RecoveryPassword = (props) => {
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
 

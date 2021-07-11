@@ -94,16 +94,9 @@ body{
 .wrapper{
   min-height: 100%;
   overflow: hidden;
-  background: url("./assets/img/background.jpg") no-repeat fixed center;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   padding: 0 2em;
-}
-
-.wrapperHome{
-  background: url("./assets/img/background_home.jpg") no-repeat fixed center;
-  background-size: cover;
 }
 
 .container{

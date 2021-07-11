@@ -4,7 +4,7 @@ import VinylItem from "../VinylItem/VinylItem";
 
 const Catalog = (props) => {
   let catalog = {
-    vinylList:[
+    vinylList: [
       {
         id: 1,
         imageLink: 'https://s3.eu-central-1.amazonaws.com/media.vinyl.ua/ReleaseCover/r-1927-8XXpfGuL.jpg',
@@ -32,21 +32,19 @@ const Catalog = (props) => {
       artist={item.artist}
       vinylRelease={item.vinylRelease}
     />);
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
-
       <div className="container subContainer">
         <div className={vinylStyle.vinylsContent}>
-
           <div className={s.vinylsContent__row}>
             <div className={s.otherVinyls}>
               {vinylItem}
             </div>
           </div>
-
         </div>
       </div>
-
     </main>
   );
 }

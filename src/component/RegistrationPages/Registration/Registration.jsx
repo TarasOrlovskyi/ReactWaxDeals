@@ -24,6 +24,8 @@ const Registration = (props) => {
     props.updateRegistrationDiscogsUsername(discogsUsernameText);
   };
 
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container">
