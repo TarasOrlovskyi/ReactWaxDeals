@@ -14,7 +14,7 @@ const Home = (props) => {
               <h1>COMPARE PRICES of VINYL RECORDS</h1>
             </div>
 
-            <SearchFieldContainer state={props.searchState} dispatch={props.dispatch}/>
+            <SearchFieldContainer store={props.store}/>
             <div>
               <h2>
                 You can find here a huge number of records from<br/>

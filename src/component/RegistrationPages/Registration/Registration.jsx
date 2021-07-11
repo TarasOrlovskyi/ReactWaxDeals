@@ -46,21 +46,21 @@ const Registration = (props) => {
                 <div className={userStyle.user__fields + ' ' + s.registrationPageUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.email} required/>
+                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.registrationPage.email} required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
-                           onChange={onChangePasswordText} value={props.password} id="password"
+                           onChange={onChangePasswordText} value={props.registrationPage.password} id="password"
                            onBlur="checkRegex(this)" required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="confirmPassword" id="confirmPassword"
-                           onChange={onChangeConfirmPasswordText} value={props.confirmPassword}
+                           onChange={onChangeConfirmPasswordText} value={props.registrationPage.confirmPassword}
                            placeholder="Confirm password" required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="text" name="discogsUserName"
-                           value={props.discogsUsername}
+                           value={props.registrationPage.discogsUsername}
                            onChange={onChangeDiscogsUsernameText} placeholder="Discogs Username"/>
                   </label>
                   <img className={userStyle.discogsLogo}

@@ -6,15 +6,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 
-let renderAll = (state) => {
+let renderAll = () => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={state} dispatch={store.dispatch.bind(store)}/>
+      <App store={store} />
     </BrowserRouter>, document.getElementById('root')
   );
 };
 
-renderAll(store.getState());
+renderAll();
 
 store.subscribe(() => {
     let currentState = store.getState();

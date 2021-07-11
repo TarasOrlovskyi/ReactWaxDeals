@@ -7,21 +7,22 @@ import {
 import Registration from "./Registration";
 
 const RegistrationContainer = (props) => {
+  let state = props.store.getState().registrationPage;
 
   let updateRegistrationEmail = (emailText) => {
-    props.dispatch(changeEmailActionCreator(emailText));
+    props.store.dispatch(changeEmailActionCreator(emailText));
   };
 
   let updateRegistrationPassword = (passwordText) => {
-    props.dispatch(changePasswordActionCreator(passwordText));
+    props.store.dispatch(changePasswordActionCreator(passwordText));
   };
 
   let updateRegistrationConfirmPassword = (confirmPasswordText) => {
-    props.dispatch(changeConfirmPasswordActionCreator(confirmPasswordText));
+    props.store.dispatch(changeConfirmPasswordActionCreator(confirmPasswordText));
   };
 
   let updateRegistrationDiscogsUsername = (discogsUsernameText) => {
-    props.dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
+    props.store.dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
   };
 
   return (<Registration
@@ -29,10 +30,7 @@ const RegistrationContainer = (props) => {
     updateRegistrationPassword={updateRegistrationPassword}
     updateRegistrationConfirmPassword={updateRegistrationConfirmPassword}
     updateRegistrationDiscogsUsername={updateRegistrationDiscogsUsername}
-    email={props.state.email}
-    password={props.state.password}
-    confirmPassword={props.state.confirmPassword}
-    discogsUsername={props.state.discogsUsername}
+    registrationPage={state}
   />);
 };
 

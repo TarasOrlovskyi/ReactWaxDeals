@@ -14,7 +14,7 @@ const SearchHeader = (props) => {
         </div>
 
         <div className={s.header__search}>
-          <SearchFieldContainer state={props.searchState} dispatch={props.dispatch}/>
+          <SearchFieldContainer store={props.store}/>
         </div>
 
       </div>

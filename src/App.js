@@ -15,19 +15,19 @@ function App(props) {
       <Route exact path="/" render={() =>
         <>
           <SimpleHeader/>
-          <Home searchState={props.state.searchField} dispatch={props.dispatch}/>
+          <Home store={props.store} />
         </>
       }/>
       <Route exact path="/catalog" render={() =>
         <>
-          <SearchHeader searchState={props.state.searchField} dispatch={props.dispatch}/>
+          <SearchHeader store={props.store}/>
           <Catalog/>
         </>
       }/>
       <Route exact path="/signUp" render={() =>
         <>
           <SimpleHeader/>
-          <RegistrationContainer state={props.state.registrationPage} dispatch={props.dispatch}/>
+          <RegistrationContainer store={props.store}/>
         </>
       }/>
       <Route exact path="/profile" render={() =>
