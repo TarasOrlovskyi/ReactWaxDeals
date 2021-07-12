@@ -11,53 +11,53 @@ import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/Rec
 import About from "./component/About/About";
 
 function App() {
-    return (
-        <div className="wrapper">
-            <Route exact path="/" render={() =>
-                <>
-                    <SimpleHeader/>
-                    <Home/>
-                </>
-            }/>
-            <Route exact path="/catalog" render={() =>
-                <>
-                    <SearchHeader/>
-                    <Catalog/>
-                </>
-            }/>
-            <Route exact path="/signUp" render={() =>
-                <>
-                    <SimpleHeader/>
-                    <Registration/>
-                </>
-            }/>
-            <Route exact path="/profile" render={() =>
-                <>
-                    <SimpleHeader/>
-                    <Profile/>
-                </>
-            }/>
-            <Route exact path="/recoveryPassword" render={() =>
-                <>
-                    <SimpleHeader/>
-                    <RecoveryPassword/>
-                </>
-            }/>
-            <Route exact path="/stores" render={() =>
-                <>
-                    <SimpleHeader/>
-                    <Stores/>
-                </>
-            }/>
-            <Route exact path="/about" render={() =>
-                <>
-                    <SearchHeader/>
-                    <About/>
-                </>
-            }/>
-            <Footer/>
-        </div>
-    );
+  return (
+    <div className="wrapper">
+      <Route exact path="/" render={() =>
+        <>
+          <SimpleHeader/>
+          <Home/>
+        </>
+      }/>
+      <Route exact path="/catalog" render={() =>
+        <>
+          <SearchHeader/>
+          <Catalog/>
+        </>
+      }/>
+      <Route exact path="/signUp" render={() =>
+        <>
+          <SimpleHeader/>
+          <Registration/>
+        </>
+      }/>
+      <Route exact path="/profile" render={() =>
+        <>
+          <SimpleHeader/>
+          <Profile/>
+        </>
+      }/>
+      <Route exact path="/recoveryPassword" render={() =>
+        <>
+          <SimpleHeader/>
+          <RecoveryPassword/>
+        </>
+      }/>
+      <Route exact path="/stores" render={() =>
+        <>
+          <SimpleHeader/>
+          <Stores/>
+        </>
+      }/>
+      <Route exact path="/about" render={() =>
+        <>
+          <SearchHeader/>
+          <About/>
+        </>
+      }/>
+      <Footer/>
+    </div>
+  );
 }
 
 export default App;
