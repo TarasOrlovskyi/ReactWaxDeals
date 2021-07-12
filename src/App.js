@@ -8,6 +8,7 @@ import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import Registration from "./component/RegistrationPages/Registration/Registration";
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
+import About from "./component/About/About";
 
 function App() {
   return (
@@ -15,37 +16,43 @@ function App() {
       <Route exact path="/" render={() =>
         <>
           <SimpleHeader/>
-          <Home />
+          <Home/>
         </>
       }/>
       <Route exact path="/catalog" render={() =>
         <>
-          <SearchHeader />
-          <Catalog />
+          <SearchHeader/>
+          <Catalog/>
         </>
       }/>
       <Route exact path="/signUp" render={() =>
         <>
-          <SimpleHeader />
-          <Registration />
+          <SimpleHeader/>
+          <Registration/>
         </>
       }/>
       <Route exact path="/profile" render={() =>
         <>
-          <SimpleHeader />
-          <Profile />
+          <SimpleHeader/>
+          <Profile/>
         </>
       }/>
       <Route exact path="/recoveryPassword" render={() =>
         <>
-          <SimpleHeader />
-          <RecoveryPassword />
+          <SimpleHeader/>
+          <RecoveryPassword/>
         </>
       }/>
       <Route exact path="/stores" render={() =>
         <>
-          <SimpleHeader />
-          <Stores />
+          <SimpleHeader/>
+          <Stores/>
+        </>
+      }/>
+      <Route exact path="/about" render={() =>
+        <>
+          <SearchHeader/>
+          <About/>
         </>
       }/>
       <Footer/>
