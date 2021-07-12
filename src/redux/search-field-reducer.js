@@ -5,10 +5,11 @@ let initialSearchFieldState = {
 }
 
 const searchFieldReducer = (state = initialSearchFieldState, action) => {
+  let stateCopy = {...state};
   switch (action.type) {
     case UPDATE_SEARCH_FIELD:
-      state.searchFieldValue = action.searchFieldText;
-      return state;
+      stateCopy.searchFieldValue = action.searchFieldText;
+      return stateCopy;
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import HeaderNav from "./HeaderNav/HeaderNav";
 import RegistrationSigns from "./RegistrationSigns/RegistrationSigns";
 import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
-const SearchHeader = (props) => {
+const SearchHeader = () => {
   return (
     <header className={s.header}>
       <div className="container">
@@ -14,7 +14,7 @@ const SearchHeader = (props) => {
         </div>
 
         <div className={s.header__search}>
-          <SearchFieldContainer store={props.store}/>
+          <SearchFieldContainer/>
         </div>
 
       </div>

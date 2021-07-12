@@ -6,33 +6,43 @@ const Stores = (props) => {
   let storesPage = {
     stores: [
       {
+        id: 1,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 2,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 3,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 4,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 5,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 6,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 7,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 8,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 9,
         linkToShop: 'https://www.juno.co.uk/'
       },
       {
+        id: 10,
         linkToShop: 'https://www.juno.co.uk/'
       }
     ]
@@ -41,7 +51,8 @@ const Stores = (props) => {
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
 
-  let stores = storesPage.stores.map(store => <Store linkToShop={store.linkToShop} imageLink={imageLink}/>);
+  let stores = storesPage.stores.map(store => <Store linkToShop={store.linkToShop} imageLink={imageLink}
+                                                     key={store.id}/>);
   return (
     <main className="main">
       <div className="container subContainer">

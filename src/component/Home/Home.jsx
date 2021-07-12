@@ -1,7 +1,7 @@
 import s from './Home.module.css';
 import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
-const Home = (props) => {
+const Home = () => {
   document.body.style.background = "url(assets/background_home.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
   return (
@@ -14,7 +14,7 @@ const Home = (props) => {
               <h1>COMPARE PRICES of VINYL RECORDS</h1>
             </div>
 
-            <SearchFieldContainer store={props.store}/>
+            <SearchFieldContainer/>
             <div>
               <h2>
                 You can find here a huge number of records from<br/>

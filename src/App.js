@@ -9,25 +9,25 @@ import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 
-function App(props) {
+function App() {
   return (
     <div className="wrapper">
       <Route exact path="/" render={() =>
         <>
           <SimpleHeader/>
-          <Home store={props.store} />
+          <Home/>
         </>
       }/>
       <Route exact path="/catalog" render={() =>
         <>
-          <SearchHeader store={props.store}/>
+          <SearchHeader/>
           <Catalog/>
         </>
       }/>
       <Route exact path="/signUp" render={() =>
         <>
           <SimpleHeader/>
-          <RegistrationContainer store={props.store}/>
+          <RegistrationContainer/>
         </>
       }/>
       <Route exact path="/profile" render={() =>

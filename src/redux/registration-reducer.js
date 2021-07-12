@@ -13,17 +13,25 @@ let initialRegistrationState = {
 const registrationReducer = (state = initialRegistrationState, action) => {
   switch (action.type) {
     case UPDATE_REGISTRATION_EMAIL:
-      state.email = action.emailText;
-      return state;
+      return {
+        ...state,
+        email: action.emailText
+      }
     case UPDATE_REGISTRATION_PASSWORD:
-      state.password = action.passwordText;
-      return state;
+      return {
+        ...state,
+        password: action.passwordText
+      }
     case UPDATE_REGISTRATION_CONFIRM_PASSWORD:
-      state.confirmPassword = action.confirmPasswordText;
-      return state;
+      return {
+        ...state,
+        confirmPassword: action.confirmPassword
+      }
     case UPDATE_REGISTRATION_DISCOGS_USERNAME:
-      state.discogsUsername = action.discogsUsernameText;
-      return state;
+      return {
+        ...state,
+        discogsUsername: action.discogsUsernameText
+      }
     default:
       return state;
   }

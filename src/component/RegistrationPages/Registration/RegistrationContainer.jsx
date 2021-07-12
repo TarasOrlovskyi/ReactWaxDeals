@@ -5,33 +5,32 @@ import {
   changePasswordActionCreator
 } from "../../../redux/registration-reducer";
 import Registration from "./Registration";
+import {connect} from "react-redux";
 
-const RegistrationContainer = (props) => {
-  let state = props.store.getState().registrationPage;
-
-  let updateRegistrationEmail = (emailText) => {
-    props.store.dispatch(changeEmailActionCreator(emailText));
+let mapStateToProps = (state) => {
+  return {
+    registrationPage: state.registrationPage
   };
-
-  let updateRegistrationPassword = (passwordText) => {
-    props.store.dispatch(changePasswordActionCreator(passwordText));
-  };
-
-  let updateRegistrationConfirmPassword = (confirmPasswordText) => {
-    props.store.dispatch(changeConfirmPasswordActionCreator(confirmPasswordText));
-  };
-
-  let updateRegistrationDiscogsUsername = (discogsUsernameText) => {
-    props.store.dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
-  };
-
-  return (<Registration
-    updateRegistrationEmail={updateRegistrationEmail}
-    updateRegistrationPassword={updateRegistrationPassword}
-    updateRegistrationConfirmPassword={updateRegistrationConfirmPassword}
-    updateRegistrationDiscogsUsername={updateRegistrationDiscogsUsername}
-    registrationPage={state}
-  />);
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    updateRegistrationEmail: (emailText) => {
+      dispatch(changeEmailActionCreator(emailText));
+    },
+    updateRegistrationPassword: (passwordText) => {
+      dispatch(changePasswordActionCreator(passwordText));
+    },
+    updateRegistrationConfirmPassword: (confirmPasswordText) => {
+      dispatch(changeConfirmPasswordActionCreator(confirmPasswordText));
+    },
+    updateRegistrationDiscogsUsername: (discogsUsernameText) => {
+      dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
+    },
+
+  };
+};
+
+const RegistrationContainer = connect(mapStateToProps, mapDispatchToProps)(Registration);
 
 export default RegistrationContainer;
