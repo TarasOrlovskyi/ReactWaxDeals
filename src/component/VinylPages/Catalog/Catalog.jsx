@@ -1,6 +1,7 @@
 import s from './Catalog.module.css';
 import vinylStyle from './../Vinyl.module.css'
 import VinylItem from "../VinylItem/VinylItem";
+import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const Catalog = (props) => {
   let catalog = {
@@ -37,6 +38,11 @@ const Catalog = (props) => {
   return (
     <main className="main">
       <div className="container subContainer">
+
+        <div className="searchArea">
+          <SearchFieldContainer/>
+        </div>
+
         <div className={vinylStyle.vinylsContent}>
           <div className={s.vinylsContent__row}>
             <div className={s.otherVinyls}>

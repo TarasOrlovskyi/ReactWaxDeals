@@ -1,5 +1,6 @@
 import s from './About.module.css';
 import aboutImage from "../../assets/img/aboutImage.png";
+import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
 const About = () => {
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -7,6 +8,11 @@ const About = () => {
   return (
     <main className="main">
       <div className="container subContainer">
+
+        <div className="searchArea">
+          <SearchFieldContainer/>
+        </div>
+
         <div className={s.aboutContent}>
           <div className={s.aboutBody}>
             <h2 className={s.aboutBody__title}>Who we are</h2>
