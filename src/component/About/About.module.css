@@ -1,17 +1,21 @@
-.aboutContent{
-    padding: 3.55em 0;
+.aboutContent {
+  padding: 3.55em 0;
 }
 
-.aboutBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.aboutBody__title{
-    padding-bottom: 15px;
+.aboutBody__title {
+  padding-bottom: 0.83em;
 }
 
-.aboutImage{
-    padding-top: 60px;
+.aboutBody__image {
+  padding-top: 3.33em;
+}
+
+.aboutBody__secondTitle {
+  padding-top: 2.78em;
 }
