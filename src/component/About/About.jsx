@@ -2,6 +2,8 @@ import s from './About.module.css';
 import aboutImage from "../../assets/img/aboutImage.png";
 
 const About = () => {
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container subContainer">
@@ -17,7 +19,6 @@ const About = () => {
               <img src={aboutImage} alt="vinyl"/>
             </div>
           </div>
-
         </div>
       </div>
     </main>
