@@ -56,6 +56,10 @@ const Stores = (props) => {
   return (
     <main className="main">
       <div className="container subContainer">
+
+        <div className="searchArea">
+        </div>
+
         <div className={s.shopsContent}>
           <div className={s.shopsContent__row}>
             <div className={s.allShops}>

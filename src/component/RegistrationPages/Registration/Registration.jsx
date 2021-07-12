@@ -29,6 +29,10 @@ const Registration = (props) => {
   return (
     <main className="main">
       <div className="container">
+
+        <div className="searchArea">
+        </div>
+
         <div className={s.contentRegistrationPage}>
 
           <UserMessage/>
@@ -46,7 +50,8 @@ const Registration = (props) => {
                 <div className={userStyle.user__fields + ' ' + s.registrationPageUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.registrationPage.email} required/>
+                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.registrationPage.email}
+                           required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
@@ -72,7 +77,6 @@ const Registration = (props) => {
                 <input className={userStyle.user__submitInput} type="submit" value="OK"/>
               </label>
             </form>
-
           </div>
         </div>
       </div>

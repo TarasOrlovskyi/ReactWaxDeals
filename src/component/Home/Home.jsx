@@ -7,6 +7,10 @@ const Home = () => {
   return (
     <main className="main">
       <div className="container">
+
+        <div className="searchArea">
+        </div>
+
         <div className={s.contentHome + ' content'}>
           <div className={s.contentHome__column + ' contentColumn'}>
 
