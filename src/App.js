@@ -6,7 +6,7 @@ import Catalog from "./component/VinylPages/Catalog/Catalog";
 import SearchHeader from "./component/Header/SearchHeader";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
-import Registration from "./component/RegistrationPages/Registration/Registration";
+import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 
@@ -28,7 +28,7 @@ function App() {
       <Route exact path="/signUp" render={() =>
         <>
           <SimpleHeader/>
-          <Registration/>
+          <RegistrationContainer/>
         </>
       }/>
       <Route exact path="/profile" render={() =>

@@ -2,6 +2,8 @@ import s from './Profile.module.css';
 import userStyle from '../User.module.css';
 
 const Profile = (props) => {
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return(
     <main className="main">
 

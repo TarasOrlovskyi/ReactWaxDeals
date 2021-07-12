@@ -1,7 +1,7 @@
 import s from './Header.module.css';
 import HeaderNav from "./HeaderNav/HeaderNav";
 import RegistrationSigns from "./RegistrationSigns/RegistrationSigns";
-import SearchField from "../SearchField/SearchField";
+import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
 const SearchHeader = () => {
   return (
@@ -9,12 +9,12 @@ const SearchHeader = () => {
       <div className="container">
 
         <div className={s.header__row}>
-          <HeaderNav />
-          <RegistrationSigns />
+          <HeaderNav/>
+          <RegistrationSigns/>
         </div>
 
         <div className={s.header__search}>
-          <SearchField />
+          <SearchFieldContainer/>
         </div>
 
       </div>
