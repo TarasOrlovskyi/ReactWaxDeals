@@ -8,6 +8,7 @@ import RegistrationContainer from "./component/RegistrationPages/Registration/Re
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
+import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
       <Route exact path="/profile" render={() =>
         <Profile/>
       }/>
+      <Route exact path="/profile/edit-profile/" render={() =>
+        <EditProfile/>
+      }/>
+
       <Route exact path="/recoveryPassword" render={() =>
         <RecoveryPassword/>
       }/>
