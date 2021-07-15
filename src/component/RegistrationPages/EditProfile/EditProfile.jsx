@@ -38,7 +38,7 @@ const EditProfile = (props) => {
                 </div>
               </div>
               <div className={s.editProfileUser__nav}>
-                <NavLink to="/profile/edit-profile/change-password" className={s.editProfileUser__changePassword}>Change
+                <NavLink to="/change-password" className={s.editProfileUser__changePassword}>Change
                   Password</NavLink>
                 <a href="#" className={s.editProfileUser__deleteProfile}>Delete Profile</a>
               </div>

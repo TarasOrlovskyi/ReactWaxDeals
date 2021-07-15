@@ -12,7 +12,7 @@ const ChangePassword = (props) => {
         </div>
         <div className={s.contentChangePassword + ' content'}>
           <UserMessage/>
-          <div className={s.contentChangePassword__column + ' content-column'}>
+          <div className={s.contentChangePassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Change Password</h2>
             </div>

@@ -9,6 +9,7 @@ import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/Rec
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
 import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
+import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
       }/>
       <Route exact path="/recoveryPassword" render={() =>
         <RecoveryPassword/>
+      }/>
+      <Route exact path="/change-password" render={() =>
+        <ChangePassword/>
       }/>
       <Route exact path="/stores" render={() =>
         <Stores/>
