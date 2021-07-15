@@ -1,43 +1,81 @@
-.user{
+.user {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.user__fieldsWrapper{
+.user__fieldsWrapper {
   flex: 1 1 auto;
   width: 100%;
+
 }
 
-.user__fields{
+.user__fields {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: relative;
+
 }
 
-.user__label{
+.user__label {
   width: 100%;
 }
 
-.user__submitLabel{
+.user__submitLabel {
   height: 2.25em;
 }
 
 /* setting the color and transparent settings for the placeholder */
-.user__input::-webkit-input-placeholder {color:#8D8989; opacity:1;}/* webkit */
-.user__input::-moz-placeholder          {color:#8D8989; opacity:1;}/* Firefox 19+ */
-.user__input:-moz-placeholder           {color:#8D8989; opacity:1;}/* Firefox 18- */
-.user__input:-ms-input-placeholder      {color:#8D8989; opacity:1;}/* IE */
-.user__input:focus::-webkit-input-placeholder {opacity:0;}/* webkit */
-.user__input:focus::-moz-placeholder          {opacity:0;}/* Firefox 19+ */
-.user__input:focus:-moz-placeholder           {opacity:0;}/* Firefox 18- */
-.user__input:focus:-ms-input-placeholder      {opacity:0;}/* IE */
+.user__input::-webkit-input-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
 
-.user__input{
+/* webkit */
+.user__input::-moz-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
+/* Firefox 19+ */
+.user__input:-moz-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
+/* Firefox 18- */
+.user__input:-ms-input-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
+/* IE */
+.user__input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+/* webkit */
+.user__input:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+/* Firefox 19+ */
+.user__input:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+/* Firefox 18- */
+.user__input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+/* IE */
+
+.user__input {
   font-size: 14px;
   line-height: 19px;
   color: #8D8989;
@@ -57,20 +95,20 @@
   cursor: pointer;
 }
 
-.user__submitInput:hover{
+.user__submitInput:hover {
   background-color: #D78D1E;
 }
 
-.user__submitInput:active{
+.user__submitInput:active {
   background-color: #D78D1E;
   border: 1px solid #FFFFFF;
 }
 
-.contentUser__title{
+.contentUser__title {
   height: 5.28em;
 }
 
-.discogsLogo{
+.discogsLogo {
   position: absolute;
   right: -5em;
   bottom: 0.5em;

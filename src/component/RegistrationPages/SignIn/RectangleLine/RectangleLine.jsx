@@ -6,7 +6,6 @@ import rectangleLine from "../../../../assets/img/socialNetwork/Rectangle-line.p
 
 
 const RectangleLine = ( ) => {
-
     return   <div className={s.contentSignIn__rectangleLine + ' rectangleLine'}>
                  <img alt="rectangle-line" src={rectangleLine}/>
                   <span className={s.rectangleLine__orBetweenLine}>or</span>
@@ -14,5 +13,4 @@ const RectangleLine = ( ) => {
               </div>
 
 }
-
 export default RectangleLine;
