@@ -26,10 +26,9 @@ function App() {
       <Route exact path="/profile" render={() =>
         <Profile/>
       }/>
-      <Route exact path="/profile/edit-profile/" render={() =>
+      <Route exact path="/edit-profile" render={() =>
         <EditProfile/>
       }/>
-
       <Route exact path="/recoveryPassword" render={() =>
         <RecoveryPassword/>
       }/>
