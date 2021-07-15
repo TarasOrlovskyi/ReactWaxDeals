@@ -46,6 +46,11 @@
   padding-left: 1.07em;
 }
 
+.user__submitButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .user__submitInput {
   font-weight: bold;
   font-size: 18px;
