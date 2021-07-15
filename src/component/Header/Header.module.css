@@ -1,17 +1,10 @@
-.header{
-  height: 10.5em;
+.header {
+  height: 5.25em;
 }
 
-.header__row{
+.header__row {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   position: relative;
-}
-
-.header__search{
-  height: 5.25em;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
 }

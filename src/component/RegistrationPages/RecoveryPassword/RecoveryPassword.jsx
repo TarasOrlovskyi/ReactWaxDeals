@@ -3,10 +3,15 @@ import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 
 const RecoveryPassword = (props) => {
+  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
-
       <div className="container">
+
+        <div className="searchArea">
+        </div>
+
         <div className={s.contentRecoveryPassword}>
 
           <UserMessage message={props.message}/>
@@ -17,25 +22,23 @@ const RecoveryPassword = (props) => {
               <h2>Password recovery</h2>
             </div>
 
-            <form action="/recoveryPassword" method="POST" className={userStyle.user + ' ' + s.recoveryUser} name="form_reg">
+            <form action="/recoveryPassword" method="POST" className={userStyle.user + ' ' + s.recoveryUser}
+                  name="form_reg">
               <div className={userStyle.user__fieldsWrapper}>
                 <div className={userStyle.user__fields + ' ' + s.recoveryUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onBlur="checkEmail(this)" value={props.email} required />
+                           onBlur="checkEmail(this)" value={props.email} required/>
                   </label>
                 </div>
               </div>
               <label className={userStyle.user__submitLabel}>
-                <input className={userStyle.user__submitInput} type="submit" value="OK" />
+                <input className={userStyle.user__submitInput} type="submit" value="OK"/>
               </label>
             </form>
-
           </div>
-
         </div>
       </div>
-
     </main>
   );
 }
