@@ -8,6 +8,8 @@ import RegistrationContainer from "./component/RegistrationPages/Registration/Re
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
+import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
+import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
 import SignIn from "./component/RegistrationPages/SignIn/SignIn";
 
 function App() {
@@ -26,8 +28,14 @@ function App() {
       <Route exact path="/profile" render={() =>
         <Profile/>
       }/>
+      <Route exact path="/edit-profile" render={() =>
+        <EditProfile/>
+      }/>
       <Route exact path="/recoveryPassword" render={() =>
         <RecoveryPassword/>
+      }/>
+      <Route exact path="/change-password" render={() =>
+        <ChangePassword/>
       }/>
       <Route exact path="/stores" render={() =>
         <Stores/>
