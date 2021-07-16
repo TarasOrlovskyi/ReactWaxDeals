@@ -46,6 +46,11 @@
   padding-left: 1.07em;
 }
 
+.user__submitButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .user__submitInput {
   font-weight: bold;
   font-size: 18px;
@@ -72,6 +77,6 @@
 
 .discogsLogo{
   position: absolute;
-  right: -5em;
+  right: -4.17em;
   bottom: 0.5em;
 }

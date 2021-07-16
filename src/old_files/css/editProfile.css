@@ -1,7 +1,7 @@
 /* main of edit profile page */
 
 .content-edit-profile{
-  height: 35.14em;
+  height: 23.66em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,15 +9,32 @@
 }
 
 .content-edit-profile__column{
-  height: 32.36em;
+  height: 23.05em;
   width: 19.44em;
   position: relative;
 }
 
 .edit-profile-user{
-  height: 27.11em;
+  height: 17.77em;
 }
 
 .edit-profile-user__fields{
-  height: 20.56em;
+  height: 7.22em;
+}
+.edit-profile-user__nav{
+  height: 6.66em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-profile-user__change-password{
+  color: #F6A325;
+  font-size: 1.33em;
+  text-decoration: underline;
+}
+.edit-profile-user__delete-profile{
+  font-size: 0.77em;
+  text-decoration: underline;
+  padding-bottom: 3.64em;
 }

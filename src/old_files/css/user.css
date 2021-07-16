@@ -56,9 +56,7 @@
 
 .user__submit-buttons {
   display: flex;
-  align-self: flex-start;
   justify-content: center;
-  width: 50%;
 }
 
 .delete-profile-button{
