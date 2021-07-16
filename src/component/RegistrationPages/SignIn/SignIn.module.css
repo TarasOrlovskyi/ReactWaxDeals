@@ -1,0 +1,20 @@
+.contentSignIn {
+  height: 25.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentSignIn__column {
+  height: 25.61em;
+  width: 19.44em;
+}
+
+.signInUser {
+  height: 14.39em;
+}
+
+.signInUser__fields {
+  height: 9em;
+}

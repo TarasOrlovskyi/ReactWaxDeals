@@ -10,6 +10,7 @@ import About from "./component/About/About";
 import Header from "./component/Header/Header";
 import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
+import SignIn from "./component/RegistrationPages/SignIn/SignIn";
 
 function App() {
   return (
@@ -42,9 +43,12 @@ function App() {
       <Route exact path="/about" render={() =>
         <About/>
       }/>
+      <Route exact path="/signIn" render={() =>
+         <SignIn/>
+      }/>
       <Footer/>
     </div>
   );
-};
+}
 
 export default App;

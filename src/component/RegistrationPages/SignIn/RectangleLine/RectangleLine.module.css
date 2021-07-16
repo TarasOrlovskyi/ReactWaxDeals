@@ -1,0 +1,12 @@
+.contentSignIn__rectangleLine {
+  height: 4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rectangleLine__orBetweenLine {
+  width: 2.7em;
+  text-align: center;
+  font-style: normal;
+}
