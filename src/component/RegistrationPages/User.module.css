@@ -8,7 +8,6 @@
 .user__fieldsWrapper {
   flex: 1 1 auto;
   width: 100%;
-
 }
 
 .user__fields {
@@ -18,7 +17,6 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-
 }
 
 .user__label {
@@ -27,12 +25,6 @@
 
 .user__submitLabel {
   height: 2.25em;
-}
-
-/* setting the color and transparent settings for the placeholder */
-.user__input::-webkit-input-placeholder {
-  color: #8D8989;
-  opacity: 1;
 }
 
 /* webkit */
@@ -57,6 +49,11 @@
 .user__input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
+/* setting the color and transparent settings for the placeholder */
+.user__input::-webkit-input-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
 
 /* webkit */
 .user__input:focus::-moz-placeholder {
@@ -74,7 +71,6 @@
 }
 
 /* IE */
-
 .user__input {
   font-size: 14px;
   line-height: 19px;
