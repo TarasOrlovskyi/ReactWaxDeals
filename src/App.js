@@ -1,7 +1,6 @@
 import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import {Route} from "react-router-dom";
-import Catalog from "./component/VinylPages/Catalog/Catalog";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
@@ -11,6 +10,7 @@ import Header from "./component/Header/Header";
 import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
 import SignIn from "./component/RegistrationPages/SignIn/SignIn";
+import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Home/>
       }/>
       <Route exact path="/catalog" render={() =>
-        <Catalog/>
+        <CatalogContainer/>
       }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>
@@ -44,7 +44,7 @@ function App() {
         <About/>
       }/>
       <Route exact path="/signIn" render={() =>
-         <SignIn/>
+        <SignIn/>
       }/>
       <Footer/>
     </div>
