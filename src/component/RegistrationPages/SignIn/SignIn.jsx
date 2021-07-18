@@ -7,6 +7,17 @@ import {NavLink} from "react-router-dom";
 import UserMessage from "../UserMessage/UserMessage.jsx";
 
 const SignIn = (props) => {
+
+  let onChangeEmailText = (event) => {
+    let emailText = event.target.value;
+    props.updateSignInEmail(emailText);
+  };
+
+  let onChangePasswordText = (event) => {
+    let passwordText = event.target.value;
+    props.updateSignInPassword(passwordText);
+  };
+
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
   return (
@@ -27,11 +38,11 @@ const SignIn = (props) => {
                 <div className={userStyle.user__fields + ' ' + signInStyle.signInUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" placeholder="Email"
-                           value={props.email} onBlur="checkEmail(this)" required/>
+                           onChange={onChangeEmailText} value={props.email} onBlur="checkEmail(this)" required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="password"
-                           placeholder="Password"
+                           onChange={onChangePasswordText} placeholder="Password"
                            required/>
                   </label>
                   <NavLink to="/recoveryPassword">Forgot password?</NavLink>

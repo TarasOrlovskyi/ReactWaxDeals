@@ -11,6 +11,7 @@ import Header from "./component/Header/Header";
 import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
 import SignIn from "./component/RegistrationPages/SignIn/SignIn";
+import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
         <About/>
       }/>
       <Route exact path="/signIn" render={() =>
-         <SignIn/>
+         <SignInContainer/>
       }/>
       <Footer/>
     </div>
