@@ -9,7 +9,7 @@ const catalogReducer = (state = initialCatalogState, action) => {
     case UPDATE_VINYLS_LIST:
       return {
         ...state,
-        vinyls: [...state.vinyls, ...action.vinyls]
+        vinyls: action.vinyls
       }
     default:
       return state;
