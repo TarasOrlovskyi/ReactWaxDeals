@@ -7,22 +7,22 @@ const Registration = (props) => {
 
   let onChangeEmailText = (event) => {
     let emailText = event.target.value;
-    props.updateRegistrationEmail(emailText);
+    props.updateEmail(emailText);
   };
 
   let onChangePasswordText = (event) => {
     let passwordText = event.target.value;
-    props.updateRegistrationPassword(passwordText);
+    props.updatePassword(passwordText);
   };
 
   let onChangeConfirmPasswordText = (event) => {
     let confirmPasswordText = event.target.value;
-    props.updateRegistrationConfirmPassword(confirmPasswordText);
+    props.updateConfirmPassword(confirmPasswordText);
   };
 
   let onChangeDiscogsUsernameText = (event) => {
     let discogsUsernameText = event.target.value;
-    props.updateRegistrationDiscogsUsername(discogsUsernameText);
+    props.updateDiscogsUsername(discogsUsernameText);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";

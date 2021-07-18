@@ -37,31 +37,31 @@ const registrationReducer = (state = initialRegistrationState, action) => {
   }
 };
 
-export const changeEmailActionCreator = (text) => (
+export const updateEmail = (emailText) => (
   {
     type: UPDATE_REGISTRATION_EMAIL,
-    emailText: text
+    emailText
   }
 );
 
-export const changePasswordActionCreator = (text) => (
+export const updatePassword = (passwordText) => (
   {
     type: UPDATE_REGISTRATION_PASSWORD,
-    passwordText: text
+    passwordText
   }
 );
 
-export const changeConfirmPasswordActionCreator = (text) => (
+export const updateConfirmPassword = (confirmPasswordText) => (
   {
     type: UPDATE_REGISTRATION_CONFIRM_PASSWORD,
-    confirmPasswordText: text
+    confirmPasswordText
   }
 );
 
-export const changeDiscogsUsernameActionCreator = (text) => (
+export const updateDiscogsUsername = (discogsUsernameText) => (
   {
     type: UPDATE_REGISTRATION_DISCOGS_USERNAME,
-    discogsUsernameText: text
+    discogsUsernameText
   }
 );
 

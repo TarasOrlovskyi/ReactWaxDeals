@@ -1,8 +1,8 @@
 import {
-  changeConfirmPasswordActionCreator,
-  changeDiscogsUsernameActionCreator,
-  changeEmailActionCreator,
-  changePasswordActionCreator
+  updateEmail,
+  updatePassword,
+  updateConfirmPassword,
+  updateDiscogsUsername
 } from "../../../redux/registration-reducer";
 import Registration from "./Registration";
 import {connect} from "react-redux";
@@ -13,24 +13,10 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    updateRegistrationEmail: (emailText) => {
-      dispatch(changeEmailActionCreator(emailText));
-    },
-    updateRegistrationPassword: (passwordText) => {
-      dispatch(changePasswordActionCreator(passwordText));
-    },
-    updateRegistrationConfirmPassword: (confirmPasswordText) => {
-      dispatch(changeConfirmPasswordActionCreator(confirmPasswordText));
-    },
-    updateRegistrationDiscogsUsername: (discogsUsernameText) => {
-      dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
-    },
-
-  };
-};
-
-const RegistrationContainer = connect(mapStateToProps, mapDispatchToProps)(Registration);
+const RegistrationContainer = connect
+(
+  mapStateToProps,
+  {updateEmail, updatePassword, updateConfirmPassword, updateDiscogsUsername}
+)(Registration);
 
 export default RegistrationContainer;

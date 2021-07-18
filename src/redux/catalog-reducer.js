@@ -16,7 +16,7 @@ const catalogReducer = (state = initialCatalogState, action) => {
   }
 }
 
-export const catalogActionCreator = (vinyls) => {
+export const refreshVinylList = (vinyls) => {
   return {
     type: UPDATE_VINYLS_LIST,
     vinyls

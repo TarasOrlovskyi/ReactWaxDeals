@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Catalog from "./Catalog";
-import {catalogActionCreator} from "../../../redux/catalog-reducer";
+import {refreshVinylList} from "../../../redux/catalog-reducer";
 import React from "react";
 import * as axios from "axios";
 
@@ -23,14 +23,6 @@ let mapStateToProps = (state) => {
   }
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    refreshVinylList: (vinyls) => {
-      dispatch(catalogActionCreator(vinyls))
-    }
-  }
-};
-
-const CatalogContainer = connect(mapStateToProps, mapDispatchToProps)(CatalogRequestContainer);
+const CatalogContainer = connect(mapStateToProps, {refreshVinylList})(CatalogRequestContainer);
 
 export default CatalogContainer;
