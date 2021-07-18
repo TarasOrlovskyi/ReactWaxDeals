@@ -1,7 +1,7 @@
 import {
-  changeConfirmNewPasswordActionCreator,
-  changeNewPasswordActionCreator,
-  changeOldPasswordActionCreator
+  changeConfirmNewPassword,
+  changeNewPassword,
+  changeOldPassword
 } from "../../../redux/change-password-reducer";
 import {connect} from "react-redux";
 import ChangePassword from "./ChangePassword";
@@ -12,20 +12,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    updateChangePasswordOldPassword: (oldPasswordText) => {
-      dispatch(changeOldPasswordActionCreator(oldPasswordText));
-    },
-    updateChangePasswordNewPassword: (newPasswordText) => {
-      dispatch(changeNewPasswordActionCreator(newPasswordText));
-    },
-    updateChangePasswordConfirmNewPassword: (confirmNewPasswordText) => {
-      dispatch(changeConfirmNewPasswordActionCreator(confirmNewPasswordText));
-    },
-  };
-};
+export default connect(mapStateToProps,
+  {changeConfirmNewPassword, changeNewPassword, changeOldPassword})(ChangePassword);
 
-const ChangePasswordContainer = connect(mapStateToProps, mapDispatchToProps)(ChangePassword);
-
-export default ChangePasswordContainer;

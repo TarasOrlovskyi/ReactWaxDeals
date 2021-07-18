@@ -1,4 +1,4 @@
-import {changeDiscogsUsernameActionCreator, changeEmailActionCreator} from "../../../redux/edit-profile-reducer";
+import {changeDiscogsUsername, changeEmail} from "../../../redux/edit-profile-reducer";
 import EditProfile from "./EditProfile";
 import {connect} from "react-redux";
 
@@ -9,18 +9,5 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    updateEditProfileEmail: (emailText) => {
-      dispatch(changeEmailActionCreator(emailText));
-    },
-    updateEditProfileDiscogsUsername: (discogsUsernameText) => {
-      dispatch(changeDiscogsUsernameActionCreator(discogsUsernameText));
-    },
+export default connect(mapStateToProps, {changeDiscogsUsername, changeEmail})(EditProfile);
 
-  };
-};
-
-const EditProfileContainer = connect(mapStateToProps, mapDispatchToProps)(EditProfile);
-
-export default EditProfileContainer;

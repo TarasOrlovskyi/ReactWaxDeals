@@ -23,14 +23,14 @@ const editProfileReducer = (state = initialEditProfileState, action) => {
   }
 };
 
-export const changeEmailActionCreator = (text) => (
+export const changeEmail = (text) => (
   {
     type: UPDATE_EDIT_PROFILE_EMAIL,
     emailText: text
   }
 );
 
-export const changeDiscogsUsernameActionCreator = (text) => (
+export const changeDiscogsUsername = (text) => (
   {
     type: UPDATE_EDIT_PROFILE_DISCOGS_USERNAME,
     discogsUsernameText: text

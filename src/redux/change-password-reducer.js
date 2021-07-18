@@ -30,21 +30,21 @@ const changePasswordReducer = (state = initialChangePasswordState, action) => {
   }
 };
 
-export const changeOldPasswordActionCreator = (text) => (
+export const changeOldPassword = (text) => (
   {
     type: UPDATE_CHANGE_PASSWORD_OLD_PASSWORD,
     oldPasswordText: text
   }
 );
 
-export const changeNewPasswordActionCreator = (text) => (
+export const changeNewPassword = (text) => (
   {
     type: UPDATE_CHANGE_PASSWORD_NEW_PASSWORD,
     newPasswordText: text
   }
 );
 
-export const changeConfirmNewPasswordActionCreator = (text) => (
+export const changeConfirmNewPassword = (text) => (
   {
     type: UPDATE_CHANGE_PASSWORD_CONFIRM_NEW_PASSWORD,
     confirmNewPasswordText: text
