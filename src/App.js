@@ -4,13 +4,13 @@ import {Route} from "react-router-dom";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
-import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
-import SignIn from "./component/RegistrationPages/SignIn/SignIn";
 import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
 import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
+import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
+import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         <EditProfileContainer/>
       }/>
       <Route exact path="/recovery-password" render={() =>
-        <RecoveryPassword/>
+        <RecoveryPasswordContainer/>
       }/>
       <Route exact path="/change-password" render={() =>
         <ChangePasswordContainer/>
@@ -44,7 +44,7 @@ function App() {
         <About/>
       }/>
       <Route exact path="/signIn" render={() =>
-        <SignIn/>
+        <SignInContainer/>
       }/>
       <Footer/>
     </div>
