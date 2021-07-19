@@ -3,9 +3,15 @@ import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 
 const RecoveryPassword = (props) => {
+
+  let onChangeEmailText = (event) => {
+    props.updateRecoveryPasswordEmail(event.target.value);
+  };
+
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
   return (
+
     <main className="main">
       <div className="container">
 
@@ -28,7 +34,8 @@ const RecoveryPassword = (props) => {
                 <div className={userStyle.user__fields + ' ' + s.recoveryUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onBlur="checkEmail(this)" value={props.email} required/>
+                           onChange={onChangeEmailText} onBlur="checkEmail(this)"
+                           value={props.recoveryPasswordPage.email} required/>
                   </label>
                 </div>
               </div>

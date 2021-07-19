@@ -1,7 +1,7 @@
-const UPDATE_REGISTRATION_EMAIL = 'UPDATE_REGISTRATION_EMAIL';
-const UPDATE_REGISTRATION_PASSWORD = 'UPDATE_REGISTRATION_PASSWORD';
-const UPDATE_REGISTRATION_CONFIRM_PASSWORD = 'UPDATE_REGISTRATION_CONFIRM_PASSWORD';
-const UPDATE_REGISTRATION_DISCOGS_USERNAME = 'UPDATE_REGISTRATION_DISCOGS_USERNAME';
+const UPDATE_EMAIL_ON_REGISTRATION_PAGE = 'UPDATE_EMAIL_ON_REGISTRATION_PAGE';
+const UPDATE_PASSWORD_ON_REGISTRATION_PAGE = 'UPDATE_PASSWORD_ON_REGISTRATION_PAGE';
+const UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE = 'UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE';
+const UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE = 'UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE';
 
 let initialRegistrationState = {
   email: '',
@@ -12,56 +12,56 @@ let initialRegistrationState = {
 
 const registrationReducer = (state = initialRegistrationState, action) => {
   switch (action.type) {
-    case UPDATE_REGISTRATION_EMAIL:
+    case UPDATE_EMAIL_ON_REGISTRATION_PAGE:
       return {
         ...state,
-        email: action.emailText
+        email: action.email
       }
-    case UPDATE_REGISTRATION_PASSWORD:
+    case UPDATE_PASSWORD_ON_REGISTRATION_PAGE:
       return {
         ...state,
-        password: action.passwordText
+        password: action.password
       }
-    case UPDATE_REGISTRATION_CONFIRM_PASSWORD:
+    case UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE:
       return {
         ...state,
         confirmPassword: action.confirmPassword
       }
-    case UPDATE_REGISTRATION_DISCOGS_USERNAME:
+    case UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE:
       return {
         ...state,
-        discogsUsername: action.discogsUsernameText
+        discogsUsername: action.discogsUsername
       }
     default:
       return state;
   }
 };
 
-export const changeEmailActionCreator = (text) => (
+export const updateEmail = (email) => (
   {
-    type: UPDATE_REGISTRATION_EMAIL,
-    emailText: text
+    type: UPDATE_EMAIL_ON_REGISTRATION_PAGE,
+    email
   }
 );
 
-export const changePasswordActionCreator = (text) => (
+export const updatePassword = (password) => (
   {
-    type: UPDATE_REGISTRATION_PASSWORD,
-    passwordText: text
+    type: UPDATE_PASSWORD_ON_REGISTRATION_PAGE,
+    password
   }
 );
 
-export const changeConfirmPasswordActionCreator = (text) => (
+export const updateConfirmPassword = (confirmPassword) => (
   {
-    type: UPDATE_REGISTRATION_CONFIRM_PASSWORD,
-    confirmPasswordText: text
+    type: UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE,
+    confirmPassword
   }
 );
 
-export const changeDiscogsUsernameActionCreator = (text) => (
+export const updateDiscogsUsername = (discogsUsername) => (
   {
-    type: UPDATE_REGISTRATION_DISCOGS_USERNAME,
-    discogsUsernameText: text
+    type: UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE,
+    discogsUsername
   }
 );
 

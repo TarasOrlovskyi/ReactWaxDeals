@@ -1,4 +1,4 @@
-import {changeDiscogsUsername, changeEmail} from "../../../redux/edit-profile-reducer";
+import {updateDiscogsUsername, updateEmail} from "../../../redux/edit-profile-reducer";
 import EditProfile from "./EditProfile";
 import {connect} from "react-redux";
 
@@ -9,5 +9,5 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {changeDiscogsUsername, changeEmail})(EditProfile);
+export default connect(mapStateToProps, {updateDiscogsUsername, updateEmail})(EditProfile);
 
