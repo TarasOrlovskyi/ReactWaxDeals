@@ -6,17 +6,17 @@ const ChangePassword = (props) => {
 
   let onChangeOldPasswordText = (event) => {
     let oldPasswordText = event.target.value;
-    props.updateChangePasswordOldPassword(oldPasswordText);
+    props.changeOldPassword(oldPasswordText);
   };
 
   let onChangeNewPasswordText = (event) => {
     let newPasswordText = event.target.value;
-    props.updateChangePasswordNewPassword(newPasswordText);
+    props.changeNewPassword(newPasswordText);
   };
 
   let onChangeConfirmNewPasswordText = (event) => {
     let confirmNewPasswordText = event.target.value;
-    props.updateChangePasswordConfirmNewPassword(confirmNewPasswordText);
+    props.changeConfirmNewPassword(confirmNewPasswordText);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -39,18 +39,18 @@ const ChangePassword = (props) => {
                 <div className={userStyle.user__fields + ' ' + editProfileStyle.changePasswordUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="oldPassword"
-                           placeholder="Old password"
+                           placeholder="Old password" value={props.changePasswordPage.oldPassword}
                            onChange={onChangeOldPasswordText} required/>
                   </label>
                   <div className={editProfileStyle.changePasswordUser__border}></div>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="newPassword"
-                           placeholder="New password"
+                           placeholder="New password" value={props.changePasswordPage.newPassword}
                            onChange={onChangeNewPasswordText} id="newPassword" onBlur="checkRegex(this)"/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="confirmNewPassword"
-                           id="confirmNewPassword"
+                           id="confirmNewPassword" value={props.changePasswordPage.confirmNewPassword}
                            onChange={onChangeConfirmNewPasswordText} placeholder="Confirm new password"/>
                   </label>
                 </div>

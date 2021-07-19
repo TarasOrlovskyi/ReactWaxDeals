@@ -22,6 +22,9 @@ function App() {
       <Route exact path="/catalog" render={() =>
         <Catalog/>
       }/>
+      <Route exact path="/contact-us" render={() =>
+        <ContactUsContainer/>
+      }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>
       }/>
