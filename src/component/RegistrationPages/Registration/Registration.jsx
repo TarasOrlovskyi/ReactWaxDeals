@@ -2,27 +2,24 @@ import s from './Registration.module.css';
 import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
+import {updateConfirmPassword} from "../../../redux/registration-reducer";
 
 const Registration = (props) => {
 
   let onChangeEmailText = (event) => {
-    let emailText = event.target.value;
-    props.updateRegistrationEmail(emailText);
+    props.updateEmail(event.target.value);
   };
 
   let onChangePasswordText = (event) => {
-    let passwordText = event.target.value;
-    props.updateRegistrationPassword(passwordText);
+    props.updatePassword(event.target.value);
   };
 
   let onChangeConfirmPasswordText = (event) => {
-    let confirmPasswordText = event.target.value;
-    props.updateRegistrationConfirmPassword(confirmPasswordText);
+    props.updateConfirmPassword(event.target.value);
   };
 
   let onChangeDiscogsUsernameText = (event) => {
-    let discogsUsernameText = event.target.value;
-    props.updateRegistrationDiscogsUsername(discogsUsernameText);
+    props.updateDiscogsUsername(event.target.value);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -51,13 +48,13 @@ const Registration = (props) => {
                 <div className={userStyle.user__fields + ' ' + s.registrationPageUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.registrationPage.email}
+                           onChange={onChangeEmailText} value={props.registrationPage.email}
                            required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
                            onChange={onChangePasswordText} value={props.registrationPage.password} id="password"
-                           onBlur="checkRegex(this)" required/>
+                           required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="confirmPassword" id="confirmPassword"

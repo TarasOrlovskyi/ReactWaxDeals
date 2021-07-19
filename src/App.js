@@ -1,7 +1,6 @@
 import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import {Route} from "react-router-dom";
-import Catalog from "./component/VinylPages/Catalog/Catalog";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
@@ -9,6 +8,7 @@ import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/Rec
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
 import SignIn from "./component/RegistrationPages/SignIn/SignIn";
+import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
 import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 
@@ -20,7 +20,7 @@ function App() {
         <Home/>
       }/>
       <Route exact path="/catalog" render={() =>
-        <Catalog/>
+        <CatalogContainer/>
       }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>
@@ -31,7 +31,7 @@ function App() {
       <Route exact path="/edit-profile" render={() =>
         <EditProfileContainer/>
       }/>
-      <Route exact path="/recoveryPassword" render={() =>
+      <Route exact path="/recovery-password" render={() =>
         <RecoveryPassword/>
       }/>
       <Route exact path="/change-password" render={() =>

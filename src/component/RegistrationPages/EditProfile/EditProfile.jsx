@@ -7,13 +7,11 @@ import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
 const EditProfile = (props) => {
 
   let onChangeEmailText = (event) => {
-    let emailText = event.target.value;
-    props.updateEditProfileEmail(emailText);
+    props.updateEmail(event.target.value);
   };
 
   let onChangeDiscogsUsernameText = (event) => {
-    let discogsUsernameText = event.target.value;
-    props.updateEditProfileDiscogsUsername(discogsUsernameText);
+    props.updateDiscogsUsername(event.target.value);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -36,12 +34,12 @@ const EditProfile = (props) => {
                 <div className={userStyle.user__fields + ' ' + editProfileStyle.editProfileUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} onBlur="checkEmail(this)" value={props.email} required/>
+                           onChange={onChangeEmailText} value={props.editProfilePage.email} required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="text" name="discogsUserName"
                            onChange={onChangeDiscogsUsernameText} placeholder="Discogs Username"
-                           value={props.discogsUserName}/>
+                           value={props.editProfilePage.discogsUsername}/>
                   </label>
                   <img className={userStyle.discogsLogo}
                        src={discogsLogo}

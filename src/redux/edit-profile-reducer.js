@@ -1,5 +1,5 @@
-const UPDATE_EDIT_PROFILE_EMAIL = 'UPDATE_EDIT_PROFILE_EMAIL';
-const UPDATE_EDIT_PROFILE_DISCOGS_USERNAME = 'UPDATE_EDIT_PROFILE_DISCOGS_USERNAME';
+const UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE = 'UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE';
+const UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE = 'UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE';
 
 let initialEditProfileState = {
   email: '',
@@ -8,32 +8,32 @@ let initialEditProfileState = {
 
 const editProfileReducer = (state = initialEditProfileState, action) => {
   switch (action.type) {
-    case UPDATE_EDIT_PROFILE_EMAIL:
+    case UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE:
       return {
         ...state,
-        email: action.emailText
+        email: action.email
       }
-    case UPDATE_EDIT_PROFILE_DISCOGS_USERNAME:
+    case UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE:
       return {
         ...state,
-        discogsUsername: action.discogsUsernameText
+        discogsUsername: action.discogsUsername
       }
     default:
       return state;
   }
 };
 
-export const changeEmail = (text) => (
+export const updateDiscogsUsername = (discogsUsername) => (
   {
-    type: UPDATE_EDIT_PROFILE_EMAIL,
-    emailText: text
+    type: UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE,
+    discogsUsername
   }
 );
 
-export const changeDiscogsUsername = (text) => (
+export const updateEmail = (email) => (
   {
-    type: UPDATE_EDIT_PROFILE_DISCOGS_USERNAME,
-    discogsUsernameText: text
+    type: UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE,
+    email
   }
 );
 

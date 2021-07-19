@@ -1,8 +1,4 @@
-import {
-  changeConfirmNewPassword,
-  changeNewPassword,
-  changeOldPassword
-} from "../../../redux/change-password-reducer";
+import {updateConfirmNewPassword, updateNewPassword, updateOldPassword} from "../../../redux/change-password-reducer";
 import {connect} from "react-redux";
 import ChangePassword from "./ChangePassword";
 
@@ -13,5 +9,5 @@ let mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-  {changeConfirmNewPassword, changeNewPassword, changeOldPassword})(ChangePassword);
+  {updateOldPassword, updateNewPassword, updateConfirmNewPassword})(ChangePassword);
 

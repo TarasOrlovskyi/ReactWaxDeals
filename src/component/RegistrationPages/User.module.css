@@ -27,28 +27,6 @@
   height: 2.25em;
 }
 
-/* webkit */
-.user__input::-moz-placeholder {
-  color: #8D8989;
-  opacity: 1;
-}
-
-/* Firefox 19+ */
-.user__input:-moz-placeholder {
-  color: #8D8989;
-  opacity: 1;
-}
-
-/* Firefox 18- */
-.user__input:-ms-input-placeholder {
-  color: #8D8989;
-  opacity: 1;
-}
-
-/* IE */
-.user__input:focus::-webkit-input-placeholder {
-  opacity: 0;
-}
 /* setting the color and transparent settings for the placeholder */
 /* webkit */
 .user__input::-webkit-input-placeholder {
@@ -56,22 +34,44 @@
   opacity: 1;
 }
 
+/* Firefox 19+ */
+.user__input::-moz-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
+/* Firefox 18- */
+.user__input:-moz-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
+/* IE */
+.user__input:-ms-input-placeholder {
+  color: #8D8989;
+  opacity: 1;
+}
+
 /* webkit */
-.user__input:focus::-moz-placeholder {
+.user__input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
 
 /* Firefox 19+ */
-.user__input:focus:-moz-placeholder {
+.user__input:focus::-moz-placeholder {
   opacity: 0;
 }
 
 /* Firefox 18- */
-.user__input:focus:-ms-input-placeholder {
+.user__input:focus:-moz-placeholder {
   opacity: 0;
 }
 
 /* IE */
+.user__input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
 .user__input {
   font-size: 14px;
   line-height: 19px;

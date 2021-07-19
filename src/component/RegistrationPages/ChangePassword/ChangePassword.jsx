@@ -5,18 +5,15 @@ import UserMessage from "../UserMessage/UserMessage";
 const ChangePassword = (props) => {
 
   let onChangeOldPasswordText = (event) => {
-    let oldPasswordText = event.target.value;
-    props.updateChangePasswordOldPassword(oldPasswordText);
+    props.updateOldPassword(event.target.value);
   };
 
   let onChangeNewPasswordText = (event) => {
-    let newPasswordText = event.target.value;
-    props.updateChangePasswordNewPassword(newPasswordText);
+    props.updateNewPassword(event.target.value);
   };
 
   let onChangeConfirmNewPasswordText = (event) => {
-    let confirmNewPasswordText = event.target.value;
-    props.updateChangePasswordConfirmNewPassword(confirmNewPasswordText);
+    props.updateConfirmNewPassword(event.target.value);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -40,18 +37,19 @@ const ChangePassword = (props) => {
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="oldPassword"
                            placeholder="Old password"
-                           onChange={onChangeOldPasswordText} required/>
+                           onChange={onChangeOldPasswordText} value={props.changePasswordPage.oldPassword} required/>
                   </label>
                   <div className={editProfileStyle.changePasswordUser__border}></div>
                   <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="password" name="newPassword"
+                    <input className={userStyle.user__input} type="password" name="newPassword" id="newPassword"
                            placeholder="New password"
-                           onChange={onChangeNewPasswordText} id="newPassword" onBlur="checkRegex(this)"/>
+                           onChange={onChangeNewPasswordText} value={props.changePasswordPage.newPassword}/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="confirmNewPassword"
-                           id="confirmNewPassword"
-                           onChange={onChangeConfirmNewPasswordText} placeholder="Confirm new password"/>
+                           placeholder="Confirm new password" id="confirmNewPassword"
+                           onChange={onChangeConfirmNewPasswordText}
+                           value={props.changePasswordPage.confirmNewPassword}/>
                   </label>
                 </div>
               </div>
