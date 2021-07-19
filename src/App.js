@@ -8,9 +8,9 @@ import RegistrationContainer from "./component/RegistrationPages/Registration/Re
 import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
-import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
-import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
 import SignIn from "./component/RegistrationPages/SignIn/SignIn";
+import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
+import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 
 function App() {
   return (
@@ -29,13 +29,13 @@ function App() {
         <Profile/>
       }/>
       <Route exact path="/edit-profile" render={() =>
-        <EditProfile/>
+        <EditProfileContainer/>
       }/>
       <Route exact path="/recoveryPassword" render={() =>
         <RecoveryPassword/>
       }/>
       <Route exact path="/change-password" render={() =>
-        <ChangePassword/>
+        <ChangePasswordContainer/>
       }/>
       <Route exact path="/stores" render={() =>
         <Stores/>
@@ -44,7 +44,7 @@ function App() {
         <About/>
       }/>
       <Route exact path="/signIn" render={() =>
-         <SignIn/>
+        <SignIn/>
       }/>
       <Footer/>
     </div>

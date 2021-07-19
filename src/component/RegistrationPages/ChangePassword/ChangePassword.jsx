@@ -1,8 +1,24 @@
-import editeProfileStyle from './ChangePassword.module.css';
+import editProfileStyle from './ChangePassword.module.css';
 import userStyle from '../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 
 const ChangePassword = (props) => {
+
+  let onChangeOldPasswordText = (event) => {
+    let oldPasswordText = event.target.value;
+    props.updateChangePasswordOldPassword(oldPasswordText);
+  };
+
+  let onChangeNewPasswordText = (event) => {
+    let newPasswordText = event.target.value;
+    props.updateChangePasswordNewPassword(newPasswordText);
+  };
+
+  let onChangeConfirmNewPasswordText = (event) => {
+    let confirmNewPasswordText = event.target.value;
+    props.updateChangePasswordConfirmNewPassword(confirmNewPasswordText);
+  };
+
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
   return (
@@ -10,32 +26,32 @@ const ChangePassword = (props) => {
       <div className="container">
         <div className="searchArea">
         </div>
-        <div className={editeProfileStyle.contentChangePassword + ' content'}>
+        <div className={editProfileStyle.contentChangePassword + ' content'}>
           <UserMessage/>
-          <div className={editeProfileStyle.contentChangePassword__column + ' contentColumn'}>
+          <div className={editProfileStyle.contentChangePassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Change Password</h2>
             </div>
             <form action="/password/changePassword" id="changePassword-form" method="POST"
-                  className={userStyle.user + ' ' + editeProfileStyle.changePasswordUser} name="form_edit"
+                  className={userStyle.user + ' ' + editProfileStyle.changePasswordUser} name="form_edit"
                   onSubmit="return matchPassword();">
               <div className={userStyle.user__fieldsWrapper}>
-                <div className={userStyle.user__fields + ' ' + editeProfileStyle.changePasswordUser__fields}>
+                <div className={userStyle.user__fields + ' ' + editProfileStyle.changePasswordUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="oldPassword"
                            placeholder="Old password"
-                           required/>
+                           onChange={onChangeOldPasswordText} required/>
                   </label>
-                  <div className={editeProfileStyle.changePasswordUser__border}></div>
+                  <div className={editProfileStyle.changePasswordUser__border}></div>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="newPassword"
                            placeholder="New password"
-                           id="newPassword" onBlur="checkRegex(this)"/>
+                           onChange={onChangeNewPasswordText} id="newPassword" onBlur="checkRegex(this)"/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="confirmNewPassword"
                            id="confirmNewPassword"
-                           placeholder="Confirm new password"/>
+                           onChange={onChangeConfirmNewPasswordText} placeholder="Confirm new password"/>
                   </label>
                 </div>
               </div>
