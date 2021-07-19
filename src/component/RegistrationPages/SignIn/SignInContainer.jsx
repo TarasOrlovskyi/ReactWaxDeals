@@ -1,28 +1,11 @@
-import {
-  changeEmailActionCreator,
-  changePasswordActionCreator,
-} from "../../../redux/SignInReducer/sign-in-reducer";
+import {updateSignInEmail, updateSignInPassword} from "../../../redux/sign-in-reducer";
 import SignIn from "./SignIn";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
   return {
-    registrationPage: state.registrationPage
+    signInPage: state.signInPage
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    updateSignInEmail: (emailText) => {
-      dispatch(changeEmailActionCreator(emailText));
-    },
-    updateSignInPassword: (passwordText) => {
-      dispatch(changePasswordActionCreator(passwordText));
-    },
-
-  };
-};
-
-const SignInContainer = connect(mapStateToProps, mapDispatchToProps)(SignIn);
-
-export default SignInContainer;
+export default connect(mapStateToProps, {updateSignInEmail, updateSignInPassword})(SignIn);

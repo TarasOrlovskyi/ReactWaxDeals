@@ -11,30 +11,29 @@ const signInReducer = (state = initialSignInState, action) => {
     case UPDATE_SIGNIN_EMAIL:
       return {
         ...state,
-        email: action.emailText
+        email: action.email
       }
     case UPDATE_SIGNIN_PASSWORD:
       return {
         ...state,
-        password: action.passwordText
+        password: action.password
       }
-
     default:
       return state;
   }
 };
 
-export const changeEmailActionCreator = (text) => (
+export const updateSignInEmail = (email) => (
   {
     type: UPDATE_SIGNIN_EMAIL,
-    emailText: text
+    email
   }
 );
 
-export const changePasswordActionCreator = (text) => (
+export const updateSignInPassword = (password) => (
   {
     type: UPDATE_SIGNIN_PASSWORD,
-    passwordText: text
+    password
   }
 );
 

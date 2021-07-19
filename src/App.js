@@ -5,13 +5,12 @@ import Catalog from "./component/VinylPages/Catalog/Catalog";
 import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
-import RecoveryPassword from "./component/RegistrationPages/RecoveryPassword/RecoveryPassword";
 import About from "./component/About/About";
 import Header from "./component/Header/Header";
 import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 import ChangePassword from "./component/RegistrationPages/ChangePassword/ChangePassword";
-import SignIn from "./component/RegistrationPages/SignIn/SignIn";
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
+import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
 
 function App() {
   return (
@@ -32,8 +31,8 @@ function App() {
       <Route exact path="/edit-profile" render={() =>
         <EditProfile/>
       }/>
-      <Route exact path="/recoveryPassword" render={() =>
-        <RecoveryPassword/>
+      <Route exact path="/recovery-password" render={() =>
+        <RecoveryPasswordContainer/>
       }/>
       <Route exact path="/change-password" render={() =>
         <ChangePassword/>
@@ -45,7 +44,7 @@ function App() {
         <About/>
       }/>
       <Route exact path="/signIn" render={() =>
-         <SignInContainer/>
+        <SignInContainer/>
       }/>
       <Footer/>
     </div>

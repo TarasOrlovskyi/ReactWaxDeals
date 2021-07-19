@@ -9,13 +9,11 @@ import UserMessage from "../UserMessage/UserMessage.jsx";
 const SignIn = (props) => {
 
   let onChangeEmailText = (event) => {
-    let emailText = event.target.value;
-    props.updateSignInEmail(emailText);
+    props.updateSignInEmail(event.target.value);
   };
 
   let onChangePasswordText = (event) => {
-    let passwordText = event.target.value;
-    props.updateSignInPassword(passwordText);
+    props.updateSignInPassword(event.target.value);
   };
 
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
@@ -33,19 +31,21 @@ const SignIn = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>
             </div>
-            <form action="/signIn" method="POST" className={userStyle.user + ' ' + signInStyle.signInUser} name="form_reg">
+            <form action="/signIn" method="POST" className={userStyle.user + ' ' + signInStyle.signInUser}
+                  name="form_reg">
               <div className={userStyle.user__fieldsWrapper}>
                 <div className={userStyle.user__fields + ' ' + signInStyle.signInUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" placeholder="Email"
-                           onChange={onChangeEmailText} value={props.email} onBlur="checkEmail(this)" required/>
+                           onChange={onChangeEmailText} value={props.signInPage.email} onBlur="checkEmail(this)"
+                           required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="password" name="password"
-                           onChange={onChangePasswordText} placeholder="Password"
+                           onChange={onChangePasswordText} value={props.signInPage.password} placeholder="Password"
                            required/>
                   </label>
-                  <NavLink to="/recoveryPassword">Forgot password?</NavLink>
+                  <NavLink to="/recovery-password">Forgot password?</NavLink>
                 </div>
               </div>
               <label className={userStyle.user__submitLabel}>

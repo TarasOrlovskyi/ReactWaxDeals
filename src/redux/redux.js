@@ -1,13 +1,15 @@
 import registrationReducer from "./registration-reducer";
 import {combineReducers, createStore} from "redux";
 import searchFieldReducer from "./search-field-reducer";
-import signInReducer from "./SignInReducer/sign-in-reducer";
+import signInReducer from "./sign-in-reducer";
+import recoveryPasswordReducer from "./recovery-password-reducer";
 
 let reducers = combineReducers(
   {
     registrationPage: registrationReducer,
     searchField: searchFieldReducer,
-    signInPage: signInReducer
+    signInPage: signInReducer,
+    recoveryPasswordPage: recoveryPasswordReducer
   }
 );
 
