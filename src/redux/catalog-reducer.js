@@ -1,4 +1,4 @@
-const UPDATE_VINYLS_LIST = 'UPDATE_VINYLS_LIST';
+const UPDATE_VINYLS_LIST_ON_CATALOG_PAGE = 'UPDATE_VINYLS_LIST_ON_CATALOG_PAGE';
 
 let initialCatalogState = {
   vinyls: []
@@ -6,7 +6,7 @@ let initialCatalogState = {
 
 const catalogReducer = (state = initialCatalogState, action) => {
   switch (action.type) {
-    case UPDATE_VINYLS_LIST:
+    case UPDATE_VINYLS_LIST_ON_CATALOG_PAGE:
       return {
         ...state,
         vinyls: action.vinyls
@@ -18,7 +18,7 @@ const catalogReducer = (state = initialCatalogState, action) => {
 
 export const refreshVinylList = (vinyls) => {
   return {
-    type: UPDATE_VINYLS_LIST,
+    type: UPDATE_VINYLS_LIST_ON_CATALOG_PAGE,
     vinyls
   }
 }

@@ -23,6 +23,4 @@ let mapStateToProps = (state) => {
   }
 };
 
-const CatalogContainer = connect(mapStateToProps, {refreshVinylList})(CatalogRequestContainer);
-
-export default CatalogContainer;
+export default connect(mapStateToProps, {refreshVinylList})(CatalogRequestContainer);

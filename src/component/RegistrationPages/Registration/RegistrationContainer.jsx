@@ -1,8 +1,8 @@
 import {
-  updateEmail,
-  updatePassword,
   updateConfirmPassword,
-  updateDiscogsUsername
+  updateDiscogsUsername,
+  updateEmail,
+  updatePassword
 } from "../../../redux/registration-reducer";
 import Registration from "./Registration";
 import {connect} from "react-redux";
@@ -13,10 +13,5 @@ let mapStateToProps = (state) => {
   };
 };
 
-const RegistrationContainer = connect
-(
-  mapStateToProps,
-  {updateEmail, updatePassword, updateConfirmPassword, updateDiscogsUsername}
-)(Registration);
-
-export default RegistrationContainer;
+export default connect(mapStateToProps,
+  {updateEmail, updatePassword, updateConfirmPassword, updateDiscogsUsername})(Registration);

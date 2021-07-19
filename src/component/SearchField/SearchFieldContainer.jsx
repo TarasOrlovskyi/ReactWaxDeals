@@ -3,11 +3,9 @@ import {updateSearchField} from "../../redux/search-field-reducer";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
-  return{
+  return {
     searchFieldValue: state.searchField.searchFieldValue
   };
 };
 
-const SearchFieldContainer = connect(mapStateToProps, {updateSearchField})(SearchField);
-
-export default SearchFieldContainer;
+export default connect(mapStateToProps, {updateSearchField})(SearchField);
