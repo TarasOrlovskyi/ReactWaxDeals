@@ -16,10 +16,10 @@ const searchFieldReducer = (state = initialSearchFieldState, action) => {
   }
 };
 
-export const searchFieldActionCreator = (text) => (
+export const updateSearchField = (searchFieldText) => (
   {
     type: UPDATE_SEARCH_FIELD,
-    searchFieldText: text
+    searchFieldText
   }
 );
 
