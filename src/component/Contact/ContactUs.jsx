@@ -1,20 +1,18 @@
-import contactStyle from 'src/component/Contact/ContactUs.module.css';
-import userStyle from '../User.module.css';
+import contactStyle from './ContactUs.module.css';
+import userStyle from '../RegistrationPages/User.module.css';
+import UserMessage from "../RegistrationPages/UserMessage/UserMessage";
 
 const ContactUs = (props) => {
-  let onChangeContactUsText = (event) => {
-    let nameText = event.target.value;
-    props.updateContactUsName(nameText);
+  let onChangeNameText = (event) => {
+    props.updateName(event.target.value);
   };
 
-  let onChangeContactUsEmailText = (event) => {
-    let emailText = event.target.value;
-    props.updateContactUsEmail(emailText);
+  let onChangeEmailText = (event) => {
+    props.updateEmail(event.target.value);
   };
 
-  let onChangeContactUsMessageText = (event) => {
-    let messageText = event.target.value;
-    props.updateContactUsMessage(messageText);
+  let onChangeMessageText = (event) => {
+    props.updateMessage(event.target.value);
   };
   document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
   document.body.style.backgroundSize = "cover";
@@ -22,13 +20,9 @@ const ContactUs = (props) => {
     <main>
       <div className="container">
         <div className={contactStyle.contentContactUsPage}>
-          <div className={userStyle.user__message}>
-            <div id={userStyle.userMessage}>
-              <div th:if="${message != null}" th:text="${message}"></div>
-            </div>
-          </div>
+          <UserMessage/>
           <div className={contactStyle.contentContactUsPage__column + ' content-column'}>
-            <div className={contactStyle.contentUser__title}>
+            <div className={userStyle.contentUser__title}>
               <h2>Contact us</h2>
             </div>
             <div className={userStyle.user + ' ' + contactStyle.contactUsPageUser}>
@@ -36,20 +30,17 @@ const ContactUs = (props) => {
                 <div className={userStyle.user__fields + ' ' + contactStyle.contactUsPageUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} id="name" type="text" name="name" placeholder="Name"
-                           required/>
+                           onChange={onChangeNameText} value={props.contactUsPage.name} required/>
                   </label>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} id="email" type="email" name="email" placeholder="Email"
-                           onBlur="checkEmail(this)" required/>
+                           onBlur="checkEmail(this)" onChange={onChangeEmailText} value={props.contactUsPage.email}
+                           required/>
                   </label>
                   <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} id="subject" type="text" name="subject"
-                           placeholder="Subject" required/>
-                  </label>
-                  <label className={userStyle.user__label}>
-                <textarea className={userStyle.user__input + ' ' + contactStyle.inputMessage} id="message"
-                          name="messageContactUs"
-                          placeholder="Message" required></textarea>
+                    <textarea className={userStyle.user__input + ' ' + contactStyle.inputMessage} id="message"
+                              name="messageContactUs" onChange={onChangeMessageText} value={props.contactUsPage.message}
+                              placeholder="Message" required/>
                   </label>
                 </div>
               </div>

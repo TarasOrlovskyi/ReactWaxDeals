@@ -11,6 +11,7 @@ import EditProfileContainer from "./component/RegistrationPages/EditProfile/Edit
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
+import ContactUsContainer from "./component/Contact/ContactUsContainer";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Route exact path="/catalog" render={() =>
         <CatalogContainer/>
       }/>
-      <Route exact path="/contact-us" render={() =>
+      <Route exact path="/contact" render={() =>
         <ContactUsContainer/>
       }/>
       <Route exact path="/signUp" render={() =>

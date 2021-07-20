@@ -1,6 +1,6 @@
-const UPDATE_CONTACT_US_NAME = 'UPDATE_CONTACT_US_NAME';
-const UPDATE_CONTACT_US_EMAIL = 'UPDATE_CONTACT_US_EMAIL';
-const UPDATE_CONTACT_US_MESSAGE = 'UPDATE_CONTACT_US_MESSAGE';
+const UPDATE_NAME_ON_CONTACT_US_PAGE = 'UPDATE_NAME_ON_CONTACT_US_PAGE';
+const UPDATE_EMAIL_ON_CONTACT_US_PAGE = 'UPDATE_EMAIL_ON_CONTACT_US_PAGE';
+const UPDATE_MESSAGE_ON_CONTACT_US_PAGE = 'UPDATE_MESSAGE_ON_CONTACT_US_PAGE';
 
 let initialContactUsState = {
   name: '',
@@ -10,17 +10,17 @@ let initialContactUsState = {
 
 const contactUsReducer = (state = initialContactUsState, action) => {
   switch (action.type) {
-    case UPDATE_CONTACT_US_NAME:
+    case UPDATE_NAME_ON_CONTACT_US_PAGE:
       return {
         ...state,
         name: action.name
       }
-    case UPDATE_CONTACT_US_EMAIL:
+    case UPDATE_EMAIL_ON_CONTACT_US_PAGE:
       return {
         ...state,
         email: action.email
       }
-    case UPDATE_CONTACT_US_MESSAGE:
+    case UPDATE_MESSAGE_ON_CONTACT_US_PAGE:
       return {
         ...state,
         message: action.message
@@ -30,24 +30,24 @@ const contactUsReducer = (state = initialContactUsState, action) => {
   }
 };
 
-export const changeName = (text) => (
+export const updateName = (name) => (
   {
-    type: UPDATE_CONTACT_US_NAME,
-    name: text
+    type: UPDATE_NAME_ON_CONTACT_US_PAGE,
+    name
   }
 );
 
-export const changeEmail = (text) => (
+export const updateEmail = (email) => (
   {
-    type: UPDATE_CONTACT_US_EMAIL,
-    email: text
+    type: UPDATE_EMAIL_ON_CONTACT_US_PAGE,
+    email
   }
 );
 
-export const changeMessage = (text) => (
+export const updateMessage = (message) => (
   {
-    type: UPDATE_CONTACT_US_MESSAGE,
-    message: text
+    type: UPDATE_MESSAGE_ON_CONTACT_US_PAGE,
+    message
   }
 );
 

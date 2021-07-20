@@ -1,7 +1,7 @@
 import {
-  contactUsName,
-  contactUsEmail,
-  contactUsMessage
+  updateName,
+  updateEmail,
+  updateMessage
 } from "../../redux/contact-us-reducer";
 import {connect} from "react-redux";
 import ContactUs from "./ContactUs";
@@ -10,8 +10,8 @@ import ContactUs from "./ContactUs";
 
 let mapStateToProps = (state) => {
   return {
-    contactUsPage: state.contactUsPagePage
+    contactUsPage: state.contactUsPage
   };
 };
 
-export default connect(mapStateToProps, {contactUsName, contactUsEmail, contactUsMessage})(ContactUs);
+export default connect(mapStateToProps, {updateName, updateEmail, updateMessage})(ContactUs);
