@@ -10,8 +10,8 @@ const FirstVinylItem = (props) => {
         <div className={firstVinylItemStyle.firstVinyl__item + ' ' + vinylStyle.vinyl}>
           <div className={firstVinylItemStyle.firstVinyl__image}>
             <img src=
-                   {props.firstVinyl.imageLink
-                     //props.firstVinyl.imageLink.includes('http') ? props.firstVinyl.imageLink : noImage
+                   {//props.firstVinyl.imageLink
+                     (props.firstVinyl.imageLink + '').includes('http') ? props.firstVinyl.imageLink : noImage
                    }
                  alt="first vinyl"/>
           </div>

@@ -31,12 +31,13 @@ const OneVinylPage = (props) => {
           </div>
 
           <p className={oneVinylPageStyle.contentTitle}>
-            {(props.vinylsByArtist === 'undefined') ? 'No more release' : `More by ${props.firstVinyl.artist}`}
+            {(props.vinylsByArtist + '').includes('undefined') ? 'No more release' : `More by ${props.firstVinyl.artist}`}
           </p>
 
           <div className={vinylStyle.vinylsContent__row}>
             <div className={vinylStyle.otherVinyls}>
               {
+                !(props.vinylsByArtist + '').includes('undefined') &&
                 props.vinylsByArtist.map(vinyl => <VinylItem
                   imageLink={vinyl.imageLink}
                   id={vinyl.id}
