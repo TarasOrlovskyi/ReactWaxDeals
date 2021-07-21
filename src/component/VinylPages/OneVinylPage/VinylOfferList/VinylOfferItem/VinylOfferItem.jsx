@@ -6,9 +6,7 @@ const VinylOfferItem = (props) => {
   return (
     <div className={vinylOfferListStyle.shopList__row}>
       <div className={vinylOfferItemStyle.itemBody + ' ' + vinylOfferItemStyle.shopList__itemImage}>
-        {/*<img src={'../../../../../../assets/' + props.vinylOffer.shopImageLink} alt="shop icon"/>*/}
         <img src={'../' + process.env.PUBLIC_URL + 'assets/' + props.vinylOffer.shopImageLink} alt="shop icon"/>
-
       </div>
       <div className={vinylOfferItemStyle.itemBody + ' ' + vinylOfferListStyle.shopList__catalogWidth +
       ' ' + vinylOfferListStyle.shopList__itemDirection}>

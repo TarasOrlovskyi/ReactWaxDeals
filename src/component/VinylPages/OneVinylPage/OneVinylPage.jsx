@@ -11,7 +11,6 @@ const OneVinylPage = (props) => {
   // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
-
       <div className="container sub-container">
 
         <div className="searchArea">
@@ -19,14 +18,10 @@ const OneVinylPage = (props) => {
         </div>
 
         <div className={vinylStyle.vinylsContent}>
-
           <div className={vinylStyle.vinylsContent__row}>
             <div className={oneVinylPageStyle.firstVinylsRow + ' ' + oneVinylPageStyle.firstVinylsRowOneVinyl}>
-
               <FirstVinylItem firstVinyl={props.firstVinyl}/>
-
               <VinylOfferList discogsLink={props.discogsLink} vinylOffersList={props.vinylOffersList}/>
-
             </div>
           </div>
 
@@ -48,10 +43,8 @@ const OneVinylPage = (props) => {
               }
             </div>
           </div>
-
         </div>
       </div>
-
     </main>
   );
 }

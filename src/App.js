@@ -12,6 +12,7 @@ import ChangePasswordContainer from "./component/RegistrationPages/ChangePasswor
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
 import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylPageContainer";
+import ContactUsContainer from "./component/Contact/ContactUsContainer";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
       }/>
       <Route path="/oneVinyl/:id" render={() =>
         <OneVinylPageContainer/>
+      }/>
+      <Route exact path="/contact" render={() =>
+        <ContactUsContainer/>
       }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>
