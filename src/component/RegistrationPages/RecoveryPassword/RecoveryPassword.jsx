@@ -5,11 +5,11 @@ import UserMessage from "../UserMessage/UserMessage";
 const RecoveryPassword = (props) => {
 
   let onChangeEmailText = (event) => {
-    props.updateRecoveryPasswordEmail(event.target.value);
+    props.updateEmail(event.target.value);
   };
 
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
+  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  // document.body.style.backgroundSize = "cover";
   return (
 
     <main className="main">

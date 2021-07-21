@@ -3,8 +3,8 @@ import aboutImage from "../../assets/img/aboutImage.png";
 import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
 const About = () => {
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
+  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container subContainer">
