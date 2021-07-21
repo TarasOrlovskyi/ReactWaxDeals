@@ -11,6 +11,7 @@ import EditProfileContainer from "./component/RegistrationPages/EditProfile/Edit
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
+import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylPageContainer";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       }/>
       <Route exact path="/catalog" render={() =>
         <CatalogContainer/>
+      }/>
+      <Route path="/oneVinyl/:id" render={() =>
+        <OneVinylPageContainer/>
       }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>

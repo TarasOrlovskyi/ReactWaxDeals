@@ -2,8 +2,8 @@ import s from './Home.module.css';
 import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
 const Home = () => {
-  document.body.style.background = "url(assets/background_home.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
+  // document.body.style.background = "url(assets/background_home.jpg) no-repeat fixed center";
+  // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container">

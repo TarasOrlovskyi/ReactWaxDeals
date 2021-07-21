@@ -3,8 +3,8 @@ import userStyle from '../User.module.css';
 import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
 
 const Profile = (props) => {
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
+  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
 

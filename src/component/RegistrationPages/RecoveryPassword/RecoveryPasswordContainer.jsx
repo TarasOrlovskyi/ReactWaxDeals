@@ -1,4 +1,4 @@
-import {updateRecoveryPasswordEmail} from "../../../redux/recovery-password-reducer";
+import {updateEmail} from "../../../redux/recovery-password-reducer";
 import RecoveryPassword from "./RecoveryPassword";
 import {connect} from "react-redux";
 
@@ -8,4 +8,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {updateRecoveryPasswordEmail})(RecoveryPassword);
+export default connect(mapStateToProps, {updateEmail})(RecoveryPassword);

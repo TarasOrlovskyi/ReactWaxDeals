@@ -109,6 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 /* base */
 
 body {
+  background: url('assets/img/background.jpg') no-repeat fixed center;
+  background-size: cover;
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 400;

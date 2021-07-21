@@ -1,5 +1,5 @@
-const UPDATE_SIGNIN_EMAIL = 'UPDATE_SIGNIN_EMAIL';
-const UPDATE_SIGNIN_PASSWORD = 'UPDATE_SIGNIN_PASSWORD';
+const UPDATE_EMAIL_ON_SIGN_IN_PAGE = 'UPDATE_EMAIL_ON_SIGN_IN_PAGE';
+const UPDATE_PASSWORD_ON_SIGN_IN_PAGE = 'UPDATE_PASSWORD_ON_SIGN_IN_PAGE';
 
 let initialSignInState = {
   email: '',
@@ -8,12 +8,12 @@ let initialSignInState = {
 
 const signInReducer = (state = initialSignInState, action) => {
   switch (action.type) {
-    case UPDATE_SIGNIN_EMAIL:
+    case UPDATE_EMAIL_ON_SIGN_IN_PAGE:
       return {
         ...state,
         email: action.email
       }
-    case UPDATE_SIGNIN_PASSWORD:
+    case UPDATE_PASSWORD_ON_SIGN_IN_PAGE:
       return {
         ...state,
         password: action.password
@@ -25,14 +25,14 @@ const signInReducer = (state = initialSignInState, action) => {
 
 export const updateSignInEmail = (email) => (
   {
-    type: UPDATE_SIGNIN_EMAIL,
+    type: UPDATE_EMAIL_ON_SIGN_IN_PAGE,
     email
   }
 );
 
 export const updateSignInPassword = (password) => (
   {
-    type: UPDATE_SIGNIN_PASSWORD,
+    type: UPDATE_PASSWORD_ON_SIGN_IN_PAGE,
     password
   }
 );

@@ -1,0 +1,19 @@
+.firstVinylsRow {
+  display: flex;
+}
+
+.firstVinylsRowOneVinyl {
+  border-bottom: thin solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 20px;
+}
+
+.contentTitle {
+  text-align: center;
+  font-size: 1.33em;
+  line-height: 1.37;
+  font-weight: bold;
+  height: 5.72em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

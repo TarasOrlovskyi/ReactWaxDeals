@@ -14,8 +14,8 @@ const EditProfile = (props) => {
     props.updateDiscogsUsername(event.target.value);
   };
 
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
+  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
+  // document.body.style.backgroundSize = "cover";
   return (
     <main>
       <div className="container">
