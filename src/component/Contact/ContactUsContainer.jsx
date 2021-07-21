@@ -6,8 +6,6 @@ import {
 import {connect} from "react-redux";
 import ContactUs from "./ContactUs";
 
-
-
 let mapStateToProps = (state) => {
   return {
     contactUsPage: state.contactUsPage

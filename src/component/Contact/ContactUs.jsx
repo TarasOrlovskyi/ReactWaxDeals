@@ -38,7 +38,7 @@ const ContactUs = (props) => {
                            required/>
                   </label>
                   <label className={userStyle.user__label}>
-                    <textarea className={userStyle.user__input + ' ' + contactStyle.inputMessage} id="message"
+                    <textarea className={userStyle.user__input + ' ' + userStyle.inputMessage} id="message"
                               name="messageContactUs" onChange={onChangeMessageText} value={props.contactUsPage.message}
                               placeholder="Message" required/>
                   </label>
