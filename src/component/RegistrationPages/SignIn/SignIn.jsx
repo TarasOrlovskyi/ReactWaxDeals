@@ -16,17 +16,13 @@ const SignIn = (props) => {
     props.updateSignInPassword(event.target.value);
   };
 
-  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container">
-
         <div className="searchArea">
         </div>
-
         <div className={signInStyle.contentSignIn}>
-          <UserMessage/>
+          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>

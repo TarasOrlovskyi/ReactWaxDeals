@@ -4,10 +4,8 @@ import vinylStyle from './../Vinyl.module.css'
 const EmptyListPage = () => {
   return (
     <main className="main">
-
       <div className="container sub-container">
         <div className={vinylStyle.vinylsContent}>
-
           <div>
             <div className={s.searchNone}>
               <p className={s.searchNone__one}>Now your want list is empty.</p>
@@ -26,10 +24,8 @@ const EmptyListPage = () => {
               <p className={s.searchNone__three}>Thank you.</p>
             </div>
           </div>
-
         </div>
       </div>
-
     </main>
   );
 }

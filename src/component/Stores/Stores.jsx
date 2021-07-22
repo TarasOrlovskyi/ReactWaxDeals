@@ -2,15 +2,12 @@ import s from './Stores.module.css';
 import Store from './Store/Store';
 
 const Stores = (props) => {
-  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  // document.body.style.backgroundSize = "cover";
+
   return (
     <main className="main">
       <div className="container subContainer">
-
         <div className="searchArea">
         </div>
-
         <div className={s.shopsContent}>
           <div className={s.shopsContent__row}>
             <div className={s.allShops}>
