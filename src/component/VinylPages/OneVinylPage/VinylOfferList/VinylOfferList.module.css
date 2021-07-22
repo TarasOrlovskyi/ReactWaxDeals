@@ -52,15 +52,15 @@
 
 /* scrollbar */
 .shopList__scrollbar::-webkit-scrollbar {
-  width: 10px; /* width for vertical scrolling */
+  width: 0.56em; /* width for vertical scrolling */
   background-color: rgba(196, 196, 196, 0.5);
-  border-radius: 5px;
+  border-radius: 0.28em;
 }
 
 /* scrollbar slider */
 .shopList__scrollbar::-webkit-scrollbar-thumb {
   background-color: #FFFFFF;
-  border-radius: 5px;
+  border-radius: 0.28em;
   box-shadow: inset 1px 1px 10px #f3faf7;
 }
 

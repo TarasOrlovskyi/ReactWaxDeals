@@ -7,16 +7,12 @@ import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const OneVinylPage = (props) => {
-  // document.body.style.background = `url(${process.env.PUBLIC_URL + 'assets/background.jpg'}) no-repeat fixed center`;
-  // document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container sub-container">
-
         <div className="searchArea">
           <SearchFieldContainer/>
         </div>
-
         <div className={vinylStyle.vinylsContent}>
           <div className={vinylStyle.vinylsContent__row}>
             <div className={oneVinylPageStyle.firstVinylsRow + ' ' + oneVinylPageStyle.firstVinylsRowOneVinyl}>
@@ -24,11 +20,9 @@ const OneVinylPage = (props) => {
               <VinylOfferList discogsLink={props.discogsLink} vinylOffersList={props.vinylOffersList}/>
             </div>
           </div>
-
           <p className={oneVinylPageStyle.contentTitle}>
             {(props.vinylsByArtist + '').includes('undefined') ? 'No more release' : `More by ${props.firstVinyl.artist}`}
           </p>
-
           <div className={vinylStyle.vinylsContent__row}>
             <div className={vinylStyle.otherVinyls}>
               {

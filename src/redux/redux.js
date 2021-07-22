@@ -8,6 +8,7 @@ import editProfileReducer from "./edit-profile-reducer";
 import changePasswordReducer from "./change-password-reducer";
 import oneVinylReducer from "./one-vinyl-reducer";
 import contactUsReducer from "./contact-us-reducer";
+import storesReducer from "./stores-reducer";
 
 let reducers = combineReducers(
   {
@@ -19,7 +20,8 @@ let reducers = combineReducers(
     signInPage: signInReducer,
     recoveryPasswordPage: recoveryPasswordReducer,
     oneVinylPage: oneVinylReducer,
-    contactUsPage: contactUsReducer
+    contactUsPage: contactUsReducer,
+    storesPage: storesReducer
   }
 );
 

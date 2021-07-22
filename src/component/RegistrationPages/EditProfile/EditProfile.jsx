@@ -14,15 +14,13 @@ const EditProfile = (props) => {
     props.updateDiscogsUsername(event.target.value);
   };
 
-  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  // document.body.style.backgroundSize = "cover";
   return (
     <main>
       <div className="container">
         <div className="searchArea">
         </div>
         <div className={editProfileStyle.contentEditProfile + ' content'}>
-          <UserMessage/>
+          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={editProfileStyle.contentEditProfile__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Edit Profile</h2>

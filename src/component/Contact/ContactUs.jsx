@@ -14,13 +14,11 @@ const ContactUs = (props) => {
   let onChangeMessageText = (event) => {
     props.updateMessage(event.target.value);
   };
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
   return (
     <main>
       <div className="container">
         <div className={contactStyle.contentContactUsPage}>
-          <UserMessage/>
+          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={contactStyle.contentContactUsPage__column + ' content-column'}>
             <div className={userStyle.contentUser__title}>
               <h2>Contact us</h2>

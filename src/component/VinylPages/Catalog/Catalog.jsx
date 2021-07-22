@@ -4,12 +4,10 @@ import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const Catalog = (props) => {
-  // document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  // document.body.style.backgroundSize = "cover";
+
   return (
     <main className="main">
       <div className="container subContainer">
-
         <div className="searchArea">
           <SearchFieldContainer/>
         </div>
