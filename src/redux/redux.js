@@ -9,6 +9,7 @@ import changePasswordReducer from "./change-password-reducer";
 import oneVinylReducer from "./one-vinyl-reducer";
 import contactUsReducer from "./contact-us-reducer";
 import storesReducer from "./stores-reducer";
+import afterSearchReducer from "./after-search-reducer";
 
 let reducers = combineReducers(
   {
@@ -21,7 +22,8 @@ let reducers = combineReducers(
     recoveryPasswordPage: recoveryPasswordReducer,
     oneVinylPage: oneVinylReducer,
     contactUsPage: contactUsReducer,
-    storesPage: storesReducer
+    storesPage: storesReducer,
+    afterSearchPage: afterSearchReducer
   }
 );
 

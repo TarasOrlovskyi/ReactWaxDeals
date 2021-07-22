@@ -14,6 +14,7 @@ import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPas
 import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylPageContainer";
 import ContactUsContainer from "./component/Contact/ContactUsContainer";
 import StoresContainer from "./component/Stores/StoresContainer";
+import AfterSearchContainer from "./component/AfterSearch/AfterSearchContainer";
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
       }/>
       <Route exact path="/signIn" render={() =>
         <SignInContainer/>
+      }/>
+      <Route exact path="/search" render={() =>
+        <AfterSearchContainer/>
       }/>
       <Footer/>
     </div>
