@@ -11,6 +11,7 @@ import EditProfileContainer from "./component/RegistrationPages/EditProfile/Edit
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
+import NewPasswordContainer from "./component/RegistrationPages/NewPassword/NewPasswordContainer";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       }/>
       <Route exact path="/profile" render={() =>
         <Profile/>
+      }/>
+      <Route exact path="/new-password" render={() =>
+        <NewPasswordContainer/>
       }/>
       <Route exact path="/edit-profile" render={() =>
         <EditProfileContainer/>
