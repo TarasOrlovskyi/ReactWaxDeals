@@ -11,6 +11,10 @@ import EditProfileContainer from "./component/RegistrationPages/EditProfile/Edit
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
 import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
 import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
+import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylPageContainer";
+import ContactUsContainer from "./component/Contact/ContactUsContainer";
+import StoresContainer from "./component/Stores/StoresContainer";
+import AfterSearchContainer from "./component/AfterSearch/AfterSearchContainer";
 import NewPasswordContainer from "./component/RegistrationPages/NewPassword/NewPasswordContainer";
 
 function App() {
@@ -22,6 +26,15 @@ function App() {
       }/>
       <Route exact path="/catalog" render={() =>
         <CatalogContainer/>
+      }/>
+      <Route path="/oneVinyl/:id" render={() =>
+        <OneVinylPageContainer/>
+      }/>
+      <Route exact path="/contact" render={() =>
+        <ContactUsContainer/>
+      }/>
+      <Route exact path="/stores" render={() =>
+        <StoresContainer/>
       }/>
       <Route exact path="/signUp" render={() =>
         <RegistrationContainer/>
@@ -49,6 +62,9 @@ function App() {
       }/>
       <Route exact path="/signIn" render={() =>
         <SignInContainer/>
+      }/>
+      <Route exact path="/search" render={() =>
+        <AfterSearchContainer/>
       }/>
       <Footer/>
     </div>

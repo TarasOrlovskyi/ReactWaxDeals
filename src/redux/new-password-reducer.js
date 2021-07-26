@@ -3,7 +3,7 @@ const UPDATE_CONFIRM_NEW_PASSWORD_ON_NEW_PASSWORD_PAGE = 'UPDATE_CONFIRM_NEW_PAS
 
 let initialNewPasswordState = {
   newPassword: '',
-  confirmNewPassword: '',
+  confirmNewPassword: ''
 };
 
 const newPasswordReducer = (state = initialNewPasswordState, action) => {

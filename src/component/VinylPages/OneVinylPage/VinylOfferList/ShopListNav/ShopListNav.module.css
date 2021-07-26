@@ -1,0 +1,26 @@
+.shopList__rowFirstTitle {
+  height: 2.11em;
+  display: flex;
+  text-align: center;
+  line-height: 1.1;
+  justify-content: flex-start;
+}
+
+.shopList__item {
+  height: 3.05em;
+  width: 10.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopList__firstItemTitle {
+  height: 1.42em;
+  width: 4.08em;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.shopList__menuItem_active {
+  color: #F7A325;
+}

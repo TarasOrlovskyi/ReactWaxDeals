@@ -115,3 +115,9 @@
   right: -4.17em;
   bottom: 0.5em;
 }
+
+.inputMessage {
+  height: 10.71em;
+  padding-top: 0.79em;
+  resize: none;
+}

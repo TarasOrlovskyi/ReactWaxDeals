@@ -13,14 +13,13 @@ const NewPasswordForm = (props) => {
 
   return (
     <form action="/new-password/new-password" method="POST" name="form_reg"
-          className={userStyle.user + ' ' + s.newPasswordUser}
-          onSubmit="return matchPassword();">
+          className={userStyle.user + ' ' + s.newPasswordUser}>
       <div className={userStyle.user__fieldsWrapper}>
         <div className={userStyle.user__fields + ' ' + s.newPasswordUser__fields}>
           <label className={userStyle.user__label}>
             <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
                    onChange={onChangeNewPasswordText} value={props.newPasswordPage.newPassword}
-                   id="password" onBlur="checkRegex(this)" required/>
+                   id="password" required/>
           </label>
           <label className={userStyle.user__label}>
             <input className={userStyle.user__input} type="password" name="confirmPassword" id="confirmPassword"

@@ -6,6 +6,10 @@ import recoveryPasswordReducer from "./recovery-password-reducer";
 import catalogReducer from "./catalog-reducer";
 import editProfileReducer from "./edit-profile-reducer";
 import changePasswordReducer from "./change-password-reducer";
+import oneVinylReducer from "./one-vinyl-reducer";
+import contactUsReducer from "./contact-us-reducer";
+import storesReducer from "./stores-reducer";
+import afterSearchReducer from "./after-search-reducer";
 import newPasswordReducer from "./new-password-reducer";
 
 let reducers = combineReducers(
@@ -17,10 +21,16 @@ let reducers = combineReducers(
     changePasswordPage: changePasswordReducer,
     signInPage: signInReducer,
     recoveryPasswordPage: recoveryPasswordReducer,
+    oneVinylPage: oneVinylReducer,
+    contactUsPage: contactUsReducer,
+    storesPage: storesReducer,
+    afterSearchPage: afterSearchReducer,
     newPasswordPage: newPasswordReducer
   }
 );
 
 let reactStore = createStore(reducers);
-window.reactStore=reactStore;
+
+window.reactStore = reactStore;
+
 export default reactStore;

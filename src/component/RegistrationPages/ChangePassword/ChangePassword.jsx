@@ -16,15 +16,13 @@ const ChangePassword = (props) => {
     props.updateConfirmNewPassword(event.target.value);
   };
 
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
   return (
     <main>
       <div className="container">
         <div className="searchArea">
         </div>
         <div className={editProfileStyle.contentChangePassword + ' content'}>
-          <UserMessage/>
+          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={editProfileStyle.contentChangePassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Change Password</h2>

@@ -1,4 +1,4 @@
-const UPDATE_RECOVERY_EMAIL = 'UPDATE_RECOVERY_EMAIL';
+const UPDATE_EMAIL_ON_RECOVERY_PAGE = 'UPDATE_EMAIL_ON_RECOVERY_PAGE';
 
 let initialRecoveryPasswordState = {
   email: ''
@@ -6,7 +6,7 @@ let initialRecoveryPasswordState = {
 
 const recoveryPasswordReducer = (state = initialRecoveryPasswordState, action) => {
   switch (action.type) {
-    case UPDATE_RECOVERY_EMAIL:
+    case UPDATE_EMAIL_ON_RECOVERY_PAGE:
       return {
         ...state,
         email: action.email
@@ -16,9 +16,9 @@ const recoveryPasswordReducer = (state = initialRecoveryPasswordState, action) =
   }
 };
 
-export const updateRecoveryPasswordEmail = (email) => (
+export const updateEmail = (email) => (
   {
-    type: UPDATE_RECOVERY_EMAIL,
+    type: UPDATE_EMAIL_ON_RECOVERY_PAGE,
     email
   }
 );

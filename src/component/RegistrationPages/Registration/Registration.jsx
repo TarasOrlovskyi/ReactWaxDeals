@@ -2,7 +2,6 @@ import s from './Registration.module.css';
 import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
 import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
-import {updateConfirmPassword} from "../../../redux/registration-reducer";
 
 const Registration = (props) => {
 
@@ -22,25 +21,17 @@ const Registration = (props) => {
     props.updateDiscogsUsername(event.target.value);
   };
 
-  document.body.style.background = "url(assets/background.jpg) no-repeat fixed center";
-  document.body.style.backgroundSize = "cover";
   return (
     <main className="main">
       <div className="container">
-
         <div className="searchArea">
         </div>
-
         <div className={s.contentRegistrationPage}>
-
-          <UserMessage/>
-
+          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={s.contentRegistrationPage__column + ' contentColumn'}>
-
             <div className={userStyle.contentUser__title}>
               <h2>Registration</h2>
             </div>
-
             <form action="/signUp" method="POST" className={userStyle.user + ' ' + s.registrationPageUser}
                   name="form_reg"
                   onSubmit="return matchPassword();">
