@@ -16,6 +16,7 @@ const Profile = (props) => {
             </div>
             <form action="/profile/edit-profile" method="GET" className={userStyle.user + ' ' + s.profileUser}>
               <div className={userStyle.user__fieldsWrapper}>
+
                 <div className={userStyle.user__fields + ' ' + s.profileUser__fields}>
                   <label className={userStyle.user__label}>
                     <input className={userStyle.user__input} type="email" name="email" placeholder="Email"

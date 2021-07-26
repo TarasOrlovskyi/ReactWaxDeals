@@ -15,6 +15,7 @@ import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylP
 import ContactUsContainer from "./component/Contact/ContactUsContainer";
 import StoresContainer from "./component/Stores/StoresContainer";
 import AfterSearchContainer from "./component/AfterSearch/AfterSearchContainer";
+import NewPasswordContainer from "./component/RegistrationPages/NewPassword/NewPasswordContainer";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
       }/>
       <Route exact path="/profile" render={() =>
         <Profile/>
+      }/>
+      <Route exact path="/new-password" render={() =>
+        <NewPasswordContainer/>
       }/>
       <Route exact path="/edit-profile" render={() =>
         <EditProfileContainer/>
