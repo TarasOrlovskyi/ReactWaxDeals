@@ -7,7 +7,7 @@ import * as axios from "axios";
 class CatalogRequestContainer extends React.Component {
 
   componentDidMount() {
-    axios.get('http://localhost:8080/catalog').then(vinylList => {
+    axios.get(`https://json-exchange-implementation.herokuapp.com/catalog`).then(vinylList => {
       this.props.refreshVinylList(vinylList.data);
     });
   }

@@ -6,7 +6,7 @@ import Stores from "./Stores";
 
 class StoresContainer extends React.Component {
   componentDidMount() {
-    axios.get(`http://localhost:8080/stores`)
+    axios.get(`https://json-exchange-implementation.herokuapp.com/stores`)
       .then(stores => {
         this.props.refreshStores(stores.data)
       });
