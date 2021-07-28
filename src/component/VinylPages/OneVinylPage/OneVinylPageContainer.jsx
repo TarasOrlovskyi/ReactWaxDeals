@@ -19,7 +19,7 @@ class OneVinylPageContainer extends React.Component {
   }
 
   loadOneVinyl = (id) => {
-    axios.get(`http://localhost:8080/oneVinyl/${id}`)
+    axios.get(`https://json-exchange-implementation.herokuapp.com/oneVinyl/${id}`)
       .then(response => {
         this.props.refreshOneVinyl(
           response.data.firstVinyl,

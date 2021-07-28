@@ -7,7 +7,7 @@ import {refreshSearchVinyls} from "../../redux/after-search-reducer";
 
 class SearchFieldContainer extends React.Component {
   loadSearchResult = (searchQuery) => {
-    axios.get(`http://localhost:8080/search?matcher=` + searchQuery)
+    axios.get(`https://json-exchange-implementation.herokuapp.com/search?matcher=` + searchQuery)
       .then(searchResult => {
         this.props.refreshSearchVinyls(searchResult.data)
       })

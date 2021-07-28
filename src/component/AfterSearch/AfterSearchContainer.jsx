@@ -9,7 +9,7 @@ class AfterSearchContainer extends React.Component {
   componentDidMount() {
     const search = this.props.location.search;
     const searchQuery = new URLSearchParams(search).get('matcher');
-    axios.get(`http://localhost:8080/search?matcher=` + searchQuery)
+    axios.get(`https://json-exchange-implementation.herokuapp.com/search?matcher=` + searchQuery)
       .then(searchResult => {
         this.props.refreshSearchVinyls(searchResult.data)
       })
