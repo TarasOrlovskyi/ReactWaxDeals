@@ -1,5 +1,5 @@
 import registrationReducer from "./registration-reducer";
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import searchFieldReducer from "./search-field-reducer";
 import signInReducer from "./sign-in-reducer";
 import recoveryPasswordReducer from "./recovery-password-reducer";
@@ -11,6 +11,8 @@ import contactUsReducer from "./contact-us-reducer";
 import storesReducer from "./stores-reducer";
 import afterSearchReducer from "./after-search-reducer";
 import newPasswordReducer from "./new-password-reducer";
+import authReducer from "./auth-reducer";
+import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers(
   {
@@ -25,11 +27,12 @@ let reducers = combineReducers(
     contactUsPage: contactUsReducer,
     storesPage: storesReducer,
     afterSearchPage: afterSearchReducer,
-    newPasswordPage: newPasswordReducer
+    newPasswordPage: newPasswordReducer,
+    auth: authReducer
   }
 );
 
-let reactStore = createStore(reducers);
+let reactStore = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.reactStore = reactStore;
 

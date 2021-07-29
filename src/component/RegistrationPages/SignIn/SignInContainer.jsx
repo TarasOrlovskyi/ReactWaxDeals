@@ -1,6 +1,21 @@
 import {updateSignInEmail, updateSignInPassword} from "../../../redux/sign-in-reducer";
 import SignIn from "./SignIn";
 import {connect} from "react-redux";
+import React from "react";
+import {getUserLogInData} from "../../../redux/auth-reducer";
+
+class SignInContainer extends React.Component{
+
+  doLogIn = (email, password) => {
+    this.props.getUserLogInData(email, password);
+  }
+
+  render() {
+    return(
+      <SignIn {...this.props} doLogIn={this.doLogIn}/>
+    );
+  }
+}
 
 let mapStateToProps = (state) => {
   return {
@@ -8,4 +23,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {updateSignInEmail, updateSignInPassword})(SignIn);
+export default connect(mapStateToProps, {updateSignInEmail, updateSignInPassword, getUserLogInData})(SignInContainer);

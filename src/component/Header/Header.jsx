@@ -2,13 +2,13 @@ import s from './Header.module.css';
 import HeaderNav from "./HeaderNav/HeaderNav";
 import RegistrationSigns from "./RegistrationSigns/RegistrationSigns";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={s.header}>
       <div className="container">
         <div className={s.header__row}>
           <HeaderNav/>
-          <RegistrationSigns/>
+          <RegistrationSigns isAuth={props.isAuth} logOut={props.logOut}/>
         </div>
       </div>
     </header>

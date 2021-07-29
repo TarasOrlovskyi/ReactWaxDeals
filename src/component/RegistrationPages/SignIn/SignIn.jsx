@@ -16,6 +16,10 @@ const SignIn = (props) => {
     props.updateSignInPassword(event.target.value);
   };
 
+  let handleSubmit = () => {
+    props.doLogIn(props.signInPage.email, props.signInPage.password);
+  }
+
   return (
     <main className="main">
       <div className="container">
@@ -27,7 +31,7 @@ const SignIn = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>
             </div>
-            <form action="/signIn" method="POST" className={userStyle.user + ' ' + signInStyle.signInUser}
+            <form onSubmit={handleSubmit} className={userStyle.user + ' ' + signInStyle.signInUser}
                   name="form_reg">
               <div className={userStyle.user__fieldsWrapper}>
                 <div className={userStyle.user__fields + ' ' + signInStyle.signInUser__fields}>
