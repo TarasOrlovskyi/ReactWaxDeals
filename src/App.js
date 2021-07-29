@@ -5,7 +5,6 @@ import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import About from "./component/About/About";
-import Header from "./component/Header/Header";
 import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
 import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
@@ -16,11 +15,12 @@ import ContactUsContainer from "./component/Contact/ContactUsContainer";
 import StoresContainer from "./component/Stores/StoresContainer";
 import AfterSearchContainer from "./component/AfterSearch/AfterSearchContainer";
 import NewPasswordContainer from "./component/RegistrationPages/NewPassword/NewPasswordContainer";
+import HeaderContainer from "./component/Header/HeaderContainer";
 
 function App() {
   return (
     <div className="wrapper">
-      <Header/>
+      <HeaderContainer/>
       <Route exact path="/" render={() =>
         <Home/>
       }/>

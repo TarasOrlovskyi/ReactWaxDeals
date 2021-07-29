@@ -1,3 +1,5 @@
+import {vinylApi} from "../api/api";
+
 const UPDATE_VINYLS_LIST_ON_CATALOG_PAGE = 'UPDATE_VINYLS_LIST_ON_CATALOG_PAGE';
 
 let initialCatalogState = {
@@ -22,4 +24,14 @@ export const refreshVinylList = (vinyls) => {
     vinyls
   }
 }
+
+export const getVinylsCatalog = () => {
+  return (dispatch) => {
+    vinylApi.getVinylsResponse()
+      .then(vinylList => {
+        dispatch(refreshVinylList(vinylList.data));
+      });
+  }
+}
+
 export default catalogReducer;

@@ -1,19 +1,10 @@
-import axios from "axios";
 import {connect} from "react-redux";
 import React from "react";
-import {refreshSearchVinyls} from "../../redux/after-search-reducer";
 import Catalog from "../VinylPages/Catalog/Catalog";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 class AfterSearchContainer extends React.Component {
-  componentDidMount() {
-    const search = this.props.location.search;
-    const searchQuery = new URLSearchParams(search).get('matcher');
-    axios.get(`https://json-exchange-implementation.herokuapp.com/search?matcher=` + searchQuery)
-      .then(searchResult => {
-        this.props.refreshSearchVinyls(searchResult.data)
-      })
-  }
 
   render() {
     return <Catalog vinylList={this.props.vinyls}/>
@@ -26,5 +17,4 @@ let mapStateToProps = (state) => (
   }
 );
 
-export default connect(mapStateToProps,
-  {refreshSearchVinyls})(withRouter(AfterSearchContainer));
+export default compose(connect(mapStateToProps), withRouter)(AfterSearchContainer);

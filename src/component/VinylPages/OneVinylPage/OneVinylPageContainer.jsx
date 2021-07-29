@@ -1,32 +1,19 @@
 import React from "react";
-import axios from "axios";
 import OneVinylPage from "./OneVinylPage";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {refreshOneVinyl} from "../../../redux/one-vinyl-reducer";
+import {getOneVinyl} from "../../../redux/one-vinyl-reducer";
+import {compose} from "redux";
 
 class OneVinylPageContainer extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`http://localhost:8080/oneVinyl/${id}`).then(response => {
-      this.props.refreshOneVinyl(
-        response.data.firstVinyl,
-        response.data.discogsLink,
-        response.data.vinylOffersList,
-        response.data.vinylsByArtist)
-    });
+    this.props.getOneVinyl(id);
   }
 
   loadOneVinyl = (id) => {
-    axios.get(`https://json-exchange-implementation.herokuapp.com/oneVinyl/${id}`)
-      .then(response => {
-        this.props.refreshOneVinyl(
-          response.data.firstVinyl,
-          response.data.discogsLink,
-          response.data.vinylOffersList,
-          response.data.vinylsByArtist)
-      });
+    this.props.getOneVinyl(id);
   }
 
   render() {
@@ -46,4 +33,4 @@ let mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {refreshOneVinyl})(withRouter(OneVinylPageContainer));
+export default compose(connect(mapStateToProps, {getOneVinyl}), withRouter)(OneVinylPageContainer);

@@ -1,3 +1,5 @@
+import {vinylApi} from "../api/api";
+
 const UPDATE_VINYLS_ON_AFTER_SEARCH_PAGE = 'UPDATE_VINYLS_ON_AFTER_SEARCH_PAGE';
 
 let initialAfterSearchPage = {
@@ -22,5 +24,14 @@ export const refreshSearchVinyls = (vinyls) => (
     vinyls
   }
 )
+
+export const getSearchResult = (searchQuery) => {
+  return (dispatch) => {
+    vinylApi.getAfterSearchResult(searchQuery)
+      .then(searchResult => {
+        dispatch(refreshSearchVinyls(searchResult.data));
+      })
+  }
+}
 
 export default afterSearchReducer;

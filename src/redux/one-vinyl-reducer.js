@@ -1,3 +1,5 @@
+import {vinylApi} from "../api/api";
+
 const UPDATE_ONE_VINYL_PAGE = 'UPDATE_ONE_VINYL_PAGE';
 
 let initialOneVinylState = {
@@ -31,4 +33,18 @@ export const refreshOneVinyl = (firstVinyl, discogsLink, vinylOffersList, vinyls
     vinylsByArtist
   }
 }
+
+export const getOneVinyl = (vinylId) => {
+  return (dispatch) => {
+    vinylApi.getOneVinylResponse(vinylId)
+      .then(response => {
+        dispatch(refreshOneVinyl(
+          response.data.mainVinyl,
+          response.data.discogsLink,
+          response.data.offersList,
+          response.data.vinylsByArtistList)
+        )});
+  }
+}
+
 export default oneVinylReducer;
