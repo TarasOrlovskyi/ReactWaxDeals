@@ -39,10 +39,10 @@ export const getOneVinyl = (vinylId) => {
     vinylApi.getOneVinylResponse(vinylId)
       .then(response => {
         dispatch(refreshOneVinyl(
-          response.data.firstVinyl,
+          response.data.mainVinyl,
           response.data.discogsLink,
-          response.data.vinylOffersList,
-          response.data.vinylsByArtist)
+          response.data.offersList,
+          response.data.vinylsByArtistList)
         )});
   }
 }
