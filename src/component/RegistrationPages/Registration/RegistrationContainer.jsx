@@ -6,6 +6,7 @@ import {
 } from "../../../redux/registration-reducer";
 import Registration from "./Registration";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
   return {
@@ -13,5 +14,5 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps,
-  {updateEmail, updatePassword, updateConfirmPassword, updateDiscogsUsername})(Registration);
+export default compose(connect(mapStateToProps,
+  {updateEmail, updatePassword, updateConfirmPassword, updateDiscogsUsername}))(Registration);

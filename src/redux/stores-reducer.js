@@ -1,3 +1,5 @@
+import {storesApi} from "../api/api";
+
 const UPDATE_STORES_ON_STORES_PAGE = 'UPDATE_STORES_ON_STORES_PAGE';
 
 let initStoresState = {
@@ -22,5 +24,14 @@ export const refreshStores = (stores) => (
     stores
   }
 );
+
+export const getStores = () => {
+  return (dispatch) => {
+    storesApi.getStoresResponse()
+      .then(stores => {
+        dispatch(refreshStores(stores.data));
+      });
+  }
+}
 
 export default storesReducer;

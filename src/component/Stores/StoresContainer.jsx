@@ -1,15 +1,12 @@
 import React from "react";
-import axios from "axios";
-import {refreshStores} from "../../redux/stores-reducer";
+import {getStores} from "../../redux/stores-reducer";
 import {connect} from "react-redux";
 import Stores from "./Stores";
+import {compose} from "redux";
 
 class StoresContainer extends React.Component {
   componentDidMount() {
-    axios.get(`https://json-exchange-implementation.herokuapp.com/stores`)
-      .then(stores => {
-        this.props.refreshStores(stores.data)
-      });
+    this.props.getStores();
   }
 
   render() {
@@ -25,4 +22,4 @@ let mapStateToProps = (state) => (
   }
 )
 
-export default connect(mapStateToProps, {refreshStores})(StoresContainer)
+export default compose(connect(mapStateToProps, {getStores}))(StoresContainer);

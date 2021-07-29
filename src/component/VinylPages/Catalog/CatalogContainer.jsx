@@ -1,15 +1,13 @@
 import {connect} from "react-redux";
 import Catalog from "./Catalog";
-import {refreshVinylList} from "../../../redux/catalog-reducer";
+import {getVinylsCatalog} from "../../../redux/catalog-reducer";
 import React from "react";
-import * as axios from "axios";
+import {compose} from "redux";
 
 class CatalogRequestContainer extends React.Component {
 
   componentDidMount() {
-    axios.get(`https://json-exchange-implementation.herokuapp.com/catalog`).then(vinylList => {
-      this.props.refreshVinylList(vinylList.data);
-    });
+    this.props.getVinylsCatalog();
   }
 
   render() {
@@ -23,4 +21,4 @@ let mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, {refreshVinylList})(CatalogRequestContainer);
+export default compose(connect(mapStateToProps, {getVinylsCatalog}))(CatalogRequestContainer);

@@ -1,16 +1,13 @@
 import SearchField from "./SearchField";
 import {updateSearchField} from "../../redux/search-field-reducer";
 import {connect} from "react-redux";
-import axios from "axios";
 import React from "react";
-import {refreshSearchVinyls} from "../../redux/after-search-reducer";
+import {getSearchResult} from "../../redux/after-search-reducer";
+import {compose} from "redux";
 
 class SearchFieldContainer extends React.Component {
   loadSearchResult = (searchQuery) => {
-    axios.get(`https://json-exchange-implementation.herokuapp.com/search?matcher=` + searchQuery)
-      .then(searchResult => {
-        this.props.refreshSearchVinyls(searchResult.data)
-      })
+    this.props.getSearchResult(searchQuery);
   }
 
   render() {
@@ -28,4 +25,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {updateSearchField, refreshSearchVinyls})(SearchFieldContainer);
+export default compose(connect(mapStateToProps, {updateSearchField, getSearchResult}))(SearchFieldContainer);

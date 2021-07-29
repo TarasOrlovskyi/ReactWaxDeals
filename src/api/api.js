@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const axiosWithSetting = axios.create({
-  withCredentials: true,
-  baseURL: 'http://localhost:8080/'
-  // baseURL: 'https://json-exchange-implementation.herokuapp.com/'
+  // withCredentials: true,
+  // baseURL: 'http://localhost:8080/'
+  baseURL: 'https://json-exchange-implementation.herokuapp.com/'
 })
 
 export const authApi = {
@@ -15,5 +15,23 @@ export const authApi = {
   },
   userLogIn(email, password){
     return axiosWithSetting.post(`auth`, {email, password});
+  }
+}
+
+export const vinylApi = {
+  getAfterSearchResult(searchQuery) {
+    return axiosWithSetting.get(`search?matcher=` + searchQuery);
+  },
+  getVinylsResponse(){
+    return axiosWithSetting.get(`catalog`);
+  },
+  getOneVinylResponse(vinylId){
+    return axiosWithSetting.get(`oneVinyl/${vinylId}`)
+  }
+}
+
+export const storesApi = {
+  getStoresResponse(){
+    return axiosWithSetting.get(`stores`);
   }
 }

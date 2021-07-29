@@ -43,6 +43,7 @@ export const getUserAuthData = () => {
   return (dispatch) => {
     authApi.checkAuth()
       .then(response => {
+        debugger;
           if (response.data.resultCode === 1) {
             let {discogsUserName, userRole, email} = response.data;
             dispatch(setAuthUserData(discogsUserName, userRole, email));
