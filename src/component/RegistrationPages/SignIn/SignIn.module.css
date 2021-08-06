@@ -18,3 +18,8 @@
 .signInUser__fields {
   height: 9em;
 }
+
+.summaryError{
+  color: #ff2213;
+  font-weight: bold;
+}

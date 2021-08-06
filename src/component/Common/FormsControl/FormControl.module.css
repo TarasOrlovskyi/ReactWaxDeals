@@ -1,0 +1,7 @@
+.elementError input{
+  border: darkred solid 4px;
+}
+
+.textError{
+  color: #ff480b;
+}

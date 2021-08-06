@@ -1,4 +1,3 @@
-import {updateSignInEmail, updateSignInPassword} from "../../../redux/sign-in-reducer";
 import SignIn from "./SignIn";
 import {connect} from "react-redux";
 import React from "react";
@@ -13,17 +12,16 @@ class SignInContainer extends React.Component {
 
   render() {
     return (
-      <SignIn {...this.props} doLogIn={this.doLogIn}/>
+      <SignIn isAuth={this.props.isAuth} doLogIn={this.doLogIn}/>
     );
   }
+
 }
 
 let mapStateToProps = (state) => {
   return {
-    signInPage: state.signInPage
+    isAuth: state.auth.isAuth
   };
 };
 
-export default compose
-(connect(mapStateToProps, {updateSignInEmail, updateSignInPassword, getUserLogInData}))
-(SignInContainer);
+export default compose(connect(mapStateToProps, {getUserLogInData}))(SignInContainer);
