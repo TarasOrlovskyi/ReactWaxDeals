@@ -15,7 +15,7 @@ export const authApi = {
   checkAuth() {
     return axiosWithSetting.get(`token`)
       .catch(error => {
-        return error.response.data;
+        return error.response;
       });
   },
   userLogOut() {
@@ -39,7 +39,7 @@ export const authApi = {
   userLogIn(email, password) {
     return axiosWithSetting.post(`login`, {email, password})
       .catch(error => {
-        return error.response.data;
+        return error.response;
       });
   }
 }
