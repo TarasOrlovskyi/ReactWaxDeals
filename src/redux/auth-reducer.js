@@ -1,13 +1,15 @@
 import {authApi} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const SET_LOG_OUT_USER_DATA = 'SET_LOG_OUT_USER_DATA';
 
 let initialAuthUserData = {
-  isAuth: false,
+  id: null,
+  email: null,
   discogsUserName: null,
-  userRole: null,
-  email: null
+  role: null,
+  status: false,
+  isAuth: false
 }
 
 const authReducer = (state = initialAuthUserData, action) => {
@@ -15,69 +17,56 @@ const authReducer = (state = initialAuthUserData, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
-        isAuth: true
-      }
-      case SET_LOG_OUT_USER_DATA:
-      return {
-        ...state,
-        ...action.data,
-        isAuth: false
+        ...action.payload
       }
     default:
       return state;
   }
 }
 
-export const setAuthUserData = (discogsUserName, userRole, email) => ({
+export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
   type: SET_USER_DATA,
-  data: {discogsUserName, userRole, email}
+  payload: {id, email, discogsUserName, role, status, isAuth}
 })
 
-export const setLogOutUserData = (discogsUserName, userRole, email) => ({
-  type: SET_LOG_OUT_USER_DATA,
-  data: {discogsUserName, userRole, email}
-})
-
-export const getUserAuthData = () => {
-  return (dispatch) => {
-    authApi.checkAuth()
-      .then(response => {
-        debugger;
-          if (response.data.resultCode === 1) {
-            let {discogsUserName, userRole, email} = response.data;
-            dispatch(setAuthUserData(discogsUserName, userRole, email));
-          }
+export const getUserAuthData = () => (dispatch) => {
+  debugger;
+  return authApi.checkAuth()
+    .then(responseData => {
+        if (responseData.data.resultCode === "0") {
+          let {id, email, discogsUserName, role, status} = responseData.data.user;
+          dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
+        } else {
+          localStorage.removeItem("token");
+          dispatch(setAuthUserData(null, null, null, null, false, false));
         }
-      )
-  }
+      }
+    )
 }
 
 export const getUserLogOutData = () => {
   return (dispatch) => {
-    authApi.userLogOut()
-      .then(response => {
-          if (response.data.resultCode === 0) {
-            let {discogsUserName, userRole, email} = response.data;
-            dispatch(setLogOutUserData(discogsUserName, userRole, email));
-          }
-        }
-      )
+    let responseData = authApi.userLogOut();
+    if (responseData.data.resultCode === "0") {
+      localStorage.removeItem("token");
+      dispatch(setAuthUserData(null, null, null, null, false));
+    }
   }
 }
 
-export const getUserLogInData = (email, password) => {
-  return (dispatch) => {
-    authApi.userLogIn(email, password)
-      .then(response => {
-        debugger;
-          if (response.data.resultCode === 1) {
-            let {discogsUserName, userRole, email} = response.data;
-            dispatch(setAuthUserData(discogsUserName, userRole, email));
-          }
-        }
-      )
-  }
+export const getUserLogInData = (email, password) => (dispatch) => {
+  return authApi.userLogIn(email, password)
+    .then(responseData => {
+      if (responseData.data.resultCode === "0") {
+        localStorage.setItem("token", responseData.data.token);
+        let {id, email, discogsUserName, role, status} = responseData.data.user;
+        dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
+      } else {
+        let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+        dispatch(stopSubmit('signInForm', {_error: errorMessage}));
+      }
+    })
 }
+
 
 export default authReducer;
