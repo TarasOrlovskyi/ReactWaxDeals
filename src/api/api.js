@@ -61,3 +61,15 @@ export const storesApi = {
     return axiosWithSetting.get(`stores`);
   }
 }
+
+export const registrationApi = {
+  registerUserRequest(email, password, confirmPassword, discogsUserName) {
+    return {
+      data: {
+        resultCode: "0",
+        message: `WTF!!`
+      }
+    }
+    // return axiosWithSetting.post(`sign-up`, {email, password, confirmPassword, discogsUserName});
+  }
+}

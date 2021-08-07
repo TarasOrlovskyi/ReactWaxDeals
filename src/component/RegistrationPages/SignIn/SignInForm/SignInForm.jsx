@@ -6,7 +6,7 @@ import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../Common/FormsControl/FormsControl";
 import {emailValidation, maxLength, passwordValidation, required} from "../../../../utils/validators/validators";
 
-const maxLength35 = maxLength(35);
+const maxLength50 = maxLength(50);
 
 const SignInForm = (props) => {
   return (
@@ -16,7 +16,7 @@ const SignInForm = (props) => {
           <label className={userStyle.user__label}>
             <Field className={userStyle.user__input}
                    component={Input}
-                   validate={[required, maxLength35, emailValidation]}
+                   validate={[required, maxLength50, emailValidation]}
                    type="email"
                    name="email"
                    placeholder="Email"/>
@@ -24,20 +24,19 @@ const SignInForm = (props) => {
           <label className={userStyle.user__label}>
             <Field className={userStyle.user__input}
                    component={Input}
-                   validate={[required, maxLength35, passwordValidation]}
+                   validate={[required, maxLength50]}
                    type="password"
                    name="password"
                    placeholder="Password"/>
           </label>
           <div>
-            {props.error && <div className={signInStyle.summaryError}>{props.error}</div>}
+            {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
           </div>
           <NavLink to="/recovery-password">Forgot password?</NavLink>
         </div>
       </div>
       <label className={userStyle.user__submitLabel}>
         <button className={userStyle.user__submitInput}>OK</button>
-        {/*<Field component="input" className={userStyle.user__submitInput} type="submit" value="OK"/>*/}
       </label>
     </form>
   );

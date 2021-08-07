@@ -6,12 +6,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
+import {positions, Provider as AlertProvider, transitions, types} from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+const options = {
+  type: types.SUCCESS,
+  timeout: 10000,
+  transition: transitions.SCALE
+}
 
 let renderAll = () => {
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
-        <App/>
+        <AlertProvider template={AlertTemplate} {...options}>
+          <App/>
+        </AlertProvider>
       </Provider>
     </BrowserRouter>, document.getElementById('root')
   );

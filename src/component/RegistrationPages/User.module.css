@@ -121,3 +121,8 @@
   padding-top: 0.79em;
   resize: none;
 }
+
+.summaryError{
+  color: #ff2213;
+  font-weight: bold;
+}
