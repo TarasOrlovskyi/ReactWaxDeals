@@ -32,6 +32,7 @@ export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth
 export const getUserAuthData = () => (dispatch) => {
   return authApi.checkAuth()
     .then(responseData => {
+      debugger;
         if (responseData.data.resultCode === "0") {
           let {id, email, discogsUserName, role, status} = responseData.data.user;
           dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));

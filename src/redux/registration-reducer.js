@@ -1,68 +1,54 @@
-const UPDATE_EMAIL_ON_REGISTRATION_PAGE = 'UPDATE_EMAIL_ON_REGISTRATION_PAGE';
-const UPDATE_PASSWORD_ON_REGISTRATION_PAGE = 'UPDATE_PASSWORD_ON_REGISTRATION_PAGE';
-const UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE = 'UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE';
-const UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE = 'UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE';
+import {registrationApi} from "../api/api";
+import {reset, stopSubmit} from "redux-form";
+
+const SET_REGISTRATION_ALERT = 'SET_REGISTRATION_ALERT';
 
 let initialRegistrationState = {
-  email: '',
-  password: '',
-  confirmPassword: '',
-  discogsUsername: ''
+  isRegistrationAlert: false
 };
 
 const registrationReducer = (state = initialRegistrationState, action) => {
   switch (action.type) {
-    case UPDATE_EMAIL_ON_REGISTRATION_PAGE:
+    case SET_REGISTRATION_ALERT:
       return {
         ...state,
-        email: action.email
-      }
-    case UPDATE_PASSWORD_ON_REGISTRATION_PAGE:
-      return {
-        ...state,
-        password: action.password
-      }
-    case UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE:
-      return {
-        ...state,
-        confirmPassword: action.confirmPassword
-      }
-    case UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE:
-      return {
-        ...state,
-        discogsUsername: action.discogsUsername
+        isRegistrationAlert: action.isRegistrationAlert
       }
     default:
       return state;
   }
 };
 
-export const updateEmail = (email) => (
-  {
-    type: UPDATE_EMAIL_ON_REGISTRATION_PAGE,
-    email
-  }
-);
+export const setRegistrationAlert = (isRegistrationAlert) => ({
+  type: SET_REGISTRATION_ALERT,
+  isRegistrationAlert
+})
 
-export const updatePassword = (password) => (
-  {
-    type: UPDATE_PASSWORD_ON_REGISTRATION_PAGE,
-    password
+export const registerUser = (email, password, confirmPassword, discogsUserName) => dispatch => {
+  debugger;
+  if (password !== confirmPassword){
+    dispatch(stopSubmit('registrationForm', {_error: 'Password and Confirm Password must match!'}));
+  } else {
+    debugger;
+    let responseData = registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName);
+    if (responseData.data.resultCode === "0") {
+      debugger;
+      dispatch(setRegistrationAlert(true));
+      dispatch(reset('registrationForm'));
+    } else {
+      let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+      dispatch(stopSubmit('registrationForm', {_error: errorMessage}));
+    }
   }
-);
-
-export const updateConfirmPassword = (confirmPassword) => (
-  {
-    type: UPDATE_CONFIRM_PASSWORD_ON_REGISTRATION_PAGE,
-    confirmPassword
-  }
-);
-
-export const updateDiscogsUsername = (discogsUsername) => (
-  {
-    type: UPDATE_DISCOGS_USERNAME_ON_REGISTRATION_PAGE,
-    discogsUsername
-  }
-);
+  // registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName)
+  //   .then(responseData => {
+  //     if (responseData.data.resultCode === "0"){
+  //       dispatch(setRegistrationMessage(responseData.data.message));
+  //     } else {
+  //       let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+  //       dispatch(stopSubmit('registrationForm', {_error: errorMessage}));
+  //     }
+  //   })
+}
 
 export default registrationReducer;

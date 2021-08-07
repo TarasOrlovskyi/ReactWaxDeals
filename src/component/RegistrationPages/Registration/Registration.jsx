@@ -1,71 +1,41 @@
 import s from './Registration.module.css';
 import userStyle from './../User.module.css';
-import UserMessage from "../UserMessage/UserMessage";
-import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
+import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import {useAlert} from 'react-alert';
+import RegistrationAlert from "../../Common/Alerts/RegistrationAlert";
 
 const Registration = (props) => {
 
-  let onChangeEmailText = (event) => {
-    props.updateEmail(event.target.value);
-  };
+  // const alert = useAlert();
 
-  let onChangePasswordText = (event) => {
-    props.updatePassword(event.target.value);
-  };
+  let sendSignUpCredentials = (formData) => {
+    debugger;
+    props.registerUser(formData.email, formData.password, formData.confirmPassword, formData.discogsUserName);
+  }
 
-  let onChangeConfirmPasswordText = (event) => {
-    props.updateConfirmPassword(event.target.value);
-  };
-
-  let onChangeDiscogsUsernameText = (event) => {
-    props.updateDiscogsUsername(event.target.value);
-  };
+  // if (!props.message.length > 0) {
+  //   return <RegistrationAlert message={props.message} cleanMessage={props.cleanMessage}/>
+  // }
+  // props.message.length > 0 && alert.show(<RegistrationAlert message={props.message}/>, {
+  //   onClose: props.cleanMessage
+  // });
 
   return (
     <main className="main">
       <div className="container">
         <div className="searchArea">
         </div>
+        {
+          props.isRegistrationAlert &&
+          <RegistrationAlert isRegistrationAlert={props.isRegistrationAlert} turnOffAlert={props.turnOffAlert}/>
+        }
         <div className={s.contentRegistrationPage}>
-          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
+          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={s.contentRegistrationPage__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Registration</h2>
             </div>
-            <form action="/signUp" method="POST" className={userStyle.user + ' ' + s.registrationPageUser}
-                  name="form_reg"
-                  onSubmit="return matchPassword();">
-              <div className={userStyle.user__fieldsWrapper}>
-                <div className={userStyle.user__fields + ' ' + s.registrationPageUser__fields}>
-                  <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} value={props.registrationPage.email}
-                           required/>
-                  </label>
-                  <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
-                           onChange={onChangePasswordText} value={props.registrationPage.password} id="password"
-                           required/>
-                  </label>
-                  <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="password" name="confirmPassword" id="confirmPassword"
-                           onChange={onChangeConfirmPasswordText} value={props.registrationPage.confirmPassword}
-                           placeholder="Confirm password" required/>
-                  </label>
-                  <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="text" name="discogsUserName"
-                           value={props.registrationPage.discogsUsername}
-                           onChange={onChangeDiscogsUsernameText} placeholder="Discogs Username"/>
-                  </label>
-                  <img className={userStyle.discogsLogo}
-                       src={discogsLogo}
-                       alt="Discogs logo"/>
-                </div>
-              </div>
-              <label className={userStyle.user__submitLabel}>
-                <input className={userStyle.user__submitInput} type="submit" value="OK"/>
-              </label>
-            </form>
+            <RegistrationForm onSubmit={sendSignUpCredentials}/>
           </div>
         </div>
       </div>

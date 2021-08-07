@@ -1,0 +1,28 @@
+.alertWrapper{
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.commonAlert{
+  width: 41.66em;
+  height: 11.11em;
+  background-color: #1D1D1D;
+}
+
+.alertRegistration{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.alertRegistration__closeButton{
+  position: absolute;
+  right: 1.56em;
+  top: 1.17em;
+  background-color: #1D1D1D;
+}
