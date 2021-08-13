@@ -19,25 +19,33 @@ export const authApi = {
       });
   },
   userLogOut() {
-    return {
-      data: {
-        user: {
-          id: 123,
-          email: '',
-          discogsUserName: '',
-          role: '',
-          status: false
-        },
-        token: '',
-        resultCode: "0",
-        message: ''
-      }
-    }
-
-    // return axiosWithSetting.delete(`auth`);
+    return axiosWithSetting.get(`successlogout`);
   },
   userLogIn(email, password) {
     return axiosWithSetting.post(`login`, {email, password})
+      .catch(error => {
+        debugger
+        return error.response;
+      });
+  },
+  confirmEmailRequest(confirmToken) {
+    // return{
+    //   data:{
+    //     resultCode: "1",
+    //     message: "user email confirmed"
+    //     // user:{
+    //     //   id: 123,
+    //     //   email: "email@mail",
+    //     //   discogsUserName: "discogsUserName",
+    //     //   role: "User",
+    //     //   status: true
+    //     // },
+    //     // resultCode: "0",
+    //     // token: "some-token",
+    //     // message: "hello!"
+    //   }
+    // }
+    return axiosWithSetting.put(`emailConfirmation?confirmToken=${confirmToken}`)
       .catch(error => {
         return error.response;
       });
@@ -64,12 +72,27 @@ export const storesApi = {
 
 export const registrationApi = {
   registerUserRequest(email, password, confirmPassword, discogsUserName) {
+    // return {
+    //   data: {
+    //     resultCode: "0",
+    //     message: `WTF!!`
+    //   }
+    // }
+    return axiosWithSetting.post(`signUp`, {email, password, confirmPassword, discogsUserName})
+      .catch(error => {
+        return error.response;
+      });
+  }
+}
+
+export const contactUsApi = {
+  contactUsRequest(name, email, contactUsMessage){
     return {
       data: {
         resultCode: "0",
         message: `WTF!!`
       }
     }
-    // return axiosWithSetting.post(`sign-up`, {email, password, confirmPassword, discogsUserName});
+    // return axiosWithSetting.post('contact', {name, email, contactUsMessage})
   }
 }

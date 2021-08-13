@@ -1,18 +1,26 @@
 import Registration from "./Registration";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {registerUser, setRegistrationAlert} from "../../../redux/registration-reducer";
+import {registerUser, setRegistrationInfo} from "../../../redux/registration-reducer";
 import React from "react";
 
 class RegistrationContainer extends React.Component {
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.isRegistrationSuccess){
+      setTimeout(()=> {
+        this.props.setRegistrationInfo(false);
+      }, 10000);
+    }
+  }
+
   turnOffAlert = () => {
-    this.props.setRegistrationAlert(false);
+    this.props.setRegistrationInfo(false);
   }
 
   render() {
     return (
-      <Registration isRegistrationAlert={this.props.isRegistrationAlert}
+      <Registration isRegistrationSuccess={this.props.isRegistrationSuccess}
                     turnOffAlert={this.turnOffAlert}
                     registerUser={this.props.registerUser}/>
     );
@@ -21,9 +29,9 @@ class RegistrationContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    isRegistrationAlert: state.registrationPage.isRegistrationAlert
+    isRegistrationSuccess: state.registrationPage.isRegistrationSuccess
   };
 };
 
 export default compose(connect(mapStateToProps,
-  {setRegistrationAlert, registerUser}))(RegistrationContainer);
+  {setRegistrationInfo, registerUser}))(RegistrationContainer);

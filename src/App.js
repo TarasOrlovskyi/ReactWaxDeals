@@ -20,6 +20,7 @@ import {Component} from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
+import ConfirmEmailContainer from "./component/RegistrationPages/ConfirmEmail/ConfirmEmailContainer";
 
 class App extends Component {
 
@@ -84,6 +85,9 @@ class App extends Component {
         }/>
         <Route exact path="/search" render={() =>
           <AfterSearchContainer/>
+        }/>
+        <Route exact path="/emailConfirmation" render={() =>
+          <ConfirmEmailContainer/>
         }/>
         <Footer/>
       </div>

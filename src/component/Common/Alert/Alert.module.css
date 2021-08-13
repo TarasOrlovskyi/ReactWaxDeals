@@ -26,3 +26,7 @@
   top: 1.17em;
   background-color: #1D1D1D;
 }
+
+.alert_navLink{
+  text-decoration: underline;
+}
