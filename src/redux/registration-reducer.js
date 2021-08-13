@@ -1,44 +1,53 @@
 import {registrationApi} from "../api/api";
 import {reset, stopSubmit} from "redux-form";
 
-const SET_REGISTRATION_ALERT = 'SET_REGISTRATION_ALERT';
+const SET_REGISTRATION_INFO = 'SET_REGISTRATION_INFO';
 
 let initialRegistrationState = {
-  isRegistrationAlert: false
+  isRegistrationSuccess: false
 };
 
 const registrationReducer = (state = initialRegistrationState, action) => {
   switch (action.type) {
-    case SET_REGISTRATION_ALERT:
+    case SET_REGISTRATION_INFO:
       return {
         ...state,
-        isRegistrationAlert: action.isRegistrationAlert
+        isRegistrationSuccess: action.isRegistrationSuccess
       }
     default:
       return state;
   }
 };
 
-export const setRegistrationAlert = (isRegistrationAlert) => ({
-  type: SET_REGISTRATION_ALERT,
-  isRegistrationAlert
+export const setRegistrationInfo = (isRegistrationSuccess) => ({
+  type: SET_REGISTRATION_INFO,
+  isRegistrationSuccess
 })
 
 export const registerUser = (email, password, confirmPassword, discogsUserName) => dispatch => {
-  debugger;
   if (password !== confirmPassword){
     dispatch(stopSubmit('registrationForm', {_error: 'Password and Confirm Password must match!'}));
   } else {
-    debugger;
-    let responseData = registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName);
-    if (responseData.data.resultCode === "0") {
-      debugger;
-      dispatch(setRegistrationAlert(true));
-      dispatch(reset('registrationForm'));
-    } else {
-      let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
-      dispatch(stopSubmit('registrationForm', {_error: errorMessage}));
-    }
+    debugger
+    registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName)
+      .then(responseData => {
+        debugger
+        if (responseData.data.resultCode === "0") {
+          dispatch(setRegistrationInfo(true));
+          dispatch(reset('registrationForm'));
+        } else {
+          let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+          dispatch(stopSubmit('registrationForm', {_error: errorMessage}));
+        }
+      })
+    // let responseData = registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName);
+    // if (responseData.data.resultCode === "0") {
+    //   dispatch(setRegistrationInfo(true));
+    //   dispatch(reset('registrationForm'));
+    // } else {
+    //   let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+    //   dispatch(stopSubmit('registrationForm', {_error: errorMessage}));
+    // }
   }
   // registrationApi.registerUserRequest(email, password, confirmPassword, discogsUserName)
   //   .then(responseData => {

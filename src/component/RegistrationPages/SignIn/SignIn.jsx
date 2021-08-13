@@ -6,6 +6,7 @@ import userStyle from "../User.module.css";
 import UserMessage from "../UserMessage/UserMessage.jsx";
 import SignInForm from "./SignInForm/SignInForm";
 import {Redirect} from "react-router-dom";
+import MessageAlert from "../../Common/Alert/MessageAlert";
 
 const SignIn = (props) => {
 
@@ -23,7 +24,13 @@ const SignIn = (props) => {
         <div className="searchArea">
         </div>
         <div className={signInStyle.contentSignIn}>
-          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
+          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
+          {
+            props.isMailConfirm &&
+              <MessageAlert turnOffAlert={props.turnOffAlert}
+                            messages={"Your email is verified. You can log in now."}
+              />
+          }
           <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>

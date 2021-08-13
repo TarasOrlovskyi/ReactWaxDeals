@@ -1,54 +1,39 @@
-const UPDATE_NAME_ON_CONTACT_US_PAGE = 'UPDATE_NAME_ON_CONTACT_US_PAGE';
-const UPDATE_EMAIL_ON_CONTACT_US_PAGE = 'UPDATE_EMAIL_ON_CONTACT_US_PAGE';
-const UPDATE_MESSAGE_ON_CONTACT_US_PAGE = 'UPDATE_MESSAGE_ON_CONTACT_US_PAGE';
+import {contactUsApi} from "../api/api";
+import {reset, stopSubmit} from "redux-form";
+
+const SET_IS_CONTACT_US_SUCCESS = 'SET_IS_CONTACT_US_SUCCESS';
 
 let initialContactUsState = {
-  name: '',
-  email: '',
-  message: ''
+  isContactUsSuccess: false
 };
 
 const contactUsReducer = (state = initialContactUsState, action) => {
   switch (action.type) {
-    case UPDATE_NAME_ON_CONTACT_US_PAGE:
+    case SET_IS_CONTACT_US_SUCCESS:
       return {
         ...state,
-        name: action.name
-      }
-    case UPDATE_EMAIL_ON_CONTACT_US_PAGE:
-      return {
-        ...state,
-        email: action.email
-      }
-    case UPDATE_MESSAGE_ON_CONTACT_US_PAGE:
-      return {
-        ...state,
-        message: action.message
+        isContactUsSuccess: action.isContactUsSuccess
       }
     default:
       return state;
   }
 };
 
-export const updateName = (name) => (
-  {
-    type: UPDATE_NAME_ON_CONTACT_US_PAGE,
-    name
-  }
-);
+export const setIsContactUsSuccess = (isContactUsSuccess) => ({
+  type: SET_IS_CONTACT_US_SUCCESS,
+  isContactUsSuccess
+})
 
-export const updateEmail = (email) => (
-  {
-    type: UPDATE_EMAIL_ON_CONTACT_US_PAGE,
-    email
+export const sendContactUsForm = (name, email, contactUsMessage) => dispatch => {
+  let responseData = contactUsApi.contactUsRequest(name, email, contactUsMessage);
+  if (responseData.data.resultCode === "0"){
+    debugger;
+    dispatch(setIsContactUsSuccess(true));
+    dispatch(reset('contactUsForm'));
+  } else {
+    let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+    dispatch(stopSubmit('contactUsForm', {_error: errorMessage}));
   }
-);
-
-export const updateMessage = (message) => (
-  {
-    type: UPDATE_MESSAGE_ON_CONTACT_US_PAGE,
-    message
-  }
-);
+}
 
 export default contactUsReducer;

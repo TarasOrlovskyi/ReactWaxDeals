@@ -4,8 +4,16 @@ import {connect} from "react-redux";
 import React from "react";
 import {getSearchResult} from "../../redux/after-search-reducer";
 import {compose} from "redux";
+import {withRouter} from "react-router-dom";
 
 class SearchFieldContainer extends React.Component {
+
+  componentDidMount() {
+    const search = this.props.location.search;
+    const searchQuery = new URLSearchParams(search).get("matcher");
+    this.props.getSearchResult(searchQuery);
+  }
+
   loadSearchResult = (searchQuery) => {
     this.props.getSearchResult(searchQuery);
   }
@@ -25,4 +33,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, {updateSearchField, getSearchResult}))(SearchFieldContainer);
+export default compose(withRouter, connect(mapStateToProps, {updateSearchField, getSearchResult}))(SearchFieldContainer);
