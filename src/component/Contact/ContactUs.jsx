@@ -10,7 +10,7 @@ const ContactUs = (props) => {
 
   let sendContactUsData = (formData) => {
     debugger
-    props.sendContactUsForm(formData.name, formData.email, formData.contactUsMessage);
+    props.sendContactUsForm(formData.name, formData.email, formData.contactUsMessage, formData.recaptchaToken);
   }
 
   return (
@@ -32,7 +32,7 @@ const ContactUs = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Contact us</h2>
             </div>
-            <ContactUsForm send={sendContactUsData}/>
+            <ContactUsForm onSubmit={sendContactUsData}/>
           </div>
         </div>
       </div>
