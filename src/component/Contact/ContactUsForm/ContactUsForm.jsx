@@ -13,31 +13,38 @@ const maxLength300 = maxLength(300);
 
 class ContactUsForm extends React.Component {
 
-  onResolved = async () => {
-    const {
-      name,
-      email,
-      contactUsMessage
-    } = this.props
-    debugger
-    alert('Recaptcha resolved with response: ' + this.recaptcha.getResponse());
-    let recaptchaToken = this.recaptcha.getResponse();
-    debugger
-    let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=6LdZuvkbAAAAAH4wTQbE5dsdSRfO4giVlnR6l_DY&response=${recaptchaToken}`);
-    // let localhost = axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe&response=${recaptchaToken}`);
-    debugger
-    this.props.handleSubmit();
-    // if (name !== undefined && email !== undefined && contactUsMessage !== undefined) {
-    //   this.props.onSubmit({name, email, contactUsMessage, recaptchaToken});
-    //   // this.props.send({name, email, contactUsMessage, recaptchaToken});
-    // } else {
-    //   this.recaptcha.reset();
-    // }
-  }
+  // onResolved = async () => {
+  //   const {
+  //     name,
+  //     email,
+  //     contactUsMessage
+  //   } = this.props
+  //   debugger
+  //   alert('Recaptcha resolved with response: ' + this.recaptcha.getResponse());
+  //   let recaptchaToken = this.recaptcha.getResponse();
+  //   debugger
+  //   // let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=6LdZuvkbAAAAAH4wTQbE5dsdSRfO4giVlnR6l_DY&response=${recaptchaToken}`);
+  //   // let localhost = axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe&response=${recaptchaToken}`);
+  //   debugger
+  //   this.props.handleSubmit(data => {
+  //     let newData = {...data, recaptchaToken}
+  //     debugger
+  //     this.props.onSubmit(newData);
+  //   });
+  //   // if (name !== undefined && email !== undefined && contactUsMessage !== undefined) {
+  //   //   this.props.onSubmit({name, email, contactUsMessage, recaptchaToken});
+  //   //   // this.props.send({name, email, contactUsMessage, recaptchaToken});
+  //   // } else {
+  //   //   this.recaptcha.reset();
+  //   // }
+  // }
 
-  checkCaptcha = async (e) => {
-    e.preventDefault();
+  checkCaptcha = async () => {
+    // e.preventDefault();
+    alert('Recaptcha resolved with response: ' + this.recaptcha.getResponse());
+    debugger
     await this.recaptcha.execute();
+    alert('Recaptcha resolved with response: ' + this.recaptcha.getResponse());
   }
 
   render() {
@@ -82,13 +89,23 @@ class ContactUsForm extends React.Component {
             sitekey="6LdZuvkbAAAAAOM5PMkxEQtNxeMubYwgUtY4LP_h"
             // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" //localhost
             ref={ref => this.recaptcha = ref}
-            onResolved={this.onResolved}
+            // onResolved={this.onResolved}
           />
           {/*secret key - "6LdZuvkbAAAAAH4wTQbE5dsdSRfO4giVlnR6l_DY"*/}
           {/*secret key for localhost - "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"*/}
           <label className={userStyle.user__submitLabel}>
             <button type="button" className={userStyle.user__submitInput}
-                    onClick={this.checkCaptcha}>SEND
+                    // onClick={this.checkCaptcha}>SEND
+                    onClick={this.props.handleSubmit(data => {
+                      this.checkCaptcha()
+                        .then(response => {
+                          let recaptchaToken = this.recaptcha.getResponse();
+                          let formData = {...data, recaptchaToken}
+                          debugger
+                          this.recaptcha.reset();
+                          this.props.onSubmit(formData);
+                        })
+                    })}>SEND
             </button>
           </label>
         </div>
@@ -99,19 +116,19 @@ class ContactUsForm extends React.Component {
 
 ContactUsForm = reduxForm({form: "contactUsForm"})(ContactUsForm);
 
-const selector = formValueSelector('contactUsForm')
-ContactUsForm = connect(state => {
-  debugger
-  const {
-    name,
-    email,
-    contactUsMessage
-  } = selector(state, 'name', 'email', 'contactUsMessage')
-  return {
-    name,
-    email,
-    contactUsMessage
-  }
-})(ContactUsForm)
+// const selector = formValueSelector('contactUsForm')
+// ContactUsForm = connect(state => {
+//   debugger
+//   const {
+//     name,
+//     email,
+//     contactUsMessage
+//   } = selector(state, 'name', 'email', 'contactUsMessage')
+//   return {
+//     name,
+//     email,
+//     contactUsMessage
+//   }
+// })(ContactUsForm)
 
 export default ContactUsForm;
