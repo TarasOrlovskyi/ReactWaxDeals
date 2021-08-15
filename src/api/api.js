@@ -86,7 +86,7 @@ export const registrationApi = {
 }
 
 export const contactUsApi = {
-  contactUsRequest(name, email, contactUsMessage){
+  contactUsRequest(name, email, contactUsMessage, recaptchaToken){
     return {
       data: {
         resultCode: "0",

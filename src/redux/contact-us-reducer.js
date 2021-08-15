@@ -24,10 +24,9 @@ export const setIsContactUsSuccess = (isContactUsSuccess) => ({
   isContactUsSuccess
 })
 
-export const sendContactUsForm = (name, email, contactUsMessage) => dispatch => {
-  let responseData = contactUsApi.contactUsRequest(name, email, contactUsMessage);
+export const sendContactUsForm = (name, email, contactUsMessage, recaptchaToken) => dispatch => {
+  let responseData = contactUsApi.contactUsRequest(name, email, contactUsMessage, recaptchaToken);
   if (responseData.data.resultCode === "0"){
-    debugger;
     dispatch(setIsContactUsSuccess(true));
     dispatch(reset('contactUsForm'));
   } else {
