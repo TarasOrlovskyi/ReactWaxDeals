@@ -1,54 +1,45 @@
-const UPDATE_OLD_PASSWORD_ON_CHANGE_PASSWORD_PAGE = 'UPDATE_OLD_PASSWORD_ON_CHANGE_PASSWORD_PAGE';
-const UPDATE_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE = 'UPDATE_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE';
-const UPDATE_CONFIRM_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE = 'UPDATE_CONFIRM_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE';
+import {authApi} from "../api/api";
+import {reset, stopSubmit} from "redux-form";
+
+const SET_IS_PASSWORD_CHANGED = 'SET_IS_PASSWORD_CHANGED'
 
 let initialChangePasswordState = {
-  oldPassword: '',
-  newPassword: '',
-  confirmNewPassword: ''
+  isPasswordChanged: false
 };
 
 const changePasswordReducer = (state = initialChangePasswordState, action) => {
   switch (action.type) {
-    case UPDATE_OLD_PASSWORD_ON_CHANGE_PASSWORD_PAGE:
+    case SET_IS_PASSWORD_CHANGED:
       return {
         ...state,
-        oldPassword: action.oldPassword
-      }
-    case UPDATE_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE:
-      return {
-        ...state,
-        newPassword: action.newPassword
-      }
-    case UPDATE_CONFIRM_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE:
-      return {
-        ...state,
-        confirmNewPassword: action.confirmNewPassword
+        isPasswordChanged: action.isPasswordChanged
       }
     default:
       return state;
   }
 };
 
-export const updateOldPassword = (oldPassword) => (
-  {
-    type: UPDATE_OLD_PASSWORD_ON_CHANGE_PASSWORD_PAGE,
-    oldPassword
-  }
-);
+export const setIsPasswordChanged = (isPasswordChanged) => ({
+  type: SET_IS_PASSWORD_CHANGED,
+  isPasswordChanged
+})
 
-export const updateNewPassword = (newPassword) => (
-  {
-    type: UPDATE_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE,
-    newPassword
+export const changePassword = (oldPassword, newPassword, confirmNewPassword) => dispatch => {
+  debugger
+  if (newPassword !== confirmNewPassword){
+    debugger
+    dispatch(stopSubmit('changePasswordForm', {_error: 'New Password and Confirm Password must match!'}));
+  } else {
+    debugger
+    let responseData = authApi.changePasswordRequest(oldPassword, newPassword, confirmNewPassword);
+    if (responseData.data.resultCode === "0") {
+      dispatch(setIsPasswordChanged(true));
+      dispatch(reset('changePasswordForm'));
+    } else {
+      let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+      dispatch(stopSubmit('changePasswordForm', {_error: errorMessage}));
+    }
   }
-);
-
-export const updateConfirmNewPassword = (confirmNewPassword) => (
-  {
-    type: UPDATE_CONFIRM_NEW_PASSWORD_ON_CHANGE_PASSWORD_PAGE,
-    confirmNewPassword
-  }
-);
+}
 
 export default changePasswordReducer;
