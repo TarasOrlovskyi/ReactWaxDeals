@@ -1,6 +1,7 @@
 import s from './Profile.module.css';
 import userStyle from '../User.module.css';
 import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
+import {NavLink} from "react-router-dom";
 
 const Profile = (props) => {
 
@@ -14,7 +15,7 @@ const Profile = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Profile</h2>
             </div>
-            <form action="/profile/edit-profile" method="GET" className={userStyle.user + ' ' + s.profileUser}>
+            <div className={userStyle.user + ' ' + s.profileUser}>
               <div className={userStyle.user__fieldsWrapper}>
 
                 <div className={userStyle.user__fields + ' ' + s.profileUser__fields}>
@@ -33,10 +34,12 @@ const Profile = (props) => {
                        alt="Discogs logo"/>
                 </div>
               </div>
-              <label className={userStyle.user__submitLabel}>
-                <input className={userStyle.user__submitInput} type="submit" value="EDIT"/>
-              </label>
-            </form>
+              <div className={userStyle.user__submitLabel}>
+                <NavLink to="/edit-profile">
+                  <button className={userStyle.user__submitInput}>EDIT</button>
+                </NavLink>
+              </div>
+            </div>
           </div>
         </div>
       </div>

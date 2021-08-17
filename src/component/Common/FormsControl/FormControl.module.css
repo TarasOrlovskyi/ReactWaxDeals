@@ -2,6 +2,10 @@
   border: darkred solid 4px;
 }
 
+.elementError textarea{
+  border: darkred solid 4px;
+}
+
 .textError{
   color: #ff480b;
 }

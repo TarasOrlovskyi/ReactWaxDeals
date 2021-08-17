@@ -38,6 +38,12 @@ const Registration = (props) => {
             letterImage={letterImage}
           />
         }
+        {props.isProfileDeleted &&
+          <MessageAlert
+            turnOffAlert={props.turnOffAlert}
+            messages="Your profile has been deleted already"
+          />
+        }
         <div className={s.contentRegistrationPage}>
           <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={s.contentRegistrationPage__column + ' contentColumn'}>

@@ -12,6 +12,7 @@ const FormsControl = ({input, meta, ...props}) => {
 
 export const Input = (props) => {
   const {input, meta, ...restProps} = props;
+  debugger
   return <FormsControl {...props}><input {...input} {...restProps}/></FormsControl>
 }
 

@@ -12,15 +12,17 @@
   background-color: #1D1D1D;
 }
 
-.alertRegistration{
+.pageAlert{
+  font-weight: 700;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  flex: 1 1 auto;
 }
 
-.alertRegistration__closeButton{
+.pageAlert__closeButton{
   position: absolute;
   right: 1.56em;
   top: 1.17em;
@@ -29,4 +31,28 @@
 
 .alert_navLink{
   text-decoration: underline;
+}
+
+.pageAlert__buttonsRow{
+  height: 84px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pageAlert__yesNoButtons{
+  width: 224px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageAlert__answerButton{
+  font-size: 18px;
+  height: 40px;
+  width: 100px;
+  color: #000000;
+  background-color: #C4C4C4;
+}
+
+.pageAlert__answerButton:hover{
+  background-color: #8D8989;
 }
