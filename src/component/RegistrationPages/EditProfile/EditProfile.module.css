@@ -34,5 +34,18 @@
 .editProfileUser__deleteProfile{
     font-size: 0.77em;
     text-decoration: underline;
-    padding-bottom: 3.64em;
+    /*margin-bottom: 3.64em;*/
+    position: absolute;
+    right: 9.52em;
+    bottom: 6.50em;
+    background: transparent no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    /*outline:none;*/
+    color: #ffffff;
+}
+
+.editProfileUser__deleteProfile:hover{
+    text-decoration: none;
 }

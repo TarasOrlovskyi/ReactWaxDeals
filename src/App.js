@@ -1,7 +1,6 @@
 import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import {Route, withRouter} from "react-router-dom";
-import Profile from "./component/RegistrationPages/Profile/Profile";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import About from "./component/About/About";
@@ -21,6 +20,8 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import ConfirmEmailContainer from "./component/RegistrationPages/ConfirmEmail/ConfirmEmailContainer";
+import ProfileContainer from "./component/RegistrationPages/Profile/ProfileContainer";
+import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
 
 class App extends Component {
 
@@ -60,7 +61,7 @@ class App extends Component {
           <RegistrationContainer/>
         }/>
         <Route exact path="/profile" render={() =>
-          <Profile/>
+          <ProfileContainer/>
         }/>
         <Route exact path="/new-password" render={() =>
           <NewPasswordContainer/>

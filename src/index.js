@@ -15,25 +15,25 @@ const options = {
   transition: transitions.SCALE
 }
 
-let renderAll = () => {
-  ReactDOM.render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <AlertProvider template={AlertTemplate} {...options}>
-          <App/>
-        </AlertProvider>
-      </Provider>
-    </BrowserRouter>, document.getElementById('root')
-  );
-};
-
-renderAll();
-
-store.subscribe(() => {
-    let currentState = store.getState();
-    renderAll(currentState);
-  }
+// let renderAll = () => {
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <AlertProvider template={AlertTemplate} {...options}>
+        <App/>
+      </AlertProvider>
+    </Provider>
+  </BrowserRouter>, document.getElementById('root')
 );
+// };
+
+// renderAll();
+//
+// store.subscribe(() => {
+//     let currentState = store.getState();
+//     renderAll(currentState);
+//   }
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

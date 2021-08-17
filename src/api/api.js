@@ -29,26 +29,35 @@ export const authApi = {
       });
   },
   confirmEmailRequest(confirmToken) {
-    // return{
-    //   data:{
-    //     resultCode: "1",
-    //     message: "user email confirmed"
-    //     // user:{
-    //     //   id: 123,
-    //     //   email: "email@mail",
-    //     //   discogsUserName: "discogsUserName",
-    //     //   role: "User",
-    //     //   status: true
-    //     // },
-    //     // resultCode: "0",
-    //     // token: "some-token",
-    //     // message: "hello!"
-    //   }
-    // }
     return axiosWithSetting.put(`emailConfirmation?confirmToken=${confirmToken}`)
       .catch(error => {
         return error.response;
       });
+  },
+  editProfileRequest(email, discogsUserName) {
+    return {
+      data: {
+        resultCode: "0",
+        message: `WTF!!`
+      }
+    }
+    // return axiosWithSetting.put(`profile`, {email, discogsUserName})
+    //   .catch(error => {
+    //     return error.response;
+    //   });
+  },
+  deleteProfileRequest(userId) {
+    debugger
+    return {
+      data: {
+        resultCode: "0",
+        message: `WTF!!`
+      }
+    }
+    // return axiosWithSetting.delete(`profile/${userId}`)
+    //   .catch(error => {
+    //     return error.response;
+    //   });
   }
 }
 
@@ -72,12 +81,6 @@ export const storesApi = {
 
 export const registrationApi = {
   registerUserRequest(email, password, confirmPassword, discogsUserName) {
-    // return {
-    //   data: {
-    //     resultCode: "0",
-    //     message: `WTF!!`
-    //   }
-    // }
     return axiosWithSetting.post(`signUp`, {email, password, confirmPassword, discogsUserName})
       .catch(error => {
         return error.response;
@@ -93,6 +96,6 @@ export const contactUsApi = {
         message: `WTF!!`
       }
     }
-    // return axiosWithSetting.post('contact', {name, email, contactUsMessage})
+    // return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken})
   }
 }

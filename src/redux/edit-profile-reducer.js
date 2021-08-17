@@ -1,40 +1,24 @@
-const UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE = 'UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE';
-const UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE = 'UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE';
+const SET_DELETE_PROFILE_QUESTION = "SET_DELETE_PROFILE_QUESTION";
 
 let initialEditProfileState = {
-  email: '',
-  discogsUsername: ''
+  isDeleteProfileQuestion: false
 };
 
 const editProfileReducer = (state = initialEditProfileState, action) => {
   switch (action.type) {
-    case UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE:
+    case SET_DELETE_PROFILE_QUESTION:
       return {
         ...state,
-        email: action.email
-      }
-    case UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE:
-      return {
-        ...state,
-        discogsUsername: action.discogsUsername
+        isDeleteProfileQuestion: action.isDeleteProfileQuestion
       }
     default:
       return state;
   }
 };
 
-export const updateDiscogsUsername = (discogsUsername) => (
-  {
-    type: UPDATE_DISCOGS_USERNAME_ON_EDIT_PROFILE_PAGE,
-    discogsUsername
-  }
-);
-
-export const updateEmail = (email) => (
-  {
-    type: UPDATE_EMAIL_ON_EDIT_PROFILE_PAGE,
-    email
-  }
-);
+export const setIsDeleteProfileQuestion = (isDeleteProfileQuestion) => ({
+  type: SET_DELETE_PROFILE_QUESTION,
+  isDeleteProfileQuestion
+})
 
 export default editProfileReducer;
