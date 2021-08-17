@@ -58,6 +58,19 @@ export const authApi = {
     //   .catch(error => {
     //     return error.response;
     //   });
+  },
+  changePasswordRequest(oldPassword, newPassword, confirmNewPassword){
+    debugger
+    return {
+      data: {
+        resultCode: "0",
+        message: `WTF!!`
+      }
+    }
+    // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword})
+    //   .catch(error => {
+    //     return error.response;
+    //   });
   }
 }
 
