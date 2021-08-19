@@ -1,5 +1,5 @@
 import registrationReducer from "./registration-reducer";
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import searchFieldReducer from "./search-field-reducer";
 import recoveryPasswordReducer from "./recovery-password-reducer";
 import catalogReducer from "./catalog-reducer";
@@ -34,8 +34,10 @@ let reducers = combineReducers(
   }
 );
 
-let reactStore = createStore(reducers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
+));
 
-window.reactStore = reactStore;
+window.reactStore = store;
 
-export default reactStore;
+export default store;
