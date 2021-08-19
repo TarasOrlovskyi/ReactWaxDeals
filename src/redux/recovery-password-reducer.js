@@ -1,26 +1,40 @@
-const UPDATE_EMAIL_ON_RECOVERY_PAGE = 'UPDATE_EMAIL_ON_RECOVERY_PAGE';
+import {authApi} from "../api/api";
+import {reset, stopSubmit} from "redux-form";
+
+const SET_IS_RECOVERY_MAIL_SENT = 'SET_IS_RECOVERY_MAIL_SENT';
 
 let initialRecoveryPasswordState = {
-  email: ''
+  isRecoveryMailSent: false
 };
 
 const recoveryPasswordReducer = (state = initialRecoveryPasswordState, action) => {
   switch (action.type) {
-    case UPDATE_EMAIL_ON_RECOVERY_PAGE:
+    case SET_IS_RECOVERY_MAIL_SENT:
       return {
         ...state,
-        email: action.email
+        isRecoveryMailSent: action.isRecoveryMailSent
       }
     default:
       return state;
   }
 };
 
-export const updateEmail = (email) => (
-  {
-    type: UPDATE_EMAIL_ON_RECOVERY_PAGE,
-    email
-  }
-);
+export const setIsRecoveryMailSent = (isRecoveryMailSent) => ({
+  type: SET_IS_RECOVERY_MAIL_SENT,
+  isRecoveryMailSent
+});
+
+export const sendRecoveryPasswordMail = (email) => dispatch => {
+  authApi.sendRecoveryPasswordRequest(email)
+    .then(responseData => {
+      if (responseData.data.resultCode === "0") {
+        dispatch(setIsRecoveryMailSent(true));
+        dispatch(reset('recoveryPasswordForm'));
+      } else {
+        let errorMessage = responseData.data.message.length > 0 ? responseData.data.message : "ERROR";
+        dispatch(stopSubmit('recoveryPasswordForm', {_error: errorMessage}));
+      }
+    })
+}
 
 export default recoveryPasswordReducer;

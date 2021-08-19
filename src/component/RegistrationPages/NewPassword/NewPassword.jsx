@@ -14,11 +14,7 @@ const NewPassword = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>New password</h2>
             </div>
-            <NewPasswordForm newPasswordPage={props.newPasswordPage} updateNewPassword={props.updateNewPassword}
-                             updateConfirmNewPassword={props.updateConfirmNewPassword}/>
-            <label className={userStyle.user__submitLabel}>
-              <input className={userStyle.user__submitInput} type="submit" value="OK"/>
-            </label>
+            <NewPasswordForm onSubmit={props.onSubmit}/>
           </div>
         </div>
       </div>

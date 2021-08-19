@@ -31,6 +31,12 @@ const SignIn = (props) => {
                             messages={"Your email is verified. You can log in now."}
               />
           }
+          {
+            props.isNewPasswordUpdated &&
+              <MessageAlert turnOffAlert={props.turnOffAlert}
+                            messages={"Your password has been changed."}
+              />
+          }
           <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>

@@ -1,0 +1,35 @@
+.wrongPage__content {
+  padding: 5.83em 0;
+}
+
+.wrongPage__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrongPage__textRow {
+  font-size: 1.3em;
+}
+
+.wrongPage__mainText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 7em;
+  text-align: center;
+}
+
+.wrongPage__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 10em;
+  width: 8em;
+}
+
+.vinylImage {
+  height: 7em;
+  width: 9em;
+}

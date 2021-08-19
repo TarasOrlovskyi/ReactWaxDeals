@@ -1,0 +1,28 @@
+.EmptyPageContent {
+  padding: 5.83em 0;
+}
+
+.EmptyPageBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.EmptyPageText {
+  height: 3em;
+  text-align: center;
+}
+
+.EmptyPageImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 10em;
+  width: 8em;
+}
+
+.vinylImage {
+  height: 5em;
+  width: 5em;
+}

@@ -1,12 +1,15 @@
 import s from './RecoveryPassword.module.css';
 import userStyle from './../User.module.css';
 import UserMessage from "../UserMessage/UserMessage";
+import MessageAlert from "../../Common/Alert/MessageAlert";
+import letterImage from "../../../assets/img/alertImg/message_letter.png";
+import React from "react";
+import RecoveryPasswordForm from "./RecoveryPasswordForm/RecoveryPasswordForm";
 
 const RecoveryPassword = (props) => {
 
-  let onChangeEmailText = (event) => {
-    props.updateEmail(event.target.value);
-  };
+  let firstAlertString = <p>In order to recovery your password</p>
+  let secondAlertString = <p>click the link in the email we've just send you.</p>
 
   return (
     <main className="main">
@@ -14,26 +17,19 @@ const RecoveryPassword = (props) => {
         <div className="searchArea">
         </div>
         <div className={s.contentRecoveryPassword}>
-          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
+          {props.isRecoveryMailSent &&
+            <MessageAlert
+              turnOffAlert={props.turnOffAlert}
+              messages={[firstAlertString,secondAlertString]}
+              letterImage={letterImage}
+            />
+          }
+          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={s.contentRecoveryPassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Password recovery</h2>
             </div>
-            <form action="/recoveryPassword" method="POST" className={userStyle.user + ' ' + s.recoveryUser}
-                  name="form_reg">
-              <div className={userStyle.user__fieldsWrapper}>
-                <div className={userStyle.user__fields + ' ' + s.recoveryUser__fields}>
-                  <label className={userStyle.user__label}>
-                    <input className={userStyle.user__input} type="email" name="email" id="email" placeholder="Email"
-                           onChange={onChangeEmailText} onBlur="checkEmail(this)"
-                           value={props.recoveryPasswordPage.email} required/>
-                  </label>
-                </div>
-              </div>
-              <label className={userStyle.user__submitLabel}>
-                <input className={userStyle.user__submitInput} type="submit" value="OK"/>
-              </label>
-            </form>
+            <RecoveryPasswordForm onSubmit={props.onSubmit}/>
           </div>
         </div>
       </div>

@@ -1,37 +1,45 @@
 import userStyle from "../../User.module.css";
-import s from "../NewPassword.module.css";
+import newPasswordStyle from "../NewPassword.module.css";
 import React from "react";
+import {Field, reduxForm} from "redux-form";
+import {Input} from "../../../Common/FormsControl/FormsControl";
+import {maxLength, passwordValidation, required} from "../../../../utils/validators/validators";
+
+let maxLength50 = maxLength(50);
 
 const NewPasswordForm = (props) => {
-
-  let onChangeNewPasswordText = (event) => {
-    props.updateNewPassword(event.target.value);
-  };
-  let onChangeConfirmNewPasswordText = (event) => {
-    props.updateConfirmNewPassword(event.target.value);
-  };
-
   return (
-    <form action="/new-password/new-password" method="POST" name="form_reg"
-          className={userStyle.user + ' ' + s.newPasswordUser}>
+    <form className={userStyle.user + ' ' + newPasswordStyle.newPasswordUser} onSubmit={props.handleSubmit}>
       <div className={userStyle.user__fieldsWrapper}>
-        <div className={userStyle.user__fields + ' ' + s.newPasswordUser__fields}>
+        <div className={userStyle.user__fields + ' ' + newPasswordStyle.newPasswordUser__fields}>
           <label className={userStyle.user__label}>
-            <input className={userStyle.user__input} type="password" name="password" placeholder="Password"
-                   onChange={onChangeNewPasswordText} value={props.newPasswordPage.newPassword}
-                   id="password" required/>
+            <Field className={userStyle.user__input}
+                   type="password"
+                   name="newPassword"
+                   placeholder="Password"
+                   component={Input}
+                   validate={[required, maxLength50, passwordValidation]}
+            />
           </label>
           <label className={userStyle.user__label}>
-            <input className={userStyle.user__input} type="password" name="confirmPassword" id="confirmPassword"
-                   placeholder="Confirm password" required
-                   onChange={onChangeConfirmNewPasswordText}
-                   value={props.newPasswordPage.confirmNewPassword}/>
+            <Field className={userStyle.user__input}
+                   type="password"
+                   name="confirmNewPassword"
+                   placeholder="Confirm password"
+                   component={Input}
+                   validate={[required]}
+            />
           </label>
         </div>
       </div>
-      <input type="hidden" name="recoveryToken" value="${recovery Token}"/>
+      <div>
+        {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
+      </div>
+      <label className={userStyle.user__submitLabel}>
+        <button className={userStyle.user__submitInput}>OK</button>
+      </label>
     </form>
   );
 }
 
-export default NewPasswordForm;
+export default reduxForm({form: "newPasswordForm"})(NewPasswordForm);
