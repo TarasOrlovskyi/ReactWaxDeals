@@ -10,5 +10,5 @@ export const emailValidation = value =>
 
 export const passwordValidation = value =>
   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)
-    ? "Password must be at least 8 characters long and contain numbers, lowercase and uppercase letters!"
+    ? "Password must be at least 8 characters long and contain numbers, lowercase and uppercase letters"
     : undefined;

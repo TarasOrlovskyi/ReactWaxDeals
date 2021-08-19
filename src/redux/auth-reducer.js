@@ -16,7 +16,7 @@ let initialAuthUserData = {
   role: null,
   status: false,
   isAuth: false,
-  isWaitResponse: true,
+  isWaitResponse: false,
   isMailConfirm: false,
   isProfileEdited: false,
   isProfileDeleted: false
@@ -161,41 +161,11 @@ export const confirmEmail = (confirmToken) => dispatch => {
   dispatch(setIsWaitResponse(true));
   authApi.confirmEmailRequest(confirmToken)
     .then(responseData => {
-      debugger
       if (responseData.data.resultCode === "0") {
         dispatch(setIsMailConfirm(true));
       }
       dispatch(setIsWaitResponse(false));
     })
-
-  // dispatch(setIsWaitResponse(true));
-  // let responseData = authApi.confirmEmailRequest(confirmToken);
-  // if (responseData.data.resultCode === "0") {
-  //   dispatch(setIsMailConfirm(true));
-  // }
-  // dispatch(setIsWaitResponse(false));
-  /**
-   * if confirm response from back with a user and token
-   //  * */
-  // let responseData = authApi.confirmEmailRequest(confirmToken);
-  // if (responseData.data.resultCode === "0") {
-  //   localStorage.setItem("token", responseData.data.token);
-  //   let {id, email, discogsUserName, role, status} = responseData.data.user;
-  //   dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
-  //   dispatch(setIsWaitResponse(false));
-  // } else {
-  //   dispatch(setIsWaitResponse(false));
-  // }
-  //---
-  // return authApi.confirmEmailRequest(confirmToken)
-  //   .then(responseData => {
-  //     if (responseData.data.resultCode === "0"){
-  //       localStorage.setItem("token", responseData.data.token);
-  //       let {id, email, discogsUserName, role, status} = responseData.data.user;
-  //       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
-  //     }
-  //   })
 }
-
 
 export default authReducer;

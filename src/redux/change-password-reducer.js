@@ -25,12 +25,9 @@ export const setIsPasswordChanged = (isPasswordChanged) => ({
 })
 
 export const changePassword = (oldPassword, newPassword, confirmNewPassword) => dispatch => {
-  debugger
   if (newPassword !== confirmNewPassword){
-    debugger
     dispatch(stopSubmit('changePasswordForm', {_error: 'New Password and Confirm Password must match!'}));
   } else {
-    debugger
     let responseData = authApi.changePasswordRequest(oldPassword, newPassword, confirmNewPassword);
     if (responseData.data.resultCode === "0") {
       dispatch(setIsPasswordChanged(true));

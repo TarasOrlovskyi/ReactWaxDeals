@@ -19,7 +19,7 @@ export const authApi = {
       });
   },
   userLogOut() {
-    return axiosWithSetting.get(`successlogout`);
+    return axiosWithSetting.get(`logout`);
   },
   userLogIn(email, password) {
     return axiosWithSetting.post(`login`, {email, password})
@@ -71,6 +71,24 @@ export const authApi = {
     //   .catch(error => {
     //     return error.response;
     //   });
+  },
+  sendRecoveryPasswordRequest(email){
+    return axiosWithSetting.post(`/password-recovery`, {email})
+      .catch(error => {
+        return error.response;
+      });
+  },
+  checkRecoveryTokenRequest(recoveryToken){
+    return axiosWithSetting.get(`/password-recovery?token=${recoveryToken}`)
+      .catch(error => {
+        return error.response;
+      });
+  },
+  changeRecoveryPasswordRequest(newPassword, newPasswordConfirmation, token){
+    return axiosWithSetting.put(`/password-recovery`, {newPassword, newPasswordConfirmation, token})
+      .catch(error => {
+        return error.response;
+      });
   }
 }
 
@@ -103,12 +121,12 @@ export const registrationApi = {
 
 export const contactUsApi = {
   contactUsRequest(name, email, contactUsMessage, recaptchaToken){
-    return {
-      data: {
-        resultCode: "0",
-        message: `WTF!!`
-      }
-    }
-    // return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken})
+    // return {
+    //   data: {
+    //     resultCode: "0",
+    //     message: `WTF!!`
+    //   }
+    // }
+    return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken})
   }
 }

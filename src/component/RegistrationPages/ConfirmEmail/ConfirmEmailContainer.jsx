@@ -11,7 +11,9 @@ class ConfirmEmailContainer extends React.Component{
   componentDidMount() {
     const search = this.props.location.search;
     const token = new URLSearchParams(search).get("token");
-    this.props.confirmEmail(token);
+    if (token){
+      this.props.confirmEmail(token);
+    }
   }
 
   render() {

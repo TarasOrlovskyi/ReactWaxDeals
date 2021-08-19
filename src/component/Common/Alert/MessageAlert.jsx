@@ -5,13 +5,12 @@ const MessageAlert = (props) => {
   return (
     <div className={alertsStyle.alertWrapper}>
       <div className={alertsStyle.pageAlert + ' ' + alertsStyle.commonAlert}>
-
-        {props.letterImage &&
+        <div className={alertsStyle.pageAlert + ' ' + alertsStyle.pageAlert__message}>
+          {props.letterImage &&
           <div>
             <img src={props.letterImage} alt='letter'/>
           </div>
-        }
-        <div className={alertsStyle.pageAlert}>
+          }
           {props.messages}
         </div>
         {props.agreeButtons &&

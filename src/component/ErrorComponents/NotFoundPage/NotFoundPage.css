@@ -1,0 +1,31 @@
+.errorPage__content {
+  padding: 10.61em 0;
+}
+
+.errorPage_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.errorPage__image {
+  padding-bottom: 2.22em;
+  text-align: center;
+}
+
+.errorPage__title {
+  padding-bottom: 0.27em;
+}
+
+.errorPage__text {
+  padding-bottom: 1.11em;
+  align-items: center;
+}
+
+.errorPage__redirectLink{
+  text-decoration: underline;
+
+}
+
+

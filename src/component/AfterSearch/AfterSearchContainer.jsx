@@ -3,11 +3,15 @@ import React from "react";
 import Catalog from "../VinylPages/Catalog/Catalog";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
+import EmptyPageAfterSearch from "./EmptyPageAfterSearch/EmptyPageAfterSearch";
 
 class AfterSearchContainer extends React.Component {
 
   render() {
-    return <Catalog vinylList={this.props.vinyls}/>
+    if (this.props.vinyls.length > 0){
+      return <Catalog vinylList={this.props.vinyls}/>
+    }
+    return <EmptyPageAfterSearch/>
   }
 }
 
