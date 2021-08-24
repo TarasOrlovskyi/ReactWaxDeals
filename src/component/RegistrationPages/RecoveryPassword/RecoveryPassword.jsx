@@ -17,7 +17,7 @@ const RecoveryPassword = (props) => {
         <div className="searchArea">
         </div>
         <div className={s.contentRecoveryPassword}>
-          {props.isRecoveryMailSent &&
+          {(props.isInfoAlert && props.page === "RecoveryPassword") &&
             <MessageAlert
               turnOffAlert={props.turnOffAlert}
               messages={[firstAlertString,secondAlertString]}

@@ -9,19 +9,11 @@ import {Provider} from "react-redux";
 import {positions, Provider as AlertProvider, transitions, types} from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
-const options = {
-  type: types.SUCCESS,
-  timeout: 10000,
-  transition: transitions.SCALE
-}
-
 // let renderAll = () => {
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <AlertProvider template={AlertTemplate} {...options}>
-        <App/>
-      </AlertProvider>
+      <App/>
     </Provider>
   </BrowserRouter>, document.getElementById('root')
 );

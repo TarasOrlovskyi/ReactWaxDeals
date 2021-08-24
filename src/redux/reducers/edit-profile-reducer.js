@@ -1,4 +1,6 @@
-const SET_DELETE_PROFILE_QUESTION = "SET_DELETE_PROFILE_QUESTION";
+// const SET_DELETE_PROFILE_QUESTION = "SET_DELETE_PROFILE_QUESTION";
+
+import * as actionTypes from "../actions/actionTypes";
 
 let initialEditProfileState = {
   isDeleteProfileQuestion: false
@@ -6,7 +8,7 @@ let initialEditProfileState = {
 
 const editProfileReducer = (state = initialEditProfileState, action) => {
   switch (action.type) {
-    case SET_DELETE_PROFILE_QUESTION:
+    case actionTypes.SET_DELETE_PROFILE_QUESTION:
       return {
         ...state,
         isDeleteProfileQuestion: action.isDeleteProfileQuestion
@@ -16,9 +18,9 @@ const editProfileReducer = (state = initialEditProfileState, action) => {
   }
 };
 
-export const setIsDeleteProfileQuestion = (isDeleteProfileQuestion) => ({
-  type: SET_DELETE_PROFILE_QUESTION,
-  isDeleteProfileQuestion
-})
+// export const setIsDeleteProfileQuestion = (isDeleteProfileQuestion) => ({
+//   type: SET_DELETE_PROFILE_QUESTION,
+//   isDeleteProfileQuestion
+// })
 
 export default editProfileReducer;

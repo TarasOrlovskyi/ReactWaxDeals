@@ -14,14 +14,14 @@ const EditProfile = (props) => {
         <div className="searchArea">
         </div>
         {
-          props.isProfileEdited &&
+          (props.isInfoAlert && props.page === "EditProfile") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
             messages="Your profile has been edited"
           />
         }
         {
-          props.isDeleteProfileQuestion &&
+          (props.isQuestionAlert && props.page === "EditProfile") &&
           <MessageAlert
             messages={[firstAlertString, secondAlertString]}
             agreeButtons={props.deleteUserProfile}

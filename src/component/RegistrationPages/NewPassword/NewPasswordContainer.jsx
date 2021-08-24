@@ -2,10 +2,10 @@ import {connect} from "react-redux";
 import NewPassword from "./NewPassword";
 import {compose} from "redux";
 import React from "react";
-import {changeRecoveryPassword, checkRecoveryToken} from "../../../redux/new-password-reducer";
 import {NavLink, Redirect, withRouter} from "react-router-dom";
 import alertsStyle from "../../Common/Alert/Alert.module.css";
 import MessageAlert from "../../Common/Alert/MessageAlert";
+import {changeRecoveryPassword, checkRecoveryToken} from "../../../redux/actions/newPasswordActions";
 
 class NewPasswordContainer extends React.Component {
 
@@ -24,7 +24,8 @@ class NewPasswordContainer extends React.Component {
   }
 
   render() {
-    if (this.props.isNewPasswordUpdated) {
+    debugger
+    if (this.props.isInfoAlert && this.props.page === "NewPasswordUpdated") {
       return <Redirect to='/signIn'/>
     } else if (!this.props.isWaitRecoveryResponse && !this.props.isRecoveryTokenValid) {
       let firstAlertString = <p>Sorry, but your link is incorrect!</p>
@@ -50,7 +51,9 @@ let mapStateToProps = (state) => {
     isRecoveryTokenValid: state.newPasswordPage.isRecoveryTokenValid,
     isWaitRecoveryResponse: state.newPasswordPage.isWaitRecoveryResponse,
     recoveryToken: state.newPasswordPage.recoveryToken,
-    isNewPasswordUpdated: state.newPasswordPage.isNewPasswordUpdated
+    isInfoAlert: state.alert.isInfoAlert,
+    page: state.alert.page
+    // isNewPasswordUpdated: state.newPasswordPage.isNewPasswordUpdated
   };
 };
 

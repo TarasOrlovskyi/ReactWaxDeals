@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import ChangePassword from "./ChangePassword";
 import {compose} from "redux";
-import {changePassword, setIsPasswordChanged} from "../../../redux/change-password-reducer";
 import React from "react";
+import {changePassword, setIsPasswordChanged} from "../../../redux/actions/changePasswordActions";
 
 class ChangePasswordContainer extends React.Component{
 

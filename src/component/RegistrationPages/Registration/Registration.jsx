@@ -11,10 +11,6 @@ const Registration = (props) => {
 
   // const alert = useAlert();
 
-  let sendSignUpCredentials = (formData) => {
-    props.registerUser(formData.email, formData.password, formData.confirmPassword, formData.discogsUserName);
-  }
-
   // if (!props.message.length > 0) {
   //   return <MessageAlert message={props.message} cleanMessage={props.cleanMessage}/>
   // }
@@ -31,14 +27,14 @@ const Registration = (props) => {
         <div className="searchArea">
         </div>
         {
-          props.isRegistrationSuccess &&
+          (props.isInfoAlert && props.page === "Registration") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
             messages={[firstAlertString, secondAlertString]}
             letterImage={letterImage}
           />
         }
-        {props.isProfileDeleted &&
+        {(props.isInfoAlert && props.page === "ProfileDeleted") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
             messages="Your profile has been deleted already"
@@ -50,7 +46,7 @@ const Registration = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Registration</h2>
             </div>
-            <RegistrationForm onSubmit={sendSignUpCredentials}/>
+            <RegistrationForm onSubmit={props.onSubmit}/>
           </div>
         </div>
       </div>

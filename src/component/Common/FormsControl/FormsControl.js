@@ -3,7 +3,7 @@ import formControlStyle from "./FormControl.module.css";
 const FormsControl = ({input, meta, ...props}) => {
   const hasError = meta.touched && meta.error;
   return (
-    <div className={hasError && formControlStyle.elementError}>
+    <div className={hasError ? formControlStyle.elementError : undefined}>
       {props.children}
       {hasError && <span className={formControlStyle.textError}>{meta.error}</span>}
     </div>

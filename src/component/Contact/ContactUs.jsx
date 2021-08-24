@@ -7,12 +7,7 @@ import MessageAlert from "../Common/Alert/MessageAlert";
 import letterImage from "../../assets/img/alertImg/message_letter.png";
 
 const ContactUs = (props) => {
-
-  let sendContactUsData = (formData) => {
-    debugger
-    props.sendContactUsForm(formData.name, formData.email, formData.contactUsMessage, formData.recaptchaToken);
-  }
-
+debugger
   return (
     <main>
       <div className="container">
@@ -20,7 +15,7 @@ const ContactUs = (props) => {
         </div>
         <div className={contactStyle.contentContactUsPage}>
           {
-            props.isContactUsSuccess &&
+            (props.isInfoAlert && props.page === "ContactUs") &&
               <MessageAlert
                 turnOffAlert={props.turnOffAlert}
                 messages={["Your letter has been sent.","We will contact you as soon as possible."]}
@@ -32,7 +27,7 @@ const ContactUs = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Contact us</h2>
             </div>
-            <ContactUsForm onSubmit={sendContactUsData}/>
+            <ContactUsForm onSubmit={props.onSubmit}/>
           </div>
         </div>
       </div>

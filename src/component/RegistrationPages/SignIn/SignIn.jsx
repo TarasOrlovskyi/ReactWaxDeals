@@ -14,10 +14,6 @@ const SignIn = (props) => {
     return <Redirect to={"/profile"}/>
   }
 
-  let sendSignInCredentials = (formData) => {
-    props.doLogIn(formData.email, formData.password);
-  }
-
   return (
     <main className="main">
       <div className="container">
@@ -26,13 +22,13 @@ const SignIn = (props) => {
         <div className={signInStyle.contentSignIn}>
           {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           {
-            props.isMailConfirm &&
+            (props.isInfoAlert && props.page === "ConfirmEmail") &&
               <MessageAlert turnOffAlert={props.turnOffAlert}
                             messages={"Your email is verified. You can log in now."}
               />
           }
           {
-            props.isNewPasswordUpdated &&
+            (props.isInfoAlert && props.page === "NewPasswordUpdated") &&
               <MessageAlert turnOffAlert={props.turnOffAlert}
                             messages={"Your password has been changed."}
               />
@@ -41,7 +37,7 @@ const SignIn = (props) => {
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>
             </div>
-            <SignInForm onSubmit={sendSignInCredentials}/>
+            <SignInForm onSubmit={props.onSubmit}/>
             <RectangleLine/>
             <SocialNetwork/>
           </div>

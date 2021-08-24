@@ -2,47 +2,48 @@ import EditProfile from "./EditProfile";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import React from "react";
-import {deleteUserProfile, editUserProfile, setIsProfileEdited} from "../../../redux/auth-reducer";
-import {setIsDeleteProfileQuestion} from "../../../redux/edit-profile-reducer";
 import {Redirect} from "react-router-dom";
+import {deleteUserProfile, editUserProfile} from "../../../redux/actions/authActions";
+import {activateInfoAlert, activateQuestionAlert} from "../../../redux/actions/alertActions";
 
 class EditProfileContainer extends React.Component {
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.isProfileEdited || this.props.isDeleteProfileQuestion){
-      setTimeout(()=> {
-        this.props.setIsProfileEdited(false);
-        this.props.setIsDeleteProfileQuestion(false);
-      }, 10000);
-    }
-  }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   if (this.props.isProfileEdited){
+  //     setTimeout(()=> {
+  //       this.props.setIsProfileEdited(false);
+  //     }, 10000);
+  //   }
+  // }
 
   changeProfileData = (formData) => {
-    debugger
     this.props.editUserProfile(formData.email, formData.discogsUserName);
   }
 
   turnOnDeleteProfileAlert = () => {
-    this.props.setIsDeleteProfileQuestion(true);
+    this.props.activateQuestionAlert(true, "EditProfile");
   }
 
   turnOffAlert = () => {
-    this.props.setIsProfileEdited(false);
-    this.props.setIsDeleteProfileQuestion(false);
+    this.props.activateInfoAlert(false, "");
+    //this.props.setIsProfileEdited(false);
+    this.props.activateQuestionAlert(false, "");
   }
 
   render() {
-
-    if (this.props.isProfileDeleted){
+    if (this.props.isInfoAlert && this.props.page === "ProfileDeleted"){
       return <Redirect to='/signUp'/>
     }
 
     return (
       <EditProfile initialValues={this.props.initialValues}
                    onSubmit={this.changeProfileData}
-                   isProfileEdited={this.props.isProfileEdited}
+                   // isProfileEdited={this.props.isProfileEdited}
                    turnOffAlert={this.turnOffAlert}
-                   isDeleteProfileQuestion={this.props.isDeleteProfileQuestion}
+                   // isDeleteProfileQuestion={this.props.isDeleteProfileQuestion}
+                   isInfoAlert={this.props.isInfoAlert}
+                   isQuestionAlert={this.props.isQuestionAlert}
+                   page={this.props.page}
                    turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
                    deleteUserProfile={this.props.deleteUserProfile}
       />
@@ -55,10 +56,12 @@ const mapStateToProps = (state) => ({
     email: state.auth.email,
     discogsUserName: state.auth.discogsUserName
   },
-  isProfileEdited: state.auth.isProfileEdited,
-  isProfileDeleted: state.auth.isProfileDeleted,
-  isDeleteProfileQuestion: state.editProfilePage.isDeleteProfileQuestion
+  // isProfileEdited: state.auth.isProfileEdited,
+  // isProfileDeleted: state.auth.isProfileDeleted,
+  isInfoAlert: state.alert.isInfoAlert,
+  isQuestionAlert: state.alert.isQuestionAlert,
+  page: state.alert.page
 });
 
-export default compose(connect(mapStateToProps, {editUserProfile, setIsProfileEdited, setIsDeleteProfileQuestion, deleteUserProfile}))(EditProfileContainer);
+export default compose(connect(mapStateToProps, {editUserProfile, activateInfoAlert, activateQuestionAlert, deleteUserProfile}))(EditProfileContainer);
 
