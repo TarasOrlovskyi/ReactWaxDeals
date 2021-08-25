@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const jwtToken = localStorage.token ? localStorage.token : '';
+let jwtToken = localStorage.token ? localStorage.token : '';
 
 const axiosWithSetting = axios.create({
   // withCredentials: true,
@@ -27,16 +27,18 @@ export const authApi = {
   },
   editProfileRequest(email, discogsUserName) {
     return axiosWithSetting.put(`profile`, {email, discogsUserName},
-      // {headers: {'Authorization': `${localStorage.token}`}}
+      {headers: {'Authorization': `${localStorage.token}`}}
     );
   },
   deleteProfileRequest(userId) {
-    return axiosWithSetting.delete(`profile/${userId}`);
+    return axiosWithSetting.delete(`profile/${userId}`,
+      {headers: {'Authorization': `${localStorage.token}`}}
+      );
   },
   changePasswordRequest(oldPassword, newPassword, newPasswordConfirmation){
     // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword});
-    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation}
-      // {headers: {'Authorization': `${localStorage.token}`}}
+    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation},
+      {headers: {'Authorization': `${localStorage.token}`}}
     );
   },
   sendRecoveryPasswordRequest(email){
