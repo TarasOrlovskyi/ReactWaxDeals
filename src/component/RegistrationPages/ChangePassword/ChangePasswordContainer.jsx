@@ -3,12 +3,13 @@ import ChangePassword from "./ChangePassword";
 import {compose} from "redux";
 import React from "react";
 import {changePassword, setIsPasswordChanged} from "../../../redux/actions/changePasswordActions";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
-class ChangePasswordContainer extends React.Component{
+class ChangePasswordContainer extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.isPasswordChanged){
-      setTimeout(()=> {
+    if (this.props.isPasswordChanged) {
+      setTimeout(() => {
         this.props.setIsPasswordChanged(false);
       }, 10000);
     }
@@ -38,6 +39,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps,
+export default compose(withAuthRedirect, connect(mapStateToProps,
   {changePassword, setIsPasswordChanged}))(ChangePasswordContainer);
 

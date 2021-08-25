@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../Common/FormsControl/FormsControl";
-import {emailValidation, maxLength, passwordValidation, required} from "../../../../utils/validators/validators";
+import {emailValidation, maxLength, required} from "../../../../utils/validators/validators";
 
 const maxLength50 = maxLength(50);
 

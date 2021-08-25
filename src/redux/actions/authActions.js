@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import {authApi} from "../../api/api";
 import store from "../redux";
-import {handleFormsError, handleHttpError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
 
 export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
@@ -14,26 +14,11 @@ export const setIsWaitResponse = (isWaitResponse) => ({
   isWaitResponse
 })
 
-// export const setIsMailConfirm = (isMailConfirm) => ({
-//   type: actionTypes.SET_IS_MAIL_CONFIRM,
-//   isMailConfirm
-// })
-
 export const setEditProfileData = (email, discogsUserName) => ({
   type: actionTypes.SET_EDIT_PROFILE_DATA,
   email,
   discogsUserName
 })
-
-// export const setIsProfileEdited = (isProfileEdited) => ({
-//   type: actionTypes.SET_IS_PROFILE_EDITED,
-//   isProfileEdited
-// })
-
-// export const setIsProfileDeleted = (isProfileDeleted) => ({
-//   type: actionTypes.SET_IS_PROFILE_DELETED,
-//   isProfileDeleted
-// })
 
 export const getUserAuthData = () => async dispatch => {
   if (localStorage.token == null) {
@@ -42,14 +27,18 @@ export const getUserAuthData = () => async dispatch => {
     });
   }
   try {
+    debugger
+    // localStorage.removeItem("token");
     let responseData = await authApi.checkAuth();
     if (responseData.status === 200) {
       let {id, email, discogsUserName, role, status} = responseData.data.user;
       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
     }
   } catch (error) {
+    debugger
     let errorStatus = error.response.status;
-    if (errorStatus === 401) {
+    // if (errorStatus === 401) { //this is write
+    if (errorStatus === 401 || errorStatus === 500) {
       localStorage.removeItem("token");
       dispatch(setAuthUserData(null, null, null, null, false, false));
     } else {
@@ -89,8 +78,6 @@ export const getUserLogInData = (email, password) => async dispatch => {
     } else {
       return returnUnhandledRejection(errorStatus);
     }
-    // console.log(error.response.data.message)
-    // console.log(error.response.status)
   }
 }
 
@@ -102,13 +89,13 @@ export const editUserProfile = (email, discogsUserName) => async dispatch => {
       dispatch(setEditProfileData(email, discogsUserName));
       dispatch(activateInfoAlert(true, "EditProfile"));
     }
-  } catch (error){
+  } catch (error) {
     let errorStatus = error.response.status;
     dispatch(setIsWaitResponse(false));
     if (errorStatus === 403 || errorStatus === 401) {
       localStorage.removeItem("token");
       dispatch(setAuthUserData(null, null, null, null, false, false));
-    } else if (errorStatus === 400){
+    } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {
       return returnUnhandledRejection(errorStatus);
@@ -128,13 +115,13 @@ export const deleteUserProfile = () => async dispatch => {
       dispatch(activateInfoAlert(true, "ProfileDeleted"));
       dispatch(setIsWaitResponse(false));
     }
-  } catch (error){
+  } catch (error) {
     let errorStatus = error.response.status;
     dispatch(setIsWaitResponse(false));
     if (errorStatus === 403 || errorStatus === 401) {
       localStorage.removeItem("token");
       dispatch(setAuthUserData(null, null, null, null, false, false));
-    } else if (errorStatus === 400){
+    } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {
       return returnUnhandledRejection(errorStatus);
@@ -148,10 +135,9 @@ export const confirmEmail = (confirmToken) => async dispatch => {
     let responseData = await authApi.confirmEmailRequest(confirmToken)
     if (responseData.status === 200) {
       dispatch(activateInfoAlert(true, "ConfirmEmail"));
-      // dispatch(setIsMailConfirm(true));
     }
   } catch (error) {
-    if (error.response.status === 403){
+    if (error.response.status === 403) {
       dispatch(setIsWaitResponse(false));
     } else {
       dispatch(setIsWaitResponse(false));

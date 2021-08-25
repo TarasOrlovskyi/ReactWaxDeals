@@ -1,7 +1,4 @@
-import {vinylApi} from "../../api/api";
 import * as actionTypes from "../actions/actionTypes";
-
-// const UPDATE_ONE_VINYL_PAGE = 'UPDATE_ONE_VINYL_PAGE';
 
 let initialOneVinylState = {
   firstVinyl: {},
@@ -13,7 +10,7 @@ let initialOneVinylState = {
 const oneVinylReducer = (state = initialOneVinylState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_ONE_VINYL_PAGE:
-      return{
+      return {
         ...state,
         firstVinyl: action.firstVinyl,
         discogsLink: action.discogsLink,
@@ -24,28 +21,5 @@ const oneVinylReducer = (state = initialOneVinylState, action) => {
       return state;
   }
 }
-
-// export const refreshOneVinyl = (firstVinyl, discogsLink, vinylOffersList, vinylsByArtist) => {
-//   return {
-//     type: UPDATE_ONE_VINYL_PAGE,
-//     firstVinyl,
-//     discogsLink,
-//     vinylOffersList,
-//     vinylsByArtist
-//   }
-// }
-//
-// export const getOneVinyl = (vinylId) => {
-//   return (dispatch) => {
-//     vinylApi.getOneVinylResponse(vinylId)
-//       .then(response => {
-//         dispatch(refreshOneVinyl(
-//           response.data.mainVinyl,
-//           response.data.discogsLink,
-//           response.data.offersList,
-//           response.data.vinylsByArtistList)
-//         )});
-//   }
-// }
 
 export default oneVinylReducer;

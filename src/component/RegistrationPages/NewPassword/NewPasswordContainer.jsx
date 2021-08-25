@@ -10,9 +10,7 @@ import {changeRecoveryPassword, checkRecoveryToken} from "../../../redux/actions
 class NewPasswordContainer extends React.Component {
 
   componentDidMount() {
-    debugger
-    const search = this.props.location.search;
-    const token = new URLSearchParams(search).get("token");
+    let token = this.props.match.params.token;
     if (token) {
       this.props.checkRecoveryToken(token);
     }
@@ -24,7 +22,6 @@ class NewPasswordContainer extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.isInfoAlert && this.props.page === "NewPasswordUpdated") {
       return <Redirect to='/signIn'/>
     } else if (!this.props.isWaitRecoveryResponse && !this.props.isRecoveryTokenValid) {
@@ -53,7 +50,6 @@ let mapStateToProps = (state) => {
     recoveryToken: state.newPasswordPage.recoveryToken,
     isInfoAlert: state.alert.isInfoAlert,
     page: state.alert.page
-    // isNewPasswordUpdated: state.newPasswordPage.isNewPasswordUpdated
   };
 };
 

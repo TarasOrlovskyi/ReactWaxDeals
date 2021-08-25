@@ -1,7 +1,4 @@
-import {storesApi} from "../../api/api";
 import * as actionTypes from "../actions/actionTypes";
-
-// const UPDATE_STORES_ON_STORES_PAGE = 'UPDATE_STORES_ON_STORES_PAGE';
 
 let initStoresState = {
   stores: []
@@ -18,21 +15,5 @@ const storesReducer = (state = initStoresState, action) => {
       return state;
   }
 }
-
-// export const refreshStores = (stores) => (
-//   {
-//     type: UPDATE_STORES_ON_STORES_PAGE,
-//     stores
-//   }
-// );
-//
-// export const getStores = () => {
-//   return (dispatch) => {
-//     storesApi.getStoresResponse()
-//       .then(stores => {
-//         dispatch(refreshStores(stores.data));
-//       });
-//   }
-// }
 
 export default storesReducer;

@@ -3,12 +3,12 @@ import SocialNav from "./SocialNav/SocialNav";
 import Copyright from "./Copyright/Copyright";
 
 const Footer = () => {
-  return(
+  return (
     <footer>
       <div className="container">
         <div className={s.footer__row}>
-          <SocialNav />
-          <Copyright />
+          <SocialNav/>
+          <Copyright/>
         </div>
       </div>
     </footer>

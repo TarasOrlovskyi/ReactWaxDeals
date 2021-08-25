@@ -5,13 +5,13 @@ const SocialNav = () => {
     <nav className={s.footer__socialNav}>
       <ul className={s.footer__socialIcons}>
         <li>
-          <a href='#' className={s.footer__socialIcon + ' ' + s.facebook}/>
+          <a href='https://www.facebook.com/' className={s.footer__socialIcon + ' ' + s.facebook}/>
         </li>
         <li>
-          <a href="#" className={s.footer__socialIcon + ' ' + s.instagram}/>
+          <a href="https://www.instagram.com/" className={s.footer__socialIcon + ' ' + s.instagram}/>
         </li>
         <li>
-          <a href="#" className={s.footer__socialIcon + ' ' + s.youtube}/>
+          <a href="https://www.youtube.com/" className={s.footer__socialIcon + ' ' + s.youtube}/>
         </li>
       </ul>
     </nav>

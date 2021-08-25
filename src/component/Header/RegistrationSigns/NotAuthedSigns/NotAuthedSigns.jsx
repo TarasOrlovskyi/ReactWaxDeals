@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 import registrationSignsStyle from "../RegistrationSigns.module.css";
 
 const NotAuthedSigns = () => {
-  return(
+  return (
     <div className={registrationSignsStyle.header__loginSigns}>
       <NavLink to="/signIn" className={registrationSignsStyle.header__loginButtons}>
         <span className={registrationSignsStyle.tooltiptext}>LogIn</span>

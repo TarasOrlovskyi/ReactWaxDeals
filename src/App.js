@@ -41,6 +41,7 @@ class App extends Component {
 
   render() {
 
+    //add preloader
     if (!this.props.initialized) {
       return (
         <div>
@@ -74,7 +75,7 @@ class App extends Component {
           <Route exact path="/profile" render={() =>
             <ProfileContainer/>
           }/>
-          <Route exact path="/new-password" render={() =>
+          <Route exact path="/new-password/:token" render={() =>
             <NewPasswordContainer/>
           }/>
           <Route exact path="/edit-profile" render={() =>
@@ -98,7 +99,7 @@ class App extends Component {
           <Route exact path="/search" render={() =>
             <AfterSearchContainer/>
           }/>
-          <Route exact path="/email-confirmation" render={() =>
+          <Route exact path="/email-confirmation/:token" render={() =>
             <ConfirmEmailContainer/>
           }/>
           <Route path="/500" render={() =>

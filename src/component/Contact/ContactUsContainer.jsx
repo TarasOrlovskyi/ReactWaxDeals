@@ -2,23 +2,13 @@ import {connect} from "react-redux";
 import ContactUs from "./ContactUs";
 import {compose} from "redux";
 import React from "react";
-import {sendContactUsForm, setIsContactUsSuccess} from "../../redux/actions/contactUsActions";
+import {sendContactUsForm} from "../../redux/actions/contactUsActions";
 import {withRouter} from "react-router-dom";
-import EditProfile from "../RegistrationPages/EditProfile/EditProfile";
 import {activateInfoAlert} from "../../redux/actions/alertActions";
 
-class ContactUsContainer extends React.Component{
-
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   if (this.props.isContactUsSuccess){
-  //     setTimeout(()=> {
-  //       this.props.setIsContactUsSuccess(false);
-  //     }, 10000);
-  //   }
-  // }
+class ContactUsContainer extends React.Component {
 
   turnOffAlert = () => {
-    // this.props.setIsContactUsSuccess(false);
     this.props.activateInfoAlert(false, "");
   }
 
@@ -27,13 +17,11 @@ class ContactUsContainer extends React.Component{
   }
 
   render() {
-    debugger
-    return(
+    return (
       <ContactUs onSubmit={this.sendContactUsData}
                  turnOffAlert={this.turnOffAlert}
                  isInfoAlert={this.props.isInfoAlert}
                  page={this.props.page}
-                 // isContactUsSuccess={this.props.isContactUsSuccess}
       />
     );
   }
@@ -41,10 +29,12 @@ class ContactUsContainer extends React.Component{
 
 let mapStateToProps = (state) => {
   return {
-    // isContactUsSuccess: state.contactUsPage.isContactUsSuccess
     isInfoAlert: state.alert.isInfoAlert,
     page: state.alert.page
   };
 };
 
-export default compose(withRouter, connect(mapStateToProps, {activateInfoAlert, sendContactUsForm}))(ContactUsContainer);
+export default compose(withRouter, connect(mapStateToProps, {
+  activateInfoAlert,
+  sendContactUsForm
+}))(ContactUsContainer);

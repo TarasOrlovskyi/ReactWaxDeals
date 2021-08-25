@@ -8,7 +8,7 @@ import {emailValidation, maxLength, required} from "../../../../utils/validators
 const maxLength50 = maxLength(50);
 
 const RecoveryPasswordForm = (props) => {
-  return(
+  return (
     <form className={userStyle.user + ' ' + s.recoveryUser} onSubmit={props.handleSubmit}>
       <div className={userStyle.user__fieldsWrapper}>
         <div className={userStyle.user__fields + ' ' + s.recoveryUser__fields}>

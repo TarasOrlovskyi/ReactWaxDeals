@@ -1,51 +1,54 @@
-.contentEditProfile{
-    height: 23.66em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.contentEditProfile {
+  height: 23.66em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.contentEditProfile__column{
-    height: 23.05em;
-    width: 19.44em;
-    position: relative;
+.contentEditProfile__column {
+  height: 23.05em;
+  width: 19.44em;
+  position: relative;
 }
 
-.editProfileUser{
-    height: 17.77em;
+.editProfileUser {
+  height: 17.77em;
 }
 
-.editProfileUser__fields{
-    height: 7.22em;
-}
-.editProfileUser__nav{
-    height: 6.66em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-.editProfileUser__changePassword{
-    color: #F6A325;
-    font-size: 1.33em;
-    text-decoration: underline;
-}
-.editProfileUser__deleteProfile{
-    font-size: 0.77em;
-    text-decoration: underline;
-    /*margin-bottom: 3.64em;*/
-    position: absolute;
-    right: 9.52em;
-    bottom: 6.50em;
-    background: transparent no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    /*outline:none;*/
-    color: #ffffff;
+.editProfileUser__fields {
+  height: 7.22em;
 }
 
-.editProfileUser__deleteProfile:hover{
-    text-decoration: none;
+.editProfileUser__nav {
+  height: 6.66em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editProfileUser__changePassword {
+  color: #F6A325;
+  font-size: 1.33em;
+  text-decoration: underline;
+}
+
+.editProfileUser__deleteProfile {
+  font-size: 0.77em;
+  text-decoration: underline;
+  /*margin-bottom: 3.64em;*/
+  position: absolute;
+  right: 9.52em;
+  bottom: 6.50em;
+  background: transparent no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  /*outline:none;*/
+  color: #ffffff;
+}
+
+.editProfileUser__deleteProfile:hover {
+  text-decoration: none;
 }

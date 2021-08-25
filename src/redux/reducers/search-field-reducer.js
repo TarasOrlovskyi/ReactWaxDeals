@@ -1,5 +1,3 @@
-// const UPDATE_SEARCH_FIELD = 'UPDATE_SEARCH_FIELD';
-
 import * as actionTypes from "../actions/actionTypes";
 
 let initialSearchFieldState = {
@@ -17,12 +15,5 @@ const searchFieldReducer = (state = initialSearchFieldState, action) => {
       return state;
   }
 };
-
-// export const updateSearchField = (searchFieldText) => (
-//   {
-//     type: UPDATE_SEARCH_FIELD,
-//     searchFieldText
-//   }
-// );
 
 export default searchFieldReducer;

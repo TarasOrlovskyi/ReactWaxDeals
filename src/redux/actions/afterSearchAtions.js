@@ -13,7 +13,7 @@ export const getSearchResult = (searchQuery) => async dispatch => {
   try {
     let responseData = await vinylApi.getAfterSearchResponse(searchQuery);
     dispatch(refreshSearchVinyls(responseData.data));
-  } catch (error){
+  } catch (error) {
     return returnUnhandledRejection(error.response.status);
   }
 }

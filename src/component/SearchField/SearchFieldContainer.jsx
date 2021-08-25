@@ -11,7 +11,7 @@ class SearchFieldContainer extends React.Component {
   componentDidMount() {
     const search = this.props.location.search;
     const searchQuery = new URLSearchParams(search).get("matcher");
-    if (searchQuery){
+    if (searchQuery) {
       this.props.getSearchResult(searchQuery);
     }
   }
@@ -35,4 +35,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(withRouter, connect(mapStateToProps, {updateSearchField, getSearchResult}))(SearchFieldContainer);
+export default compose(withRouter, connect(mapStateToProps, {
+  updateSearchField,
+  getSearchResult
+}))(SearchFieldContainer);

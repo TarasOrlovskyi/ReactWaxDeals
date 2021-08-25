@@ -2,18 +2,12 @@ import * as actionTypes from './actionTypes';
 import {authApi} from "../../api/api";
 import {stopSubmit} from "redux-form";
 import {handleFormsError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
-import {setIsWaitResponse} from "./authActions";
 import {activateInfoAlert} from "./alertActions";
 
 export const setIsWaitRecoveryResponse = (isWaitRecoveryResponse) => ({
   type: actionTypes.SET_IS_WAIT_RECOVERY_RESPONSE,
   isWaitRecoveryResponse
 });
-
-// export const setIsNewPasswordUpdated = (isNewPasswordUpdated) => ({
-//   type: actionTypes.SET_IS_NEW_PASSWORD_UPDATED,
-//   isNewPasswordUpdated
-// });
 
 export const setRecoveryData = (recoveryToken, isRecoveryTokenValid) => ({
   type: actionTypes.SET_RECOVERY_DATA,
@@ -33,7 +27,7 @@ export const checkRecoveryToken = (recoveryToken) => async dispatch => {
       dispatch(setRecoveryData(recoveryToken, true));
     }
   } catch (error) {
-    if (error.response.status === 403){
+    if (error.response.status === 403) {
       dispatch(setIsWaitRecoveryResponse(false));
     } else {
       dispatch(setIsWaitRecoveryResponse(false));
@@ -51,11 +45,10 @@ export const changeRecoveryPassword = (newPassword, confirmNewPassword, recovery
       if (responseData.status === 200) {
         dispatch(resetRecoveryDataAfterChangePassword());
         dispatch(activateInfoAlert(true, "NewPasswordUpdated"));
-        // dispatch(setIsNewPasswordUpdated(true));
       }
     } catch (error) {
       let errorStatus = error.response.status;
-      if (errorStatus === 403 || errorStatus === 400){
+      if (errorStatus === 403 || errorStatus === 400) {
         handleFormsError("newPasswordForm", dispatch, error.response.data.message);
       } else {
         return returnUnhandledRejection(errorStatus);

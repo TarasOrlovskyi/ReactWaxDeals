@@ -13,7 +13,7 @@ export const getVinylsCatalog = () => async dispatch => {
   try {
     let responseData = await vinylApi.getVinylsResponse();
     dispatch(refreshVinylList(responseData.data));
-  } catch (error){
+  } catch (error) {
     return returnUnhandledRejection(error.response.status);
   }
 }

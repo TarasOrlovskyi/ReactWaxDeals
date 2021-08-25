@@ -1,6 +1,5 @@
 import editProfileStyle from './EditProfile.module.css';
 import userStyle from '../User.module.css';
-import UserMessage from "../UserMessage/UserMessage";
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import React from "react";
 import MessageAlert from "../../Common/Alert/MessageAlert";
