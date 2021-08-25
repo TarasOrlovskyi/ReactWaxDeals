@@ -1,9 +1,9 @@
-.header__menu{
+.header__menu {
   flex: 1 1 auto;
   height: 5.22em;
 }
 
-.header__menuList{
+.header__menuList {
   display: flex;
   height: 3.6em;
   width: 49.5em;
@@ -12,15 +12,15 @@
   margin: 0 auto;
 }
 
-.header__menuList li{
+.header__menuList li {
   line-height: 1;
 }
 
-.header__menuItem{
+.header__menuItem {
   color: #ffffff;
   text-transform: uppercase;
 }
 
-.header__menuItem_active{
+.header__menuItem_active {
   color: #F7A325;
 }

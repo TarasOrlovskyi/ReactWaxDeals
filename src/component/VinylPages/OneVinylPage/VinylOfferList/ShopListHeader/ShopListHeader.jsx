@@ -3,7 +3,7 @@ import shopListHeader from "./ShopListHeader.module.css";
 import React from "react";
 
 const ShopListHeader = () => {
-  return(
+  return (
     <div className={vinylOfferListStyle.shopList__row + ' ' + shopListHeader.shopList__rowSecondTitle}>
       <div className={shopListHeader.shopList__secondItemTitle}>
         <div className={vinylOfferListStyle.shopList__title + ' ' + shopListHeader.shopList__shopWidth +

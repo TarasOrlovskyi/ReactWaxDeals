@@ -1,6 +1,5 @@
 import s from './RecoveryPassword.module.css';
 import userStyle from './../User.module.css';
-import UserMessage from "../UserMessage/UserMessage";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 import letterImage from "../../../assets/img/alertImg/message_letter.png";
 import React from "react";
@@ -17,12 +16,12 @@ const RecoveryPassword = (props) => {
         <div className="searchArea">
         </div>
         <div className={s.contentRecoveryPassword}>
-          {props.isRecoveryMailSent &&
-            <MessageAlert
-              turnOffAlert={props.turnOffAlert}
-              messages={[firstAlertString,secondAlertString]}
-              letterImage={letterImage}
-            />
+          {(props.isInfoAlert && props.page === "RecoveryPassword") &&
+          <MessageAlert
+            turnOffAlert={props.turnOffAlert}
+            messages={[firstAlertString, secondAlertString]}
+            letterImage={letterImage}
+          />
           }
           {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={s.contentRecoveryPassword__column + ' contentColumn'}>

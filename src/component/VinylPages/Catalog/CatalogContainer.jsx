@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import Catalog from "./Catalog";
-import {getVinylsCatalog} from "../../../redux/catalog-reducer";
 import React from "react";
 import {compose} from "redux";
+import {getVinylsCatalog} from "../../../redux/actions/catalogActions";
 
 class CatalogRequestContainer extends React.Component {
 

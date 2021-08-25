@@ -1,36 +1,26 @@
 import SignIn from "./SignIn";
 import {connect} from "react-redux";
 import React from "react";
-import {getUserLogInData, setIsMailConfirm} from "../../../redux/auth-reducer";
 import {compose} from "redux";
-import {setIsNewPasswordUpdated} from "../../../redux/new-password-reducer";
+import {getUserLogInData} from "../../../redux/actions/authActions";
+import {activateInfoAlert} from "../../../redux/actions/alertActions";
 
 class SignInContainer extends React.Component {
 
-  componentDidMount() {
-    if (this.props.isMailConfirm || this.props.isNewPasswordUpdated){
-      setTimeout(()=> {
-        this.props.setIsMailConfirm(false);
-        this.props.setIsNewPasswordUpdated(false);
-      }, 10000);
-    }
-  }
-
   turnOffAlert = () => {
-    this.props.setIsMailConfirm(false);
-    this.props.setIsNewPasswordUpdated(false);
+    this.props.activateInfoAlert(false, "");
   }
 
-  doLogIn = (email, password) => {
-    this.props.getUserLogInData(email, password);
+  doLogIn = (formData) => {
+    this.props.getUserLogInData(formData.email, formData.password);
   }
 
   render() {
     return (
       <SignIn isAuth={this.props.isAuth}
-              doLogIn={this.doLogIn}
-              isMailConfirm={this.props.isMailConfirm}
-              isNewPasswordUpdated={this.props.isNewPasswordUpdated}
+              onSubmit={this.doLogIn}
+              isInfoAlert={this.props.isInfoAlert}
+              page={this.props.page}
               turnOffAlert={this.turnOffAlert}
       />
     );
@@ -41,9 +31,9 @@ class SignInContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
-    isMailConfirm: state.auth.isMailConfirm,
-    isNewPasswordUpdated: state.newPasswordPage.isNewPasswordUpdated
+    isInfoAlert: state.alert.isInfoAlert,
+    page: state.alert.page
   };
 };
 
-export default compose(connect(mapStateToProps, {getUserLogInData, setIsMailConfirm, setIsNewPasswordUpdated}))(SignInContainer);
+export default compose(connect(mapStateToProps, {getUserLogInData, activateInfoAlert}))(SignInContainer);

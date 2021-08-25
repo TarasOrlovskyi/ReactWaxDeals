@@ -8,7 +8,7 @@ import EmptyPageAfterSearch from "./EmptyPageAfterSearch/EmptyPageAfterSearch";
 class AfterSearchContainer extends React.Component {
 
   render() {
-    if (this.props.vinyls.length > 0){
+    if (this.props.vinyls.length > 0) {
       return <Catalog vinylList={this.props.vinyls}/>
     }
     return <EmptyPageAfterSearch/>

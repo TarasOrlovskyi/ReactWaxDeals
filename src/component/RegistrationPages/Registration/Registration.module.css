@@ -1,4 +1,4 @@
-.contentRegistrationPage{
+.contentRegistrationPage {
   height: 30.70em;
   display: flex;
   flex-direction: column;
@@ -6,15 +6,15 @@
   align-items: center;
 }
 
-.contentRegistrationPage__column{
+.contentRegistrationPage__column {
   height: 27.92em;
   width: 19.44em;
 }
 
-.registrationPageUser{
+.registrationPageUser {
   height: 22.67em;
 }
 
-.registrationPageUser__fields{
+.registrationPageUser__fields {
   height: 16.11em;
 }

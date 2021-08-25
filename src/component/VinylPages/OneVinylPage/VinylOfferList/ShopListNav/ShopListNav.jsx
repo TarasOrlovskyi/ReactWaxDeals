@@ -4,7 +4,7 @@ import React from "react";
 import DiscogsLink from "./DiscogsLink/DiscogsLink";
 
 const ShopListNav = (props) => {
-  return(
+  return (
     <div className={vinylOfferListStyle.shopList__row + ' ' + shopListNavStyle.shopList__rowFirstTitle}>
       <div className={shopListNavStyle.shopList__item + ' ' + shopListNavStyle.shopList__firstItemTitle}>
         <div className={vinylOfferListStyle.shopList__title + ' ' + shopListNavStyle.shopList__menuItem_active}>

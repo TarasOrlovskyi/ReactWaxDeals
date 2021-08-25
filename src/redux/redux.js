@@ -1,41 +1,37 @@
-import registrationReducer from "./registration-reducer";
-import {applyMiddleware, combineReducers, createStore} from "redux";
-import searchFieldReducer from "./search-field-reducer";
-import recoveryPasswordReducer from "./recovery-password-reducer";
-import catalogReducer from "./catalog-reducer";
-import editProfileReducer from "./edit-profile-reducer";
-import changePasswordReducer from "./change-password-reducer";
-import oneVinylReducer from "./one-vinyl-reducer";
-import contactUsReducer from "./contact-us-reducer";
-import storesReducer from "./stores-reducer";
-import afterSearchReducer from "./after-search-reducer";
-import newPasswordReducer from "./new-password-reducer";
-import authReducer from "./auth-reducer";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import searchFieldReducer from "./reducers/search-field-reducer";
+import catalogReducer from "./reducers/catalog-reducer";
+import changePasswordReducer from "./reducers/change-password-reducer";
+import oneVinylReducer from "./reducers/one-vinyl-reducer";
+import storesReducer from "./reducers/stores-reducer";
+import afterSearchReducer from "./reducers/after-search-reducer";
+import newPasswordReducer from "./reducers/new-password-reducer";
+import authReducer from "./reducers/auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import {reducer as formReducer} from 'redux-form';
-import appReducer from "./app-reducer";
+import appReducer from "./reducers/app-reducer";
+import alertReducer from "./reducers/alert-reducer";
 
 let reducers = combineReducers(
   {
-    registrationPage: registrationReducer,
     catalogPage: catalogReducer,
     searchField: searchFieldReducer,
-    editProfilePage: editProfileReducer,
     changePasswordPage: changePasswordReducer,
-    recoveryPasswordPage: recoveryPasswordReducer,
     oneVinylPage: oneVinylReducer,
-    contactUsPage: contactUsReducer,
     storesPage: storesReducer,
     afterSearchPage: afterSearchReducer,
     newPasswordPage: newPasswordReducer,
     auth: authReducer,
     app: appReducer,
+    alert: alertReducer,
     form: formReducer
   }
 );
 
-let reactStore = createStore(reducers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
+));
 
-window.reactStore = reactStore;
+window.reactStore = store;
 
-export default reactStore;
+export default store;

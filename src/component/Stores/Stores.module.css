@@ -1,14 +1,14 @@
-.shopsContent{
+.shopsContent {
   padding: 3.55em 0;
   max-width: 62em;
   margin: 0 auto;
 }
 
-.shopsContent__row{
+.shopsContent__row {
   margin: -4.61em 0;
 }
 
-.allShops{
+.allShops {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

@@ -1,6 +1,5 @@
 import editProfileStyle from './EditProfile.module.css';
 import userStyle from '../User.module.css';
-import UserMessage from "../UserMessage/UserMessage";
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import React from "react";
 import MessageAlert from "../../Common/Alert/MessageAlert";
@@ -14,14 +13,14 @@ const EditProfile = (props) => {
         <div className="searchArea">
         </div>
         {
-          props.isProfileEdited &&
+          (props.isInfoAlert && props.page === "EditProfile") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
             messages="Your profile has been edited"
           />
         }
         {
-          props.isDeleteProfileQuestion &&
+          (props.isQuestionAlert && props.page === "EditProfile") &&
           <MessageAlert
             messages={[firstAlertString, secondAlertString]}
             agreeButtons={props.deleteUserProfile}

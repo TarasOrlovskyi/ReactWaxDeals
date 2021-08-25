@@ -13,87 +13,46 @@ const axiosWithSetting = axios.create({
 
 export const authApi = {
   checkAuth() {
-    return axiosWithSetting.get(`token`)
-      .catch(error => {
-        return error.response;
-      });
+    return axiosWithSetting.get(`token`);
   },
   userLogOut() {
     return axiosWithSetting.get(`logout`);
   },
   userLogIn(email, password) {
-    return axiosWithSetting.post(`login`, {email, password})
-      .catch(error => {
-        debugger
-        return error.response;
-      });
+    return axiosWithSetting.post(`login`, {email, password});
   },
   confirmEmailRequest(confirmToken) {
-    return axiosWithSetting.put(`emailConfirmation?confirmToken=${confirmToken}`)
-      .catch(error => {
-        return error.response;
-      });
+    // return axiosWithSetting.put(`email-confirmation/${confirmToken}`);
+    return axiosWithSetting.put(`email-confirmation?confirmToken=${confirmToken}`);
   },
   editProfileRequest(email, discogsUserName) {
-    return {
-      data: {
-        resultCode: "0",
-        message: `WTF!!`
-      }
-    }
-    // return axiosWithSetting.put(`profile`, {email, discogsUserName})
-    //   .catch(error => {
-    //     return error.response;
-    //   });
+    return axiosWithSetting.put(`profile`, {email, discogsUserName},
+      // {headers: {'Authorization': `${localStorage.token}`}}
+    );
   },
   deleteProfileRequest(userId) {
-    debugger
-    return {
-      data: {
-        resultCode: "0",
-        message: `WTF!!`
-      }
-    }
-    // return axiosWithSetting.delete(`profile/${userId}`)
-    //   .catch(error => {
-    //     return error.response;
-    //   });
+    return axiosWithSetting.delete(`profile/${userId}`);
   },
-  changePasswordRequest(oldPassword, newPassword, confirmNewPassword){
-    debugger
-    return {
-      data: {
-        resultCode: "0",
-        message: `WTF!!`
-      }
-    }
-    // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword})
-    //   .catch(error => {
-    //     return error.response;
-    //   });
+  changePasswordRequest(oldPassword, newPassword, newPasswordConfirmation){
+    // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword});
+    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation}
+      // {headers: {'Authorization': `${localStorage.token}`}}
+    );
   },
   sendRecoveryPasswordRequest(email){
-    return axiosWithSetting.post(`/password-recovery`, {email})
-      .catch(error => {
-        return error.response;
-      });
+    return axiosWithSetting.post(`/password-recovery`, {email});
   },
   checkRecoveryTokenRequest(recoveryToken){
-    return axiosWithSetting.get(`/password-recovery?token=${recoveryToken}`)
-      .catch(error => {
-        return error.response;
-      });
+    // return axiosWithSetting.get(`/password-recovery/${recoveryToken}`);
+    return axiosWithSetting.get(`/password-recovery?token=${recoveryToken}`);
   },
   changeRecoveryPasswordRequest(newPassword, newPasswordConfirmation, token){
-    return axiosWithSetting.put(`/password-recovery`, {newPassword, newPasswordConfirmation, token})
-      .catch(error => {
-        return error.response;
-      });
+    return axiosWithSetting.put(`/password-recovery`, {newPassword, newPasswordConfirmation, token});
   }
 }
 
 export const vinylApi = {
-  getAfterSearchResult(searchQuery) {
+  getAfterSearchResponse(searchQuery) {
     return axiosWithSetting.get(`search?matcher=` + searchQuery);
   },
   getVinylsResponse() {
@@ -112,21 +71,12 @@ export const storesApi = {
 
 export const registrationApi = {
   registerUserRequest(email, password, confirmPassword, discogsUserName) {
-    return axiosWithSetting.post(`signUp`, {email, password, confirmPassword, discogsUserName})
-      .catch(error => {
-        return error.response;
-      });
+    return axiosWithSetting.post(`sign-up`, {email, password, confirmPassword, discogsUserName});
   }
 }
 
 export const contactUsApi = {
   contactUsRequest(name, email, contactUsMessage, recaptchaToken){
-    // return {
-    //   data: {
-    //     resultCode: "0",
-    //     message: `WTF!!`
-    //   }
-    // }
-    return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken})
+    return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken});
   }
 }
