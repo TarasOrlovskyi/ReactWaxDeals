@@ -1,15 +1,18 @@
 import axios from "axios";
 
-let jwtToken = localStorage.token ? localStorage.token : '';
-
-const axiosWithSetting = axios.create({
+const defaultOptions = {
   // withCredentials: true,
   // baseURL: 'http://localhost:8080/',
   baseURL: 'https://json-exchange-implementation.herokuapp.com/',
-  headers: {
-    'Authorization': `${jwtToken}`
-  }
-})
+};
+
+let axiosWithSetting = axios.create(defaultOptions);
+
+axiosWithSetting.interceptors.request.use(function (config) {
+  const token = localStorage.token;
+  config.headers.Authorization =  token ? `${token}` : '';
+  return config;
+});
 
 export const authApi = {
   checkAuth() {
@@ -26,20 +29,14 @@ export const authApi = {
     return axiosWithSetting.put(`email-confirmation?confirmToken=${confirmToken}`);
   },
   editProfileRequest(email, discogsUserName) {
-    return axiosWithSetting.put(`profile`, {email, discogsUserName},
-      {headers: {'Authorization': `${localStorage.token}`}}
-    );
+    return axiosWithSetting.put(`profile`, {email, discogsUserName});
   },
   deleteProfileRequest(userId) {
-    return axiosWithSetting.delete(`profile/${userId}`,
-      {headers: {'Authorization': `${localStorage.token}`}}
-      );
+    return axiosWithSetting.delete(`profile/${userId}`);
   },
   changePasswordRequest(oldPassword, newPassword, newPasswordConfirmation){
     // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword});
-    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation},
-      {headers: {'Authorization': `${localStorage.token}`}}
-    );
+    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation});
   },
   sendRecoveryPasswordRequest(email){
     return axiosWithSetting.post(`/password-recovery`, {email});

@@ -27,23 +27,14 @@ export const getUserAuthData = () => async dispatch => {
     });
   }
   try {
-    debugger
-    // localStorage.removeItem("token");
     let responseData = await authApi.checkAuth();
     if (responseData.status === 200) {
       let {id, email, discogsUserName, role, status} = responseData.data.user;
       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
     }
   } catch (error) {
-    debugger
-    let errorStatus = error.response.status;
-    // if (errorStatus === 401) { //this is write
-    if (errorStatus === 401 || errorStatus === 500) {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
-    } else {
-      return returnUnhandledRejection(errorStatus);
-    }
+    localStorage.removeItem("token");
+    dispatch(setAuthUserData(null, null, null, null, false, false));
   }
 }
 
