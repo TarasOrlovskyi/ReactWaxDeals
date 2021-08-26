@@ -1,8 +1,8 @@
-import s from './Copyright.module.css';
+import copyrightStyle from './Copyright.module.css';
 
-const Copyright = () => {
+const Copyright = (props) => {
   return (
-    <p className={s.copyright}>&copy; 2021 Wax Deals. All rights reserved</p>
+    <p className={props.isMobile ? copyrightStyle.copyrightMobile : copyrightStyle.copyright}>&copy; 2021 Wax Deals. All rights reserved</p>
   );
 }
 

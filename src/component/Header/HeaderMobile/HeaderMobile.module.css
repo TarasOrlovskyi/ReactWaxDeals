@@ -1,0 +1,7 @@
+.header__rowMobile {
+  height: 29px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
