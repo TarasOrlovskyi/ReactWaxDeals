@@ -1,6 +1,6 @@
 import aboutStyle from './About.module.css';
-import aboutImage from "../../../assets/img/aboutImage.png";
-import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
+import aboutImage from "../../assets/img/aboutImage.png";
+import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 
 const About = () => {
   return (
