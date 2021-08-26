@@ -1,9 +1,7 @@
 import Home from "./component/Home/Home";
-import Footer from "./component/Footer/Footer";
 import {Route, Switch, withRouter} from "react-router-dom";
 import Stores from "./component/Stores/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
-import About from "./component/About/About";
 import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
 import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
 import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
@@ -23,6 +21,11 @@ import ProfileContainer from "./component/RegistrationPages/Profile/ProfileConta
 import NotFoundPage from "./component/ErrorComponents/NotFoundPage/NotFoundPage";
 import WrongPage from "./component/ErrorComponents/WrongPage/WrongPage";
 import {initializeApp} from "./redux/actions/appActions";
+import {withBackground} from "./hoc/withBackground";
+import {withMobileVersion} from "./hoc/withMobileVersion";
+import {withHeaderBackButton} from "./hoc/withHeaderBackButton";
+import AboutContainer from "./component/About/AboutContainer";
+import FooterContainer from "./component/Footer/FooterContainer";
 
 class App extends Component {
 
@@ -50,7 +53,7 @@ class App extends Component {
     }
 
     return (
-      <div className="wrapper">
+      <>
         <HeaderContainer/>
         <Switch>
           <Route exact path="/" render={() =>
@@ -90,7 +93,7 @@ class App extends Component {
             <Stores/>
           }/>
           <Route exact path="/about" render={() =>
-            <About/>
+            <AboutContainer/>
           }/>
           <Route exact path="/signIn" render={() =>
             <SignInContainer/>
@@ -108,8 +111,8 @@ class App extends Component {
             <NotFoundPage/>
           }/>
         </Switch>
-        <Footer/>
-      </div>
+        <FooterContainer/>
+      </>
     );
   }
 
@@ -119,4 +122,4 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
+export default compose(withBackground, withMobileVersion, withHeaderBackButton, withRouter, connect(mapStateToProps, {initializeApp}))(App);

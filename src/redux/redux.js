@@ -11,6 +11,7 @@ import thunkMiddleware from "redux-thunk";
 import {reducer as formReducer} from 'redux-form';
 import appReducer from "./reducers/app-reducer";
 import alertReducer from "./reducers/alert-reducer";
+import mobileReducer from "./reducers/mobile-reducer";
 
 let reducers = combineReducers(
   {
@@ -24,6 +25,7 @@ let reducers = combineReducers(
     auth: authReducer,
     app: appReducer,
     alert: alertReducer,
+    mobileVersion: mobileReducer,
     form: formReducer
   }
 );

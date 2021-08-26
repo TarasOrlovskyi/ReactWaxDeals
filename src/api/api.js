@@ -25,7 +25,7 @@ export const authApi = {
     return axiosWithSetting.post(`login`, {email, password});
   },
   confirmEmailRequest(confirmToken) {
-    // return axiosWithSetting.put(`email-confirmation/${confirmToken}`);
+    // return axiosWithSetting.put(`email-confirmation`, {confirmToken});
     return axiosWithSetting.put(`email-confirmation?confirmToken=${confirmToken}`);
   },
   editProfileRequest(email, discogsUserName) {
@@ -34,9 +34,8 @@ export const authApi = {
   deleteProfileRequest(userId) {
     return axiosWithSetting.delete(`profile/${userId}`);
   },
-  changePasswordRequest(oldPassword, newPassword, newPasswordConfirmation){
-    // return axiosWithSetting.put(`/profile/change-password`, {oldPassword, newPassword, confirmNewPassword});
-    return axiosWithSetting.put(`/profile/change-password`, {newPassword, newPasswordConfirmation});
+  changePasswordRequest(password, newPassword, newPasswordConfirmation){
+    return axiosWithSetting.put(`/profile/change-password`, {password, newPassword, newPasswordConfirmation});
   },
   sendRecoveryPasswordRequest(email){
     return axiosWithSetting.post(`/password-recovery`, {email});

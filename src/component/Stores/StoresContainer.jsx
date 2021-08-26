@@ -10,6 +10,9 @@ class StoresContainer extends React.Component {
   }
 
   render() {
+    if (this.props.isMobile){
+      return <div>MOBILE</div>
+    }
     return <Stores
       stores={this.props.stores}
     />
@@ -18,7 +21,8 @@ class StoresContainer extends React.Component {
 
 let mapStateToProps = (state) => (
   {
-    stores: state.storesPage.stores
+    stores: state.storesPage.stores,
+    isMobile: state.mobileVersion.isMobile
   }
 )
 
