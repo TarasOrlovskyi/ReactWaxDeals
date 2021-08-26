@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form";
 import {Input, Textarea} from "../../Common/FormsControl/FormsControl";
 import {emailValidation, maxLength, required} from "../../../utils/validators/validators";
 import React from "react";
-import Recaptcha from 'react-google-invisible-recaptcha';
+import Recaptcha from "react-google-invisible-recaptcha";
 
 const maxLength50 = maxLength(50);
 const maxLength300 = maxLength(300);

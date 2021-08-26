@@ -21,7 +21,9 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import ConfirmEmailContainer from "./component/RegistrationPages/ConfirmEmail/ConfirmEmailContainer";
 import ProfileContainer from "./component/RegistrationPages/Profile/ProfileContainer";
-import EditProfile from "./component/RegistrationPages/EditProfile/EditProfile";
+import AboutMobile from "./old_files/MobileVersion/MobileComponents/AboutMobile/AboutMobile";
+
+
 
 class App extends Component {
 
@@ -77,9 +79,6 @@ class App extends Component {
         }/>
         <Route exact path="/stores" render={() =>
           <Stores/>
-        }/>
-        <Route exact path="/about" render={() =>
-          <About/>
         }/>
         <Route exact path="/signIn" render={() =>
           <SignInContainer/>
