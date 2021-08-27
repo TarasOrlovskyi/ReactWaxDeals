@@ -7,9 +7,9 @@ import {withRouter} from "react-router-dom";
 export const withHeaderBackButton = (Component) => {
   class MobileHeaderChoice extends React.Component {
 
-    componentDidMount() {
-      this.checkHeader()
-    }
+    // componentDidMount() {
+    //   this.checkHeader()
+    // }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
       this.checkHeader()

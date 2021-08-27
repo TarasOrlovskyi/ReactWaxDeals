@@ -7,6 +7,7 @@ import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const OneVinylPage = (props) => {
+
   return (
     <main className="main">
       <div className="container sub-container">
@@ -33,6 +34,7 @@ const OneVinylPage = (props) => {
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
                   loadOneVinyl={props.loadOneVinyl}
+                  key={props.vinylsByArtist.id}
                 />)
               }
             </div>

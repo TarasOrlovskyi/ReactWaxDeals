@@ -30,16 +30,16 @@ import FooterContainer from "./component/Footer/FooterContainer";
 class App extends Component {
 
   catchAllUnhandledError = () => {
-    this.props.history.push('/500')
+    this.props.history.push('/500');
   }
 
   componentDidMount() {
     this.props.initializeApp();
-    window.addEventListener("unhandledrejection", this.catchAllUnhandledError)
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledError);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("unhandledrejection", this.catchAllUnhandledError)
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledError);
   }
 
   render() {
