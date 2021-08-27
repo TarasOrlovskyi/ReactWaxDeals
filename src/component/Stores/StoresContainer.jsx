@@ -1,5 +1,5 @@
 import React from "react";
-import {getStores} from "../../redux/stores-reducer";
+import {getStores} from "../../../redux/stores-reducer";
 import {connect} from "react-redux";
 import Stores from "./Stores";
 import {compose} from "redux";

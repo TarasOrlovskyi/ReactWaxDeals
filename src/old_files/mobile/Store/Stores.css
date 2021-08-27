@@ -1,0 +1,13 @@
+.stores-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+/*.all-stores{*/
+/*    height: 484px;*/
+/*}*/
+.all-stores__images{
+    width: 230px;
+    padding: 25px 0 25px 0;
+}

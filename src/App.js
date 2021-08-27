@@ -1,7 +1,7 @@
 import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import {Route, withRouter} from "react-router-dom";
-import Stores from "./component/Stores/Stores";
+import Stores from "./component/Stores/Laptopversion/Stores";
 import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
 import About from "./component/About/About";
 import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
