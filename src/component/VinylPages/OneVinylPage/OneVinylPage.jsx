@@ -7,6 +7,7 @@ import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const OneVinylPage = (props) => {
+
   return (
     <main className="main">
       <div className="container sub-container">
@@ -21,18 +22,19 @@ const OneVinylPage = (props) => {
             </div>
           </div>
           <p className={oneVinylPageStyle.contentTitle}>
-            {(props.vinylsByArtist + '').includes('undefined') ? 'No more release' : `More by ${props.firstVinyl.artist}`}
+            {(props.vinylsByArtist.length > 0) ? `More by ${props.firstVinyl.artist}` : 'No more release'}
           </p>
           <div className={vinylStyle.vinylsContent__row}>
             <div className={vinylStyle.otherVinyls}>
               {
-                !(props.vinylsByArtist + '').includes('undefined') &&
+                (props.vinylsByArtist.length > 0) &&
                 props.vinylsByArtist.map(vinyl => <VinylItem
                   imageLink={vinyl.imageLink}
                   id={vinyl.id}
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
                   loadOneVinyl={props.loadOneVinyl}
+                  key={props.vinylsByArtist.id}
                 />)
               }
             </div>

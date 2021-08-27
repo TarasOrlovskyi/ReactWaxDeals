@@ -7,8 +7,8 @@ const VinylItem = (props) => {
   return (
     <div className={vinylStyle.otherVinyls__item + ' ' + vinylStyle.vinyl}>
       <NavLink to={'/oneVinyl/' + props.id} className={vinylStyle.otherVinyls__image}
-               onClick={props.loadOneVinyl ? () => props.loadOneVinyl(props.id) : ''}>
-        <img src={props.imageLink.includes("http") ? props.imageLink : noImage} alt="vinyl image"/>
+               onClick={props.loadOneVinyl ? () => props.loadOneVinyl(props.id) : null}>
+        <img src={props.imageLink.includes("http") ? props.imageLink : noImage} alt="main vinyl"/>
       </NavLink>
       <NavLink to={'/oneVinyl/' + props.id} className={vinylStyle.otherVinyls__artist}
                onClick={props.loadOneVinyl ? () => props.loadOneVinyl(props.id) : null}>

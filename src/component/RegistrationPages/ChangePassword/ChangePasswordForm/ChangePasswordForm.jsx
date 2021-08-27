@@ -8,7 +8,7 @@ import {maxLength, passwordValidation, required} from "../../../../utils/validat
 const maxLength50 = maxLength(50);
 
 const ChangePasswordForm = (props) => {
-  return(
+  return (
     <form className={userStyle.user + ' ' + editProfileStyle.changePasswordUser}
           onSubmit={props.handleSubmit}>
       <div className={userStyle.user__fieldsWrapper}>

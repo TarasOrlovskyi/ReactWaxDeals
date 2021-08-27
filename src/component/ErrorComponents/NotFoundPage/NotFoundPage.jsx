@@ -1,5 +1,5 @@
-import notFoundPageStyle from './NotFoundPage.css';
-import notFoundPageImage from "../../../assets/img/vinyl.png";
+import notFoundPageStyle from './NotFoundPage.module.css';
+import notFoundPageImage from "../../../assets/img/not_found_logo.png";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 import {NavLink} from "react-router-dom";
 

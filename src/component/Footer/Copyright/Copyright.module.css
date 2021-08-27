@@ -1,5 +1,13 @@
-.copyright{
+.copyright {
   font-size: 10px;
   position: absolute;
   right: 4.81em;
+}
+
+.copyrightMobile {
+  font-size: 10px;
+  width: 17.65em;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }

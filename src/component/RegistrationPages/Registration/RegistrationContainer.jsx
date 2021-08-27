@@ -1,50 +1,39 @@
 import Registration from "./Registration";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {registerUser, setRegistrationInfo} from "../../../redux/registration-reducer";
 import React from "react";
-import {setIsProfileDeleted} from "../../../redux/auth-reducer";
+import {registerUser} from "../../../redux/actions/registrationActions";
+import {withRouter} from "react-router-dom";
+import {activateInfoAlert} from "../../../redux/actions/alertActions";
 
 class RegistrationContainer extends React.Component {
 
-  componentDidMount() {
-    if (this.props.isProfileDeleted){
-      setTimeout(()=> {
-        this.props.setIsProfileDeleted(false);
-      }, 10000);
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.isRegistrationSuccess){
-      setTimeout(()=> {
-        this.props.setRegistrationInfo(false);
-      }, 10000);
-    }
+  sendSignUpCredentials = (formData) => {
+    this.props.registerUser(formData.email, formData.password, formData.confirmPassword, formData.discogsUserName, this.props.history.push);
   }
 
   turnOffAlert = () => {
-    this.props.setRegistrationInfo(false);
-    this.props.setIsProfileDeleted(false);
+    this.props.activateInfoAlert(false, "");
   }
 
   render() {
     return (
-      <Registration isRegistrationSuccess={this.props.isRegistrationSuccess}
+      <Registration isInfoAlert={this.props.isInfoAlert}
+                    page={this.props.page}
                     turnOffAlert={this.turnOffAlert}
-                    registerUser={this.props.registerUser}
-                    isProfileDeleted={this.props.isProfileDeleted}
+                    onSubmit={this.sendSignUpCredentials}
       />
     );
   }
+
 }
 
 let mapStateToProps = (state) => {
   return {
-    isRegistrationSuccess: state.registrationPage.isRegistrationSuccess,
-    isProfileDeleted: state.auth.isProfileDeleted
+    isInfoAlert: state.alert.isInfoAlert,
+    page: state.alert.page
   };
 };
 
-export default compose(connect(mapStateToProps,
-  {setRegistrationInfo, registerUser, setIsProfileDeleted}))(RegistrationContainer);
+export default compose(withRouter, connect(mapStateToProps,
+  {activateInfoAlert, registerUser}))(RegistrationContainer);

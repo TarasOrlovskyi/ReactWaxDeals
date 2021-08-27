@@ -23,7 +23,7 @@ const VinylOfferItem = (props) => {
       ' ' + vinylOfferListStyle.shopList__itemDirection}>
         <a href={props.vinylOffer.offerLink}
            className={vinylOfferItemStyle.button + ' ' + vinylOfferItemStyle.onStockButton}
-           target="_blank">GO TO SHOP</a>
+           target="_blank" rel="noopener noreferrer">GO TO SHOP</a>
       </div>
     </div>
   );

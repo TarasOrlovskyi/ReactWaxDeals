@@ -1,4 +1,4 @@
-.header__loginSigns{
+.header__loginSigns {
   height: 4.78em;
   position: absolute;
   right: 0;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.header__loginButtons{
+.header__loginButtons {
   position: relative;
 }
 
@@ -19,7 +19,7 @@
   line-height: 19px;
   position: absolute;
   z-index: 1;
-  top:50px;
+  top: 50px;
   right: 0;
 }
 

@@ -6,9 +6,9 @@ import socialGoogle from "../../../../assets/img/socialNetwork/google.png";
 
 const SocialNetwork = () => {
   return <div className={socialNetworkStyle.contentSignIn__socialNetwork}>
-    <a href="#" target="_blank"><img alt="socialLogo" src={socialFacebook}/></a>
-    <a href="#" target="_blank"><img alt="socialLogo" src={socialGoogle}/></a>
-    <a href="#" target="_blank"><img alt="socialLogo" src={socialTwitter}/></a>
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img alt="social Facebook" src={socialFacebook}/></a>
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img alt="social Google" src={socialGoogle}/></a>
+    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><img alt="social Twitter" src={socialTwitter}/></a>
   </div>
 }
 export default SocialNetwork;

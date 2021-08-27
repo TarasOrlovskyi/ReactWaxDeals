@@ -2,11 +2,11 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {compose} from "redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
-class ProfileContainer extends React.Component{
+class ProfileContainer extends React.Component {
   render() {
-    debugger
-    return(
+    return (
       <Profile email={this.props.email}
                discogsUserName={this.props.discogsUserName}
       />
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => ({
   discogsUserName: state.auth.discogsUserName
 });
 
-export default compose(connect(mapStateToProps, {}))(ProfileContainer);
+export default compose(withAuthRedirect, connect(mapStateToProps, {}))(ProfileContainer);

@@ -14,12 +14,12 @@ const MessageAlert = (props) => {
           {props.messages}
         </div>
         {props.agreeButtons &&
-          <div className={alertsStyle.pageAlert__buttonsRow}>
-            <div className={alertsStyle.pageAlert__yesNoButtons}>
-              <button onClick={props.agreeButtons} className={alertsStyle.pageAlert__answerButton}>Yes</button>
-              <button onClick={props.closeButton} className={alertsStyle.pageAlert__answerButton}>No</button>
-            </div>
+        <div className={alertsStyle.pageAlert__buttonsRow}>
+          <div className={alertsStyle.pageAlert__yesNoButtons}>
+            <button onClick={props.agreeButtons} className={alertsStyle.pageAlert__answerButton}>Yes</button>
+            <button onClick={props.closeButton} className={alertsStyle.pageAlert__answerButton}>No</button>
           </div>
+        </div>
         }
         {props.turnOffAlert &&
         <button className={alertsStyle.pageAlert__closeButton} onClick={props.turnOffAlert}>

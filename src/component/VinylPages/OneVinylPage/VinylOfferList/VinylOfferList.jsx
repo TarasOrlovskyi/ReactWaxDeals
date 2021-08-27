@@ -13,11 +13,13 @@ const VinylOfferList = (props) => {
       <ShopListHeader/>
 
       <div className={vinylOfferListStyle.shopList__column + ' ' + vinylOfferListStyle.shopList__scrollbar}>
-      {
-        props.vinylOffersList.map(offer => <VinylOfferItem
-          vinylOffer={offer}
-        />)
-      }
+        {
+          (props.vinylOffersList.length > 0)
+            ? props.vinylOffersList.map(offer => <VinylOfferItem
+              vinylOffer={offer}
+            />)
+            : "Sorry, but there is no offers"
+        }
       </div>
     </div>
   );

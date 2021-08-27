@@ -1,8 +1,8 @@
 import React from "react";
-import {getStores} from "../../../redux/stores-reducer";
 import {connect} from "react-redux";
 import Stores from "./Stores";
 import {compose} from "redux";
+import {getStores} from "../../redux/actions/storesActons";
 
 class StoresContainer extends React.Component {
   componentDidMount() {
@@ -10,6 +10,9 @@ class StoresContainer extends React.Component {
   }
 
   render() {
+    if (this.props.isMobile){
+      return <div>MOBILE</div>
+    }
     return <Stores
       stores={this.props.stores}
     />
@@ -18,7 +21,8 @@ class StoresContainer extends React.Component {
 
 let mapStateToProps = (state) => (
   {
-    stores: state.storesPage.stores
+    stores: state.storesPage.stores,
+    isMobile: state.mobileVersion.isMobile
   }
 )
 

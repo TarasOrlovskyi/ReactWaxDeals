@@ -9,7 +9,7 @@ import React from "react";
 const maxLength50 = maxLength(50);
 
 const RegistrationForm = (props) => {
-  return(
+  return (
     <form className={userStyle.user + ' ' + registrationStyle.registrationPageUser}
           onSubmit={props.handleSubmit}>
       <div className={userStyle.user__fieldsWrapper}>

@@ -2,18 +2,18 @@ import React from "react";
 import OneVinylPage from "./OneVinylPage";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {getOneVinyl} from "../../../redux/one-vinyl-reducer";
 import {compose} from "redux";
+import {getOneVinyl} from "../../../redux/actions/oneVinylActions";
 
 class OneVinylPageContainer extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    this.props.getOneVinyl(id);
+    this.props.getOneVinyl(id, this.props.history.push);
   }
 
   loadOneVinyl = (id) => {
-    this.props.getOneVinyl(id);
+    this.props.getOneVinyl(id, this.props.history.push);
   }
 
   render() {
@@ -33,4 +33,4 @@ let mapStateToProps = (state) => {
   }
 }
 
-export default compose(connect(mapStateToProps, {getOneVinyl}), withRouter)(OneVinylPageContainer);
+export default compose(withRouter, connect(mapStateToProps, {getOneVinyl}), withRouter)(OneVinylPageContainer);

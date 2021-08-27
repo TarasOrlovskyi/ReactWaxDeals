@@ -1,17 +1,19 @@
 import SearchField from "./SearchField";
-import {updateSearchField} from "../../redux/search-field-reducer";
 import {connect} from "react-redux";
 import React from "react";
-import {getSearchResult} from "../../redux/after-search-reducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
+import {updateSearchField} from "../../redux/actions/searchFieldActions";
+import {getSearchResult} from "../../redux/actions/afterSearchAtions";
 
 class SearchFieldContainer extends React.Component {
 
   componentDidMount() {
     const search = this.props.location.search;
     const searchQuery = new URLSearchParams(search).get("matcher");
-    this.props.getSearchResult(searchQuery);
+    if (searchQuery) {
+      this.props.getSearchResult(searchQuery);
+    }
   }
 
   loadSearchResult = (searchQuery) => {
@@ -33,4 +35,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(withRouter, connect(mapStateToProps, {updateSearchField, getSearchResult}))(SearchFieldContainer);
+export default compose(withRouter, connect(mapStateToProps, {
+  updateSearchField,
+  getSearchResult
+}))(SearchFieldContainer);
