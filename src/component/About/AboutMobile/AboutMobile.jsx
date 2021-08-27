@@ -5,7 +5,7 @@ import aboutMobileImage from "../../../assets/img/aboutImage.png";
 const AboutMobile = () => {
   return (
       <main>
-        <div className={mobileStyle.containerMobile}>
+        <div className='containerMobile'>
           <div className={aboutContentMobileStyle.aboutContentMobile}>
 
             <div className={aboutContentMobileStyle.about__titleMobile}>

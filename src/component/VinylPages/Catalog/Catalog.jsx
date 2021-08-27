@@ -20,6 +20,7 @@ const Catalog = (props) => {
                   id={vinyl.id}
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
+                  key={vinyl.id}
                 />)
               }
             </div>

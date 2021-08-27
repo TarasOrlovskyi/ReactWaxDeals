@@ -25,8 +25,7 @@ export const authApi = {
     return axiosWithSetting.post(`login`, {email, password});
   },
   confirmEmailRequest(confirmToken) {
-    // return axiosWithSetting.put(`email-confirmation`, {confirmToken});
-    return axiosWithSetting.put(`email-confirmation?confirmToken=${confirmToken}`);
+    return axiosWithSetting.put(`email-confirmation`, {confirmToken});
   },
   editProfileRequest(email, discogsUserName) {
     return axiosWithSetting.put(`profile`, {email, discogsUserName});
@@ -41,8 +40,7 @@ export const authApi = {
     return axiosWithSetting.post(`/password-recovery`, {email});
   },
   checkRecoveryTokenRequest(recoveryToken){
-    // return axiosWithSetting.get(`/password-recovery/${recoveryToken}`);
-    return axiosWithSetting.get(`/password-recovery?token=${recoveryToken}`);
+    return axiosWithSetting.get(`/password-recovery/${recoveryToken}`);
   },
   changeRecoveryPasswordRequest(newPassword, newPasswordConfirmation, token){
     return axiosWithSetting.put(`/password-recovery`, {newPassword, newPasswordConfirmation, token});
