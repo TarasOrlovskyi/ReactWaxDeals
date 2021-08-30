@@ -1,5 +1,5 @@
 import s from './HeaderNav.module.css';
-import logo from '../../../assets/img/svg/wax_deals.svg';
+import logo from '../../../../assets/img/svg/wax_deals.svg';
 import {NavLink} from "react-router-dom";
 
 const HeaderNav = (props) => {

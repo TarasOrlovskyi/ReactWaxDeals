@@ -9,13 +9,25 @@
 }
 
 .aboutBody__title {
-  padding-bottom: 0.42em;
+  padding-bottom: 1em;
 }
 
 .aboutBody__image {
   padding-top: 3.33em;
 }
 
-.aboutBody__secondTitle {
-  padding-top: 1.39em;
+.aboutBody__text{
+  max-width: 31.25em;
+  font-size: 24px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .aboutBody__text{
+    font-size: 14px;
+  }
+
+  h2{
+    font-size: 24px;
+  }
 }

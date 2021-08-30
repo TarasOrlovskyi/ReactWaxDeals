@@ -1,7 +1,12 @@
-.header__rowMobile {
-  height: 29px;
-  margin-top: 18px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.header__mobile{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header__mobile{
+    height: 29px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

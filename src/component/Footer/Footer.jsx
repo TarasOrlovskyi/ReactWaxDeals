@@ -7,8 +7,10 @@ const Footer = (props) => {
     <footer>
       <div className="container">
         <div className={s.footer__row}>
-          <SocialNav/>
-          <Copyright isMobile={props.isMobile}/>
+          {props.headerForRender==="homeHeader" &&
+            <SocialNav/>
+          }
+          <Copyright/>
         </div>
       </div>
     </footer>
