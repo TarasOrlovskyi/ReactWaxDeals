@@ -17,14 +17,14 @@ const Registration = (props) => {
         <div className="searchArea">
         </div>
         {
-          (props.isInfoAlert && props.page === "Registration") &&
+          (props.isInfoAlert && props.pageInfo === "Registration") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
             messages={[firstAlertString, secondAlertString]}
             letterImage={letterImage}
           />
         }
-        {(props.isInfoAlert && props.page === "ProfileDeleted") &&
+        {(props.isInfoAlert && props.pageInfo === "ProfileDeleted") &&
         <MessageAlert
           turnOffAlert={props.turnOffAlert}
           messages="Your profile has been deleted already"

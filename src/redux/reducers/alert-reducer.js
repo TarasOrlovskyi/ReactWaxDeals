@@ -3,7 +3,8 @@ import * as actionTypes from "../actions/actionTypes";
 let initialAlertState = {
   isInfoAlert: false,
   isQuestionAlert: false,
-  page: ""
+  pageInfo: "",
+  pageQuestion: ""
 }
 
 const alertReducer = (state = initialAlertState, action) => {
@@ -12,13 +13,13 @@ const alertReducer = (state = initialAlertState, action) => {
       return {
         ...state,
         isInfoAlert: action.isInfoAlert,
-        page: action.page
+        pageInfo: action.pageInfo
       }
     case actionTypes.SET_IS_QUESTION_ALERT:
       return {
         ...state,
         isQuestionAlert: action.isQuestionAlert,
-        page: action.page
+        pageQuestion: action.pageQuestion
       }
     default:
       return state;

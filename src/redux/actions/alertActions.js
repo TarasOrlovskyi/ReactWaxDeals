@@ -1,13 +1,13 @@
 import * as actionTypes from "./actionTypes";
 
-const setIsInfoAlert = (isInfoAlert, page) => ({
+const setIsInfoAlert = (isInfoAlert, pageInfo) => ({
   type: actionTypes.SET_IS_INFO_ALERT,
   isInfoAlert,
-  page
+  pageInfo
 })
 
-export const activateInfoAlert = (isInfoAlert, page) => dispatch => {
-  dispatch(setIsInfoAlert(isInfoAlert, page));
+export const activateInfoAlert = (isInfoAlert, pageInfo) => dispatch => {
+  dispatch(setIsInfoAlert(isInfoAlert, pageInfo));
   if (isInfoAlert) {
     setTimeout(() => {
       dispatch(setIsInfoAlert(false, ""));
@@ -15,14 +15,14 @@ export const activateInfoAlert = (isInfoAlert, page) => dispatch => {
   }
 }
 
-const setIsQuestionAlert = (isQuestionAlert, page) => ({
+const setIsQuestionAlert = (isQuestionAlert, pageQuestion) => ({
   type: actionTypes.SET_IS_QUESTION_ALERT,
   isQuestionAlert,
-  page
+  pageQuestion
 })
 
-export const activateQuestionAlert = (isQuestionAlert, page) => dispatch => {
-  dispatch(setIsQuestionAlert(isQuestionAlert, page));
+export const activateQuestionAlert = (isQuestionAlert, pageQuestion) => dispatch => {
+  dispatch(setIsQuestionAlert(isQuestionAlert, pageQuestion));
   if (isQuestionAlert) {
     setTimeout(() => {
       dispatch(setIsQuestionAlert(false, ""));

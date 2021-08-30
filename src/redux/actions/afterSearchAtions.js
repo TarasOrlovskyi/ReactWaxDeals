@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {vinylApi} from "../../api/api";
-import {returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {unhandledError} from "../../utils/handleErrors/handleErrors";
 
 export const refreshSearchVinyls = (vinyls) => (
   {
@@ -9,11 +9,11 @@ export const refreshSearchVinyls = (vinyls) => (
   }
 )
 
-export const getSearchResult = (searchQuery) => async dispatch => {
+export const getSearchResult = (searchQuery, historyPush) => async dispatch => {
   try {
     let responseData = await vinylApi.getAfterSearchResponse(searchQuery);
     dispatch(refreshSearchVinyls(responseData.data));
   } catch (error) {
-    return returnUnhandledRejection(error.response.status);
+    unhandledError(error.response.status, "search result", historyPush);
   }
 }

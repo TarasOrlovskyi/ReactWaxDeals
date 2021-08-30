@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import {authApi} from "../../api/api";
 import {stopSubmit} from "redux-form";
-import {handleFormsError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
 
 export const setIsWaitRecoveryResponse = (isWaitRecoveryResponse) => ({
@@ -19,7 +19,7 @@ export const resetRecoveryDataAfterChangePassword = () => ({
   type: actionTypes.RESET_RECOVERY_DATA
 });
 
-export const checkRecoveryToken = (recoveryToken) => async dispatch => {
+export const checkRecoveryToken = (recoveryToken, historyPush) => async dispatch => {
   dispatch(setIsWaitRecoveryResponse(true));
   try {
     let responseData = await authApi.checkRecoveryTokenRequest(recoveryToken)
@@ -27,16 +27,17 @@ export const checkRecoveryToken = (recoveryToken) => async dispatch => {
       dispatch(setRecoveryData(recoveryToken, true));
     }
   } catch (error) {
-    if (error.response.status === 403) {
+    let errorStatus = error.response.status;
+    if (errorStatus === 403) {
       dispatch(setIsWaitRecoveryResponse(false));
     } else {
       dispatch(setIsWaitRecoveryResponse(false));
-      return returnUnhandledRejection(error.response.status);
+      unhandledError(errorStatus, "check recovery token", historyPush);
     }
   }
 }
 
-export const changeRecoveryPassword = (newPassword, confirmNewPassword, recoveryToken) => async dispatch => {
+export const changeRecoveryPassword = (newPassword, confirmNewPassword, recoveryToken, historyPush) => async dispatch => {
   if (newPassword !== confirmNewPassword) {
     dispatch(stopSubmit('newPasswordForm', {_error: 'Password and Confirm Password must match!'}));
   } else {
@@ -51,7 +52,7 @@ export const changeRecoveryPassword = (newPassword, confirmNewPassword, recovery
       if (errorStatus === 403 || errorStatus === 400) {
         handleFormsError("newPasswordForm", dispatch, error.response.data.message);
       } else {
-        return returnUnhandledRejection(errorStatus);
+        unhandledError(errorStatus, "change recovery password", historyPush);
       }
     }
   }

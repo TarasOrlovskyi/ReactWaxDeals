@@ -2,7 +2,7 @@ import EditProfile from "./EditProfile";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import React from "react";
-import {Redirect} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {deleteUserProfile, editUserProfile} from "../../../redux/actions/authActions";
 import {activateInfoAlert, activateQuestionAlert} from "../../../redux/actions/alertActions";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
@@ -10,7 +10,11 @@ import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 class EditProfileContainer extends React.Component {
 
   changeProfileData = (formData) => {
-    this.props.editUserProfile(formData.email, formData.discogsUserName);
+    this.props.editUserProfile(formData.email, formData.discogsUserName, this.props.history.push);
+  }
+
+  deleteUserProfile = () => {
+    this.props.deleteUserProfile(this.props.history.push);
   }
 
   turnOnDeleteProfileAlert = () => {
@@ -23,9 +27,6 @@ class EditProfileContainer extends React.Component {
   }
 
   render() {
-    if (this.props.isInfoAlert && this.props.page === "ProfileDeleted") {
-      return <Redirect to='/signUp'/>
-    }
 
     return (
       <EditProfile initialValues={this.props.initialValues}
@@ -33,9 +34,10 @@ class EditProfileContainer extends React.Component {
                    turnOffAlert={this.turnOffAlert}
                    isInfoAlert={this.props.isInfoAlert}
                    isQuestionAlert={this.props.isQuestionAlert}
-                   page={this.props.page}
+                   pageInfo={this.props.pageInfo}
+                   pageQuestion={this.props.pageQuestion}
                    turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
-                   deleteUserProfile={this.props.deleteUserProfile}
+                   deleteUserProfile={this.deleteUserProfile}
       />
     );
   }
@@ -48,10 +50,11 @@ const mapStateToProps = (state) => ({
   },
   isInfoAlert: state.alert.isInfoAlert,
   isQuestionAlert: state.alert.isQuestionAlert,
-  page: state.alert.page
+  pageInfo: state.alert.pageInfo,
+  pageQuestion: state.alert.pageQuestion
 });
 
-export default compose(withAuthRedirect, connect(mapStateToProps, {
+export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {
   editUserProfile,
   activateInfoAlert,
   activateQuestionAlert,

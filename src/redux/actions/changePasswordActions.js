@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import {reset, stopSubmit} from "redux-form";
 import {authApi} from "../../api/api";
-import {handleFormsError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {setAuthUserData} from "./authActions";
 
 export const setIsPasswordChanged = (isPasswordChanged) => ({
@@ -9,7 +9,7 @@ export const setIsPasswordChanged = (isPasswordChanged) => ({
   isPasswordChanged
 })
 
-export const changePassword = (oldPassword, newPassword, confirmNewPassword) => async dispatch => {
+export const changePassword = (oldPassword, newPassword, confirmNewPassword, historyPush) => async dispatch => {
   if (newPassword !== confirmNewPassword) {
     dispatch(stopSubmit('changePasswordForm', {_error: 'New Password and Confirm Password must match!'}));
   } else {
@@ -27,7 +27,7 @@ export const changePassword = (oldPassword, newPassword, confirmNewPassword) => 
       } else if (errorStatus === 400) {
         handleFormsError("changePasswordForm", dispatch, error.response.data.message);
       } else {
-        return returnUnhandledRejection(errorStatus);
+        unhandledError(errorStatus, "change password", historyPush);
       }
     }
   }
