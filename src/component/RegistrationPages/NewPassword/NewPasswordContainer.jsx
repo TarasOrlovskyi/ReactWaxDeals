@@ -12,17 +12,17 @@ class NewPasswordContainer extends React.Component {
   componentDidMount() {
     let token = this.props.match.params.token;
     if (token) {
-      this.props.checkRecoveryToken(token);
+      this.props.checkRecoveryToken(token, this.props.history.push);
     }
   }
 
   changeUserNewPassword = (formData) => {
     let recoveryToken = this.props.recoveryToken;
-    this.props.changeRecoveryPassword(formData.newPassword, formData.confirmNewPassword, recoveryToken);
+    this.props.changeRecoveryPassword(formData.newPassword, formData.confirmNewPassword, recoveryToken, this.props.history.push);
   }
 
   render() {
-    if (this.props.isInfoAlert && this.props.page === "NewPasswordUpdated") {
+    if (this.props.isInfoAlert && this.props.pageInfo === "NewPasswordUpdated") {
       return <Redirect to='/signIn'/>
     } else if (!this.props.isWaitRecoveryResponse && !this.props.isRecoveryTokenValid) {
       let firstAlertString = <p>Sorry, but your link is incorrect!</p>
@@ -49,7 +49,7 @@ let mapStateToProps = (state) => {
     isWaitRecoveryResponse: state.newPasswordPage.isWaitRecoveryResponse,
     recoveryToken: state.newPasswordPage.recoveryToken,
     isInfoAlert: state.alert.isInfoAlert,
-    page: state.alert.page
+    pageInfo: state.alert.pageInfo
   };
 };
 

@@ -4,6 +4,7 @@ import React from "react";
 import {compose} from "redux";
 import {getUserLogInData} from "../../../redux/actions/authActions";
 import {activateInfoAlert} from "../../../redux/actions/alertActions";
+import {Redirect, withRouter} from "react-router-dom";
 
 class SignInContainer extends React.Component {
 
@@ -12,15 +13,19 @@ class SignInContainer extends React.Component {
   }
 
   doLogIn = (formData) => {
-    this.props.getUserLogInData(formData.email, formData.password);
+    this.props.getUserLogInData(formData.email, formData.password, this.props.history.push);
   }
 
   render() {
+    if (this.props.isInfoAlert && this.props.pageInfo === "ProfileDeleted") {
+      return <Redirect to='/signUp'/>
+    }
+
     return (
       <SignIn isAuth={this.props.isAuth}
               onSubmit={this.doLogIn}
               isInfoAlert={this.props.isInfoAlert}
-              page={this.props.page}
+              pageInfo={this.props.pageInfo}
               turnOffAlert={this.turnOffAlert}
       />
     );
@@ -32,8 +37,8 @@ let mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
     isInfoAlert: state.alert.isInfoAlert,
-    page: state.alert.page
+    pageInfo: state.alert.pageInfo
   };
 };
 
-export default compose(connect(mapStateToProps, {getUserLogInData, activateInfoAlert}))(SignInContainer);
+export default compose(withRouter, connect(mapStateToProps, {getUserLogInData, activateInfoAlert}))(SignInContainer);

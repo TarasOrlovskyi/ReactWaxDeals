@@ -4,6 +4,7 @@ import {compose} from "redux";
 import React from "react";
 import {changePassword, setIsPasswordChanged} from "../../../redux/actions/changePasswordActions";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {withRouter} from "react-router-dom";
 
 class ChangePasswordContainer extends React.Component {
 
@@ -16,7 +17,7 @@ class ChangePasswordContainer extends React.Component {
   }
 
   changeUserPassword = (formData) => {
-    this.props.changePassword(formData.oldPassword, formData.newPassword, formData.confirmNewPassword)
+    this.props.changePassword(formData.oldPassword, formData.newPassword, formData.confirmNewPassword, this.props.history.push)
   }
 
   turnOffAlert = () => {
@@ -39,6 +40,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(withAuthRedirect, connect(mapStateToProps,
+export default compose(withRouter, withAuthRedirect, connect(mapStateToProps,
   {changePassword, setIsPasswordChanged}))(ChangePasswordContainer);
 

@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import {authApi} from "../../api/api";
 import store from "../redux";
-import {handleFormsError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
 
 export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
@@ -31,8 +31,12 @@ export const getUserAuthData = () => async dispatch => {
     if (responseData.status === 200) {
       let {id, email, discogsUserName, role, status} = responseData.data.user;
       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
+    } else {
+      localStorage.removeItem("token");
+      dispatch(setAuthUserData(null, null, null, null, false, false));
     }
   } catch (error) {
+    console.log(`Crashed with ${error.response.status} code after logout`);
     localStorage.removeItem("token");
     dispatch(setAuthUserData(null, null, null, null, false, false));
   }
@@ -44,17 +48,14 @@ export const getUserLogOutData = () => async dispatch => {
     localStorage.removeItem("token");
     dispatch(setAuthUserData(null, null, null, null, false, false));
   } catch (error) {
-    let errorStatus = error.response.status;
-    if (errorStatus === 403) {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
-    } else {
-      return returnUnhandledRejection(errorStatus);
-    }
+    console.log(`Crashed with ${error.response.status} code after logout`);
+    localStorage.removeItem("token");
+    dispatch(setAuthUserData(null, null, null, null, false, false));
+
   }
 }
 
-export const getUserLogInData = (email, password) => async dispatch => {
+export const getUserLogInData = (email, password, historyPush) => async dispatch => {
   try {
     let responseData = await authApi.userLogIn(email, password)
     if (responseData.data.token) {
@@ -67,12 +68,12 @@ export const getUserLogInData = (email, password) => async dispatch => {
     if (errorStatus === 400) {
       handleFormsError("signInForm", dispatch, error.response.data.message);
     } else {
-      return returnUnhandledRejection(errorStatus);
+      unhandledError(errorStatus, "login", historyPush);
     }
   }
 }
 
-export const editUserProfile = (email, discogsUserName) => async dispatch => {
+export const editUserProfile = (email, discogsUserName, historyPush) => async dispatch => {
   dispatch(setIsWaitResponse(true));
   try {
     let responseData = await authApi.editProfileRequest(email, discogsUserName);
@@ -89,24 +90,25 @@ export const editUserProfile = (email, discogsUserName) => async dispatch => {
     } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {
-      return returnUnhandledRejection(errorStatus);
+      unhandledError(errorStatus, "edit profile", historyPush);
     }
   }
 }
 
-export const deleteUserProfile = () => async dispatch => {
+export const deleteUserProfile = (historyPush) => async dispatch => {
   dispatch(setIsWaitResponse(true));
   try {
     let userId = store.getState().auth.id;
     let responseData = await authApi.deleteProfileRequest(userId);
+    debugger
     if (responseData.status === 200) {
       localStorage.removeItem("token");
       dispatch(setAuthUserData(null, null, null, null, false, false));
-      // dispatch(setIsProfileDeleted(true));
       dispatch(activateInfoAlert(true, "ProfileDeleted"));
       dispatch(setIsWaitResponse(false));
     }
   } catch (error) {
+    debugger
     let errorStatus = error.response.status;
     dispatch(setIsWaitResponse(false));
     if (errorStatus === 403 || errorStatus === 401) {
@@ -115,12 +117,12 @@ export const deleteUserProfile = () => async dispatch => {
     } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {
-      return returnUnhandledRejection(errorStatus);
+      unhandledError(errorStatus, "delete profile", historyPush);
     }
   }
 }
 
-export const confirmEmail = (confirmToken) => async dispatch => {
+export const confirmEmail = (confirmToken, historyPush) => async dispatch => {
   dispatch(setIsWaitResponse(true));
   try {
     let responseData = await authApi.confirmEmailRequest(confirmToken)
@@ -128,11 +130,12 @@ export const confirmEmail = (confirmToken) => async dispatch => {
       dispatch(activateInfoAlert(true, "ConfirmEmail"));
     }
   } catch (error) {
-    if (error.response.status === 403) {
+    let errorStatus = error.response.status;
+    if (errorStatus === 403) {
       dispatch(setIsWaitResponse(false));
     } else {
       dispatch(setIsWaitResponse(false));
-      return returnUnhandledRejection(error.response.status);
+      unhandledError(errorStatus, "confirmation email", historyPush);
     }
   }
 }

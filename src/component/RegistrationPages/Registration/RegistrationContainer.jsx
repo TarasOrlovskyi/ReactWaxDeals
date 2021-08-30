@@ -19,7 +19,7 @@ class RegistrationContainer extends React.Component {
   render() {
     return (
       <Registration isInfoAlert={this.props.isInfoAlert}
-                    page={this.props.page}
+                    pageInfo={this.props.pageInfo}
                     turnOffAlert={this.turnOffAlert}
                     onSubmit={this.sendSignUpCredentials}
       />
@@ -31,7 +31,7 @@ class RegistrationContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isInfoAlert: state.alert.isInfoAlert,
-    page: state.alert.page
+    pageInfo: state.alert.pageInfo
   };
 };
 

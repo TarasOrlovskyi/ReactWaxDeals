@@ -13,7 +13,7 @@ const ContactUs = (props) => {
         </div>
         <div className={contactStyle.contentContactUsPage}>
           {
-            (props.isInfoAlert && props.page === "ContactUs") &&
+            (props.isInfoAlert && props.pageInfo === "ContactUs") &&
             <MessageAlert
               turnOffAlert={props.turnOffAlert}
               messages={["Your letter has been sent.", "We will contact you as soon as possible."]}

@@ -29,21 +29,11 @@ import FooterContainer from "./component/Footer/FooterContainer";
 
 class App extends Component {
 
-  catchAllUnhandledError = () => {
-    this.props.history.push('/500');
-  }
-
   componentDidMount() {
     this.props.initializeApp();
-    window.addEventListener("unhandledrejection", this.catchAllUnhandledError);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("unhandledrejection", this.catchAllUnhandledError);
   }
 
   render() {
-
     if (!this.props.initialized) {
       return (
         <div>

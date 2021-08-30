@@ -21,7 +21,7 @@ class ContactUsContainer extends React.Component {
       <ContactUs onSubmit={this.sendContactUsData}
                  turnOffAlert={this.turnOffAlert}
                  isInfoAlert={this.props.isInfoAlert}
-                 page={this.props.page}
+                 pageInfo={this.props.pageInfo}
       />
     );
   }
@@ -30,7 +30,7 @@ class ContactUsContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isInfoAlert: state.alert.isInfoAlert,
-    page: state.alert.page
+    pageInfo: state.alert.pageInfo
   };
 };
 

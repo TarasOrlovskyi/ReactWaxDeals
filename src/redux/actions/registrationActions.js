@@ -1,6 +1,6 @@
 import {reset, stopSubmit} from "redux-form";
 import {registrationApi} from "../../api/api";
-import {handleFormsError, handleHttpError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, handleHttpError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
 
 export const registerUser = (email, password, confirmPassword, discogsUserName, historyPush) => async dispatch => {
@@ -20,7 +20,7 @@ export const registerUser = (email, password, confirmPassword, discogsUserName, 
       } else if (errorStatus === 400) {
         handleFormsError("registrationForm", dispatch, error.response.data.message);
       } else {
-        return returnUnhandledRejection(errorStatus);
+        unhandledError(errorStatus, "registration", historyPush);
       }
     }
   }

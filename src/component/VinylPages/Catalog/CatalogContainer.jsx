@@ -3,11 +3,12 @@ import Catalog from "./Catalog";
 import React from "react";
 import {compose} from "redux";
 import {getVinylsCatalog} from "../../../redux/actions/catalogActions";
+import {withRouter} from "react-router-dom";
 
 class CatalogRequestContainer extends React.Component {
 
   componentDidMount() {
-    this.props.getVinylsCatalog();
+    this.props.getVinylsCatalog(this.props.history.push);
   }
 
   render() {
@@ -21,4 +22,4 @@ let mapStateToProps = (state) => {
   }
 };
 
-export default compose(connect(mapStateToProps, {getVinylsCatalog}))(CatalogRequestContainer);
+export default compose(withRouter, connect(mapStateToProps, {getVinylsCatalog}))(CatalogRequestContainer);

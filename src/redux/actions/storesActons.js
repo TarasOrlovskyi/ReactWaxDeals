@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {storesApi} from "../../api/api";
-import {returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {unhandledError} from "../../utils/handleErrors/handleErrors";
 
 export const refreshStores = (stores) => (
   {
@@ -9,11 +9,11 @@ export const refreshStores = (stores) => (
   }
 );
 
-export const getStores = () => async dispatch => {
+export const getStores = (historyPush) => async dispatch => {
   try {
     let responseData = await storesApi.getStoresResponse();
     dispatch(refreshStores(responseData.data));
   } catch (error) {
-    return returnUnhandledRejection(error.response.status);
+    unhandledError(error.response.status, "registration", historyPush);
   }
 }

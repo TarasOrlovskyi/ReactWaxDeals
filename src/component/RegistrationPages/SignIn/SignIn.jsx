@@ -21,13 +21,13 @@ const SignIn = (props) => {
         <div className={signInStyle.contentSignIn}>
           {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           {
-            (props.isInfoAlert && props.page === "ConfirmEmail") &&
+            (props.isInfoAlert && props.pageInfo === "ConfirmEmail") &&
             <MessageAlert turnOffAlert={props.turnOffAlert}
                           messages={"Your email is verified. You can log in now."}
             />
           }
           {
-            (props.isInfoAlert && props.page === "NewPasswordUpdated") &&
+            (props.isInfoAlert && props.pageInfo === "NewPasswordUpdated") &&
             <MessageAlert turnOffAlert={props.turnOffAlert}
                           messages={"Your password has been changed."}
             />
