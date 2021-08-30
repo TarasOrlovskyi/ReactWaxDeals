@@ -7,6 +7,13 @@
   align-items: center;
 }
 
+@media (max-width: 768px){
+  .header__loginSigns {
+    height: unset;
+    position: unset;
+  }
+}
+
 .header__loginButtons {
   position: relative;
 }

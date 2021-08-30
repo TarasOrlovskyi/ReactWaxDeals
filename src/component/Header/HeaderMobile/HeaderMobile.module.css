@@ -1,7 +1,40 @@
-.header__rowMobile {
-  height: 29px;
-  margin-top: 18px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.header__mobile{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header__mobile{
+    height: 29px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    /*position: relative;*/
+    /*width: 25px;*/
+    /*height: 14px;*/
+  }
+
+  /*.header__burger span{*/
+  /*  position: absolute;*/
+  /*  background-color: #ffffff;*/
+  /*  width: 85%;*/
+  /*  height: 2px;*/
+  /*  top: 6px;*/
+  /*  z-index: 20;*/
+  /*}*/
+  /*.header__burger:before,*/
+  /*.header__burger:after{*/
+  /*  content: '';*/
+  /*  position: absolute;*/
+  /*  background-color: #ffffff;*/
+  /*  height: 2px;*/
+  /*  left: 0;*/
+  /*}*/
+  /*.header__burger:before{*/
+  /*  top: 0;*/
+  /*  width: 100%;*/
+  /*}*/
+  /*.header__burger:after{*/
+  /*  bottom: 0;*/
+  /*  width: 65%;*/
+  /*}*/
 }

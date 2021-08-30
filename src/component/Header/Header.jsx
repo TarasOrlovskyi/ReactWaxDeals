@@ -1,17 +1,23 @@
-import s from './Header.module.css';
-import HeaderNav from "./HeaderNav/HeaderNav";
-import RegistrationSigns from "./RegistrationSigns/RegistrationSigns";
+import HeaderMobile from "./HeaderMobile/Headers/HeaderMobile";
+import HeaderLaptop from "./HeaderLaptop/HeaderLaptop";
+import HeaderOneVinyl from "./HeaderMobile/HeaderOneVinyl/HeaderOneVinyl";
 
 const Header = (props) => {
   return (
-    <header className={s.header}>
-      <div className="container">
-        <div className={s.header__row}>
-          <HeaderNav/>
-          <RegistrationSigns isAuth={props.isAuth} logOut={props.logOut}/>
-        </div>
-      </div>
-    </header>
+    <>
+      {props.headerForRender === "oneVinylHeader" &&
+      <HeaderOneVinyl/>
+      }
+      {(props.headerForRender === "headerWithLogo"
+        || props.headerForRender === "registrationHeader"
+        || props.headerForRender === "homeHeader") &&
+      <HeaderMobile headerForRender={props.headerForRender}
+                    isAuth={props.isAuth}
+                    logOut={props.logOut}
+      />
+      }
+      <HeaderLaptop isAuth={props.isAuth} logOut={props.logOut}/>
+    </>
   );
 }
 

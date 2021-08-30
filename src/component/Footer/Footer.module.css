@@ -4,3 +4,13 @@
   align-items: center;
   position: relative;
 }
+
+@media (max-width: 768px){
+  .footer__row {
+    height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+}
