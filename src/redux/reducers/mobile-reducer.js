@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 let initialMobileState = {
-  headerForRender: ""
+  headerForRender: "",
+  isBurgerActivate: false
 };
 
 const mobileReducer = (state = initialMobileState, action) => {
@@ -10,6 +11,11 @@ const mobileReducer = (state = initialMobileState, action) => {
       return {
         ...state,
         headerForRender: action.headerForRender
+      }
+    case actionTypes.SET_IS_BURGER_ACTIVATE:
+      return {
+        ...state,
+        isBurgerActivate: action.isBurgerActivate
       }
     default:
       return state;
