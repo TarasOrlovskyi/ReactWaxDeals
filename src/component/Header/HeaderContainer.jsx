@@ -5,7 +5,7 @@ import {compose} from "redux";
 import {getUserLogOutData} from "../../redux/actions/authActions";
 import {withRouter} from "react-router-dom";
 import {
-  setHeaderForRender
+  setHeaderForRender, setIsBurgerActivate
 } from "../../redux/actions/mobileActions";
 
 class HeaderContainer extends React.Component {
@@ -20,6 +20,14 @@ class HeaderContainer extends React.Component {
 
   logOut = () => {
     this.props.getUserLogOutData();
+  }
+
+  activateBurger = () => {
+    this.props.setIsBurgerActivate(true);
+  }
+
+  turnOffBurger = () => {
+    this.props.setIsBurgerActivate(false);
   }
 
   checkHeader = () => {
@@ -45,15 +53,19 @@ class HeaderContainer extends React.Component {
     return <Header isAuth={this.props.isAuth}
                    logOut={this.logOut}
                    headerForRender={this.props.headerForRender}
+                   isBurgerActivate={this.props.isBurgerActivate}
+                   activateBurger={this.activateBurger}
+                   turnOffBurger={this.turnOffBurger}
     />
   }
 }
 
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
-  headerForRender: state.mobileVersion.headerForRender
+  headerForRender: state.mobileVersion.headerForRender,
+  isBurgerActivate: state.mobileVersion.isBurgerActivate
 })
 
 export default compose(withRouter, connect(
   mapStateToProps,
-  {getUserLogOutData, setHeaderForRender}))(HeaderContainer)
+  {getUserLogOutData, setHeaderForRender, setIsBurgerActivate}))(HeaderContainer)

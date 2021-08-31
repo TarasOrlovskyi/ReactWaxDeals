@@ -11,6 +11,9 @@
 
 @media (max-width: 768px) {
   .header {
+    height: unset;
+  }
+  .header__row {
     display: none;
   }
 }
