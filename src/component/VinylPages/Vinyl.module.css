@@ -79,3 +79,35 @@
   height: 100%;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .vinylsContent {
+    padding: 25px 0;
+  }
+
+  .otherVinyls {
+    margin: 0 -0.28em;
+  }
+
+  .otherVinyls__item {
+    padding: 0 0.28em;
+    height: unset;
+  }
+
+  .otherVinyls__image {
+    height: 8.33em;
+    width: 8.33em;
+  }
+
+  .otherVinyls__artist {
+    width: 150px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .otherVinyls__release {
+    font-size: 12px;
+    line-height: 16px;
+    width: 150px;
+    padding-bottom: 5px;
+  }
+}
