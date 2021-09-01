@@ -6,11 +6,21 @@ const Footer = (props) => {
   return (
     <footer>
       <div className="container">
-        <div className={s.footer__row}>
-          {props.headerForRender==="homeHeader" &&
-            <SocialNav/>
+        <div className={s.footer__body}>
+          <span className={s.footer__mobile}>
+          {props.headerForRender==="homeHeader"
+            ? <>
+              <SocialNav/>
+              <Copyright/>
+            </>
+            : <Copyright/>
           }
-          <Copyright/>
+          </span>
+          <span className={s.footer__row}>
+            <SocialNav/>
+            <Copyright/>
+          </span>
+
         </div>
       </div>
     </footer>
