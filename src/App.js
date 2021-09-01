@@ -1,29 +1,28 @@
-import Home from "./component/Home/Home";
 import {Route, Switch, withRouter} from "react-router-dom";
-import Stores from "./component/Stores/Stores";
-import RegistrationContainer from "./component/RegistrationPages/Registration/RegistrationContainer";
-import CatalogContainer from "./component/VinylPages/Catalog/CatalogContainer";
-import EditProfileContainer from "./component/RegistrationPages/EditProfile/EditProfileContainer";
-import ChangePasswordContainer from "./component/RegistrationPages/ChangePassword/ChangePasswordContainer";
-import SignInContainer from "./component/RegistrationPages/SignIn/SignInContainer";
-import RecoveryPasswordContainer from "./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer";
-import OneVinylPageContainer from "./component/VinylPages/OneVinylPage/OneVinylPageContainer";
-import ContactUsContainer from "./component/Contact/ContactUsContainer";
-import StoresContainer from "./component/Stores/StoresContainer";
-import AfterSearchContainer from "./component/AfterSearch/AfterSearchContainer";
-import NewPasswordContainer from "./component/RegistrationPages/NewPassword/NewPasswordContainer";
 import HeaderContainer from "./component/Header/HeaderContainer";
 import React, {Component} from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import ConfirmEmailContainer from "./component/RegistrationPages/ConfirmEmail/ConfirmEmailContainer";
-import ProfileContainer from "./component/RegistrationPages/Profile/ProfileContainer";
-import NotFoundPage from "./component/ErrorComponents/NotFoundPage/NotFoundPage";
-import WrongPage from "./component/ErrorComponents/WrongPage/WrongPage";
 import {initializeApp} from "./redux/actions/appActions";
 import {withBackground} from "./hoc/withBackground";
 import FooterContainer from "./component/Footer/FooterContainer";
-import About from "./component/About/About/About";
+const Home = React.lazy(() => import('./component/Home/Home'));
+const RegistrationContainer = React.lazy(() => import('./component/RegistrationPages/Registration/RegistrationContainer'));
+const CatalogContainer = React.lazy(() => import('./component/VinylPages/Catalog/CatalogContainer'));
+const EditProfileContainer = React.lazy(() => import('./component/RegistrationPages/EditProfile/EditProfileContainer'));
+const ChangePasswordContainer = React.lazy(() => import('./component/RegistrationPages/ChangePassword/ChangePasswordContainer'));
+const SignInContainer = React.lazy(() => import('./component/RegistrationPages/SignIn/SignInContainer'));
+const RecoveryPasswordContainer = React.lazy(() => import('./component/RegistrationPages/RecoveryPassword/RecoveryPasswordContainer'));
+const OneVinylPageContainer = React.lazy(() => import('./component/VinylPages/OneVinylPage/OneVinylPageContainer'));
+const ContactUsContainer = React.lazy(() => import('./component/Contact/ContactUsContainer'));
+const StoresContainer = React.lazy(() => import('./component/Stores/StoresContainer'));
+const AfterSearchContainer = React.lazy(() => import('./component/AfterSearch/AfterSearchContainer'));
+const NewPasswordContainer = React.lazy(() => import('./component/RegistrationPages/NewPassword/NewPasswordContainer'));
+const ConfirmEmailContainer = React.lazy(() => import('./component/RegistrationPages/ConfirmEmail/ConfirmEmailContainer'));
+const ProfileContainer = React.lazy(() => import('./component/RegistrationPages/Profile/ProfileContainer'));
+const NotFoundPage = React.lazy(() => import('./component/ErrorComponents/NotFoundPage/NotFoundPage'));
+const WrongPage = React.lazy(() => import('./component/ErrorComponents/WrongPage/WrongPage'));
+const About = React.lazy(() => import('./component/About/About/About'));
 
 class App extends Component {
 
@@ -43,62 +42,61 @@ class App extends Component {
     return (
       <>
         <HeaderContainer/>
-        <Switch>
-          <Route exact path="/" render={() =>
-            <Home/>
-          }/>
-          <Route exact path="/catalog" render={() =>
-            <CatalogContainer/>
-          }/>
-          <Route path="/oneVinyl/:id" render={() =>
-            <OneVinylPageContainer/>
-          }/>
-          <Route exact path="/contact" render={() =>
-            <ContactUsContainer/>
-          }/>
-          <Route exact path="/stores" render={() =>
-            <StoresContainer/>
-          }/>
-          <Route exact path="/signUp" render={() =>
-            <RegistrationContainer/>
-          }/>
-          <Route exact path="/profile" render={() =>
-            <ProfileContainer/>
-          }/>
-          <Route exact path="/new-password/:token" render={() =>
-            <NewPasswordContainer/>
-          }/>
-          <Route exact path="/edit-profile" render={() =>
-            <EditProfileContainer/>
-          }/>
-          <Route exact path="/recovery-password" render={() =>
-            <RecoveryPasswordContainer/>
-          }/>
-          <Route exact path="/change-password" render={() =>
-            <ChangePasswordContainer/>
-          }/>
-          <Route exact path="/stores" render={() =>
-            <Stores/>
-          }/>
-          <Route exact path="/about" render={() =>
-            <About/>
-          }/>
-          <Route exact path="/signIn" render={() =>
-            <SignInContainer/>
-          }/>
-          <Route exact path="/search" render={() =>
-            <AfterSearchContainer/>
-          }/>
-          <Route exact path="/email-confirmation/:token" render={() =>
-            <ConfirmEmailContainer/>
-          }/>
-          <Route path="/500" render={() =>
-            <WrongPage/>
-          }/>
-          <Route render={() =>
-            <NotFoundPage/>
-          }/>
-        </Switch>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" render={() =>
+              <Home/>
+            }/>
+            <Route exact path="/catalog" render={() =>
+              <CatalogContainer/>
+            }/>
+            <Route path="/oneVinyl/:id" render={() =>
+              <OneVinylPageContainer/>
+            }/>
+            <Route exact path="/contact" render={() =>
+              <ContactUsContainer/>
+            }/>
+            <Route exact path="/stores" render={() =>
+              <StoresContainer/>
+            }/>
+            <Route exact path="/signUp" render={() =>
+              <RegistrationContainer/>
+            }/>
+            <Route exact path="/profile" render={() =>
+              <ProfileContainer/>
+            }/>
+            <Route exact path="/new-password/:token" render={() =>
+              <NewPasswordContainer/>
+            }/>
+            <Route exact path="/edit-profile" render={() =>
+              <EditProfileContainer/>
+            }/>
+            <Route exact path="/recovery-password" render={() =>
+              <RecoveryPasswordContainer/>
+            }/>
+            <Route exact path="/change-password" render={() =>
+              <ChangePasswordContainer/>
+            }/>
+            <Route exact path="/about" render={() =>
+              <About/>
+            }/>
+            <Route exact path="/signIn" render={() =>
+              <SignInContainer/>
+            }/>
+            <Route exact path="/search" render={() =>
+              <AfterSearchContainer/>
+            }/>
+            <Route exact path="/email-confirmation/:token" render={() =>
+              <ConfirmEmailContainer/>
+            }/>
+            <Route path="/500" render={() =>
+              <WrongPage/>
+            }/>
+            <Route render={() =>
+              <NotFoundPage/>
+            }/>
+          </Switch>
+        </React.Suspense>
         <FooterContainer/>
       </>
     );
