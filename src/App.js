@@ -22,28 +22,16 @@ import NotFoundPage from "./component/ErrorComponents/NotFoundPage/NotFoundPage"
 import WrongPage from "./component/ErrorComponents/WrongPage/WrongPage";
 import {initializeApp} from "./redux/actions/appActions";
 import {withBackground} from "./hoc/withBackground";
-import {withMobileVersion} from "./hoc/withMobileVersion";
-import {withHeaderBackButton} from "./hoc/withHeaderBackButton";
-import AboutContainer from "./component/About/AboutContainer";
 import FooterContainer from "./component/Footer/FooterContainer";
+import About from "./component/About/About/About";
 
 class App extends Component {
 
-  catchAllUnhandledError = () => {
-    this.props.history.push('/500');
-  }
-
   componentDidMount() {
     this.props.initializeApp();
-    window.addEventListener("unhandledrejection", this.catchAllUnhandledError);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("unhandledrejection", this.catchAllUnhandledError);
   }
 
   render() {
-
     if (!this.props.initialized) {
       return (
         <div>
@@ -93,7 +81,7 @@ class App extends Component {
             <Stores/>
           }/>
           <Route exact path="/about" render={() =>
-            <AboutContainer/>
+            <About/>
           }/>
           <Route exact path="/signIn" render={() =>
             <SignInContainer/>
@@ -122,4 +110,4 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(withBackground, withMobileVersion, withHeaderBackButton, withRouter, connect(mapStateToProps, {initializeApp}))(App);
+export default compose(withBackground, withRouter, connect(mapStateToProps, {initializeApp}))(App);

@@ -8,9 +8,13 @@
 .search__input:focus:-moz-placeholder           {opacity:0;}/* Firefox 18- */
 .search__input:focus:-ms-input-placeholder      {opacity:0;}/* IE */
 
+.search__form{
+  width: 100%;
+}
+
 .search{
   height: 3.22em;
-  width: 51.5em;
+  max-width: 51.5em;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -23,6 +27,13 @@
   color: #C4C4C4;
   background: rgba(151, 151, 151, 0.53);
   flex: 1 1 auto;
+}
+
+@media (max-width: 768px) {
+  .search__input{
+    height: unset;
+    font-size: 14px;
+  }
 }
 
 .search__button{

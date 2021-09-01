@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {vinylApi} from "../../api/api";
-import {handleHttpError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleHttpError, unhandledError} from "../../utils/handleErrors/handleErrors";
 
 export const refreshOneVinyl = (firstVinyl, discogsLink, vinylOffersList, vinylsByArtist) => {
   return {
@@ -25,7 +25,7 @@ export const getOneVinyl = (vinylId, historyPush) => async dispatch => {
     if (errorStatus === 404 || errorStatus === 500) {
       handleHttpError(errorStatus, historyPush)
     } else {
-      return returnUnhandledRejection(errorStatus);
+      unhandledError(errorStatus, "get one vinyl", historyPush);
     }
   }
 }

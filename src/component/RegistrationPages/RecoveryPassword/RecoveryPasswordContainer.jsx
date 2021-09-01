@@ -19,7 +19,7 @@ class RecoveryPasswordContainer extends React.Component {
   render() {
     return (
       <RecoveryPassword isInfoAlert={this.props.isInfoAlert}
-                        page={this.props.page}
+                        pageInfo={this.props.pageInfo}
                         turnOffAlert={this.turnOffAlert}
                         onSubmit={this.sendRecoveryMail}
       />
@@ -30,7 +30,7 @@ class RecoveryPasswordContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isInfoAlert: state.alert.isInfoAlert,
-    page: state.alert.page
+    pageInfo: state.alert.pageInfo
   };
 };
 

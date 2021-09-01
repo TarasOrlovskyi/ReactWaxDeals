@@ -6,7 +6,7 @@ const SearchField = (props) => {
     props.updateSearchField(event.target.value);
   };
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()} className={s.search__form}>
       <label className={s.search}>
         <input className={s.search__input} type="text" name="matcher"
                onChange={onChangeSearchField}

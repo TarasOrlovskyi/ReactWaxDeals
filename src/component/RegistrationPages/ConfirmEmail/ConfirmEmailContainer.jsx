@@ -11,12 +11,12 @@ class ConfirmEmailContainer extends React.Component {
   componentDidMount() {
     let token = this.props.match.params.token;
     if (token) {
-      this.props.confirmEmail(token);
+      this.props.confirmEmail(token, this.props.history.push);
     }
   }
 
   render() {
-    if (!this.props.isWaitResponse && !this.props.isInfoAlert && this.props.page !== "ConfirmEmail") {
+    if (!this.props.isWaitResponse && !this.props.isInfoAlert && this.props.pageInfo !== "ConfirmEmail") {
       let firstAlertString = <p>Sorry, but your link is incorrect!</p>
       let secondAlertString = <p>
         Please, <NavLink to='/contact' className={alertsStyle.alert_navLink}>contact us</NavLink> or <NavLink
@@ -25,7 +25,7 @@ class ConfirmEmailContainer extends React.Component {
       return <MessageAlert messages={[firstAlertString, secondAlertString]}/>
     }
 
-    if (this.props.isInfoAlert && this.props.page === "ConfirmEmail") {
+    if (this.props.isInfoAlert && this.props.pageInfo === "ConfirmEmail") {
       return <Redirect to='/signIn'/>
     }
 
@@ -36,7 +36,7 @@ class ConfirmEmailContainer extends React.Component {
 let mapStateToProps = (state) => ({
   isWaitResponse: state.auth.isWaitResponse,
   isInfoAlert: state.alert.isInfoAlert,
-  page: state.alert.page
+  pageInfo: state.alert.pageInfo
 })
 
 export default compose(withRouter, connect(mapStateToProps, {confirmEmail}))(ConfirmEmailContainer);

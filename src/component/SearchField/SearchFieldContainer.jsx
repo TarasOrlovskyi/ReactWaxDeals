@@ -12,12 +12,12 @@ class SearchFieldContainer extends React.Component {
     const search = this.props.location.search;
     const searchQuery = new URLSearchParams(search).get("matcher");
     if (searchQuery) {
-      this.props.getSearchResult(searchQuery);
+      this.props.getSearchResult(searchQuery, this.props.history.push);
     }
   }
 
   loadSearchResult = (searchQuery) => {
-    this.props.getSearchResult(searchQuery);
+    this.props.getSearchResult(searchQuery, this.props.history.push);
   }
 
   render() {

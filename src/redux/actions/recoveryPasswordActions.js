@@ -1,6 +1,6 @@
 import {authApi} from "../../api/api";
 import {reset} from "redux-form";
-import {handleFormsError, handleHttpError, returnUnhandledRejection} from "../../utils/handleErrors/handleErrors";
+import {handleFormsError, handleHttpError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
 
 export const sendRecoveryPasswordMail = (email, historyPush) => async dispatch => {
@@ -17,7 +17,7 @@ export const sendRecoveryPasswordMail = (email, historyPush) => async dispatch =
     } else if (errorStatus === 403) {
       handleFormsError("recoveryPasswordForm", dispatch, error.response.data.message);
     } else {
-      return returnUnhandledRejection(errorStatus);
+      unhandledError(errorStatus, "send recovery password mail", historyPush);
     }
   }
 }

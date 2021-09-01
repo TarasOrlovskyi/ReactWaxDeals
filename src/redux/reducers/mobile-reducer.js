@@ -1,21 +1,21 @@
 import * as actionTypes from "../actions/actionTypes";
 
 let initialMobileState = {
-  isMobile: false,
-  isHeaderBackButton: false
+  headerForRender: "",
+  isBurgerActivate: false
 };
 
 const mobileReducer = (state = initialMobileState, action) => {
   switch (action.type) {
-    case actionTypes.SET_IS_MOBILE:
+    case actionTypes.SET_HEADER_FOR_RENDER:
       return {
         ...state,
-        isMobile: action.isMobile
+        headerForRender: action.headerForRender
       }
-      case actionTypes.SET_IS_HEADER_BACK_BUTTON:
+    case actionTypes.SET_IS_BURGER_ACTIVATE:
       return {
         ...state,
-        isHeaderBackButton: action.isHeaderBackButton
+        isBurgerActivate: action.isBurgerActivate
       }
     default:
       return state;

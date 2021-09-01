@@ -1,11 +1,11 @@
 import * as actionTypes from "./actionTypes";
 
-export const setIsMobile = (isMobile) => ({
-  type: actionTypes.SET_IS_MOBILE,
-  isMobile
+export const setHeaderForRender = (headerForRender) => ({
+  type: actionTypes.SET_HEADER_FOR_RENDER,
+  headerForRender
 })
 
-export const setIsHeaderBackButton = (isHeaderBackButton) => ({
-  type: actionTypes.SET_IS_HEADER_BACK_BUTTON,
-  isHeaderBackButton
+export const setIsBurgerActivate = (isBurgerActivate) => ({
+  type: actionTypes.SET_IS_BURGER_ACTIVATE,
+  isBurgerActivate
 })

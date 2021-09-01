@@ -8,3 +8,12 @@
   align-items: flex-end;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .header {
+    height: unset;
+  }
+  .header__row {
+    display: none;
+  }
+}

@@ -13,9 +13,7 @@ export const handleHttpError = (errorStatus, historyPush) => {
   }
 }
 
-export const returnUnhandledRejection = (errorStatus) => {
-  return new Promise((resolve, reject) => {
-    console.log(`Crashed with ${errorStatus} code after registration`)
-    reject(`Crashed with ${errorStatus} code after registration`);
-  });
+export const unhandledError = (errorStatus, action, historyPush) => {
+  console.log(`Crashed with ${errorStatus} code after ${action}`);
+  historyPush('/500');
 }

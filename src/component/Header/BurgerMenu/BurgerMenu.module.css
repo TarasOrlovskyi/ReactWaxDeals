@@ -1,0 +1,55 @@
+.burger{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .burger{
+    display: block;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+    transition: all 0.3s ease 0s;
+  }
+
+  .burger_active{
+    top: 0;
+  }
+
+  .burgerBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .burgerBody__header{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 25px 30px 15px 0;
+  }
+  .burgerBody__column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .burgerBody__columnItem{
+    padding-top: 35px;
+  }
+  .burgerBody__row{
+    max-width: 10.3em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 65px;
+    flex: 1 1 auto;
+  }
+  .burgerBody__rowItemColor{
+    color: #F6A325;
+  }
+}
+

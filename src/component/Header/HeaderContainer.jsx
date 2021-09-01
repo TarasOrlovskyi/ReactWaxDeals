@@ -3,26 +3,69 @@ import Header from "./Header";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {getUserLogOutData} from "../../redux/actions/authActions";
-import HeaderMobile from "./HeaderMobile/HeaderMobile";
 import {withRouter} from "react-router-dom";
+import {
+  setHeaderForRender, setIsBurgerActivate
+} from "../../redux/actions/mobileActions";
 
 class HeaderContainer extends React.Component {
+
+  componentDidMount() {
+    this.checkHeader()
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.checkHeader()
+  }
 
   logOut = () => {
     this.props.getUserLogOutData();
   }
 
-  render() {
-    if (this.props.isMobile){
-      return <HeaderMobile/>
+  activateBurger = () => {
+    this.props.setIsBurgerActivate(true);
+  }
+
+  turnOffBurger = () => {
+    this.props.setIsBurgerActivate(false);
+  }
+
+  checkHeader = () => {
+    let path = this.props.location.pathname;
+    if (path.includes("/oneVinyl")) {
+      this.props.setHeaderForRender("oneVinylHeader")
+    } else if (path === "/") {
+      this.props.setHeaderForRender("homeHeader")
+    } else if (path.includes("/signUp")
+      || path.includes("/profile")
+      || path.includes("/new-password")
+      || path.includes("/edit-profile")
+      || path.includes("/recovery-password")
+      || path.includes("/change-password")
+      || path.includes("/signIn")) {
+      this.props.setHeaderForRender("registrationHeader")
+    } else {
+      this.props.setHeaderForRender("headerWithLogo")
     }
-    return <Header {...this.props} logOut={this.logOut}/>
+  }
+
+  render() {
+    return <Header isAuth={this.props.isAuth}
+                   logOut={this.logOut}
+                   headerForRender={this.props.headerForRender}
+                   isBurgerActivate={this.props.isBurgerActivate}
+                   activateBurger={this.activateBurger}
+                   turnOffBurger={this.turnOffBurger}
+    />
   }
 }
 
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
-  isMobile: state.mobileVersion.isMobile
+  headerForRender: state.mobileVersion.headerForRender,
+  isBurgerActivate: state.mobileVersion.isBurgerActivate
 })
 
-export default compose(withRouter, connect(mapStateToProps, {getUserLogOutData}))(HeaderContainer)
+export default compose(withRouter, connect(
+  mapStateToProps,
+  {getUserLogOutData, setHeaderForRender, setIsBurgerActivate}))(HeaderContainer)

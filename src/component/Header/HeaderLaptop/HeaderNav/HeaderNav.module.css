@@ -6,7 +6,9 @@
 .header__menuList {
   display: flex;
   height: 3.6em;
-  width: 49.5em;
+  min-width: 31em;
+  max-width: 49.5em;
+  width: 67%;
   justify-content: space-between;
   align-items: flex-end;
   margin: 0 auto;
@@ -24,3 +26,18 @@
 .header__menuItem_active {
   color: #F7A325;
 }
+
+/*@media (max-width: 768px){*/
+/*  .header__menu{*/
+/*    position: fixed;*/
+/*    top: -100%;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: #000000;*/
+/*    z-index: 10;*/
+/*  }*/
+/*  .header__menuList{*/
+/*    display: none;*/
+/*  }*/
+/*}*/
