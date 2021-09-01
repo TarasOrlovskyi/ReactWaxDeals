@@ -55,32 +55,3 @@
 </body>
 </html>
 
-
-import storeStyle from './Stores.module.css';
-import Store from './Store/Store';
-
-const Stores = (props) => {
-
-return (
-<main class="main">
-  <div class="container">
-    <div className{storesStyle.storesContent}>
-      <div className={storesStyle.storesContent__row}>
-        <div className={storesStyle.allStores}>
-          <div className={storesStyle.allStores__image}>
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/junorecords_logo.png" alt="junorecords">
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/redeyerecords_logo.png" alt="redeye">
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/hardwax_logo.png" alt="hardwax">
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/decks.de%20logo.png" alt="decks.de">
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/deejay.de%20logo.png" alt="deejay.de">
-            <img className={storesStyle.allStores__images} src="../../../../src/assets/img/mobile_stores/clone_logo.png" alt="clone.nl">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-);
-}
-
-export default Stores;

@@ -179,6 +179,11 @@ h2 {
   align-items: flex-end;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .unsetHeight {
+    height: unset;
+  }
+}
 
 /* main */
 
