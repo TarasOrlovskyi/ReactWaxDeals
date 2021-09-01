@@ -23,8 +23,21 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .user__label{
+    padding-bottom: 20px;
+  }
+}
+
 .user__submitLabel {
   height: 2.25em;
+}
+
+@media (max-width: 768px) {
+  .user__submitLabel{
+    height: unset;
+    padding-top: 30px;
+  }
 }
 
 /* setting the color and transparent settings for the placeholder */
@@ -108,6 +121,13 @@
 
 .contentUser__title {
   height: 5.28em;
+}
+
+@media (max-width: 768px) {
+  .contentUser__title {
+    height: unset;
+    padding-bottom: 30px;
+  }
 }
 
 .discogsLogo {

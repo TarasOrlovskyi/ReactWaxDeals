@@ -4,7 +4,7 @@ import SocialNetwork from "./SocialNetwork/SocialNetwork.jsx";
 import signInStyle from "./SignIn.module.css";
 import userStyle from "../User.module.css";
 import SignInForm from "./SignInForm/SignInForm";
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 
 const SignIn = (props) => {
@@ -16,7 +16,7 @@ const SignIn = (props) => {
   return (
     <main className="main">
       <div className="container">
-        <div className="searchArea">
+        <div className="searchArea unsetHeight">
         </div>
         <div className={signInStyle.contentSignIn}>
           {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
@@ -39,6 +39,7 @@ const SignIn = (props) => {
             <SignInForm onSubmit={props.onSubmit}/>
             <RectangleLine/>
             <SocialNetwork/>
+            <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
           </div>
         </div>
       </div>

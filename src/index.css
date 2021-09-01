@@ -57,6 +57,13 @@ a, a:visited {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  a, a:visited {
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+}
+
 a:hover {
   text-decoration: none;
 }

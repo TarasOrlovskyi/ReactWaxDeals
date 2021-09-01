@@ -15,6 +15,33 @@
   height: 14.39em;
 }
 
+
+@media (max-width: 768px) {
+  .signInUser {
+    height: unset;
+  }
+}
+
 .signInUser__fields {
   height: 9em;
+}
+
+@media (max-width: 768px) {
+  .contentSignIn {
+    padding: 70px 0;
+  }
+}
+
+.signInUser__register{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .signInUser__register {
+    display: flex;
+    text-decoration: underline;
+    color: #F6A325;
+    padding-top: 40px;
+
+  }
 }
