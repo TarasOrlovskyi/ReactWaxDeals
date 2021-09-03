@@ -11,7 +11,7 @@
     .allShops__item {
         padding: 25px 0;
         width: 230px;
-        flex: 0 0 100%;
+        flex: 1 1 100%;
         height: unset;
     }
 }

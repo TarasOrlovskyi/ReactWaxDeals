@@ -1,6 +1,7 @@
 .contentSignIn__socialNetwork {
   height: 3em;
   width: 19.44em;
+  max-width: 290px;
   display: flex;
   justify-content: space-around;
   align-items: center;
