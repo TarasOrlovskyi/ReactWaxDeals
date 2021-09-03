@@ -1,33 +1,34 @@
 .shopsContent {
-    padding: 3.55em 0;
-    max-width: 62em;
-    margin: 0 auto;
+  padding: 3.55em 0;
+  max-width: 62em;
+  margin: 0 auto;
 }
 
 .shopsContent__row {
-    margin: -4.61em 0;
+  margin: -4.61em 0;
 }
 
 .allShops {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 -3.3em;
-    align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 -3.3em;
+  align-content: flex-start;
 }
 
 @media (max-width: 768px) {
-    .shopsContent {
-        padding: unset;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    .shopsContent__row {
-        margin: unset;
-        padding-top: 40px;
-    }
+  .shopsContent {
+    padding: unset;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 
-    .allShops {
-        margin: -25px 0;
-    }
+  .shopsContent__row {
+    margin: unset;
+    padding-top: 40px;
+  }
+
+  .allShops {
+    margin: -25px 0;
+  }
 }

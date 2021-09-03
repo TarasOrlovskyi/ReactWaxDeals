@@ -15,33 +15,36 @@
   height: 14.39em;
 }
 
-
-@media (max-width: 768px) {
-  .signInUser {
-    height: unset;
-  }
-}
-
 .signInUser__fields {
   height: 9em;
 }
 
+.signInUser__register {
+  display: none;
+
+}
+
 @media (max-width: 768px) {
   .contentSignIn {
+    height: 447px;
     padding: 70px 0;
   }
-}
-
-.signInUser__register{
-  display: none;
-}
-
-@media (max-width: 768px) {
+  .contentSignIn__column {
+    height: 447px;
+    width: 100%;
+  }
+  .signInUser {
+    height: 225px;
+  }
+  .signInUser__fields {
+    height: 154px;
+  }
   .signInUser__register {
-    display: flex;
     text-decoration: underline;
+    text-transform: uppercase;
     color: #F6A325;
-    padding-top: 40px;
-
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
   }
 }

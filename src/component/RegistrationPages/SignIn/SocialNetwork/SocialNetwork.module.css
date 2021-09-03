@@ -5,3 +5,10 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .contentSignIn__socialNetwork {
+    height: 35px;
+    width: 100%;
+  }
+}
