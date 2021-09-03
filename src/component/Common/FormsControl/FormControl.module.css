@@ -8,4 +8,7 @@
 
 .textError{
   color: #ff480b;
+  font-size: 0.45em;
+  padding-top: 0.1em;
+  display: block;
 }

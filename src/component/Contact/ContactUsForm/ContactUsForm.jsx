@@ -20,7 +20,7 @@ class ContactUsForm extends React.Component {
       <form>
         <div className={userStyle.user + ' ' + contactStyle.contactUsPageUser}>
           <div className={userStyle.user__fieldsWrapper}>
-            <div className={userStyle.user__fields + ' ' + contactStyle.contactUsPageUser__fields}>
+            <div className={userStyle.user__fields/* + ' ' + contactStyle.contactUsPageUser__fields*/}>
               <label className={userStyle.user__label}>
                 <Field className={userStyle.user__input}
                        component={Input}
