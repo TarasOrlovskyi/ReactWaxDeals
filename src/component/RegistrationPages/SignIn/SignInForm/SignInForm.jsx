@@ -32,7 +32,7 @@ const SignInForm = (props) => {
           <div>
             {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
           </div>
-          <NavLink to="/recovery-password">Forgot password?</NavLink>
+          <NavLink className={userStyle.user__forgotPassword} to="/recovery-password">Forgot password?</NavLink>
         </div>
       </div>
       <label className={userStyle.user__submitLabel}>
