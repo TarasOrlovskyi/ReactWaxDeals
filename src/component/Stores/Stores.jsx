@@ -6,7 +6,7 @@ const Stores = (props) => {
   return (
     <main className="main">
       <div className="container subContainer">
-        <div className="searchArea">
+        <div className="searchArea unsetHeight">
         </div>
         <div className={s.shopsContent}>
           <div className={s.shopsContent__row}>
