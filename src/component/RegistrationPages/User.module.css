@@ -21,7 +21,7 @@
 
 .user__label {
   width: 100%;
-  height: 4.44em;  /*NEW*/
+  height: 4.72em;  /*NEW*/
 }
 
 .user__submitLabel {
@@ -114,7 +114,8 @@
 .discogsLogo {
   position: absolute;
   right: -4.17em;
-  bottom: 1.9em;
+  /*bottom: 1.9em;*/
+  bottom: 2.5em;
 }
 
 .inputMessage {

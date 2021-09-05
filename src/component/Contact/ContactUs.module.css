@@ -1,18 +1,21 @@
 .contentContactUsPage {
-  height: 44.5em;
+  /*height: 44.5em;*/
+  /*height: 33.5em;*/
+  height: 34.06em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .contentContactUsPage__column {
-  height: 41.72em;
+  /*height: 41.72em;*/
   width: 19.44em;
 }
 
 .contactUsPageUser {
-  height: 23.61em;
+  /*height: 23.61em;*/
+  height: 24.17em;
 }
 
 .contactUsPageUser__fields {

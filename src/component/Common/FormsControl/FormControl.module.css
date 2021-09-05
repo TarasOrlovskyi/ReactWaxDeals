@@ -1,14 +1,16 @@
 .elementError input{
-  border: darkred solid 4px;
+  border: #ff480b solid 4px;
 }
 
 .elementError textarea{
-  border: darkred solid 4px;
+  border: #ff480b solid 4px;
 }
 
 .textError{
   color: #ff480b;
-  font-size: 0.45em;
-  padding-top: 0.1em;
+  font-size: 0.75em;
+  padding-top: 0.3em;
+  line-height: 1em;
   display: block;
 }
+
