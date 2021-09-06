@@ -1,5 +1,8 @@
 .contentSignIn__socialNetwork {
-  height: 3em;
+ /* height: 3em;*/
+ /* height: 1.67em;*/
+  margin-top: -0.83em;
+
   width: 19.44em;
   max-width: 290px;
   display: flex;

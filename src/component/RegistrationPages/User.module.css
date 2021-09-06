@@ -25,7 +25,8 @@
 }
 
 .user__submitLabel {
-  height: 2.25em;
+  /*height: 2.25em;*/
+  height: 2.22em;
 }
 
 /* setting the color and transparent settings for the placeholder */
@@ -129,6 +130,13 @@
   font-weight: bold;
 }
 
+.user__forgotPassword {
+  text-decoration: underline;
+  position: absolute;
+  top: 10.71em;
+  font-size: 0.78em;
+}
+
 @media (max-width: 768px) {
   .contentUser__title {
     height: 63px;
@@ -136,5 +144,5 @@
   .user__forgotPassword {
     text-decoration: underline;
     text-transform: uppercase;
-  }
+   }
 }

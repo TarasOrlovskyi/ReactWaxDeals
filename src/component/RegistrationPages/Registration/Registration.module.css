@@ -1,7 +1,8 @@
 .contentRegistrationPage {
   /*height: 30.70em;*/
   /*height: 32.56em;*/
-  height: 33.17em;
+  /*height: 33.17em;*/
+  height: 33.22em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
