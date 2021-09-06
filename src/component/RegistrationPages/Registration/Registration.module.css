@@ -1,7 +1,4 @@
 .contentRegistrationPage {
-  /*height: 30.70em;*/
-  /*height: 32.56em;*/
-  /*height: 33.17em;*/
   height: 33.22em;
   display: flex;
   flex-direction: column;
@@ -10,18 +7,45 @@
 }
 
 .contentRegistrationPage__column {
-  /*height: 27.92em;*/
-  /*height: 28.61em;*/
   width: 19.44em;
 }
 
 .registrationPageUser {
-  /*height: 22.67em;*/
   height: 23.33em;
 }
 
 .registrationPageUser__fields {
-  /*height: 16.11em;*/
-  /*height: 17.78em;*/
   height: 18.89em;
+}
+
+.user__account {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .contentRegistrationPage {
+    height: 531px;
+  }
+
+  .contentRegistrationPage__column {
+    height: 483px;
+    max-width: 17.22em;
+    width: 100%;
+  }
+
+  .registrationPageUser {
+    height: 420px;
+  }
+
+  .registrationPageUser__fields {
+    height: 300px;
+  }
+
+  .user__account {
+    font-size: 14px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+  }
 }

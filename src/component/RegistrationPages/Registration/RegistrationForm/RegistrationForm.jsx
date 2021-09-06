@@ -5,6 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../Common/FormsControl/FormsControl";
 import {emailValidation, maxLength, passwordValidation, required} from "../../../../utils/validators/validators";
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const maxLength50 = maxLength(50);
 
@@ -50,6 +51,7 @@ const RegistrationForm = (props) => {
                alt="Discogs logo"/>
         </div>
       </div>
+      <NavLink className={registrationStyle.user__account} to="/signIn">I already have an account</NavLink>
       <div>
         {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
       </div>

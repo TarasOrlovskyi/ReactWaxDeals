@@ -21,11 +21,10 @@
 
 .user__label {
   width: 100%;
-  height: 4.72em;  /*NEW*/
+  height: 4.72em;
 }
 
 .user__submitLabel {
-  /*height: 2.25em;*/
   height: 2.22em;
 }
 
@@ -115,7 +114,6 @@
 .discogsLogo {
   position: absolute;
   right: -4.17em;
-  /*bottom: 1.9em;*/
   bottom: 2.5em;
 }
 
@@ -126,8 +124,9 @@
 }
 
 .summaryError {
-  color: #ff2213;
-  font-weight: bold;
+  color: #F65725;
+  font-weight: 600;
+  font-size: 0.89em;
 }
 
 .user__forgotPassword {
@@ -139,10 +138,40 @@
 
 @media (max-width: 768px) {
   .contentUser__title {
-    height: 63px;
+    height: 3.5em;
   }
+
+  .inputMessage {
+    height: 8.57em;
+  }
+
   .user__forgotPassword {
     text-decoration: underline;
     text-transform: uppercase;
-   }
+    position: absolute;
+    top: 9.97em;
+  }
+
+  .discogsLogo {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+
+  .user__label {
+    max-width: 310px;
+    width: 100%;
+    height: 4.17em;
+  }
+
+  .user__submitLabel {
+    height: 77px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .user__fields {
+    justify-content: unset;
+  }
 }

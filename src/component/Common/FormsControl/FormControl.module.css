@@ -14,3 +14,9 @@
   display: block;
 }
 
+@media (max-width: 768px){
+  .textError {
+    font-size: 0.55em;
+    max-width: 310px;
+  }
+}

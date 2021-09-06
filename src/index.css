@@ -200,4 +200,12 @@ main {
   .unsetHeight {
     height: unset;
   }
-}
+
+  .searchArea {
+    height: unset;
+    }
+
+  .contentColumn {
+    justify-content: unset;
+      }
+  }
