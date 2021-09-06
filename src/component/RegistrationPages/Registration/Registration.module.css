@@ -18,3 +18,29 @@
 .registrationPageUser__fields {
   height: 16.11em;
 }
+.user__account{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .contentRegistrationPage {
+    height: 575px;
+  }
+  .contentRegistrationPage__column {
+    height: 518px;
+    width: unset;
+  }
+  .registrationPageUser {
+    height: 455px;
+  }
+  .registrationPageUser__fields {
+    height: 260px;
+  }
+  .user__account{
+    text-decoration: underline;
+    text-transform: uppercase;
+    height: 68px;
+    display: flex;
+    align-items: flex-end;
+  }
+}

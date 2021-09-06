@@ -135,4 +135,17 @@
     text-decoration: underline;
     text-transform: uppercase;
   }
+  .discogsLogo {
+    position: absolute;
+    bottom: -45px;
+    left: 0;
+  }
+  .user__label{
+    max-width: 310px;
+  }
+  .user__submitLabel {
+    height: 97px;
+    display: flex;
+    align-items: flex-end;
+  }
 }
