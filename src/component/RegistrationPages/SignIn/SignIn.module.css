@@ -11,22 +11,15 @@
 }
 
 .signInUser {
- height: 13.89em;
-}
-
-.signInUser__fields {
-
+  height: 13.89em;
 }
 
 .signInUser__register {
   display: none;
-
 }
 
 @media (max-width: 768px) {
   .contentSignIn {
-   /* height: 447px;
-    padding: 70px 0;*/
     height: 500px;
   }
 
@@ -37,7 +30,6 @@
   }
 
   .signInUser {
-    /*height: 17.78em;*/
     height: 12.78em;
   }
 

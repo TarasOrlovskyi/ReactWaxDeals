@@ -19,21 +19,16 @@
 
 @media (max-width: 768px) {
   .contentContactUsPage {
-    /*height: 30.51em;*/
     height: 27em;
   }
 
   .contactUsPageUser {
-    /*height: 24.17em;*/
     height: 20.83em;
   }
 
-
   .contentContactUsPage__column {
-    /*height: 483px;*/
     height: 24.33em;
     max-width: 17.22em;
     width: 100%;
   }
 }
-
