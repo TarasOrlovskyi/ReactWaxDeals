@@ -25,7 +25,10 @@
 }
 
 .user__submitLabel {
-  height: 2.22em;
+  height: 4.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* setting the color and transparent settings for the placeholder */
@@ -75,7 +78,7 @@
 
 .user__input {
   font-size: 14px;
-  line-height: 19px;
+  line-height: 1.38em;
   color: #8D8989;
   height: 3.57em;
   width: 100%;
@@ -90,7 +93,7 @@
 .user__submitInput {
   font-weight: bold;
   font-size: 18px;
-  line-height: 25px;
+  line-height: 1.39px;
   height: 2.22em;
   width: 7.77em;
   color: #fff;
@@ -127,6 +130,14 @@
   color: #F65725;
   font-weight: 600;
   font-size: 0.89em;
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.38em;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
 }
 
 .user__forgotPassword {
@@ -165,7 +176,7 @@
   }
 
   .user__submitLabel {
-    height: 77px;
+    height: 4.50em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -173,5 +184,14 @@
 
   .user__fields {
     justify-content: unset;
+  }
+
+  @media {
+    .summaryError {
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
   }
 }

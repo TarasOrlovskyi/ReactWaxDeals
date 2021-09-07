@@ -14,12 +14,9 @@
   height: 24.17em;
 }
 
-.contactUsPageUser__fields {
-}
-
 @media (max-width: 768px) {
   .contentContactUsPage {
-    height: 27em;
+    height: 27.56em;
   }
 
   .contactUsPageUser {

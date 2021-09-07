@@ -1,17 +1,13 @@
 .contentSignIn {
-  height: 29.83em;
+  height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  padding-top: 83px;
 }
 
 .contentSignIn__column {
   width: 19.44em;
-}
-
-.signInUser {
-  height: 13.89em;
 }
 
 .signInUser__register {
@@ -20,21 +16,13 @@
 
 @media (max-width: 768px) {
   .contentSignIn {
-    height: 500px;
+    height: 700px;
+    padding-top: 58px;
   }
 
   .contentSignIn__column {
-    height: 452px;
     width: 100%;
     max-width: 17.22em;
-  }
-
-  .signInUser {
-    height: 12.78em;
-  }
-
-  .signInUser__fields {
-    height: 154px;
   }
 
   .signInUser__register {
