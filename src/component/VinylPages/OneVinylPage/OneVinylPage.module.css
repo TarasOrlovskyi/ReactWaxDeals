@@ -17,3 +17,34 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .firstVinylsRow {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+
+
+
+  /*.vinylsContent {*/
+  /*  padding: 25px 0;*/
+  /*}*/
+
+  /*.otherVinyls {*/
+  /*  margin: 0 -0.28em;*/
+  /*}*/
+
+  /*.otherVinyls__item {*/
+  /*  padding: 0 0.28em;*/
+  /*  height: unset;*/
+  /*}*/
+
+  /*.otherVinyls__image {*/
+  /*  height: 8.33em;*/
+  /*  width: 8.33em;*/
+  /*}*/
+
+
+}

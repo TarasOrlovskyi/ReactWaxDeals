@@ -47,3 +47,53 @@
 .firstVinyl__release:hover .vinylTipText {
   visibility: visible;
 }
+
+@media (max-width: 768px){
+  .firstVinyl__image {
+    height: 14.2em;
+    width: 14.2em;
+  }
+
+  .firstVinyl__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .firstVinyl__artist {
+    font-size: 1.2em;
+    line-height: 1.75em;
+    width: 548px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .otherVinyls__artist {
+    font-size: 1.2em;
+    line-height: 1.75em;
+    width: 310px;
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+  }
+
+  .firstVinyl__release {
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+
+
+    /*width: 548px;*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+
+
+  /*.otherVinyls__release {*/
+  /*  font-size: 12px;*/
+  /*  line-height: 16px;*/
+  /*  width: 150px;*/
+  /*  padding-bottom: 5px;*/
+  /*}*/
+
+}

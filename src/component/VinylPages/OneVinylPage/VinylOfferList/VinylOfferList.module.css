@@ -75,3 +75,25 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+@media (max-width: 768px){
+  .shopsList {
+    width: 100%;
+    height: 8.1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
+
+  .shopList__column {
+    width: 100%;
+    height: 4.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+
+
+}

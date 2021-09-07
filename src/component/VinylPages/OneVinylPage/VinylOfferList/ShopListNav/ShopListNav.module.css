@@ -24,3 +24,11 @@
 .shopList__menuItem_active {
   color: #F7A325;
 }
+
+@media (max-width: 768px){
+  .shopList__firstItemTitle {
+  display: none;
+  }
+
+
+}

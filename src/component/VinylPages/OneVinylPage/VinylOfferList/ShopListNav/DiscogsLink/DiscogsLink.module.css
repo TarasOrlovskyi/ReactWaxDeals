@@ -3,3 +3,10 @@
   justify-content: center;
   width: 6.65em;
 }
+
+@media (max-width: 768px) {
+  .discogsLink {
+    display: flex;
+    width: 22.14em;
+}
+}

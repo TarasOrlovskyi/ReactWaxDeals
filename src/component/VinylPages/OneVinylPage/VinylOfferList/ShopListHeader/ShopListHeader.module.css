@@ -12,3 +12,16 @@
 .shopList__shopWidth {
   width: 10.83em;
 }
+
+@media (max-width: 768px) {
+  .shopList__rowSecondTitle {
+    height: 2.7em;
+  }
+
+  .shopList__shopWidth {
+    display: flex;
+    justify-content: flex-start;
+    width: 10.83em;
+    color: #F6A325;
+  }
+}
