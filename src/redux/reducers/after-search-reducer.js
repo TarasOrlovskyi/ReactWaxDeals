@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 let initialAfterSearchPage = {
-  vinyls: []
+  vinyls: null
 }
 
 const afterSearchReducer = (state = initialAfterSearchPage, action) => {

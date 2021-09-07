@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 let initialCatalogState = {
-  vinyls: []
+  vinyls: null
 };
 
 const catalogReducer = (state = initialCatalogState, action) => {

@@ -3,6 +3,7 @@ import {authApi} from "../../api/api";
 import store from "../redux";
 import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
+import {logOut} from "../../utils/actionUtils/actionUtils";
 
 export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
   type: actionTypes.SET_USER_DATA,
@@ -32,34 +33,30 @@ export const getUserAuthData = () => async dispatch => {
       let {id, email, discogsUserName, role, status} = responseData.data.user;
       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
     } else {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
+      logOut(dispatch, setAuthUserData)
     }
   } catch (error) {
     console.log(`Crashed with ${error.response.status} code after logout`);
-    localStorage.removeItem("token");
-    dispatch(setAuthUserData(null, null, null, null, false, false));
+    logOut(dispatch, setAuthUserData)
   }
 }
 
 export const getUserLogOutData = () => async dispatch => {
   try {
     await authApi.userLogOut()
-    localStorage.removeItem("token");
-    dispatch(setAuthUserData(null, null, null, null, false, false));
+    logOut(dispatch, setAuthUserData)
   } catch (error) {
     console.log(`Crashed with ${error.response.status} code after logout`);
-    localStorage.removeItem("token");
-    dispatch(setAuthUserData(null, null, null, null, false, false));
-
+    logOut(dispatch, setAuthUserData)
   }
 }
 
 export const getUserLogInData = (email, password, historyPush) => async dispatch => {
   try {
     let responseData = await authApi.userLogIn(email, password)
-    if (responseData.data.token) {
-      localStorage.setItem("token", responseData.data.token);
+    if (responseData.status === 200) {
+      localStorage.setItem("token", responseData.data.jwtToken);
+      localStorage.setItem("refreshToken", responseData.data.refreshToken);
       let {id, email, discogsUserName, role, status} = responseData.data.user;
       dispatch(setAuthUserData(id, email, discogsUserName, role, status, true));
     }
@@ -85,8 +82,7 @@ export const editUserProfile = (email, discogsUserName, historyPush) => async di
     let errorStatus = error.response.status;
     dispatch(setIsWaitResponse(false));
     if (errorStatus === 403 || errorStatus === 401) {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
+      logOut(dispatch, setAuthUserData)
     } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {
@@ -100,20 +96,16 @@ export const deleteUserProfile = (historyPush) => async dispatch => {
   try {
     let userId = store.getState().auth.id;
     let responseData = await authApi.deleteProfileRequest(userId);
-    debugger
     if (responseData.status === 200) {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
+      logOut(dispatch, setAuthUserData)
       dispatch(activateInfoAlert(true, "ProfileDeleted"));
       dispatch(setIsWaitResponse(false));
     }
   } catch (error) {
-    debugger
     let errorStatus = error.response.status;
     dispatch(setIsWaitResponse(false));
     if (errorStatus === 403 || errorStatus === 401) {
-      localStorage.removeItem("token");
-      dispatch(setAuthUserData(null, null, null, null, false, false));
+      logOut(dispatch, setAuthUserData)
     } else if (errorStatus === 400) {
       handleFormsError("editProfileForm", dispatch, error.response.data.message);
     } else {

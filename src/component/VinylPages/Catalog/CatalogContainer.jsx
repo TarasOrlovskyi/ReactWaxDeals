@@ -12,6 +12,11 @@ class CatalogRequestContainer extends React.Component {
   }
 
   render() {
+    if (!this.props.vinylList){
+      return <div>
+        Loading...
+      </div>
+    }
     return <Catalog vinylList={this.props.vinylList}/>
   }
 }

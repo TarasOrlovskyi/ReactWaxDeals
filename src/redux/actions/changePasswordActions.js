@@ -3,6 +3,7 @@ import {reset, stopSubmit} from "redux-form";
 import {authApi} from "../../api/api";
 import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {setAuthUserData} from "./authActions";
+import {logOut} from "../../utils/actionUtils/actionUtils";
 
 export const setIsPasswordChanged = (isPasswordChanged) => ({
   type: actionTypes.SET_IS_PASSWORD_CHANGED,
@@ -22,8 +23,7 @@ export const changePassword = (oldPassword, newPassword, confirmNewPassword, his
     } catch (error) {
       let errorStatus = error.response.status;
       if (errorStatus === 403 || errorStatus === 401) {
-        localStorage.removeItem("token");
-        dispatch(setAuthUserData(null, null, null, null, false, false));
+        logOut(dispatch, setAuthUserData)
       } else if (errorStatus === 400) {
         handleFormsError("changePasswordForm", dispatch, error.response.data.message);
       } else {
