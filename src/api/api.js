@@ -10,9 +10,36 @@ let axiosWithSetting = axios.create(defaultOptions);
 
 axiosWithSetting.interceptors.request.use(function (config) {
   const token = localStorage.token;
-  config.headers.Authorization =  token ? `${token}` : '';
+  config.headers.Authorization = token ? `${token}` : '';
   return config;
 });
+
+axiosWithSetting.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    async (error) => {
+      const originalConfig = error.config;
+      if (error.response) {
+        if ((error.response.status === 401 || error.response.status === 403) && !originalConfig._retry) {
+        // if (error.response.status === 401 && !originalConfig._retry) {
+          originalConfig._retry = true;
+          try {
+            const prevRefreshToken = localStorage.refreshToken;
+            const response = await authApi.refreshToken(prevRefreshToken);
+            const {jwtToken, refreshToken} = response.data;
+            localStorage.setItem("token", jwtToken);
+            localStorage.setItem("refreshToken", refreshToken);
+            axiosWithSetting.defaults.headers.Authorization = jwtToken;
+            return axiosWithSetting(originalConfig);
+          } catch (_error) {
+            return Promise.reject(_error);
+          }
+        }
+      }
+      return Promise.reject(error);
+    }
+);
 
 export const authApi = {
   checkAuth() {
@@ -24,6 +51,9 @@ export const authApi = {
   userLogIn(email, password) {
     return axiosWithSetting.post(`login`, {email, password});
   },
+  refreshToken(refreshToken) {
+    return axiosWithSetting.post(`token/refresh-token`, {refreshToken});
+  },
   confirmEmailRequest(confirmToken) {
     return axiosWithSetting.put(`email-confirmation`, {confirmToken});
   },
@@ -33,16 +63,16 @@ export const authApi = {
   deleteProfileRequest(userId) {
     return axiosWithSetting.delete(`profile/${userId}`);
   },
-  changePasswordRequest(password, newPassword, newPasswordConfirmation){
+  changePasswordRequest(password, newPassword, newPasswordConfirmation) {
     return axiosWithSetting.put(`/profile/change-password`, {password, newPassword, newPasswordConfirmation});
   },
-  sendRecoveryPasswordRequest(email){
+  sendRecoveryPasswordRequest(email) {
     return axiosWithSetting.post(`/password-recovery`, {email});
   },
-  checkRecoveryTokenRequest(recoveryToken){
+  checkRecoveryTokenRequest(recoveryToken) {
     return axiosWithSetting.get(`/password-recovery/${recoveryToken}`);
   },
-  changeRecoveryPasswordRequest(newPassword, newPasswordConfirmation, token){
+  changeRecoveryPasswordRequest(newPassword, newPasswordConfirmation, token) {
     return axiosWithSetting.put(`/password-recovery`, {newPassword, newPasswordConfirmation, token});
   }
 }
@@ -72,7 +102,7 @@ export const registrationApi = {
 }
 
 export const contactUsApi = {
-  contactUsRequest(name, email, contactUsMessage, recaptchaToken){
+  contactUsRequest(name, email, contactUsMessage, recaptchaToken) {
     return axiosWithSetting.post('contact', {name, email, contactUsMessage, recaptchaToken});
   }
 }

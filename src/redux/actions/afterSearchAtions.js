@@ -1,6 +1,8 @@
 import * as actionTypes from './actionTypes';
 import {vinylApi} from "../../api/api";
 import {unhandledError} from "../../utils/handleErrors/handleErrors";
+import {logOut} from "../../utils/actionUtils/actionUtils";
+import {setAuthUserData} from "./authActions";
 
 export const refreshSearchVinyls = (vinyls) => (
   {
@@ -14,6 +16,11 @@ export const getSearchResult = (searchQuery, historyPush) => async dispatch => {
     let responseData = await vinylApi.getAfterSearchResponse(searchQuery);
     dispatch(refreshSearchVinyls(responseData.data));
   } catch (error) {
-    unhandledError(error.response.status, "search result", historyPush);
+    let errorStatus = error.response.status;
+    if (errorStatus === 403 || errorStatus === 401) {
+      logOut(dispatch, setAuthUserData)
+    } else{
+      unhandledError(error.response.status, "search result", historyPush);
+    }
   }
 }
