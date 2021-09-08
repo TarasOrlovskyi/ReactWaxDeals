@@ -19,4 +19,5 @@ const mapStateToProps = (state) => ({
   discogsUserName: state.auth.discogsUserName
 });
 
-export default compose(withAuthRedirect, connect(mapStateToProps, {}))(ProfileContainer);
+// export default compose(withAuthRedirect, connect(mapStateToProps, {}))(ProfileContainer);
+export default compose(connect(mapStateToProps, {}))(ProfileContainer);
