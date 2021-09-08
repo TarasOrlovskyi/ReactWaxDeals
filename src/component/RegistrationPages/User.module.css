@@ -1,195 +1,195 @@
 .user {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user__fieldsWrapper {
-    flex: 1 1 auto;
-    width: 100%;
+  flex: 1 1 auto;
+  width: 100%;
 }
 
 .user__fields {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .user__label {
-    width: 100%;
-    height: 4.72em;
+  width: 100%;
+  height: 4.72em;
 }
 
 .user__submitLabel {
-    height: 4.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  height: 4.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* setting the color and transparent settings for the placeholder */
 /* webkit */
 .user__input::-webkit-input-placeholder {
-    color: #8D8989;
-    opacity: 1;
+  color: #8D8989;
+  opacity: 1;
 }
 
 /* Firefox 19+ */
 .user__input::-moz-placeholder {
-    color: #8D8989;
-    opacity: 1;
+  color: #8D8989;
+  opacity: 1;
 }
 
 /* Firefox 18- */
 .user__input:-moz-placeholder {
-    color: #8D8989;
-    opacity: 1;
+  color: #8D8989;
+  opacity: 1;
 }
 
 /* IE */
 .user__input:-ms-input-placeholder {
-    color: #8D8989;
-    opacity: 1;
+  color: #8D8989;
+  opacity: 1;
 }
 
 /* webkit */
 .user__input:focus::-webkit-input-placeholder {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* Firefox 19+ */
 .user__input:focus::-moz-placeholder {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* Firefox 18- */
 .user__input:focus:-moz-placeholder {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* IE */
 .user__input:focus:-ms-input-placeholder {
-    opacity: 0;
+  opacity: 0;
 }
 
 .user__input {
-    font-size: 14px;
-    line-height: 1.38em;
-    color: #8D8989;
-    height: 3.57em;
-    width: 100%;
-    padding-left: 1.07em;
+  font-size: 14px;
+  line-height: 1.38em;
+  color: #8D8989;
+  height: 3.57em;
+  width: 100%;
+  padding-left: 1.07em;
 }
 
 .user__submitButtons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .user__submitInput {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 1.39px;
-    height: 2.22em;
-    width: 7.77em;
-    color: #fff;
-    background-color: #F6A325;
-    cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.39px;
+  height: 2.22em;
+  width: 7.77em;
+  color: #fff;
+  background-color: #F6A325;
+  cursor: pointer;
 }
 
 .user__submitInput:hover {
-    background-color: #D78D1E;
+  background-color: #D78D1E;
 }
 
 .user__submitInput:active {
-    background-color: #D78D1E;
-    border: 1px solid #FFFFFF;
+  background-color: #D78D1E;
+  border: 1px solid #FFFFFF;
 }
 
 .contentUser__title {
-    height: 5.28em;
+  height: 5.28em;
 }
 
 .discogsLogo {
-    position: absolute;
-    right: -4.17em;
-    bottom: 2.5em;
+  position: absolute;
+  right: -4.17em;
+  bottom: 2.5em;
 }
 
 .inputMessage {
-    height: 10.71em;
-    padding-top: 0.79em;
-    resize: none;
+  height: 10.71em;
+  padding-top: 0.79em;
+  resize: none;
 }
 
 .summaryError {
-    color: #F65725;
-    font-weight: 600;
-    font-size: 0.89em;
-    height: 6em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1.38em;
-    max-width: 350px;
-    width: 100%;
-    text-align: center;
+  color: #F65725;
+  font-weight: 600;
+  font-size: 0.89em;
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.38em;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
 }
 
 .user__forgotPassword {
-    text-decoration: underline;
-    position: absolute;
-    top: 10.71em;
-    font-size: 0.78em;
+  text-decoration: underline;
+  position: absolute;
+  top: 10.71em;
+  font-size: 0.78em;
 }
 
 @media (max-width: 768px) {
-    .contentUser__title {
-        height: 3.5em;
-    }
+  .contentUser__title {
+    height: 3.5em;
+  }
 
-    .inputMessage {
-        height: 8.57em;
-    }
+  .inputMessage {
+    height: 8.57em;
+  }
 
-    .user__forgotPassword {
-        text-decoration: underline;
-        text-transform: uppercase;
-        position: absolute;
-        top: 9.97em;
-    }
+  .user__forgotPassword {
+    text-decoration: underline;
+    text-transform: uppercase;
+    position: absolute;
+    top: 9.97em;
+  }
 
-    .discogsLogo {
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-    }
+  .discogsLogo {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
 
-    .user__label {
-        max-width: 310px;
-        width: 100%;
-        height: 4.17em;
-    }
+  .user__label {
+    max-width: 310px;
+    width: 100%;
+    height: 4.17em;
+  }
 
-    .user__submitLabel {
-        height: 4.50em;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
+  .user__submitLabel {
+    height: 4.50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
-    .user__fields {
-        justify-content: unset;
-    }
+  .user__fields {
+    justify-content: unset;
+  }
 
-    .summaryError {
-        height: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
+  .summaryError {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 }

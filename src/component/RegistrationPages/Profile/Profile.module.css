@@ -1,25 +1,25 @@
 .contentProfile {
-    height: 23.76em;
+  height: 23.76em;
 }
 
 .contentProfile__column {
-    width: 19.44em;
+  width: 19.44em;
 }
 
 .profileUser {
-    height: 13.89em;
+  height: 13.89em;
 }
 
 @media (max-width: 768px) {
-    .contentProfile {
-        height: 414px;
-    }
+  .contentProfile {
+    height: 414px;
+  }
 
-    .profileUser {
-        height: 240px;
-    }
+  .profileUser {
+    height: 240px;
+  }
 
-    .contentProfile__column {
-        max-width: 310px;
-    }
+  .contentProfile__column {
+    max-width: 310px;
+  }
 }
