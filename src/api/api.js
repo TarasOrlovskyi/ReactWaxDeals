@@ -20,9 +20,9 @@ axiosWithSetting.interceptors.response.use(
     },
     async (error) => {
       const originalConfig = error.config;
+      debugger
       if (error.response) {
-        if ((error.response.status === 401 || error.response.status === 403) && !originalConfig._retry) {
-        // if (error.response.status === 401 && !originalConfig._retry) {
+        if (error.response.status === 401 && !originalConfig._retry) {
           originalConfig._retry = true;
           try {
             const prevRefreshToken = localStorage.refreshToken;
