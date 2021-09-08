@@ -37,10 +37,11 @@ const SignIn = (props) => {
               <h2>Login</h2>
             </div>
             <SignInForm onSubmit={props.onSubmit}/>
-            <RectangleLine/>
-            <SocialNetwork/>
-            <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
           </div>
+          <RectangleLine/>
+          <SocialNetwork/>
+          <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
+
         </div>
       </div>
     </main>

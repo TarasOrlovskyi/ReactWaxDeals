@@ -1,49 +1,35 @@
 .contentSignIn {
-  height: 25.6em;
+  height: 33.22em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  padding-top: 83px;
 }
 
 .contentSignIn__column {
-  height: 25.61em;
   width: 19.44em;
-}
-
-.signInUser {
-  height: 14.39em;
-}
-
-.signInUser__fields {
-  height: 9em;
 }
 
 .signInUser__register {
   display: none;
-
 }
 
 @media (max-width: 768px) {
   .contentSignIn {
-    height: 447px;
-    padding: 70px 0;
+    height: 700px;
+    padding-top: 58px;
   }
+
   .contentSignIn__column {
-    height: 447px;
     width: 100%;
+    max-width: 17.22em;
   }
-  .signInUser {
-    height: 225px;
-  }
-  .signInUser__fields {
-    height: 154px;
-  }
+
   .signInUser__register {
     text-decoration: underline;
     text-transform: uppercase;
     color: #F6A325;
-    height: 64px;
+    height: 3.29em;
     display: flex;
     align-items: flex-end;
   }

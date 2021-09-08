@@ -1,11 +1,23 @@
-.elementError input{
-  border: darkred solid 4px;
+.elementError input {
+  border: #ff480b solid 4px;
 }
 
-.elementError textarea{
-  border: darkred solid 4px;
+.elementError textarea {
+  border: #F65725 solid 4px;
 }
 
-.textError{
-  color: #ff480b;
+.textError {
+  color: #F65725;
+  font-size: 0.75em;
+  padding-top: 0.3em;
+  line-height: 1em;
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .textError {
+    font-size: 0.55em;
+    max-width: 310px;
+  }
 }
