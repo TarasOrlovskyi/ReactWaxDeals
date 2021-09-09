@@ -1,27 +1,26 @@
 .contentEditProfile {
-  height: 23.66em;
+  height: 28.22em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .contentEditProfile__column {
-  height: 23.05em;
-  width: 19.44em;
+   width: 19.44em;
   position: relative;
 }
 
 .editProfileUser {
-  height: 17.77em;
+  /*height: 17.77em;*/
 }
 
 .editProfileUser__fields {
-  height: 7.22em;
+  /*height: 7.22em;*/
 }
 
 .editProfileUser__nav {
-  height: 6.66em;
+  height: 4.39em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,16 +36,14 @@
 .editProfileUser__deleteProfile {
   font-size: 0.77em;
   text-decoration: underline;
-  /*margin-bottom: 3.64em;*/
-  position: absolute;
+   position: absolute;
   right: 9.52em;
   bottom: 6.50em;
   background: transparent no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
-  /*outline:none;*/
-  color: #ffffff;
+   color: #ffffff;
 }
 
 .editProfileUser__deleteProfile:hover {
