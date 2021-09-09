@@ -186,12 +186,10 @@
     justify-content: unset;
   }
 
-  @media {
-    .summaryError {
-      height: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
+  .summaryError {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }

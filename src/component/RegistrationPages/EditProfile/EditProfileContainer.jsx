@@ -29,16 +29,16 @@ class EditProfileContainer extends React.Component {
   render() {
 
     return (
-      <EditProfile initialValues={this.props.initialValues}
-                   onSubmit={this.changeProfileData}
-                   turnOffAlert={this.turnOffAlert}
-                   isInfoAlert={this.props.isInfoAlert}
-                   isQuestionAlert={this.props.isQuestionAlert}
-                   pageInfo={this.props.pageInfo}
-                   pageQuestion={this.props.pageQuestion}
-                   turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
-                   deleteUserProfile={this.deleteUserProfile}
-      />
+        <EditProfile initialValues={this.props.initialValues}
+                     onSubmit={this.changeProfileData}
+                     turnOffAlert={this.turnOffAlert}
+                     isInfoAlert={this.props.isInfoAlert}
+                     isQuestionAlert={this.props.isQuestionAlert}
+                     pageInfo={this.props.pageInfo}
+                     pageQuestion={this.props.pageQuestion}
+                     turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
+                     deleteUserProfile={this.deleteUserProfile}
+        />
     );
   }
 }

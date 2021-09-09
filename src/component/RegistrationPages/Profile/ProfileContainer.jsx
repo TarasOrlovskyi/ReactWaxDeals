@@ -7,9 +7,9 @@ import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 class ProfileContainer extends React.Component {
   render() {
     return (
-      <Profile email={this.props.email}
-               discogsUserName={this.props.discogsUserName}
-      />
+        <Profile email={this.props.email}
+                 discogsUserName={this.props.discogsUserName}
+        />
     );
   }
 }
