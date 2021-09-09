@@ -7,16 +7,8 @@
 }
 
 .contentEditProfile__column {
-   width: 19.44em;
+  width: 19.44em;
   position: relative;
-}
-
-.editProfileUser {
-  /*height: 17.77em;*/
-}
-
-.editProfileUser__fields {
-  /*height: 7.22em;*/
 }
 
 .editProfileUser__nav {
@@ -34,18 +26,45 @@
 }
 
 .editProfileUser__deleteProfile {
+  margin: 0 auto;
   font-size: 0.77em;
   text-decoration: underline;
-   position: absolute;
-  right: 9.52em;
-  bottom: 6.50em;
+  position: absolute;
+  bottom: 6.57em;
   background: transparent no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
-   color: #ffffff;
+  color: #ffffff;
 }
 
 .editProfileUser__deleteProfile:hover {
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .contentEditProfile__column {
+    max-width: 310px;
+    width: 100%;
+  }
+
+  .editProfileUser__nav {
+    height: 3.78em;
+  }
+
+  .contentEditProfile {
+    height: 25.03em;
+  }
+
+  .editProfileUser {
+    height: 17.77em;
+  }
+
+  .editProfileUser__deleteProfile {
+    bottom: 5.56em;
+  }
+
+  .editProfileUser__deleteProfile:hover {
+    text-decoration: none;
+  }
 }
