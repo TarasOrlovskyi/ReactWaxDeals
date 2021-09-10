@@ -88,6 +88,9 @@ export const vinylApi = {
   },
   getWantListResponse(){
     return axiosWithSetting.get(`wantlist`);
+  },
+  switchVinylInWantList(vinylId){
+    return axiosWithSetting.post(`wantlist`, {vinylId});
   }
 }
 

@@ -63,7 +63,7 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
 export const switchVinylInWantList = (isVinylInWantlist, vinylId, vinylType, historyPush) => async dispatch => {
   try {
     setVinylStart(vinylType, dispatch, isVinylInWantlist, vinylId);
-    let responseData = await vinylApi.switchVinylInWantList(vinylId)
+    let responseData = await vinylApi.switchVinylInWantList()
     if (responseData.status !== 200) {
       setVinylStart(vinylType, dispatch, !isVinylInWantlist, vinylId);
     }
