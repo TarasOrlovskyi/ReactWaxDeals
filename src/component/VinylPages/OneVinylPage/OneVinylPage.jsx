@@ -34,7 +34,9 @@ const OneVinylPage = (props) => {
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
                   loadOneVinyl={props.loadOneVinyl}
-                  key={props.vinylsByArtist.id}
+                  key={vinyl.id}
+                  isVinylInWantlist={vinyl.isVinylInWantlist}
+                  vinylType="vinylsByArtist"
                 />)
               }
             </div>

@@ -20,7 +20,6 @@ axiosWithSetting.interceptors.response.use(
     },
     async (error) => {
       const originalConfig = error.config;
-      debugger
       if (error.response) {
         if (error.response.status === 401 && !originalConfig._retry) {
           originalConfig._retry = true;
@@ -86,6 +85,9 @@ export const vinylApi = {
   },
   getOneVinylResponse(vinylId) {
     return axiosWithSetting.get(`oneVinyl/${vinylId}`)
+  },
+  getWantListResponse(){
+    return axiosWithSetting.get(`wantlist`);
   }
 }
 

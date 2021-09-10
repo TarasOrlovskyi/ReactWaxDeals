@@ -21,6 +21,8 @@ const Catalog = (props) => {
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
                   key={vinyl.id}
+                  isVinylInWantlist={vinyl.isVinylInWantlist}
+                  vinylType="vinyls"
                 />)
               }
             </div>

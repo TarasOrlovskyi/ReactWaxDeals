@@ -1,18 +1,23 @@
-import s from './HeaderNav.module.css';
+import headerNavStyle from './HeaderNav.module.css';
 import logo from '../../../../assets/img/svg/wax_deals.svg';
 import {NavLink} from "react-router-dom";
 
 const HeaderNav = (props) => {
   return (
-    <nav className={s.header__menu} role="navigation">
-      <ul className={s.header__menuList}>
+    <nav className={headerNavStyle.header__menu} role="navigation">
+      <ul className={headerNavStyle.header__menuList}>
         <li>
-          <NavLink to="/about" activeClassName={s.header__menuItem_active}
-                   className={s.header__menuItem}>about</NavLink>
+          <NavLink to="/about" activeClassName={headerNavStyle.header__menuItem_active}
+                   className={headerNavStyle.header__menuItem}>about</NavLink>
         </li>
         <li>
-          <NavLink to="/catalog" activeClassName={s.header__menuItem_active}
-                   className={s.header__menuItem}>catalog</NavLink>
+          <NavLink to="/catalog" activeClassName={headerNavStyle.header__menuItem_active}
+                   className={headerNavStyle.header__menuItem}>
+            {props.isAuth
+                ? "wantlist"
+                : "catalog"
+            }
+          </NavLink>
         </li>
         <li>
           <NavLink to="/">
@@ -20,12 +25,12 @@ const HeaderNav = (props) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/stores" activeClassName={s.header__menuItem_active}
-                   className={s.header__menuItem}>stores</NavLink>
+          <NavLink to="/stores" activeClassName={headerNavStyle.header__menuItem_active}
+                   className={headerNavStyle.header__menuItem}>stores</NavLink>
         </li>
         <li>
-          <NavLink to="/contact" activeClassName={s.header__menuItem_active}
-                   className={s.header__menuItem}>contact</NavLink>
+          <NavLink to="/contact" activeClassName={headerNavStyle.header__menuItem_active}
+                   className={headerNavStyle.header__menuItem}>contact</NavLink>
         </li>
       </ul>
     </nav>

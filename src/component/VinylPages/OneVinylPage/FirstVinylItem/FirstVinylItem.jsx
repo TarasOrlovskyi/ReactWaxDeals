@@ -2,6 +2,7 @@ import firstVinylItemStyle from "./FirstVinylItem.module.css";
 import vinylStyle from "../../Vinyl.module.css";
 import noImage from '../../../../assets/img/no_image.jpg';
 import React from "react";
+import WantListStarContainer from "../../../Common/WantListStar/WantListStarContainer";
 
 const FirstVinylItem = (props) => {
   return (
@@ -25,6 +26,16 @@ const FirstVinylItem = (props) => {
             <span
               className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{props.firstVinyl.release}</span>
           </div>
+          {props.isVinylInWantlist !== null &&
+            <WantListStarContainer vinylId={props.id}
+                                   isVinylInWantlist={props.isVinylInWantlist}
+                                   vinylType="firstVinyl"
+            />
+          }
+          {/*<WantListStarContainer vinylId={props.id}*/}
+          {/*                       isVinylInWantlist={props.isVinylInWantlist}*/}
+          {/*                       vinylType="firstVinyl"*/}
+          {/*/>*/}
         </div>
       </div>
     </div>
