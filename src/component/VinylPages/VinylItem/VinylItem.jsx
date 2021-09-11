@@ -22,14 +22,14 @@ const VinylItem = (props) => {
           <span className={vinylStyle.tipText + ' ' + vinylStyle.tipTextOther}>{props.vinylRelease}</span>
         </NavLink>
 
-        {props.isVinylInWantlist !== null &&
+        {props.isAuth &&
           <WantListStarContainer vinylId={props.id}
-                                 isVinylInWantlist={props.isVinylInWantlist}
-                                 vinylType={props.vinylType}
+                                 isWantListItem={props.isWantListItem}
+                                 // vinylType={props.vinylType}
           />
         }
         {/*<WantListStarContainer vinylId={props.id}*/}
-        {/*                       isVinylInWantlist={props.isVinylInWantlist}*/}
+        {/*                       isWantListItem={props.isWantListItem}*/}
         {/*                       vinylType={props.vinylType}*/}
         {/*/>*/}
 

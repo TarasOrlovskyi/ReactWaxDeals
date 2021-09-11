@@ -3,6 +3,10 @@
   right: 1.3em;
 }
 
+.wantListStar_position{
+  right: 0;
+}
+
 .wantListStar__imageFilledStar{
   content: url('../../../assets/img/Star.png');
 }

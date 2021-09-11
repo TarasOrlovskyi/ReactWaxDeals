@@ -6,6 +6,7 @@ import {withRouter} from "react-router-dom";
 import {deleteUserProfile, editUserProfile} from "../../../redux/actions/authActions";
 import {activateInfoAlert, activateQuestionAlert} from "../../../redux/actions/alertActions";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {getDiscogsWantlist} from "../../../redux/actions/wantlistActions";
 
 class EditProfileContainer extends React.Component {
 
@@ -26,6 +27,10 @@ class EditProfileContainer extends React.Component {
     this.props.activateQuestionAlert(false, "");
   }
 
+  getDiscogsWantlist = () => {
+    this.props.getDiscogsWantlist(this.props.history.push);
+  }
+
   render() {
 
     return (
@@ -38,6 +43,7 @@ class EditProfileContainer extends React.Component {
                    pageQuestion={this.props.pageQuestion}
                    turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
                    deleteUserProfile={this.deleteUserProfile}
+                   getDiscogsWantlist={this.getDiscogsWantlist}
       />
     );
   }
@@ -58,6 +64,7 @@ export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {
   editUserProfile,
   activateInfoAlert,
   activateQuestionAlert,
-  deleteUserProfile
+  deleteUserProfile,
+  getDiscogsWantlist
 }))(EditProfileContainer);
 

@@ -4,7 +4,6 @@ import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const Catalog = (props) => {
-
   return (
     <main className="main">
       <div className="container subContainer">
@@ -21,8 +20,9 @@ const Catalog = (props) => {
                   artist={vinyl.artist}
                   vinylRelease={vinyl.release}
                   key={vinyl.id}
-                  isVinylInWantlist={vinyl.isVinylInWantlist}
-                  vinylType="vinyls"
+                  isWantListItem={vinyl.isWantListItem}
+                  isAuth={props.isAuth}
+                  // vinylType="vinyls"
                 />)
               }
             </div>

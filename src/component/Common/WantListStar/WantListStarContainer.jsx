@@ -8,18 +8,19 @@ import {switchVinylInWantList} from "../../../redux/actions/catalogActions";
 class WantListStarContainer extends React.Component{
 
   switchStarToTrue = () => {
-    this.props.switchVinylInWantList(true, this.props.vinylId, this.props.vinylType, this.props.history.push);
+    this.props.switchVinylInWantList(true, this.props.vinylId, this.props.history.push);
   }
 
   switchStarToFalse = () => {
-    this.props.switchVinylInWantList(false, this.props.vinylId, this.props.vinylType, this.props.history.push);
+    this.props.switchVinylInWantList(false, this.props.vinylId, this.props.history.push);
   }
 
   render() {
     return(
-        <WantListStar isVinylInWantlist={this.props.isVinylInWantlist}
+        <WantListStar isWantListItem={this.props.isWantListItem}
                       switchStarToTrue={this.switchStarToTrue}
                       switchStarToFalse={this.switchStarToFalse}
+                      vinylType={this.props.vinylType}
         />
     );
   }

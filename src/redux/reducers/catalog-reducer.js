@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
+import {setVinylAsWantListItem} from "../../utils/actionUtils/actionUtils";
 
 let initialCatalogState = {
-  vinyls: null
+  vinyls: []
 };
 
 const catalogReducer = (state = initialCatalogState, action) => {
@@ -14,12 +15,13 @@ const catalogReducer = (state = initialCatalogState, action) => {
     case actionTypes.SET_IS_VINYL_IN_WANTLIST:
       return {
         ...state,
-        vinyls: state.vinyls.map(vinyl => {
-          if (vinyl.id === action.vinylId){
-            return {...vinyl, isVinylInWantlist: action.isVinylInWantlist}
-          }
-          return vinyl;
-        })
+        vinyls: setVinylAsWantListItem(state.vinyls, action.vinylId, action.isWantListItem)
+        // vinyls: state.vinyls.map(vinyl => {
+        //   if (vinyl.id === action.vinylId){
+        //     return {...vinyl, isWantListItem: action.isWantListItem}
+        //   }
+        //   return vinyl;
+        // })
       }
     default:
       return state;

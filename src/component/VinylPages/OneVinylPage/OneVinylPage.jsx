@@ -7,7 +7,6 @@ import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const OneVinylPage = (props) => {
-
   return (
     <main className="main">
       <div className="container sub-container">
@@ -17,7 +16,7 @@ const OneVinylPage = (props) => {
         <div className={vinylStyle.vinylsContent}>
           <div className={vinylStyle.vinylsContent__row}>
             <div className={oneVinylPageStyle.firstVinylsRow + ' ' + oneVinylPageStyle.firstVinylsRowOneVinyl}>
-              <FirstVinylItem firstVinyl={props.firstVinyl}/>
+              <FirstVinylItem firstVinyl={props.firstVinyl} isAuth={props.isAuth}/>
               <VinylOfferList discogsLink={props.discogsLink} vinylOffersList={props.vinylOffersList}/>
             </div>
           </div>
@@ -35,8 +34,9 @@ const OneVinylPage = (props) => {
                   vinylRelease={vinyl.release}
                   loadOneVinyl={props.loadOneVinyl}
                   key={vinyl.id}
-                  isVinylInWantlist={vinyl.isVinylInWantlist}
-                  vinylType="vinylsByArtist"
+                  isWantListItem={vinyl.isWantListItem}
+                  isAuth={props.isAuth}
+                  // vinylType="vinylsByArtist"
                 />)
               }
             </div>

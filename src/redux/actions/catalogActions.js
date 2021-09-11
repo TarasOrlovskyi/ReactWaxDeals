@@ -12,32 +12,32 @@ export const refreshVinylList = (vinyls) => {
   }
 }
 
-export const setVinylInWantList = (isVinylInWantlist, vinylId) => ({
+export const setVinylInWantList = (isWantListItem, vinylId) => ({
   type: actionTypes.SET_IS_VINYL_IN_WANTLIST,
-  isVinylInWantlist,
+  isWantListItem,
   vinylId
 })
 
-export const setVinylByArtistInWantList = (isVinylInWantlist, vinylId) => ({
-  type: actionTypes.SET_IS_VINYL_BY_ARTIST_IN_WANTLIST,
-  isVinylInWantlist,
-  vinylId
-})
+// export const setVinylByArtistInWantList = (isWantListItem, vinylId) => ({
+//   type: actionTypes.SET_IS_VINYL_BY_ARTIST_IN_WANTLIST,
+//   isWantListItem,
+//   vinylId
+// })
+//
+// export const setFirstVinylInWantList = (isWantListItem) => ({
+//   type: actionTypes.SET_IS_FIRST_VINYL_IN_WANTLIST,
+//   isWantListItem
+// })
 
-export const setFirstVinylInWantList = (isVinylInWantlist) => ({
-  type: actionTypes.SET_IS_FIRST_VINYL_IN_WANTLIST,
-  isVinylInWantlist
-})
-
-const setVinylStart = (vinylType, dispatch, isVinylInWantlist, vinylId) => {
-  if (vinylType === "vinyls"){
-    dispatch(setVinylInWantList(isVinylInWantlist, vinylId));
-  } else if(vinylType === "vinylsByArtist"){
-    dispatch(setVinylByArtistInWantList(isVinylInWantlist, vinylId));
-  } else if(vinylType === "firstVinyl"){
-    dispatch(setFirstVinylInWantList(isVinylInWantlist));
-  }
-}
+// const setVinylStart = (vinylType, dispatch, isWantListItem, vinylId) => {
+//   if (vinylType === "vinyls"){
+//     dispatch(setVinylInWantList(isWantListItem, vinylId));
+//   } else if(vinylType === "vinylsByArtist"){
+//     dispatch(setVinylByArtistInWantList(isWantListItem, vinylId));
+//   } else if(vinylType === "firstVinyl"){
+//     dispatch(setFirstVinylInWantList(isWantListItem));
+//   }
+// }
 
 export const getVinylsCatalog = (historyPush) => async dispatch => {
   try {
@@ -48,7 +48,6 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
     } else {
       responseData = await vinylApi.getWantListResponse();
     }
-    debugger
     dispatch(refreshVinylList(responseData.data));
   } catch (error) {
     let errorStatus = error.response.status;
@@ -60,15 +59,18 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
   }
 }
 
-export const switchVinylInWantList = (isVinylInWantlist, vinylId, vinylType, historyPush) => async dispatch => {
+export const switchVinylInWantList = (isWantListItem, vinylId, historyPush) => async dispatch => {
   try {
-    setVinylStart(vinylType, dispatch, isVinylInWantlist, vinylId);
-    let responseData = await vinylApi.switchVinylInWantList()
+    dispatch(setVinylInWantList(isWantListItem, vinylId));
+    // setVinylStart(vinylType, dispatch, isWantListItem, vinylId);
+    let responseData = await vinylApi.switchVinylInWantList(vinylId)
     if (responseData.status !== 200) {
-      setVinylStart(vinylType, dispatch, !isVinylInWantlist, vinylId);
+      dispatch(setVinylInWantList(!isWantListItem, vinylId));
+      // setVinylStart(vinylType, dispatch, !isWantListItem, vinylId);
     }
   } catch (error) {
-    setVinylStart(vinylType, dispatch, !isVinylInWantlist, vinylId);
+    // setVinylStart(vinylType, dispatch, !isWantListItem, vinylId);
+    dispatch(setVinylInWantList(!isWantListItem, vinylId));
     let errorStatus = error.response.status;
     if (errorStatus === 403 || errorStatus === 401) {
       logOut(dispatch, setAuthUserData)

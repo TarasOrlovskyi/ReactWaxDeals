@@ -26,14 +26,14 @@ const FirstVinylItem = (props) => {
             <span
               className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{props.firstVinyl.release}</span>
           </div>
-          {props.isVinylInWantlist !== null &&
-            <WantListStarContainer vinylId={props.id}
-                                   isVinylInWantlist={props.isVinylInWantlist}
+          {props.isAuth &&
+            <WantListStarContainer vinylId={props.firstVinyl.id}
+                                   isWantListItem={props.firstVinyl.isWantListItem}
                                    vinylType="firstVinyl"
             />
           }
           {/*<WantListStarContainer vinylId={props.id}*/}
-          {/*                       isVinylInWantlist={props.isVinylInWantlist}*/}
+          {/*                       isWantListItem={props.isWantListItem}*/}
           {/*                       vinylType="firstVinyl"*/}
           {/*/>*/}
         </div>
