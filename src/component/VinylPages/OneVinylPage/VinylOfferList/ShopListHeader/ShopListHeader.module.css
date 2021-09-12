@@ -1,8 +1,9 @@
 .shopList__rowSecondTitle {
   height: 2.56em;
-  width: 45.5em;
+  /*width: 45.5em;*/
   text-align: center;
   line-height: 2.56em;
+  width: 100%;
 }
 
 .shopList__secondItemTitle {

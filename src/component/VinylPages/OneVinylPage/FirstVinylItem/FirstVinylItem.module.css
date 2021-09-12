@@ -1,5 +1,6 @@
 .firstVinyl__wrapper {
-  width: 33em;
+  /*width: 33em;*/
+  width: 35.39em;
   display: flex;
 }
 
@@ -47,3 +48,58 @@
 .firstVinyl__release:hover .vinylTipText {
   visibility: visible;
 }
+
+@media (max-width: 1510px) {
+  .firstVinyl__wrapper {
+    justify-content: center;
+  }
+
+  .firstVinyl__image {
+    height: 25em;
+  }
+
+  .firstVinyl__artist {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .firstVinyl__release {
+    text-align: center;
+  }
+}
+
+@media (max-width: 868px) {
+  .firstVinyl__image {
+    height: 25em;
+  }
+}
+
+@media (max-width: 768px) {
+  .firstVinyl__image {
+    height: 11.11em;
+  }
+
+  .firstVinyl__artist {
+    text-align: unset;
+    font-size: 1em;
+  }
+
+  .firstVinyl__release {
+    text-align: unset;
+    font-size: 0.78em;
+  }
+
+  .firstVinyl__artist {
+    width: unset;
+  }
+
+  .firstVinyl__release {
+    width: unset;
+  }
+
+  .firstVinyl__item {
+    flex: unset;
+    position: unset;
+  }
+
+  }

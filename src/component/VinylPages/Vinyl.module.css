@@ -111,3 +111,15 @@
     padding-bottom: 5px;
   }
 }
+
+@media (max-width: 1510px){
+
+  .vinylsContent__row {
+    justify-content: center;
+  }
+
+  .vinyl {
+    align-items: center;
+    border-bottom: thin solid rgba(255, 255, 255, 0.5);
+  }
+}

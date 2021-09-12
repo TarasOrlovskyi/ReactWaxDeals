@@ -1,5 +1,6 @@
 .shopsList {
-  width: 46.88em;
+  /*width: 46.88em;*/
+  width: 44.5em;
   height: 35.39em;
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: thin solid rgba(255, 255, 255, 0.5);
-  width: 97%;
+  /*width: 97%;*/
 }
 
 .shopList__row:last-child {
@@ -74,4 +75,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+@media (max-width: 1510px){
+  .shopsList {
+    height: unset;
+    padding-top: 60px;
+    width: 100%;
+  }
 }
