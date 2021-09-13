@@ -68,14 +68,17 @@
 
 @media (max-width: 768px) {
   .shopList__itemImage {
-    /*width: 107px;*/
     height: 27px;
     flex: 0 0 107px;
   }
 
   .itemBody {
-    /*height: unset;*/
     width:35px;
   }
+
+  .inStock {
+    background-size: 15px 11.5px;
+  }
+
 
 }

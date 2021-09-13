@@ -1,5 +1,4 @@
 .shopsList {
-  /*width: 46.88em;*/
   width: 44.5em;
   height: 35.39em;
   display: flex;
@@ -13,7 +12,6 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: thin solid rgba(255, 255, 255, 0.5);
-  /*width: 97%;*/
 }
 
 .shopList__row:last-child {
@@ -77,19 +75,23 @@
   justify-content: flex-start;
 }
 
-@media (max-width: 1510px){
+@media (max-width: 1510px) {
   .shopsList {
     height: unset;
     padding-top: 60px;
     width: 100%;
   }
+
+/*  .shopList__itemDirection: last-child {
+    justify-content: flex-end;
+  }*/
 }
 
 @media (max-width: 768px) {
   .shopsList {
     height: unset;
     padding-top: unset;
-     }
+  }
 
   .shopList__catalogWidth {
     width: unset;
@@ -104,7 +106,6 @@
   }
 
   .shopList__goToShopWidth {
-    /*width: unset;*/
     display: none;
   }
 
@@ -117,4 +118,8 @@
     overflow: unset;
   }
 
-}
+  .shopList__goToShopWidth {
+    justify-content: flex-end;
+  }
+
+  }
