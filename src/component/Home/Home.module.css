@@ -17,7 +17,10 @@
 }
 
 .contentHome__title {
-  height: 6.44em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 9.17em;
   text-align: center;
 }
 
@@ -30,7 +33,7 @@
 
 @media (max-width: 768px) {
   .contentHome {
-    height: 406px;
+    height: 22.55em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,33 +43,32 @@
   .contentHome__logo {
     display: flex;
     justify-content: flex-start;
-    padding-top: 13px;
+    padding-top: 0.72em;
   }
 
   .contentHome__column {
-    height: 251px;
+    height: 13.94em;
     width: 100%;
-    max-width: 310px;
+    max-width: 17.22em;
   }
 
   .contentHome__title {
-    height: 106px;
+    height: 5.89em;
   }
 
   .contentHome__title h1 {
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 1.33em;
     text-align: center;
   }
 
   .contentHome__subtitle {
-    height: 117px;
+    height: 6.5em;
     width: 100%;
     justify-content: center;
   }
 
   .contentHome__subtitle h2 {
-    font-size: 14px;
-    line-height: 19px;
+    font-size: 0.78em;
+    line-height: 1.4;
   }
 }
