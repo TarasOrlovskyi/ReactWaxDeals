@@ -28,12 +28,6 @@
 
 @media (max-width: 768px) {
   .shopList__rowFirstTitle {
-    font-size: 0.78em;
-    height: unset;
-    display: flex;
-    text-align: center;
-    line-height: unset;
-    justify-content: flex-start;
-    width: 100%;
+display: none;
   }
 }

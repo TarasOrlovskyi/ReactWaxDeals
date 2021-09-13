@@ -84,3 +84,37 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .shopsList {
+    height: unset;
+    padding-top: unset;
+     }
+
+  .shopList__catalogWidth {
+    width: unset;
+  }
+
+  .shopList__stockWidth {
+    width: unset;
+  }
+
+  .shopList__priceWidth {
+    width: unset;
+  }
+
+  .shopList__goToShopWidth {
+    /*width: unset;*/
+    display: none;
+  }
+
+  .shopList__row {
+    height: 50px;
+    font-size: 0.78em;
+  }
+
+  .shopList__scrollbar {
+    overflow: unset;
+  }
+
+}

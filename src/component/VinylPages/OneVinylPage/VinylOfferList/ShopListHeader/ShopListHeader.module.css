@@ -13,3 +13,15 @@
 .shopList__shopWidth {
   width: 10.83em;
 }
+
+@media (max-width: 768px) {
+  .shopList__rowSecondTitle {
+    height: 45px;
+  }
+
+  .shopList__shopWidth {
+    width: unset;
+    color: #F6A325;
+
+  }
+}
