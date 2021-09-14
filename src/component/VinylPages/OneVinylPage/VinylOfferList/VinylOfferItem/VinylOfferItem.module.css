@@ -4,8 +4,10 @@
 }
 
 .shopList__itemImage {
-  flex: 0 0 10.83em;
-  height: 2.78em;
+/*  flex: 0 0 10.83em;
+  height: 2.78em;*/
+  height: 50px;
+  width: 195px;
 }
 
 .shopList__itemImage img {
@@ -29,10 +31,14 @@
 .button {
   text-transform: uppercase;
   display: block;
-  font-size: 0.78em;
+/*  font-size: 0.78em;
   width: 10.21em;
   height: 2.72em;
-  line-height: 2.72;
+  line-height: 2.72;*/
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+
   text-align: center;
   font-weight: bold;
 }
@@ -40,6 +46,7 @@
 .onStockButton {
   color: #000;
   background-color: #fff;
+  font-size: 0.89em;
 }
 
 .onStockButton:hover {
@@ -79,6 +86,4 @@
   .inStock {
     background-size: 15px 11.5px;
   }
-
-
 }
