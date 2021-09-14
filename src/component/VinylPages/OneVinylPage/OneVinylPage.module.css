@@ -33,6 +33,7 @@
 @media (max-width: 768px) {
   .contentTitle {
     font-size: 1em;
+    height: 61px;
   }
 
   .firstVinylsRowOneVinyl {

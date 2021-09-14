@@ -224,3 +224,9 @@ main {
     text-align: center;
   }
 }
+
+@media (max-width: 382px) {
+  .sub-container {
+    max-width: 11.56em;
+  }
+}

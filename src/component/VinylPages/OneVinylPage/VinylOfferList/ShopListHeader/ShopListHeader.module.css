@@ -15,12 +15,24 @@
 
 @media (max-width: 768px) {
   .shopList__rowSecondTitle {
-    height: 45px;
+    height: 40px;
   }
 
   .shopList__shopWidth {
-    width: unset;
+    width: 107px;
+    color: #F6A325;
+    justify-content: flex-start;
+  }
+
+}
+
+@media (max-width: 382px) {
+  .shopList__shopWidth {
+    width: 70px;
     color: #F6A325;
   }
 
+  .shopList__rowSecondTitle {
+    height: 20px;
+  }
 }

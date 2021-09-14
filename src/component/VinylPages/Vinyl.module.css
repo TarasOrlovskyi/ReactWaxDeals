@@ -80,13 +80,19 @@
   width: 100%;
 }
 
+@media (max-width: 382px) {
+  .vinylsContent {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 768px) {
   .vinylsContent {
-    padding: 25px 0;
+    padding: 1.28em 0;
   }
 
-  .otherVinyls {
-    margin: 0 -0.28em;
+  .vinylsContent__row {
+    display: unset;
   }
 
   .otherVinyls__item {
@@ -104,6 +110,7 @@
     font-size: 14px;
     line-height: 21px;
   }
+
   .otherVinyls__release {
     font-size: 12px;
     line-height: 16px;
@@ -111,12 +118,12 @@
     padding-bottom: 5px;
   }
 
-  .tipText{
+  .tipText {
     display: none;
   }
 }
 
-@media (max-width: 1510px){
+@media (max-width: 1510px) {
 
   .vinylsContent__row {
     justify-content: center;
