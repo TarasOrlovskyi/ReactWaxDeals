@@ -22,6 +22,7 @@ export const setEditProfileData = (email, discogsUserName) => ({
 })
 
 export const getUserAuthData = () => async dispatch => {
+
   if (localStorage.token == null) {
     return new Promise((resolve, reject) => {
       resolve(true);
