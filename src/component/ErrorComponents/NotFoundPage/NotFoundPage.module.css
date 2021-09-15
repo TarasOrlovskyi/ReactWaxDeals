@@ -1,5 +1,8 @@
 .errorPage__content {
-  padding: 10.61em 0;
+  height: 32.22em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .errorPage_body {
@@ -7,22 +10,72 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 26.61em;
+  justify-content: space-between;
 }
 
 .errorPage__image {
-  padding-bottom: 2.22em;
-  text-align: center;
+  width: 13.61em;
+}
+
+.errorPage__image img {
+  width: 100%;
 }
 
 .errorPage__title {
-  padding-bottom: 0.27em;
+  height: 10.78em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.errorPage__title h1 {
+  font-size: 72px;
+  line-height: 1.37em;
+  letter-spacing: 0.42em;
 }
 
 .errorPage__text {
-  padding-bottom: 1.11em;
-  align-items: center;
+  font-size: 24px;
+  line-height: 1.38em;
 }
 
 .errorPage__redirectLink {
   text-decoration: underline;
+  font-size: 24px;
+  line-height: 1.38em;
+}
+
+@media (max-width: 768px) {
+  .errorPage__title h1 {
+    font-size: 48px;
+    line-height: 1.36em;
+    letter-spacing: 0.31em;
+  }
+
+  .errorPage__text {
+    font-size: 18px;
+    line-height: 1.38em;
+  }
+
+  .errorPage__redirectLink {
+    font-size: 18px;
+    line-height: 1.38em;
+  }
+
+  .errorPage__image {
+    width: 8.39em;
+  }
+
+  .errorPage__title {
+    height: 10em;
+  }
+
+  .errorPage_body {
+    height:20.27em;
+  }
+
+  .errorPage__content {
+    height: 24.82em;
+  }
 }
