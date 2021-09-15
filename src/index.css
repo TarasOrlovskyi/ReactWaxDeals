@@ -143,6 +143,10 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 79.88em;
 }
 
+.sub-container {
+  max-width: 79.88em;
+}
+
 a {
   color: #ffffff;
 }
@@ -198,6 +202,10 @@ main {
     margin: 0 auto;
   }
 
+  .sub-container {
+    max-width: 17.22em;
+  }
+
   .unsetHeight {
     height: unset;
   }
@@ -214,5 +222,11 @@ main {
     font-size: 24px;
     line-height: 33px;
     text-align: center;
+  }
+}
+
+@media (max-width: 382px) {
+  .sub-container {
+    max-width: 11.56em;
   }
 }
