@@ -1,17 +1,20 @@
 .allShops__item {
-    padding: 0 3.3em;
-    height: 10.5em;
-    flex: 0 0 33%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0 3.3em;
+  height: 10.5em;
+  flex: 0 0 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
-    .allShops__item {
-        padding: 25px 0;
-        width: 230px;
-        flex: 1 1 100%;
-        height: unset;
-    }
+  .allShops__item {
+    padding: 1.39em 1em;
+    flex: 0 1 12.78em;
+    height: unset;
+  }
+
+  .allShops__images {
+    width: 100%;
+  }
 }
