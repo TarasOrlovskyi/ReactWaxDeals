@@ -6,14 +6,14 @@ import React from "react";
 const EmptyListPage = () => {
   return (
     <main className="main">
-      <div className="container sub-container">
+      <div className="container {/*sub-container*/}">
         <div className="searchAreaWrapper">
           <div className="searchArea">
             <SearchFieldContainer/>
           </div>
         </div>
-        <div className={vinylStyle.vinylsContent}>
-          <div>
+        <div className={vinylStyle.vinylsContentWrapper}>
+          <div className={vinylStyle.vinylsContent}>
             <div className={s.searchNone}>
               <p className={s.searchNone__one}>Now your want list is empty.</p>
               <p className={s.searchNone__two}>Useful tips:</p>

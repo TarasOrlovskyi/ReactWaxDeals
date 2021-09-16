@@ -91,6 +91,13 @@
     padding: 1.28em 0;
   }
 
+  .vinylsContentWrapper {
+    min-height: 322px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
   .vinylsContent__row {
     display: unset;
   }
