@@ -177,6 +177,13 @@ h2 {
   justify-content: center;
 }
 
+.searchAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 6em;
+}
+
 /* main */
 
 main {
@@ -212,6 +219,10 @@ main {
 
   .searchArea {
     height: unset;
+  }
+
+  .searchAreaWrapper {
+    display:none;
   }
 
   .contentColumn {

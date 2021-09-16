@@ -1,5 +1,12 @@
 .vinylsContent {
-  padding: 3.55em 0;
+  padding: 3.44em 0;
+}
+
+.vinylsContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 3.44em;
 }
 
 .vinylsContent__row {
@@ -89,6 +96,10 @@
 @media (max-width: 768px) {
   .vinylsContent {
     padding: 1.28em 0;
+  }
+
+  .vinylsContentWrapper {
+    padding-top: 4.39em;
   }
 
   .vinylsContent__row {

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/actions/appActions";
 import {withBackground} from "./hoc/withBackground";
 import FooterContainer from "./component/Footer/FooterContainer";
+
 const Home = React.lazy(() => import('./component/Home/Home'));
 const RegistrationContainer = React.lazy(() => import('./component/RegistrationPages/Registration/RegistrationContainer'));
 const CatalogContainer = React.lazy(() => import('./component/VinylPages/Catalog/CatalogContainer'));
@@ -23,7 +24,7 @@ const ProfileContainer = React.lazy(() => import('./component/RegistrationPages/
 const NotFoundPage = React.lazy(() => import('./component/ErrorComponents/NotFoundPage/NotFoundPage'));
 const WrongPage = React.lazy(() => import('./component/ErrorComponents/WrongPage/WrongPage'));
 const About = React.lazy(() => import('./component/About/About/About'));
-
+React.lazy(() => import('./component/VinylPages/EmptyListPage/EmptyListPage'));
 class App extends Component {
 
   componentDidMount() {
