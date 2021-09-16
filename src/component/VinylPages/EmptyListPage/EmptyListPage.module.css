@@ -6,34 +6,41 @@
 
 .searchNone__one {
   font-weight: bold;
-  font-size: 28px;
-  line-height: 38px;
-  padding-bottom: 34px;
+  font-size: 1.56em;
+  line-height: 1.36em;
+  color: #F7A325;
+  height: 2.6em;
 }
 
 .searchNone__two {
   font-weight: bold;
-  font-size: 26px;
-  line-height: 35px;
-  padding-bottom: 10px;
+  font-size: 1.44em;
+  line-height: 1.36em;
+  height: 1.73em;
 }
 
 .searchNone__ulSearch {
   font-weight: bold;
-  font-size: 24px;
-  line-height: 33px;
-  padding-bottom: 23px;
+  font-size: 1.33em;
+  line-height: 1.38em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1 0 4.55em;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .searchNone__ulSearch li {
-  list-style: disc;
+  list-style: none;
 }
 
 .searchNone__three {
   font-weight: bold;
-  font-size: 26px;
-  line-height: 35px;
+  font-size: 1.44em;
+  line-height: 1.36em;
+  height: 2.51em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

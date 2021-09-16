@@ -24,6 +24,8 @@ const NotFoundPage = React.lazy(() => import('./component/ErrorComponents/NotFou
 const WrongPage = React.lazy(() => import('./component/ErrorComponents/WrongPage/WrongPage'));
 const About = React.lazy(() => import('./component/About/About/About'));
 
+const EmptyListPage= React.lazy(() => import('./component/VinylPages/EmptyListPage/EmptyListPage'));
+
 class App extends Component {
 
   componentDidMount() {
@@ -89,6 +91,11 @@ class App extends Component {
             <Route exact path="/email-confirmation/:token" render={() =>
               <ConfirmEmailContainer/>
             }/>
+
+            <Route path="/qwerty" render={() =>
+              <EmptyListPage/>
+            }/>
+
             <Route path="/500" render={() =>
               <WrongPage/>
             }/>

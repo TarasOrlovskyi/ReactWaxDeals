@@ -1,10 +1,17 @@
 import s from './EmptyListPage.module.css';
 import vinylStyle from './../Vinyl.module.css'
+import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
+import React from "react";
 
 const EmptyListPage = () => {
   return (
     <main className="main">
       <div className="container sub-container">
+        <div className="searchAreaWrapper">
+          <div className="searchArea">
+            <SearchFieldContainer/>
+          </div>
+        </div>
         <div className={vinylStyle.vinylsContent}>
           <div>
             <div className={s.searchNone}>
