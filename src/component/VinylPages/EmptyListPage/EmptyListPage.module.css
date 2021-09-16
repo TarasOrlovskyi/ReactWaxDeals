@@ -21,7 +21,6 @@
 }
 
 .searchNone__ulSearch {
-  font-weight: bold;
   font-size: 1.33em;
   line-height: 1.38em;
   display: flex;
@@ -47,15 +46,15 @@
   justify-content: flex-end;
 }
 
-
 @media (max-width: 768px) {
 
   .searchNone__ulSearch {
     font-size: 14px;
     line-height: 1.36em;
     align-items: flex-start;
-    flex: 1 0 8.93em;
+    /*flex: 1 0 8.93em;*/
     align-self: flex-start;
+    margin: -7.5px 0;
   }
 
   .searchNone__three {
@@ -81,5 +80,12 @@
 
   .searchNone__ulSearch li {
     text-align: left;
+    padding: 7.5px 0;
+  }
+}
+
+@media (max-width: 310px) {
+  .searchNone__one {
+    height: 4.17em;
   }
 }
