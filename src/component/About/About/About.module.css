@@ -1,33 +1,54 @@
 .aboutContent {
-  padding: 5.83em 0;
+  height: 29.17em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .aboutBody {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 23.33em;
 }
 
 .aboutBody__title {
-  padding-bottom: 1em;
+  height: 2.75em;
 }
 
 .aboutBody__image {
-  padding-top: 3.33em;
+  height: 7.72em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.aboutBody__text{
+.aboutBody__text {
   max-width: 31.25em;
-  font-size: 24px;
+  font-size: 1.33em;
   text-align: center;
+  height: 3.79em;
 }
 
 @media (max-width: 768px) {
-  .aboutBody__text{
-    font-size: 14px;
+  .aboutContent {
+    height: 24.67em;
   }
 
-  h2{
-    font-size: 1.33em;
+  .aboutBody {
+    height: 20.5em;
+  }
+
+  .aboutBody__title {
+    height: 3.25em;
+  }
+
+  .aboutBody__text {
+    font-size: 0.78em;
+    height: 5.14em;
+  }
+
+  .aboutBody__image {
+    height: 8.17em;
   }
 }
