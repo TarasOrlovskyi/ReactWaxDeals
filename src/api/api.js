@@ -1,4 +1,5 @@
 import axios from "axios";
+import {expireCheckingRefreshToken} from "../utils/actionUtils/actionUtils";
 
 const defaultOptions = {
   // withCredentials: true,
@@ -25,6 +26,12 @@ axiosWithSetting.interceptors.response.use(
           originalConfig._retry = true;
           try {
             const prevRefreshToken = localStorage.refreshToken;
+            if (prevRefreshToken) {
+              let isRefreshTokenExpire = expireCheckingRefreshToken(prevRefreshToken);
+              if (isRefreshTokenExpire) {
+                return Promise.reject(error);
+              }
+            }
             const response = await authApi.refreshToken(prevRefreshToken);
             const {jwtToken, refreshToken} = response.data;
             localStorage.setItem("token", jwtToken);

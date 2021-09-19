@@ -3,7 +3,7 @@ import {authApi} from "../../api/api";
 import store from "../redux";
 import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
-import {logOut} from "../../utils/actionUtils/actionUtils";
+import {expireCheckingRefreshToken, logOut} from "../../utils/actionUtils/actionUtils";
 
 export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
   type: actionTypes.SET_USER_DATA,
@@ -22,6 +22,16 @@ export const setEditProfileData = (email, discogsUserName) => ({
 })
 
 export const getUserAuthData = () => async dispatch => {
+  let refreshToken = localStorage.refreshToken;
+  if (refreshToken) {
+    let isRefreshTokenExpire = expireCheckingRefreshToken(refreshToken);
+    if (isRefreshTokenExpire) {
+      logOut(dispatch, setAuthUserData);
+      return new Promise((resolve, reject) => {
+        resolve(true);
+      });
+    }
+  }
   if (localStorage.token == null) {
     return new Promise((resolve, reject) => {
       resolve(true);

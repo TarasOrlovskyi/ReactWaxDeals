@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 export const logOut = (dispatch, setAuthData) => {
   localStorage.removeItem("token");
   localStorage.removeItem("refreshToken");
@@ -11,4 +13,10 @@ export const setVinylAsWantListItem = (vinylsFromState, vinylId, isWantListItem)
     }
     return vinyl;
   })
+}
+
+export const expireCheckingRefreshToken = (refreshToken) => {
+  let decodedRefreshToken = jwt_decode(refreshToken);
+  let nowTime = Date.now()/1000;
+  return nowTime > decodedRefreshToken.exp;
 }

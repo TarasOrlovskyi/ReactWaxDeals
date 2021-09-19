@@ -23,6 +23,11 @@ const catalogReducer = (state = initialCatalogState, action) => {
         //   return vinyl;
         // })
       }
+    case actionTypes.DELETE_VINYL_FROM_WANTLIST:
+      return {
+        ...state,
+        vinyls: state.vinyls.filter(vinyl => vinyl.id !== action.vinylId)
+      }
     default:
       return state;
   }
