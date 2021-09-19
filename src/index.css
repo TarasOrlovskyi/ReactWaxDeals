@@ -219,11 +219,6 @@ main {
 
   .searchArea {
     height: unset;
-    /*display: none;*/
-  }
-
-  .searchAreaWrapper {
-    display:none;
   }
 
   .contentColumn {
