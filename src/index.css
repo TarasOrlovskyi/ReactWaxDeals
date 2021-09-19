@@ -143,6 +143,10 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 79.88em;
 }
 
+.sub-container {
+  max-width: 79.88em;
+}
+
 a {
   color: #ffffff;
 }
@@ -167,10 +171,17 @@ h2 {
 /*header*/
 
 .searchArea {
-  height: 5.25em;
+  height: 6em;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+.searchAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 6em;
 }
 
 /* main */
@@ -197,15 +208,32 @@ main {
     max-width: 100%;
     margin: 0 auto;
   }
+
+  .sub-container {
+    max-width: 17.22em;
+  }
+
   .unsetHeight {
     height: unset;
   }
 
   .searchArea {
     height: unset;
-    }
+  }
 
   .contentColumn {
     justify-content: unset;
-      }
   }
+
+  h2 {
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 382px) {
+  .sub-container {
+    max-width: 11.56em;
+  }
+}

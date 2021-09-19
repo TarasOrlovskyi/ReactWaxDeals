@@ -7,8 +7,10 @@ const Catalog = (props) => {
   return (
     <main className="main">
       <div className="container subContainer">
-        <div className="searchArea">
-          <SearchFieldContainer/>
+        <div className="searchAreaWrapper">
+          <div className="searchArea">
+            <SearchFieldContainer/>
+          </div>
         </div>
         <div className={vinylStyle.vinylsContent}>
           <div className={vinylStyle.vinylsContent__row}>
@@ -22,7 +24,6 @@ const Catalog = (props) => {
                   key={vinyl.id}
                   isWantListItem={vinyl.isWantListItem}
                   isAuth={props.isAuth}
-                  // vinylType="vinyls"
                 />)
               }
             </div>

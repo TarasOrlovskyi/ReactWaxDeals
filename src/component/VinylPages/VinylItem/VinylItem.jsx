@@ -23,16 +23,10 @@ const VinylItem = (props) => {
         </NavLink>
 
         {props.isAuth &&
-          <WantListStarContainer vinylId={props.id}
-                                 isWantListItem={props.isWantListItem}
-                                 // vinylType={props.vinylType}
-          />
+        <WantListStarContainer vinylId={props.id}
+                               isWantListItem={props.isWantListItem}
+        />
         }
-        {/*<WantListStarContainer vinylId={props.id}*/}
-        {/*                       isWantListItem={props.isWantListItem}*/}
-        {/*                       vinylType={props.vinylType}*/}
-        {/*/>*/}
-
       </div>
   );
 }

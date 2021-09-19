@@ -1,5 +1,5 @@
 .firstVinyl__wrapper {
-  width: 33em;
+  width: 35.39em;
   display: flex;
 }
 
@@ -20,13 +20,13 @@
 }
 
 .vinylTipText {
-  top: 665px;
+  top: 47.5em;
 }
 
 .firstVinyl__artist {
   font-size: 2em;
   line-height: 1.36;
-  width: 548px;
+  width: 15.22em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,7 +39,7 @@
 .firstVinyl__release {
   font-size: 1.34em;
   line-height: 1.37;
-  width: 548px;
+  width: 22.72em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -47,4 +47,82 @@
 
 .firstVinyl__release:hover .vinylTipText {
   visibility: visible;
+}
+
+@media (max-width: 1510px) {
+  .firstVinyl__wrapper {
+    justify-content: center;
+    width: unset;
+  }
+
+  .firstVinyl__image {
+    height: 25em;
+  }
+
+  .firstVinyl__artist {
+    text-align: center;
+    padding-top: 0.83em;
+  }
+
+  .firstVinyl__release {
+    text-align: center;
+    border-bottom: thin solid rgba(255, 255, 255, 0.5);
+  }
+
+  .vinylTipText {
+    top: 40.36em;
+  }
+}
+
+@media (max-width: 868px) {
+  .firstVinyl__image {
+    height: 25em;
+  }
+}
+
+@media (max-width: 768px) {
+  .firstVinyl__image {
+    height: 11.11em;
+  }
+
+  .firstVinyl__artist {
+    text-align: unset;
+    font-size: 1em;
+    align-self: flex-start;
+    padding-top: unset;
+    height: 34px;
+    display: flex;
+    align-items: flex-end;
+    font-weight: bold;
+    max-width: 310px;
+    width: 100%;
+  }
+
+  .firstVinyl__release {
+    text-align: unset;
+    font-size: 0.77em;
+    align-self: flex-start;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    max-width: 310px;
+    width: 100%;
+    border-bottom: thin solid rgba(255, 255, 255, 0.5);
+  }
+
+  .firstVinyl__item {
+    flex: 0 0 17.22em;
+    position: unset;
+  }
+
+  .firstVinyl__wrapper {
+    width: unset;
+  }
+}
+
+@media (max-width: 382px) {
+
+  .firstVinyl__release {
+    border-bottom: none;
+  }
 }

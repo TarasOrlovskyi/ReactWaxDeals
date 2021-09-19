@@ -16,7 +16,6 @@ const WantListStar = (props) => {
                 onClick={props.switchStarToTrue}
             />
         }
-        {/*<div className={wantListStarStyle.wantListStar__imageSettings + ' ' + wantListStarStyle.wantListStar__imageEmptyStar}/>*/}
       </div>
   )
 }

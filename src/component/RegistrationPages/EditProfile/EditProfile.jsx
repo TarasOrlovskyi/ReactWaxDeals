@@ -35,7 +35,6 @@ const EditProfile = (props) => {
           />
         }
         <div className={editProfileStyle.contentEditProfile + ' content'}>
-          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={editProfileStyle.contentEditProfile__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Edit Profile</h2>

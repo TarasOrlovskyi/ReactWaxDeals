@@ -1,5 +1,12 @@
 .vinylsContent {
-  padding: 3.55em 0;
+  padding: 3.44em 0;
+}
+
+.vinylsContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 3.44em;
 }
 
 .vinylsContent__row {
@@ -81,13 +88,23 @@
   width: 100%;
 }
 
+@media (max-width: 382px) {
+  .vinylsContent {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 768px) {
   .vinylsContent {
-    padding: 25px 0;
+    padding: 1.28em 0;
   }
 
-  .otherVinyls {
-    margin: 0 -0.28em;
+  .vinylsContentWrapper {
+    padding-top: 4.39em;
+  }
+
+  .vinylsContent__row {
+    display: unset;
   }
 
   .otherVinyls__item {
@@ -105,10 +122,26 @@
     font-size: 14px;
     line-height: 21px;
   }
+
   .otherVinyls__release {
     font-size: 12px;
     line-height: 16px;
     width: 150px;
     padding-bottom: 5px;
+  }
+
+  .tipText {
+    display: none;
+  }
+}
+
+@media (max-width: 1510px) {
+
+  .vinylsContent__row {
+    justify-content: center;
+  }
+
+  .vinyl {
+    align-items: center;
   }
 }

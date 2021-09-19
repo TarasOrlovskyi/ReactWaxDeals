@@ -1,5 +1,5 @@
 .shopsList {
-  width: 46.88em;
+  width: 44.5em;
   height: 35.39em;
   display: flex;
   flex-direction: column;
@@ -12,10 +12,14 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: thin solid rgba(255, 255, 255, 0.5);
-  width: 97%;
+  height: 4.44em;
 }
 
 .shopList__row:last-child {
+  border-bottom: none;
+}
+
+.shopList__row:first-child {
   border-bottom: none;
 }
 
@@ -31,19 +35,20 @@
 }
 
 .shopList__catalogWidth {
-  width: 9.88em;
+  width: 6.94em;
 }
 
 .shopList__stockWidth {
-  width: 4.5em;
+  width: 3.89em;
 }
 
 .shopList__priceWidth {
-  width: 8.9em;
+  width: 6.94em;
 }
 
 .shopList__goToShopWidth {
-  width: 10.16em;
+  width: 9.44em;
+  justify-content: flex-start;
 }
 
 .shopList__scrollbar {
@@ -74,4 +79,78 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  font-size: 1em;
+}
+
+@media (max-width: 1510px) {
+  .shopsList {
+    height: unset;
+    padding-top: 3.33em;
+    width: 100%;
+  }
+
+  .shopList__goToShopWidth {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .shopsList {
+    height: unset;
+    padding-top: unset;
+  }
+
+  .shopList__catalogWidth {
+    width: 90px;
+  }
+
+  .shopList__stockWidth {
+    width: 3.06em;
+  }
+
+  .shopList__priceWidth {
+    width: 70px;
+  }
+
+  .shopList__goToShopWidth {
+    display: none;
+  }
+
+  .shopList__row {
+    height: 47px;
+    font-size: 0.78em;
+    justify-content: unset;
+  }
+
+  .shopList__scrollbar {
+    overflow: unset;
+  }
+
+  .shopList__goToShopWidth {
+    justify-content: flex-end;
+  }
+
+  .shopList__column {
+    font-size: 0.89em;
+  }
+}
+
+@media (max-width: 382px) {
+  .shopList__catalogWidth {
+    width: 62px;
+  }
+
+  .shopList__priceWidth {
+    width: 44px;
+  }
+
+  .shopList__stockWidth {
+    width: 30px;
+  }
+
+  .shopList__row {
+    height: 25px;
+    font-size: 0.78em;
+    justify-content: unset;
+  }
 }

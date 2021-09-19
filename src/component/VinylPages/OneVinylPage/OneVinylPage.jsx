@@ -36,7 +36,6 @@ const OneVinylPage = (props) => {
                   key={vinyl.id}
                   isWantListItem={vinyl.isWantListItem}
                   isAuth={props.isAuth}
-                  // vinylType="vinylsByArtist"
                 />)
               }
             </div>

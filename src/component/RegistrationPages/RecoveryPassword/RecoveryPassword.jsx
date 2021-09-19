@@ -23,7 +23,6 @@ const RecoveryPassword = (props) => {
             letterImage={letterImage}
           />
           }
-          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={s.contentRecoveryPassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Password recovery</h2>

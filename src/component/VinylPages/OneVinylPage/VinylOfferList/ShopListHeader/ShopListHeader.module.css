@@ -1,8 +1,8 @@
 .shopList__rowSecondTitle {
   height: 2.56em;
-  width: 45.5em;
   text-align: center;
   line-height: 2.56em;
+  width: 100%;
 }
 
 .shopList__secondItemTitle {
@@ -11,4 +11,28 @@
 
 .shopList__shopWidth {
   width: 10.83em;
+}
+
+@media (max-width: 768px) {
+  .shopList__rowSecondTitle {
+    height: 40px;
+  }
+
+  .shopList__shopWidth {
+    width: 7.62em;
+    color: #F6A325;
+    justify-content: flex-start;
+  }
+
+}
+
+@media (max-width: 382px) {
+  .shopList__shopWidth {
+    width: 70px;
+    color: #F6A325;
+  }
+
+  .shopList__rowSecondTitle {
+    height: 20px;
+  }
 }
