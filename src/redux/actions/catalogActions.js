@@ -23,27 +23,6 @@ export const deleteVinylFromWantList = (vinylId) => ({
   vinylId
 })
 
-// export const setVinylByArtistInWantList = (isWantListItem, vinylId) => ({
-//   type: actionTypes.SET_IS_VINYL_BY_ARTIST_IN_WANTLIST,
-//   isWantListItem,
-//   vinylId
-// })
-//
-// export const setFirstVinylInWantList = (isWantListItem) => ({
-//   type: actionTypes.SET_IS_FIRST_VINYL_IN_WANTLIST,
-//   isWantListItem
-// })
-
-// const setVinylStart = (vinylType, dispatch, isWantListItem, vinylId) => {
-//   if (vinylType === "vinyls"){
-//     dispatch(setVinylInWantList(isWantListItem, vinylId));
-//   } else if(vinylType === "vinylsByArtist"){
-//     dispatch(setVinylByArtistInWantList(isWantListItem, vinylId));
-//   } else if(vinylType === "firstVinyl"){
-//     dispatch(setFirstVinylInWantList(isWantListItem));
-//   }
-// }
-
 export const getVinylsCatalog = (historyPush) => async dispatch => {
   try {
     let isAuth = store.getState().auth.isAuth;
@@ -67,16 +46,13 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
 export const switchVinylInWantList = (isWantListItem, vinylId, historyPush) => async dispatch => {
   try {
     dispatch(setVinylInWantList(isWantListItem, vinylId));
-    // setVinylStart(vinylType, dispatch, isWantListItem, vinylId);
     let responseData = await vinylApi.switchVinylInWantList(vinylId)
     if (!isWantListItem && responseData.status === 200){
       dispatch(deleteVinylFromWantList(vinylId));
     } else if (responseData.status !== 200) {
       dispatch(setVinylInWantList(!isWantListItem, vinylId));
-      // setVinylStart(vinylType, dispatch, !isWantListItem, vinylId);
     }
   } catch (error) {
-    // setVinylStart(vinylType, dispatch, !isWantListItem, vinylId);
     dispatch(setVinylInWantList(!isWantListItem, vinylId));
     let errorStatus = error.response.status;
     if (errorStatus === 403 || errorStatus === 401) {

@@ -16,12 +16,6 @@ const afterSearchReducer = (state = initialAfterSearchPage, action) => {
       return {
         ...state,
         vinyls: setVinylAsWantListItem(state.vinyls, action.vinylId, action.isWantListItem)
-        // vinyls: state.vinyls.map(vinyl => {
-        //   if (vinyl.id === action.vinylId) {
-        //     return {...vinyl, isWantListItem: action.isWantListItem}
-        //   }
-        //   return vinyl;
-        // })
       }
     default:
       return state;
