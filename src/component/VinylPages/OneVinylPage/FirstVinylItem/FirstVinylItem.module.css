@@ -10,6 +10,7 @@
 
 .firstVinyl__image {
   height: 30.45em;
+  position: relative;
 }
 
 .firstVinyl__image img {

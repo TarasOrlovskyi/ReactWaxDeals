@@ -42,6 +42,16 @@
   text-decoration: none;
 }
 
+.getDiscogsButton{
+  background-color: #8D8989;
+  width: 70%;
+  height: 2.22em;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.39;
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .contentEditProfile__column {
     max-width: 310px;
