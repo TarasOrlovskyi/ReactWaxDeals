@@ -19,7 +19,6 @@ const SignIn = (props) => {
         <div className="searchArea unsetHeight">
         </div>
         <div className={signInStyle.contentSignIn}>
-          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           {
             (props.isInfoAlert && props.pageInfo === "ConfirmEmail") &&
             <MessageAlert turnOffAlert={props.turnOffAlert}
