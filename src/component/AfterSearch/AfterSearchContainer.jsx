@@ -23,7 +23,7 @@ class AfterSearchContainer extends React.Component {
       </div>
     }
     if (this.props.vinyls.length > 0) {
-      return <Catalog vinylList={this.props.vinyls}/>
+      return <Catalog vinylList={this.props.vinyls} isAuth={this.props.isAuth}/>
     }
     return <EmptyPageAfterSearch/>
   }
@@ -31,7 +31,8 @@ class AfterSearchContainer extends React.Component {
 
 let mapStateToProps = (state) => (
   {
-    vinyls: state.afterSearchPage.vinyls
+    vinyls: state.afterSearchPage.vinyls,
+    isAuth: state.auth.isAuth
   }
 );
 

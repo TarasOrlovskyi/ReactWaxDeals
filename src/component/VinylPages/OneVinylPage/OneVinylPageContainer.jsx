@@ -23,13 +23,15 @@ class OneVinylPageContainer extends React.Component {
       vinylOffersList={this.props.oneVinylState.vinylOffersList}
       vinylsByArtist={this.props.oneVinylState.vinylsByArtist}
       loadOneVinyl={this.loadOneVinyl}
+      isAuth={this.props.isAuth}
     />
   }
 }
 
 let mapStateToProps = (state) => {
   return {
-    oneVinylState: state.oneVinylPage
+    oneVinylState: state.oneVinylPage,
+    isAuth: state.auth.isAuth
   }
 }
 

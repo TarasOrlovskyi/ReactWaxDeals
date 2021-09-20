@@ -50,8 +50,9 @@ let EditProfileForm = (props) => {
               onClick={props.turnOnDeleteProfileAlert}
       >Delete Profile
       </button>
+      <button className={editProfileStyle.getDiscogsButton} onClick={props.getDiscogsWantlist}>GET DISCOGS WANTLIST</button>
     </>
   );
-}
+};
 
 export default reduxForm({form: "editProfileForm", enableReinitialize: true})(EditProfileForm)

@@ -18,7 +18,6 @@ const ChangePassword = (props) => {
             messages={"Your password has been changed"}
           />
           }
-          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={editProfileStyle.contentChangePassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Change Password</h2>

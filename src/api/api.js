@@ -1,4 +1,5 @@
 import axios from "axios";
+import {expireCheckingRefreshToken} from "../utils/actionUtils/actionUtils";
 
 const defaultOptions = {
   // withCredentials: true,
@@ -20,12 +21,17 @@ axiosWithSetting.interceptors.response.use(
     },
     async (error) => {
       const originalConfig = error.config;
-      // debugger
       if (error.response) {
         if (error.response.status === 401 && !originalConfig._retry) {
           originalConfig._retry = true;
           try {
             const prevRefreshToken = localStorage.refreshToken;
+            if (prevRefreshToken) {
+              let isRefreshTokenExpire = expireCheckingRefreshToken(prevRefreshToken);
+              if (isRefreshTokenExpire) {
+                return Promise.reject(error);
+              }
+            }
             const response = await authApi.refreshToken(prevRefreshToken);
             const {jwtToken, refreshToken} = response.data;
             localStorage.setItem("token", jwtToken);
@@ -86,6 +92,15 @@ export const vinylApi = {
   },
   getOneVinylResponse(vinylId) {
     return axiosWithSetting.get(`oneVinyl/${vinylId}`)
+  },
+  getWantListResponse(){
+    return axiosWithSetting.get(`wantlist`);
+  },
+  switchVinylInWantList(id){
+    return axiosWithSetting.post(`wantlist`, {id});
+  },
+  getDiscogsWantlistRequest(){
+    return axiosWithSetting.post(`wantlist/import`);
   }
 }
 

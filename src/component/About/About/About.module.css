@@ -30,9 +30,20 @@
   height: 3.79em;
 }
 
+.searchAreaContainer {
+  height: 6em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .aboutContent {
     height: 24.67em;
+  }
+
+  .searchAreaContainer {
+    display: none;
   }
 
   .aboutBody {

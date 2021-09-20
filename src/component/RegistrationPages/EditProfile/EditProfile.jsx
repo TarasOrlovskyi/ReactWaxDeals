@@ -27,8 +27,14 @@ const EditProfile = (props) => {
             closeButton={props.turnOffAlert}
           />
         }
+        {
+          (props.isInfoAlert && props.pageInfo === "DiscogsWantlist") &&
+          <MessageAlert
+              turnOffAlert={props.turnOffAlert}
+              messages="We added your discogs want list"
+          />
+        }
         <div className={editProfileStyle.contentEditProfile + ' content'}>
-          {/*<UserMessage message={props.message} errorMessage={props.errorMessage}/>*/}
           <div className={editProfileStyle.contentEditProfile__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Edit Profile</h2>
@@ -36,6 +42,7 @@ const EditProfile = (props) => {
             <EditProfileForm initialValues={props.initialValues}
                              onSubmit={props.onSubmit}
                              turnOnDeleteProfileAlert={props.turnOnDeleteProfileAlert}
+                             getDiscogsWantlist={props.getDiscogsWantlist}
             />
           </div>
         </div>
