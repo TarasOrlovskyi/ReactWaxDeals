@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import {setVinylAsWantListItem} from "../../utils/actionUtils/actionUtils";
+import {setFirstVinylAsWantListItem, setVinylAsWantListItem} from "../../utils/actionUtils/actionUtils";
 
 let initialOneVinylState = {
   firstVinyl: {},
@@ -22,12 +22,7 @@ const oneVinylReducer = (state = initialOneVinylState, action) => {
       return {
         ...state,
         vinylsByArtist: setVinylAsWantListItem(state.vinylsByArtist, action.vinylId, action.isWantListItem),
-        firstVinyl: (vinylId = action.vinylId, isWantListItem = action.isWantListItem) => {
-          if (state.firstVinyl.id === vinylId) {
-            return {...state.firstVinyl, isWantListItem: isWantListItem}
-          }
-          return state.firstVinyl;
-        }
+        firstVinyl: setFirstVinylAsWantListItem(state.firstVinyl, action.vinylId, action.isWantListItem)
       }
     default:
       return state;
