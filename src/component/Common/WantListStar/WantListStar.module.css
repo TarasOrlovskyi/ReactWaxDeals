@@ -1,29 +1,29 @@
-.wantListStar{
+.wantListStar {
   position: absolute;
   right: 1.3em;
 }
 
-.wantListStar_position{
+.wantListStar_position {
   right: 0;
 }
 
-.wantListStar__imageFilledStar{
+.wantListStar__imageFilledStar {
   content: url('../../../assets/img/Star.png');
 }
 
-.wantListStar__imageFilledStar:hover{
+.wantListStar__imageFilledStar:hover {
   content: url('../../../assets/img/emptyStar.png');
 }
 
-.wantListStar__imageEmptyStar{
+.wantListStar__imageEmptyStar {
   content: url('../../../assets/img/emptyStar.png');
 }
 
-.wantListStar__imageEmptyStar:hover{
+.wantListStar__imageEmptyStar:hover {
   content: url('../../../assets/img/Star.png');
 }
 
-.wantListStar__imageSettings{
+.wantListStar__imageSettings {
   max-width: 40px;
   max-height: 40px;
   width: 100%;
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 768px) {
-  .wantListStar{
+  .wantListStar {
     right: 0.28em;
     max-width: 25px;
     max-height: 25px;

@@ -16,7 +16,7 @@ const OneVinylPage = (props) => {
         <div className={vinylStyle.vinylsContent}>
           <div className={vinylStyle.vinylsContent__row}>
             <div className={oneVinylPageStyle.firstVinylsRow + ' ' + oneVinylPageStyle.firstVinylsRowOneVinyl}>
-              <FirstVinylItem firstVinyl={props.firstVinyl} isAuth={props.isAuth}/>
+              <FirstVinylItem discogsLink={props.discogsLink} firstVinyl={props.firstVinyl} isAuth={props.isAuth}/>
               <VinylOfferList discogsLink={props.discogsLink} vinylOffersList={props.vinylOffersList}/>
             </div>
           </div>
