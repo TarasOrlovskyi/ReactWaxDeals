@@ -89,9 +89,9 @@
 }
 
 @media (max-width: 382px) {
-  .vinylsContent {
-    font-size: 11px;
-  }
+  /*  .vinylsContent {
+      font-size: 11px;
+    }*/
 }
 
 @media (max-width: 768px) {

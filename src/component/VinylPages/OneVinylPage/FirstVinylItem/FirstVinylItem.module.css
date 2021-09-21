@@ -79,81 +79,85 @@
   }
 }
 
-  @media (max-width: 868px) {
-    .firstVinyl__image {
-      height: 25em;
-    }
+@media (max-width: 868px) {
+  .firstVinyl__image {
+    height: 25em;
+  }
+}
+
+@media (max-width: 768px) {
+  .firstVinyl__image {
+    height: 11.11em;
   }
 
-  @media (max-width: 768px) {
-    .firstVinyl__image {
-      height: 11.11em;
-    }
-
-    .firstVinyl__artist {
-      text-align: unset;
-      font-size: 1em;
-      align-self: flex-start;
-      padding-top: unset;
-      font-weight: bold;
-      height: 1.89em;
-      line-height: 1.89em;
-      max-width: 310px;
-      width: 100%;
-    }
-
-    .firstVinyl__release {
-      text-align: unset;
-      font-size: 0.77em;
-      align-self: flex-start;
-      height: 1.95em;
-      max-width: 310px;
-      line-height: 1.95em;
-      width: 100%;
-      border-bottom: none;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .firstVinyl__item {
-      flex: 0 0 100%;
-      position: unset;
-    }
-
-    .firstVinyl__wrapper {
-      width: 100%;
-      border-bottom: thin solid rgba(255, 255, 255, 0.5);
-    }
-
-    .firstVinyl__releaseLink {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .firstVinyl__releaseLink a {
-      width: unset;
-      height: unset;
-    }
-
-    .firstVinyl__releaseLink img {
-      height: 1em;
-    }
-
-    .firstVinyl__release span {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  .firstVinyl__artist {
+    text-align: unset;
+    font-size: 1em;
+    align-self: flex-start;
+    padding-top: unset;
+    font-weight: bold;
+    height: 1.89em;
+    line-height: 1.89em;
+    max-width: 310px;
+    width: 100%;
   }
 
-  @media (max-width: 382px) {
-
-    .firstVinyl__release {
-      border-bottom: none;
-      max-width: 208px;
-    }
-
-    .firstVinyl__releaseLink img {
-      height: 0.6em;
-    }
+  .firstVinyl__release {
+    text-align: unset;
+    font-size: 0.77em;
+    align-self: flex-start;
+    height: 1.95em;
+    max-width: 310px;
+    line-height: 1.95em;
+    width: 100%;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
   }
+
+  .firstVinyl__item {
+    flex: 0 0 100%;
+    position: unset;
+  }
+
+  .firstVinyl__wrapper {
+    width: 100%;
+    border-bottom: thin solid rgba(255, 255, 255, 0.5);
+  }
+
+  .firstVinyl__releaseLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .firstVinyl__releaseLink a {
+    width: unset;
+    height: unset;
+  }
+
+  .firstVinyl__releaseLink img {
+    height: 1em;
+  }
+
+  .firstVinyl__release span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 382px) {
+
+  .firstVinyl__release {
+    border-bottom: none;
+    max-width: 208px;
+  }
+
+  .firstVinyl__releaseLink img {
+    height: 0.6em;
+  }
+
+  .firstVinyl__image {
+    height: 18.18em;
+  }
+}
