@@ -15,6 +15,14 @@ export const setVinylAsWantListItem = (vinylsFromState, vinylId, isWantListItem)
   })
 }
 
+export const setFirstVinylAsWantListItem = (firstVinyl, vinylId, isWantListItem) => {
+  if (firstVinyl.id === vinylId) {
+    return {...firstVinyl, isWantListItem: isWantListItem}
+  }
+  return firstVinyl;
+}
+
+
 export const expireCheckingRefreshToken = (refreshToken) => {
   let decodedRefreshToken = jwt_decode(refreshToken);
   let nowTime = Date.now()/1000;
