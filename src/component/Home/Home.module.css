@@ -1,7 +1,7 @@
 /* main of home page */
 
 .contentHome {
-  height: 25.77em;
+  height: 26.05em;
 }
 
 .contentHome__logo {
@@ -12,20 +12,19 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 20.66em;
+  height: 20.93em;
   width: 52.55em;
 }
 
 .contentHome__title {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 9.17em;
+  height: 6.56em;
   text-align: center;
 }
 
 .contentHome__subtitle {
-  height: 11em;
+  height: 11.15em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -33,7 +32,7 @@
 
 @media (max-width: 768px) {
   .contentHome {
-    height: 22.55em;
+    height: 18.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +42,6 @@
   .contentHome__logo {
     display: flex;
     justify-content: flex-start;
-    padding-top: 0.72em;
   }
 
   .contentHome__column {
@@ -53,7 +51,7 @@
   }
 
   .contentHome__title {
-    height: 5.89em;
+    height: 7.57em;
   }
 
   .contentHome__title h1 {
@@ -62,9 +60,8 @@
   }
 
   .contentHome__subtitle {
-    height: 6.5em;
+    height: 6.2em;
     width: 100%;
-    justify-content: center;
   }
 
   .contentHome__subtitle h2 {
