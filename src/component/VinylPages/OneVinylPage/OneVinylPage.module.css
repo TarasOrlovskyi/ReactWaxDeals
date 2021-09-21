@@ -40,3 +40,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 382px) {
+  .firstVinylsRow {
+    font-size: 11px;
+  }
+}

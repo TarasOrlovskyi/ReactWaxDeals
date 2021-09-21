@@ -7,11 +7,8 @@ import VinylOfferItem from "./VinylOfferItem/VinylOfferItem";
 const VinylOfferList = (props) => {
   return (
     <div className={vinylOfferListStyle.shopsList}>
-
       <ShopListNav discogsLink={props.discogsLink}/>
-
       <ShopListHeader/>
-
       <div className={vinylOfferListStyle.shopList__column + ' ' + vinylOfferListStyle.shopList__scrollbar}>
         {
           (props.vinylOffersList.length > 0)

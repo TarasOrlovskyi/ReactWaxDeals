@@ -19,10 +19,6 @@
   border-bottom: none;
 }
 
-.shopList__row:first-child {
-  border-bottom: none;
-}
-
 .shopList__title {
   text-transform: capitalize;
   align-self: flex-start;

@@ -3,9 +3,9 @@
   display: flex;
   text-align: center;
   line-height: 1.1;
-  justify-content: flex-start;
   width: 100%;
 }
+
 
 .shopList__item {
   height: 3.05em;
