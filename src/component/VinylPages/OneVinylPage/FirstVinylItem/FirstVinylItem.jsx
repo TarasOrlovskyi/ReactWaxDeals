@@ -17,6 +17,12 @@ const FirstVinylItem = (props) => {
                    (props.firstVinyl.imageLink + '').includes('http') ? props.firstVinyl.imageLink : noImage
                  }
                alt="first vinyl"/>
+          {props.isAuth &&
+          <WantListStarContainer vinylId={props.firstVinyl.id}
+                                 isWantListItem={props.firstVinyl.isWantListItem}
+                                 vinylType="firstVinyl"
+          />
+          }
         </div>
         <div className={firstVinylItemStyle.firstVinyl__artist}>
           {props.firstVinyl.artist}
@@ -31,12 +37,7 @@ const FirstVinylItem = (props) => {
           <span
             className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{props.firstVinyl.release}</span>
         </div>
-        {props.isAuth &&
-        <WantListStarContainer vinylId={props.firstVinyl.id}
-                               isWantListItem={props.firstVinyl.isWantListItem}
-                               vinylType="firstVinyl"
-        />
-        }
+
       </div>
     </div>
   );

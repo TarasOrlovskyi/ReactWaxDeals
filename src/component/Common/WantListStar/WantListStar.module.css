@@ -1,6 +1,7 @@
 .wantListStar {
   position: absolute;
   right: 1.3em;
+  top: 0;
 }
 
 .wantListStar_position {
@@ -36,5 +37,9 @@
     right: 0.28em;
     max-width: 25px;
     max-height: 25px;
+  }
+
+  .wantListStar_position {
+    right: 0;
   }
 }

@@ -11,6 +11,7 @@
 
 .vinylsContent__row {
   display: flex;
+  justify-content: center;
 }
 
 .otherVinyls {
@@ -136,11 +137,6 @@
 }
 
 @media (max-width: 1510px) {
-
-  .vinylsContent__row {
-    justify-content: center;
-  }
-
   .vinyl {
     align-items: center;
   }
