@@ -89,12 +89,6 @@
   width: 100%;
 }
 
-@media (max-width: 382px) {
-  /*  .vinylsContent {
-      font-size: 11px;
-    }*/
-}
-
 @media (max-width: 768px) {
   .vinylsContent {
     padding: 1.28em 0;
