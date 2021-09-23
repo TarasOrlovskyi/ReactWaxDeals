@@ -6,24 +6,24 @@ import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 const Header = (props) => {
   return (
-    <header className={s.header}>
-      <div className="container">
-        {props.headerForRender === "oneVinylHeader" &&
-        <HeaderOneVinyl activateBurger={props.activateBurger}/>
-        }
-        {(props.headerForRender === "headerWithLogo"
-          || props.headerForRender === "registrationHeader"
-          || props.headerForRender === "homeHeader") &&
-        <HeaderMobile headerForRender={props.headerForRender}
-                      isAuth={props.isAuth}
-                      logOut={props.logOut}
-                      activateBurger={props.activateBurger}
-        />
-        }
-        <HeaderLaptop isAuth={props.isAuth} logOut={props.logOut}/>
-        <BurgerMenu turnOffBurger={props.turnOffBurger} isBurgerActivate={props.isBurgerActivate}/>
-      </div>
-    </header>
+      <header className={s.header}>
+        <div className="container">
+          {props.headerForRender === "oneVinylHeader" &&
+          <HeaderOneVinyl activateBurger={props.activateBurger}/>
+          }
+          {(props.headerForRender === "headerWithLogo"
+              || props.headerForRender === "registrationHeader"
+              || props.headerForRender === "homeHeader") &&
+          <HeaderMobile headerForRender={props.headerForRender}
+                        isAuth={props.isAuth}
+                        logOut={props.logOut}
+                        activateBurger={props.activateBurger}
+          />
+          }
+          <HeaderLaptop isAuth={props.isAuth} logOut={props.logOut}/>
+          <BurgerMenu turnOffBurger={props.turnOffBurger} isBurgerActivate={props.isBurgerActivate}/>
+        </div>
+      </header>
   );
 }
 
