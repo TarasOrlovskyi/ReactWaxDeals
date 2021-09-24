@@ -4,6 +4,7 @@ import logo from "../../../../assets/img/wax_deals.png"
 import closeButton from "../../../../assets/img/close_header.png"
 import {NavLink} from "react-router-dom";
 import RegistrationSigns from "../../RegistrationSigns/RegistrationSigns";
+import PopUpLoggedInUserMenu from "../../PopUpUserMenu/PopUpUserMenu";
 
 const HeaderMobile = (props) => {
   return (
@@ -25,6 +26,7 @@ const HeaderMobile = (props) => {
             <RegistrationSigns isAuth={props.isAuth} logOut={props.logOut}/>
           }
         </NavLink>
+        <PopUpLoggedInUserMenu/>
       </div>
   )
 }
