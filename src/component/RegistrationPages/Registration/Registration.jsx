@@ -4,7 +4,6 @@ import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 import React from "react";
 import letterImage from "../../../assets/img/alertImg/message_letter.png";
-import UserMessage from "../UserMessage/UserMessage";
 
 const Registration = (props) => {
 
@@ -31,7 +30,6 @@ const Registration = (props) => {
         />
         }
         <div className={s.contentRegistrationPage}>
-          <UserMessage message={props.message} errorMessage={props.errorMessage}/>
           <div className={s.contentRegistrationPage__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Registration</h2>
