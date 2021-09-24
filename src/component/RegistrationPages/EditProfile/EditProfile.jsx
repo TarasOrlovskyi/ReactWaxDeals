@@ -34,6 +34,13 @@ const EditProfile = (props) => {
               messages="We added your discogs want list"
           />
         }
+        {
+          (props.isInfoAlert && props.pageInfo === "DiscogsWantlistError") &&
+          <MessageAlert
+              turnOffAlert={props.turnOffAlert}
+              messages="We couldn't get your discogs wantlist. Please check your discogs username"
+          />
+        }
         <div className={editProfileStyle.contentEditProfile + ' content'}>
           <div className={editProfileStyle.contentEditProfile__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
