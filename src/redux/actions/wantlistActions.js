@@ -12,7 +12,9 @@ export const getDiscogsWantlist = (historyPush) => async dispatch => {
     }
   } catch (error) {
     let errorStatus = error.response.status;
-    if (errorStatus === 404 || errorStatus === 500) {
+    if (errorStatus === 400){
+      dispatch(activateInfoAlert(true, "DiscogsWantlistError"));
+    } else if (errorStatus === 404 || errorStatus === 500) {
       handleHttpError(errorStatus, historyPush)
     } else if (errorStatus === 403 || errorStatus === 401) {
       logOut(dispatch, setAuthUserData)
