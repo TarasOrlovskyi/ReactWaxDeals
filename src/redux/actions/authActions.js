@@ -64,10 +64,10 @@ export const getUserLogOutData = () => async dispatch => {
 export const getUserLogInData = (email, password, historyPush, googleTokenId = null) => async dispatch => {
   try {
     let responseData;
-    if (googleTokenId){
-      responseData = await authApi.userGoogleLogIn(googleTokenId);
-    } else if (email && password) {
+    if (email && password){
       responseData = await authApi.userLogIn(email, password);
+    } else {
+      responseData = await authApi.userGoogleLogIn(googleTokenId);
     }
     if (responseData.status === 200) {
       localStorage.setItem("token", responseData.data.jwtToken);
