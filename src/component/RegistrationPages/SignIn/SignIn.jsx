@@ -38,7 +38,7 @@ const SignIn = (props) => {
             <SignInForm onSubmit={props.onSubmit}/>
           </div>
           <RectangleLine/>
-          <SocialNetwork/>
+          <SocialNetwork doGoogleLogIn={props.doGoogleLogIn}/>
           <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
 
         </div>
