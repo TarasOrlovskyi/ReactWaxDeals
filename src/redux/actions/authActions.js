@@ -64,9 +64,9 @@ export const getUserLogOutData = () => async dispatch => {
 export const getUserLogInData = (email, password, historyPush, googleTokenId = null) => async dispatch => {
   try {
     let responseData;
-    if (googleTokenId != null){
+    if (googleTokenId){
       responseData = await authApi.userGoogleLogIn(googleTokenId);
-    } else {
+    } else if (email && password) {
       responseData = await authApi.userLogIn(email, password);
     }
     if (responseData.status === 200) {
