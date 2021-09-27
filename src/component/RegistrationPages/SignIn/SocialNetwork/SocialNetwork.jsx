@@ -31,8 +31,7 @@ const SocialNetwork = (props) => {
         )}
     />
     <GoogleLogin
-        //secret = echmvEkhzjZcFTX303G1x5zk
-        clientId="490444479646-9oaqa9khqjia6k3goq2jukmu405pnb9u.apps.googleusercontent.com"
+        clientId="490444479646-51kertg5n4a078nec7r3qb21frp7m2na.apps.googleusercontent.com"
         render={renderProps => (
             <img alt="social Google"
                  src={socialGoogle}
