@@ -13,7 +13,11 @@ class SignInContainer extends React.Component {
   }
 
   doLogIn = (formData) => {
-    this.props.getUserLogInData(formData.email, formData.password, this.props.history.push);
+    this.props.getUserLogInData(formData.email, formData.password, this.props.history.push, null);
+  }
+
+  doGoogleLogIn = (googleTokenId) => {
+    this.props.getUserLogInData(null, null, this.props.history.push, googleTokenId);
   }
 
   render() {
@@ -27,6 +31,7 @@ class SignInContainer extends React.Component {
               isInfoAlert={this.props.isInfoAlert}
               pageInfo={this.props.pageInfo}
               turnOffAlert={this.turnOffAlert}
+              doGoogleLogIn={this.doGoogleLogIn}
       />
     );
   }
