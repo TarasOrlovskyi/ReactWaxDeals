@@ -57,6 +57,9 @@ export const authApi = {
   userLogIn(email, password) {
     return axiosWithSetting.post(`login`, {email, password});
   },
+  userGoogleLogIn(token) {
+    return axiosWithSetting.post(`google/auth`, {token});
+  },
   refreshToken(refreshToken) {
     return axiosWithSetting.post(`token/refresh-token`, {refreshToken});
   },
@@ -91,7 +94,7 @@ export const vinylApi = {
     return axiosWithSetting.get(`catalog`);
   },
   getOneVinylResponse(vinylId) {
-    return axiosWithSetting.get(`oneVinyl/${vinylId}`)
+    return axiosWithSetting.get(`catalog/${vinylId}`)
   },
   getWantListResponse(){
     return axiosWithSetting.get(`wantlist`);

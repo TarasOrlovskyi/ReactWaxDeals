@@ -52,7 +52,7 @@ class App extends Component {
               <Route exact path="/catalog" render={() =>
                   <CatalogContainer/>
               }/>
-              <Route path="/oneVinyl/:id" render={() =>
+              <Route path="/catalog/:id" render={() =>
                   <OneVinylPageContainer/>
               }/>
               <Route exact path="/contact" render={() =>
