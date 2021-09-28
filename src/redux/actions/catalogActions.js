@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {vinylApi} from "../../api/api";
-import {unhandledError} from "../../utils/handleErrors/handleErrors";
+import {handleHttpError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {logOut} from "../../utils/actionUtils/actionUtils";
 import {setAuthUserData} from "./authActions";
 import store from "../redux";
@@ -37,6 +37,8 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
     let errorStatus = error.response.status;
     if (errorStatus === 403 || errorStatus === 401) {
       logOut(dispatch, setAuthUserData)
+    } else if (errorStatus === 404 || errorStatus === 500) {
+      handleHttpError(errorStatus, historyPush)
     } else {
       unhandledError(error.response.status, "get catalog", historyPush);
     }
