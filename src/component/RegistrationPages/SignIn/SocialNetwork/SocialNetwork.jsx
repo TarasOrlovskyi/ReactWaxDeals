@@ -13,6 +13,7 @@ const SocialNetwork = (props) => {
   }
 
   const responseGoogle = (response) => {
+    // response.setHeader("Cache-Control", "no-store");
     props.doGoogleLogIn(response.tokenId);
   }
 
@@ -31,7 +32,7 @@ const SocialNetwork = (props) => {
         )}
     />
     <GoogleLogin
-        clientId="490444479646-51kertg5n4a078nec7r3qb21frp7m2na.apps.googleusercontent.com"
+        clientId="490444479646-9oaqa9khqjia6k3goq2jukmu405pnb9u.apps.googleusercontent.com"
         render={renderProps => (
             <img alt="social Google"
                  src={socialGoogle}
