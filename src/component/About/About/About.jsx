@@ -14,7 +14,7 @@ const About = () => {
           <div className={aboutStyle.aboutContent}>
             <div className={aboutStyle.aboutBody}>
               <h2 className={aboutStyle.aboutBody__title}>About</h2>
-              <p className={aboutStyle.aboutBody__text + ' ' + aboutStyle.aboutBody__title}>We created this service
+              <p className={aboutStyle.aboutBody__text}>We created this service
                 together all the popular vinyl record stores
                 at one place and make your shopping cheaper.</p>
               <p className={aboutStyle.aboutBody__text}>You can search through various stores, compare prices,

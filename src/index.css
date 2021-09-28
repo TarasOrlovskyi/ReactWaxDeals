@@ -177,6 +177,10 @@ h2 {
   justify-content: center;
 }
 
+.unsetHeightStores{
+  height: 1.22em;
+}
+
 .searchAreaWrapper {
   display: flex;
   flex-direction: column;
@@ -217,7 +221,12 @@ main {
     height: unset;
   }
 
+
   .searchArea {
+    height: unset;
+  }
+
+  .searchAreaWrapper{
     height: unset;
   }
 

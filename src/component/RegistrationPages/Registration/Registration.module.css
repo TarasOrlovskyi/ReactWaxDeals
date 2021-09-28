@@ -1,8 +1,8 @@
 .contentRegistrationPage {
-  height: 33.22em;
+  height: 32.55em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -24,25 +24,21 @@
 
 @media (max-width: 768px) {
   .contentRegistrationPage {
-    height: 30.06em;
+    height: 28.78em;
   }
 
   .contentRegistrationPage__column {
-    height: 483px;
+    height: 26.83em;
     max-width: 17.22em;
     width: 100%;
   }
 
-  .registrationPageUser {
-    height: 420px;
-  }
-
   .registrationPageUser__fields {
-    height: 300px;
+    height: 16.67em;
   }
 
   .user__account {
-    font-size: 14px;
+    font-size: 0.78em;
     text-decoration: underline;
     text-transform: uppercase;
     display: flex;
