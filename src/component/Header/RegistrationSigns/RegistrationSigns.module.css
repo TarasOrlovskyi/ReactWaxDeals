@@ -24,9 +24,13 @@
   width: 6.11em;
 }
 
-.header__userIcon{
-  width: 35px;
-  height: 35px;
+.header__userIcon {
+  width: 1.94em;
+  height: 1.94em;
+  cursor: pointer;
+  position: relative;
+  right: 2.55em;
+  bottom: 0.25em;
 }
 
 .header__userIcon img {
@@ -36,16 +40,24 @@
 @media (max-width: 1385px) {
   .header__loginSigns {
     top: 2.0em;
-    height: 5.56em;
+    height: 4.7em;
     flex-direction: column;
     align-items: center;
+  }
+
+  .header__userIcon {
+    bottom: 0em;
   }
 }
 
 @media (max-width: 945px) {
   .header__loginSigns {
     top: 2.35em;
-    height: 4.44em;
+    height: 3.5em;
+  }
+
+  .header__userIcon {
+    bottom: 0.32em;
   }
 
   .header__loginButtons__button {

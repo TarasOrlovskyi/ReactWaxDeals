@@ -12,25 +12,30 @@ import {reducer as formReducer} from 'redux-form';
 import appReducer from "./reducers/app-reducer";
 import alertReducer from "./reducers/alert-reducer";
 import mobileReducer from "./reducers/mobile-reducer";
+import authedUserWindowsReducer from "./reducers/authed-user-window-reducer";
 
 let reducers = combineReducers(
-  {
-    catalogPage: catalogReducer,
-    searchField: searchFieldReducer,
-    changePasswordPage: changePasswordReducer,
-    oneVinylPage: oneVinylReducer,
-    storesPage: storesReducer,
-    afterSearchPage: afterSearchReducer,
-    newPasswordPage: newPasswordReducer,
-    auth: authReducer,
-    app: appReducer,
-    alert: alertReducer,
-    mobileVersion: mobileReducer,
-    form: formReducer
-  }
+    {
+      catalogPage: catalogReducer,
+      searchField: searchFieldReducer,
+      changePasswordPage: changePasswordReducer,
+      oneVinylPage: oneVinylReducer,
+      storesPage: storesReducer,
+      afterSearchPage: afterSearchReducer,
+      newPasswordPage: newPasswordReducer,
+      auth: authReducer,
+      app: appReducer,
+      alert: alertReducer,
+      mobileVersion: mobileReducer,
+      authedUserWindows: authedUserWindowsReducer,
+      form: formReducer
+    }
 );
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+  trace: true,
+  traceLimit: 25
+}) || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
 ));
 

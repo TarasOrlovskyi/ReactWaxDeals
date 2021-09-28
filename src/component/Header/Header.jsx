@@ -18,9 +18,15 @@ const Header = (props) => {
                         isAuth={props.isAuth}
                         logOut={props.logOut}
                         activateBurger={props.activateBurger}
+                        isAuthedUserWindow={props.isAuthedUserWindow}
+                        switchAuthedUserWindow={props.switchAuthedUserWindow}
           />
           }
-          <HeaderLaptop isAuth={props.isAuth} logOut={props.logOut}/>
+          <HeaderLaptop isAuth={props.isAuth}
+                        logOut={props.logOut}
+                        isAuthedUserWindow={props.isAuthedUserWindow}
+                        switchAuthedUserWindow={props.switchAuthedUserWindow}
+          />
           <BurgerMenu turnOffBurger={props.turnOffBurger} isBurgerActivate={props.isBurgerActivate}/>
         </div>
       </header>
