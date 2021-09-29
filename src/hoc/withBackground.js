@@ -11,6 +11,7 @@ export const withBackground = (Component) => {
         this.props.setIsAuthedUserWindow(false);
       }
     }
+
     render() {
       let uri = this.props.location.pathname;
       if (uri === '/') {
@@ -27,8 +28,6 @@ export const withBackground = (Component) => {
   let mapStateToProps = (state) => ({
     isAuthedUserWindow: state.authedUserWindows.isAuthedUserWindow
   })
-
-
 
   return compose(withRouter, connect(mapStateToProps, {setIsAuthedUserWindow}))(BackgroundChoice);
 }
