@@ -109,7 +109,10 @@
   }
 
   .shopList__goToShopWidth {
-    display: none;
+    justify-content: flex-end;
+    position: absolute;
+    width: 24.81em;
+    z-index: 10;
   }
 
   .shopList__row {
@@ -120,10 +123,6 @@
 
   .shopList__scrollbar {
     overflow: unset;
-  }
-
-  .shopList__goToShopWidth {
-    justify-content: flex-end;
   }
 
   .shopList__column {
@@ -148,5 +147,9 @@
     height: 25px;
     font-size: 0.78em;
     justify-content: unset;
+  }
+
+  .shopList__goToShopWidth {
+    width: 27.25em;
   }
 }
