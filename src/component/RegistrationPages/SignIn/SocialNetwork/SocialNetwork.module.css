@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.contentSignIn_socialItem{
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .contentSignIn__socialNetwork {
     height: 1.94em;

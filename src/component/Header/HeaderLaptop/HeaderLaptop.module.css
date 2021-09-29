@@ -5,7 +5,6 @@
 .header__row {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   position: relative;
 }
 
@@ -13,6 +12,7 @@
   .header {
     height: unset;
   }
+
   .header__row {
     display: none;
   }

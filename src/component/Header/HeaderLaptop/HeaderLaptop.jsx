@@ -4,10 +4,14 @@ import RegistrationSigns from "../RegistrationSigns/RegistrationSigns";
 
 const HeaderLaptop = (props) => {
   return (
-    <div className={s.header__row}>
-      <HeaderNav isAuth={props.isAuth}/>
-      <RegistrationSigns isAuth={props.isAuth} logOut={props.logOut}/>
-    </div>
+      <div className={s.header__row}>
+        <HeaderNav isAuth={props.isAuth}/>
+        <RegistrationSigns isAuth={props.isAuth}
+                           logOut={props.logOut}
+                           isAuthedUserWindow={props.isAuthedUserWindow}
+                           switchAuthedUserWindow={props.switchAuthedUserWindow}
+        />
+      </div>
   );
 }
 

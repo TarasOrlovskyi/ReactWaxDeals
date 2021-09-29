@@ -61,9 +61,14 @@ export const getUserLogOutData = () => async dispatch => {
   }
 }
 
-export const getUserLogInData = (email, password, historyPush) => async dispatch => {
+export const getUserLogInData = (email, password, historyPush, googleTokenId = null) => async dispatch => {
   try {
-    let responseData = await authApi.userLogIn(email, password)
+    let responseData;
+    if (googleTokenId != null){
+      responseData = await authApi.userGoogleLogIn(googleTokenId);
+    } else {
+      responseData = await authApi.userLogIn(email, password);
+    }
     if (responseData.status === 200) {
       localStorage.setItem("token", responseData.data.jwtToken);
       localStorage.setItem("refreshToken", responseData.data.refreshToken);

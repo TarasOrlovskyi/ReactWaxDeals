@@ -1,35 +1,91 @@
 .header__loginSigns {
-  height: 4.78em;
+  height: 4.20em;
   position: absolute;
   right: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-@media (max-width: 768px){
-  .header__loginSigns {
-    height: unset;
-    position: unset;
-  }
+  align-items: flex-end;
 }
 
 .header__loginButtons {
   position: relative;
 }
 
-.header__loginButtons .tooltiptext {
-  visibility: hidden;
-  color: #fff;
-  white-space: nowrap;
-  font-size: 14px;
-  line-height: 19px;
-  position: absolute;
-  z-index: 1;
-  top: 50px;
-  right: 0;
+.header__loginButtons__button {
+  font-size: 1em;
+  width: 5.11em;
+  height: 2.22em;
+  background-color: transparent;
+  color: #FFFFFF;
 }
 
-.header__loginButtons:hover .tooltiptext {
-  visibility: visible;
+.header__loginButtons__button_signUpButton {
+  border: 2px solid #F6A325;
+  width: 6.11em;
+}
+
+.header__userIcon {
+  width: 1.94em;
+  height: 1.94em;
+  cursor: pointer;
+  position: relative;
+  right: 2.55em;
+  bottom: 0.25em;
+}
+
+.header__userIcon img {
+  width: 100%;
+}
+
+@media (max-width: 1385px) {
+  .header__loginSigns {
+    top: 2.0em;
+    height: 4.7em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__userIcon {
+    bottom: 0em;
+  }
+}
+
+@media (max-width: 945px) {
+  .header__loginSigns {
+    top: 2.35em;
+    height: 3.5em;
+  }
+
+  .header__userIcon {
+    bottom: 0.32em;
+  }
+
+  .header__loginButtons__button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__loginSigns {
+    height: unset;
+    position: unset;
+  }
+
+  .header__loginButtons__button_signUpButton {
+    display: none;
+  }
+
+  .header__loginButtons__button span {
+    display: none;
+  }
+
+  .header__loginButtons__button:after {
+    content: 'Sign in';
+  }
+
+  .header__loginButtons__button {
+    border: 2px solid #F6A325;
+    width: 66px;
+    height: 30px;
+  }
 }
