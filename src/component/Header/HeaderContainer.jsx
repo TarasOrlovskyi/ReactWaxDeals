@@ -4,9 +4,8 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {getUserLogOutData} from "../../redux/actions/authActions";
 import {withRouter} from "react-router-dom";
-import {
-  setHeaderForRender, setIsBurgerActivate
-} from "../../redux/actions/mobileActions";
+import {setHeaderForRender, setIsBurgerActivate} from "../../redux/actions/mobileActions";
+import {setIsAuthedUserWindow} from "../../redux/actions/registrationSignsActions";
 
 class HeaderContainer extends React.Component {
 
@@ -37,16 +36,20 @@ class HeaderContainer extends React.Component {
     } else if (path === "/") {
       this.props.setHeaderForRender("homeHeader")
     } else if (path.includes("/signUp")
-      || path.includes("/profile")
-      || path.includes("/new-password")
-      || path.includes("/edit-profile")
-      || path.includes("/recovery-password")
-      || path.includes("/change-password")
-      || path.includes("/signIn")) {
+        || path.includes("/profile")
+        || path.includes("/new-password")
+        || path.includes("/edit-profile")
+        || path.includes("/recovery-password")
+        || path.includes("/change-password")
+        || path.includes("/signIn")) {
       this.props.setHeaderForRender("registrationHeader")
     } else {
       this.props.setHeaderForRender("headerWithLogo")
     }
+  }
+
+  switchAuthedUserWindow = () => {
+    this.props.setIsAuthedUserWindow(!this.props.isAuthedUserWindow)
   }
 
   render() {
@@ -56,6 +59,8 @@ class HeaderContainer extends React.Component {
                    isBurgerActivate={this.props.isBurgerActivate}
                    activateBurger={this.activateBurger}
                    turnOffBurger={this.turnOffBurger}
+                   isAuthedUserWindow={this.props.isAuthedUserWindow}
+                   switchAuthedUserWindow={this.switchAuthedUserWindow}
     />
   }
 }
@@ -63,9 +68,10 @@ class HeaderContainer extends React.Component {
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   headerForRender: state.mobileVersion.headerForRender,
-  isBurgerActivate: state.mobileVersion.isBurgerActivate
+  isBurgerActivate: state.mobileVersion.isBurgerActivate,
+  isAuthedUserWindow: state.authedUserWindows.isAuthedUserWindow
 })
 
 export default compose(withRouter, connect(
-  mapStateToProps,
-  {getUserLogOutData, setHeaderForRender, setIsBurgerActivate}))(HeaderContainer)
+    mapStateToProps,
+    {getUserLogOutData, setHeaderForRender, setIsBurgerActivate, setIsAuthedUserWindow}))(HeaderContainer)

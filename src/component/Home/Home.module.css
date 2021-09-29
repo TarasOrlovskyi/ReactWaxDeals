@@ -1,7 +1,7 @@
 /* main of home page */
 
 .contentHome {
-  height: 25.77em;
+  height: 25.33em;
 }
 
 .contentHome__logo {
@@ -12,28 +12,61 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 20.66em;
+  height: 20.93em;
   width: 52.55em;
 }
 
 .contentHome__title {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 9.17em;
+  height: 6.56em;
   text-align: center;
 }
 
 .contentHome__subtitle {
-  height: 11em;
+  height: 11.15em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
+@media (max-width: 992px) {
+  .contentHome {
+    height: 29.77em;
+  }
+
+  .contentHome__column {
+    height: unset;
+  }
+
+  .contentHome__title {
+    height: 10.28em;
+  }
+}
+
+@media (max-width: 854px) {
+  .contentHome {
+    height: 32.55em;
+  }
+
+  .contentHome__subtitle {
+    height: 13.93em;
+  }
+}
+
+@media (max-width: 781px) {
+  .contentHome {
+    height: 35.33em;
+  }
+
+  .contentHome__subtitle {
+    height: 16.71em;
+  }
+}
+
 @media (max-width: 768px) {
   .contentHome {
-    height: 22.55em;
+    height: unset;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,17 +76,18 @@
   .contentHome__logo {
     display: flex;
     justify-content: flex-start;
-    padding-top: 0.72em;
   }
 
   .contentHome__column {
-    height: 13.94em;
+    height: unset;
+    padding-top: 4.28em;
     width: 100%;
     max-width: 17.22em;
   }
 
   .contentHome__title {
-    height: 5.89em;
+    height: unset;
+    padding-bottom: 2.22em;
   }
 
   .contentHome__title h1 {
@@ -62,9 +96,9 @@
   }
 
   .contentHome__subtitle {
-    height: 6.5em;
+    height: unset;
+    padding-top: 1.67em;
     width: 100%;
-    justify-content: center;
   }
 
   .contentHome__subtitle h2 {
