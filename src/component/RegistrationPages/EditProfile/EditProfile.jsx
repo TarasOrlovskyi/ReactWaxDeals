@@ -3,10 +3,10 @@ import userStyle from '../User.module.css';
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import React from "react";
 import MessageAlert from "../../Common/Alert/MessageAlert";
+import MessageAlertBig from "../../Common/Alert/MessageAlertBig";
 
 const EditProfile = (props) => {
-  let firstAlertString = <p>Are you sure that you want delete your profile?</p>
-  let secondAlertString = <p>You will lose all your info (want list, history of last viewed vinyls...)</p>
+
   return (
     <main>
       <div className="container">
@@ -21,8 +21,9 @@ const EditProfile = (props) => {
         }
         {
           (props.isQuestionAlert && props.pageQuestion === "EditProfile") &&
-          <MessageAlert
-            messages={[firstAlertString, secondAlertString]}
+          <MessageAlertBig
+            messages="Are you sure that you want delete your profile? You will lose all your info (want list, history
+    of last viewed vinyls...)"
             agreeButtons={props.deleteUserProfile}
             closeButton={props.turnOffAlert}
           />
@@ -30,15 +31,15 @@ const EditProfile = (props) => {
         {
           (props.isInfoAlert && props.pageInfo === "DiscogsWantlist") &&
           <MessageAlert
-              turnOffAlert={props.turnOffAlert}
-              messages="We added your discogs want list"
+            turnOffAlert={props.turnOffAlert}
+            messages="We added your discogs want list"
           />
         }
         {
           (props.isInfoAlert && props.pageInfo === "DiscogsWantlistError") &&
           <MessageAlert
-              turnOffAlert={props.turnOffAlert}
-              messages="We couldn't get your discogs wantlist. Please check your discogs username"
+            turnOffAlert={props.turnOffAlert}
+            messages="We couldn't get your discogs wantlist. Please check your discogs username"
           />
         }
         <div className={editProfileStyle.contentEditProfile + ' content'}>

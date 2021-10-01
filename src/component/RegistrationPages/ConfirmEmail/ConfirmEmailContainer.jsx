@@ -16,13 +16,14 @@ class ConfirmEmailContainer extends React.Component {
   }
 
   render() {
+
     if (!this.props.isWaitResponse && !this.props.isInfoAlert && this.props.pageInfo !== "ConfirmEmail") {
-      let firstAlertString = <p>Sorry, but your link is incorrect!</p>
-      let secondAlertString = <p>
-        Please, <NavLink to='/contact' className={alertsStyle.alert_navLink}>contact us</NavLink> or <NavLink
+      let alertString = <p>Sorry, but your link is incorrect! &nbsp; Please, <NavLink to='/contact'
+                                                                                      className={alertsStyle.alert_navLink}>contact
+        us</NavLink> or <NavLink
         to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
       </p>
-      return <MessageAlert messages={[firstAlertString, secondAlertString]}/>
+      return <MessageAlert messages={alertString}/>
     }
 
     if (this.props.isInfoAlert && this.props.pageInfo === "ConfirmEmail") {
