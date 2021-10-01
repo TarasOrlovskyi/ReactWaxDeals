@@ -30,36 +30,36 @@
 }
 
 .errorPage__title h1 {
-  font-size: 72px;
+  font-size: 4em;
   line-height: 1.37em;
   letter-spacing: 0.42em;
 }
 
 .errorPage__text {
-  font-size: 24px;
+  font-size: 1.33em;
   line-height: 1.38em;
 }
 
 .errorPage__redirectLink {
   text-decoration: underline;
-  font-size: 24px;
+  font-size: 1.33em;
   line-height: 1.38em;
 }
 
 @media (max-width: 768px) {
   .errorPage__title h1 {
-    font-size: 48px;
+    font-size: 2.67em;
     line-height: 1.36em;
     letter-spacing: 0.31em;
   }
 
   .errorPage__text {
-    font-size: 18px;
+    font-size: 1em;
     line-height: 1.38em;
   }
 
   .errorPage__redirectLink {
-    font-size: 18px;
+    font-size: 1em;
     line-height: 1.38em;
   }
 
@@ -72,7 +72,7 @@
   }
 
   .errorPage_body {
-    height:20.27em;
+    height: 20.27em;
   }
 
   .errorPage__content {

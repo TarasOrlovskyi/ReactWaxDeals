@@ -1,5 +1,5 @@
 .contentEditProfile {
-  height: 28.22em;
+  height: 29.77em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -47,14 +47,14 @@
   width: 70%;
   height: 2.22em;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1em;
   line-height: 1.39;
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .contentEditProfile__column {
-    max-width: 310px;
+    max-width: 17.22em;
     width: 100%;
   }
 
@@ -63,7 +63,7 @@
   }
 
   .contentEditProfile {
-    height: 25.03em;
+    height: 26.58em;
   }
 
   .editProfileUser {

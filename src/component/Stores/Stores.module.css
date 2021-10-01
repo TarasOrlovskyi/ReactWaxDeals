@@ -3,9 +3,6 @@
   margin: 0 auto;
 }
 
-.shopsContent__row {
-  margin: -0.94em 0;
-}
 
 .allShops {
   display: flex;
@@ -22,7 +19,6 @@
   }
 
   .shopsContent__row {
-    margin: unset;
     padding-top: 1.17em;
   }
 
