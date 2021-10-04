@@ -24,7 +24,7 @@ const BurgerMenu = (props) => {
           <NavLink to="/contact" className={burgerMenuStyle.burgerBody__columnItem} onClick={props.turnOffBurger}>CONTACT</NavLink>
         </div>
         <div className={burgerMenuStyle.burgerBody__row}>
-          <NavLink to="/signIn" className={burgerMenuStyle} onClick={props.turnOffBurger}>LOG IN</NavLink>
+          <NavLink to="/signIn" onClick={props.turnOffBurger}>LOG IN</NavLink>
           <NavLink to="/signUp" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={props.turnOffBurger}>SIGN UP</NavLink>
         </div>
         <SocialNav/>
