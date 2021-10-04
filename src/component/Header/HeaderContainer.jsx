@@ -31,7 +31,9 @@ class HeaderContainer extends React.Component {
 
   checkHeader = () => {
     let path = this.props.location.pathname;
-    if (path.includes("/oneVinyl")) {
+    let pathArray = path.split("/");
+    let integer = Number.isInteger(parseInt(pathArray[pathArray.length-1]));
+    if (path.includes("/catalog") && integer) {
       this.props.setHeaderForRender("oneVinylHeader")
     } else if (path === "/") {
       this.props.setHeaderForRender("homeHeader")

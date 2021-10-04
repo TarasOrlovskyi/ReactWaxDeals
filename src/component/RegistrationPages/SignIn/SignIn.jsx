@@ -31,6 +31,11 @@ const SignIn = (props) => {
                           messages={"Your password has been changed."}
             />
           }
+          {(props.isInfoAlert && props.pageInfo === "ChangePassword") &&
+          <MessageAlert turnOffAlert={props.turnOffAlert}
+                        messages={"Your password has been changed. Please, login with new password"}
+          />
+          }
           <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Login</h2>

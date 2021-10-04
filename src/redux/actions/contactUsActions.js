@@ -4,15 +4,19 @@ import {handleFormsError, handleHttpError, unhandledError} from "../../utils/han
 import {activateInfoAlert} from "./alertActions";
 import {logOut} from "../../utils/actionUtils/actionUtils";
 import {setAuthUserData} from "./authActions";
+import {setIsWaitResponse} from "./preloaderActions";
 
 export const sendContactUsForm = (name, email, contactUsMessage, recaptchaToken, historyPush) => async dispatch => {
+  dispatch(setIsWaitResponse(true));
   try {
     let responseData = await contactUsApi.contactUsRequest(name, email, contactUsMessage, recaptchaToken);
     if (responseData.status === 200) {
       dispatch(activateInfoAlert(true, "ContactUs"));
       dispatch(reset('contactUsForm'));
     }
+    dispatch(setIsWaitResponse(false));
   } catch (error) {
+    dispatch(setIsWaitResponse(false));
     let errorStatus = error.response.status;
     if (errorStatus === 404 || errorStatus === 500) {
       handleHttpError(errorStatus, historyPush)

@@ -4,6 +4,7 @@ import Stores from "./Stores";
 import {compose} from "redux";
 import {getStores} from "../../redux/actions/storesActons";
 import {withRouter} from "react-router-dom";
+import Preloader from "../Common/Preloader/Preloader";
 
 class StoresContainer extends React.Component {
   componentDidMount() {
@@ -11,20 +12,20 @@ class StoresContainer extends React.Component {
   }
 
   render() {
-    if (this.props.isMobile){
-      return <div>MOBILE</div>
+    if (this.props.isWaitResponse) {
+      return <Preloader/>
     }
     return <Stores
-      stores={this.props.stores}
+        stores={this.props.stores}
     />
   }
 }
 
 let mapStateToProps = (state) => (
-  {
-    stores: state.storesPage.stores,
-    isMobile: state.mobileVersion.isMobile
-  }
+    {
+      stores: state.storesPage.stores,
+      isWaitResponse: state.preloader.isWaitResponse
+    }
 )
 
 export default compose(withRouter, connect(mapStateToProps, {getStores}))(StoresContainer);

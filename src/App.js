@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/actions/appActions";
 import {withBackground} from "./hoc/withBackground";
 import FooterContainer from "./component/Footer/FooterContainer";
+import Preloader from "./component/Common/Preloader/Preloader";
 
 const Home = React.lazy(() => import('./component/Home/Home'));
 const RegistrationContainer = React.lazy(() => import('./component/RegistrationPages/Registration/RegistrationContainer'));
@@ -35,16 +36,14 @@ class App extends Component {
   render() {
     if (!this.props.initialized) {
       return (
-          <div>
-            Loading...
-          </div>
+          <Preloader/>
       )
     }
 
     return (
         <>
           <HeaderContainer/>
-          <React.Suspense fallback={<div>Loading...</div>}>
+          <React.Suspense fallback={<Preloader/>}>
             <Switch>
               <Route exact path="/" render={() =>
                   <Home/>

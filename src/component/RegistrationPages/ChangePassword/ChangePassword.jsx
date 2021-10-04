@@ -12,12 +12,12 @@ const ChangePassword = (props) => {
         <div className="searchArea">
         </div>
         <div className={editProfileStyle.contentChangePassword + ' content'}>
-          {props.isPasswordChanged &&
-          <MessageAlert
-            turnOffAlert={props.turnOffAlert}
-            messages={"Your password has been changed"}
-          />
-          }
+          {/*{(props.isInfoAlert && props.pageInfo === "ChangePassword") &&*/}
+          {/*<MessageAlert*/}
+          {/*  turnOffAlert={props.turnOffAlert}*/}
+          {/*  messages={"Your password has been changed"}*/}
+          {/*/>*/}
+          {/*}*/}
           <div className={editProfileStyle.contentChangePassword__column + ' contentColumn'}>
             <div className={userStyle.contentUser__title}>
               <h2>Change Password</h2>

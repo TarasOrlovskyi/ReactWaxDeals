@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import EmptyPageAfterSearch from "./EmptyPageAfterSearch/EmptyPageAfterSearch";
 import {getSearchResult} from "../../redux/actions/afterSearchAtions";
+import Preloader from "../Common/Preloader/Preloader";
 
 class AfterSearchContainer extends React.Component {
 
@@ -17,10 +18,8 @@ class AfterSearchContainer extends React.Component {
   }
 
   render() {
-    if (this.props.vinyls === null){
-      return <div>
-        Loading...
-      </div>
+    if (this.props.isWaitResponse) {
+      return <Preloader/>
     }
     if (this.props.vinyls.length > 0) {
       return <Catalog vinylList={this.props.vinyls} isAuth={this.props.isAuth}/>
@@ -32,7 +31,8 @@ class AfterSearchContainer extends React.Component {
 let mapStateToProps = (state) => (
   {
     vinyls: state.afterSearchPage.vinyls,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    isWaitResponse: state.preloader.isWaitResponse
   }
 );
 
