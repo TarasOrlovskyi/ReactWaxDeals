@@ -10,34 +10,34 @@ const Registration = (props) => {
   let alertString = <p>Please confirm your registration by clicking the link in the email we've just send you.</p>
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="searchArea unsetHeight">
-        </div>
-        {
-          (props.isInfoAlert && props.pageInfo === "Registration") &&
+      <main className="main">
+        <div className="container">
+          <div className="searchArea unsetHeight">
+          </div>
+          {
+            (props.isInfoAlert && props.pageInfo === "Registration") &&
+            <MessageAlert
+                turnOffAlert={props.turnOffAlert}
+                messages={alertString}
+                letterImage={letterImage}
+            />
+          }
+          {(props.isInfoAlert && props.pageInfo === "ProfileDeleted") &&
           <MessageAlert
-            turnOffAlert={props.turnOffAlert}
-            messages={alertString}
-            letterImage={letterImage}
+              turnOffAlert={props.turnOffAlert}
+              messages="Your profile has been deleted already"
           />
-        }
-        {(props.isInfoAlert && props.pageInfo === "ProfileDeleted") &&
-        <MessageAlert
-          turnOffAlert={props.turnOffAlert}
-          messages="Your profile has been deleted already"
-        />
-        }
-        <div className={s.contentRegistrationPage}>
-          <div className={s.contentRegistrationPage__column + ' contentColumn'}>
-            <div className={userStyle.contentUser__title}>
-              <h2>Registration</h2>
+          }
+          <div className={s.contentRegistrationPage}>
+            <div className={s.contentRegistrationPage__column + ' contentColumn'}>
+              <div className={userStyle.contentUser__title}>
+                <h2>Registration</h2>
+              </div>
+              <RegistrationForm onSubmit={props.onSubmit} isWaitResponse={props.isWaitResponse}/>
             </div>
-            <RegistrationForm onSubmit={props.onSubmit}/>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
   );
 }
 

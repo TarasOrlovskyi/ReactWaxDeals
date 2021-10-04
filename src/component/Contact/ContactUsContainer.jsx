@@ -18,11 +18,12 @@ class ContactUsContainer extends React.Component {
 
   render() {
     return (
-      <ContactUs onSubmit={this.sendContactUsData}
-                 turnOffAlert={this.turnOffAlert}
-                 isInfoAlert={this.props.isInfoAlert}
-                 pageInfo={this.props.pageInfo}
-      />
+        <ContactUs onSubmit={this.sendContactUsData}
+                   turnOffAlert={this.turnOffAlert}
+                   isInfoAlert={this.props.isInfoAlert}
+                   pageInfo={this.props.pageInfo}
+                   isWaitResponse={this.props.isWaitResponse}
+        />
     );
   }
 }
@@ -30,7 +31,8 @@ class ContactUsContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isInfoAlert: state.alert.isInfoAlert,
-    pageInfo: state.alert.pageInfo
+    pageInfo: state.alert.pageInfo,
+    isWaitResponse: state.preloader.isWaitResponse
   };
 };
 

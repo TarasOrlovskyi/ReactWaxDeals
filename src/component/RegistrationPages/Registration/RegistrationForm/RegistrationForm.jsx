@@ -56,7 +56,7 @@ const RegistrationForm = (props) => {
         {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
       </div>
       <label className={userStyle.user__submitLabel}>
-        <button className={userStyle.user__submitInput}>OK</button>
+        <button className={userStyle.user__submitInput} disabled={props.isWaitResponse}>OK</button>
       </label>
     </form>
   );

@@ -110,6 +110,11 @@
   border: 1px solid #FFFFFF;
 }
 
+.user__submitInput:disabled {
+  background-color: #282c34;
+  cursor: default;
+}
+
 .contentUser__title {
   height: 5.28em;
 }

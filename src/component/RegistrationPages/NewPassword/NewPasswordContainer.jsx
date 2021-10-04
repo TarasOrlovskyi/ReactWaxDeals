@@ -6,6 +6,7 @@ import {NavLink, Redirect, withRouter} from "react-router-dom";
 import alertsStyle from "../../Common/Alert/Alert.module.css";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 import {changeRecoveryPassword, checkRecoveryToken} from "../../../redux/actions/newPasswordActions";
+import Preloader from "../../Common/Preloader/Preloader";
 
 class NewPasswordContainer extends React.Component {
 
@@ -23,36 +24,37 @@ class NewPasswordContainer extends React.Component {
 
   render() {
 
+    if (this.props.isWaitResponse) {
+      return <Preloader/>
+    }
+
     if (this.props.isInfoAlert && this.props.pageInfo === "NewPasswordUpdated") {
       return <Redirect to='/signIn'/>
-    } else if (!this.props.isWaitRecoveryResponse && !this.props.isRecoveryTokenValid) {
+    } else if (!this.props.isRecoveryTokenValid) {
       let alertString = <p>Sorry, but your link is incorrect! &nbsp; Please, <NavLink to='/contact'
                                                                                       className={alertsStyle.alert_navLink}>contact
         us</NavLink> or <NavLink
-        to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
+          to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
       </p>
       return <MessageAlert messages={alertString}/>
     }
 
-    if (this.props.isRecoveryTokenValid) {
-      return (
+    return (
         <NewPassword onSubmit={this.changeUserNewPassword}/>
-      );
-    }
+    );
 
-    return <div>Loading...</div>
   }
 }
 
 let mapStateToProps = (state) => {
   return {
     isRecoveryTokenValid: state.newPasswordPage.isRecoveryTokenValid,
-    isWaitRecoveryResponse: state.newPasswordPage.isWaitRecoveryResponse,
     recoveryToken: state.newPasswordPage.recoveryToken,
     isInfoAlert: state.alert.isInfoAlert,
-    pageInfo: state.alert.pageInfo
+    pageInfo: state.alert.pageInfo,
+    isWaitResponse: state.preloader.isWaitResponse
   };
 };
 
 export default compose(withRouter, connect(mapStateToProps,
-  {checkRecoveryToken, changeRecoveryPassword}))(NewPasswordContainer);
+    {checkRecoveryToken, changeRecoveryPassword}))(NewPasswordContainer);

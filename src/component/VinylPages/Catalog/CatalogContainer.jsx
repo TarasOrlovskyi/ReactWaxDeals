@@ -5,6 +5,7 @@ import {compose} from "redux";
 import {getVinylsCatalog} from "../../../redux/actions/catalogActions";
 import {withRouter} from "react-router-dom";
 import EmptyListPage from "../EmptyListPage/EmptyListPage";
+import Preloader from "../../Common/Preloader/Preloader";
 
 class CatalogRequestContainer extends React.Component {
 
@@ -13,12 +14,12 @@ class CatalogRequestContainer extends React.Component {
   }
 
   render() {
-    if (!this.props.vinylList){
-      return <div>
-        Loading...
-      </div>
+
+    if (this.props.isWaitResponse) {
+      return <Preloader/>
     }
-    if (this.props.vinylList.length === 0){
+
+    if (this.props.vinylList.length === 0) {
       return <EmptyListPage/>
     }
     return <Catalog vinylList={this.props.vinylList} isAuth={this.props.isAuth}/>
@@ -28,7 +29,8 @@ class CatalogRequestContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     vinylList: state.catalogPage.vinyls,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    isWaitResponse: state.preloader.isWaitResponse
   }
 };
 

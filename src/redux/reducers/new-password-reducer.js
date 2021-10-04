@@ -9,11 +9,6 @@ let initialNewPasswordState = {
 
 const newPasswordReducer = (state = initialNewPasswordState, action) => {
   switch (action.type) {
-    case actionTypes.SET_IS_WAIT_RECOVERY_RESPONSE:
-      return {
-        ...state,
-        isWaitRecoveryResponse: action.isWaitRecoveryResponse
-      }
     case actionTypes.SET_RECOVERY_DATA:
       return {
         ...state,

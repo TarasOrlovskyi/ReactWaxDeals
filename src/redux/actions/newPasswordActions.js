@@ -3,11 +3,7 @@ import {authApi} from "../../api/api";
 import {stopSubmit} from "redux-form";
 import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
 import {activateInfoAlert} from "./alertActions";
-
-export const setIsWaitRecoveryResponse = (isWaitRecoveryResponse) => ({
-  type: actionTypes.SET_IS_WAIT_RECOVERY_RESPONSE,
-  isWaitRecoveryResponse
-});
+import {setIsWaitResponse} from "./preloaderActions";
 
 export const setRecoveryData = (recoveryToken, isRecoveryTokenValid) => ({
   type: actionTypes.SET_RECOVERY_DATA,
@@ -20,18 +16,17 @@ export const resetRecoveryDataAfterChangePassword = () => ({
 });
 
 export const checkRecoveryToken = (recoveryToken, historyPush) => async dispatch => {
-  dispatch(setIsWaitRecoveryResponse(true));
+  dispatch(setIsWaitResponse(true));
   try {
     let responseData = await authApi.checkRecoveryTokenRequest(recoveryToken)
     if (responseData.status === 200) {
       dispatch(setRecoveryData(recoveryToken, true));
     }
+    dispatch(setIsWaitResponse(false));
   } catch (error) {
+    dispatch(setIsWaitResponse(false));
     let errorStatus = error.response.status;
-    if (errorStatus === 403) {
-      dispatch(setIsWaitRecoveryResponse(false));
-    } else {
-      dispatch(setIsWaitRecoveryResponse(false));
+    if (errorStatus !== 403) {
       unhandledError(errorStatus, "check recovery token", historyPush);
     }
   }

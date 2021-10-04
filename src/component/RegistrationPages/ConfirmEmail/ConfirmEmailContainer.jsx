@@ -5,6 +5,7 @@ import MessageAlert from "../../Common/Alert/MessageAlert";
 import {NavLink, Redirect, withRouter} from "react-router-dom";
 import alertsStyle from "../../Common/Alert/Alert.module.css";
 import {confirmEmail} from "../../../redux/actions/authActions";
+import Preloader from "../../Common/Preloader/Preloader";
 
 class ConfirmEmailContainer extends React.Component {
 
@@ -17,27 +18,28 @@ class ConfirmEmailContainer extends React.Component {
 
   render() {
 
-    if (!this.props.isWaitResponse && !this.props.isInfoAlert && this.props.pageInfo !== "ConfirmEmail") {
-      let alertString = <p>Sorry, but your link is incorrect! &nbsp; Please, <NavLink to='/contact'
-                                                                                      className={alertsStyle.alert_navLink}>contact
-        us</NavLink> or <NavLink
-        to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
-      </p>
-      return <MessageAlert messages={alertString}/>
+    if (this.props.isWaitResponse) {
+      return <Preloader/>
     }
 
     if (this.props.isInfoAlert && this.props.pageInfo === "ConfirmEmail") {
       return <Redirect to='/signIn'/>
     }
 
-    return <div>Loading...</div>
+    let alertString = <p>Sorry, but your link is incorrect! &nbsp; Please, <NavLink to='/contact'
+                                                                                    className={alertsStyle.alert_navLink}>contact
+      us</NavLink> or <NavLink
+        to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
+    </p>
+    return <MessageAlert messages={alertString}/>
+
   }
 }
 
 let mapStateToProps = (state) => ({
-  isWaitResponse: state.auth.isWaitResponse,
   isInfoAlert: state.alert.isInfoAlert,
-  pageInfo: state.alert.pageInfo
+  pageInfo: state.alert.pageInfo,
+  isWaitResponse: state.preloader.isWaitResponse
 })
 
 export default compose(withRouter, connect(mapStateToProps, {confirmEmail}))(ConfirmEmailContainer);
