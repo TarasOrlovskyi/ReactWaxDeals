@@ -9,6 +9,7 @@
   position: absolute;
   right: 0em;
   top: 4em;
+  z-index: 100;
 }
 
 .popUp__image {

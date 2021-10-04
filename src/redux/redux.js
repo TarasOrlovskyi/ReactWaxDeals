@@ -32,10 +32,10 @@ let reducers = combineReducers(
     }
 );
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
   trace: true,
   traceLimit: 25
-}) || compose;
+}) ) || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
 ));
 
