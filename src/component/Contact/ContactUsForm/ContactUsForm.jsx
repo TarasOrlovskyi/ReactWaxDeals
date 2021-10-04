@@ -59,6 +59,7 @@ class ContactUsForm extends React.Component {
           {/*secret key - "6LdZuvkbAAAAAH4wTQbE5dsdSRfO4giVlnR6l_DY"*/}
           <label className={userStyle.user__submitLabel}>
             <button type="button" className={userStyle.user__submitInput}
+                    disabled={this.props.isWaitResponse}
                     onClick={this.props.handleSubmit(data => {
                       this.checkCaptcha()
                         .then(response => {

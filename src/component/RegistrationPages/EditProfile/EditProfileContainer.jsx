@@ -34,17 +34,18 @@ class EditProfileContainer extends React.Component {
   render() {
 
     return (
-      <EditProfile initialValues={this.props.initialValues}
-                   onSubmit={this.changeProfileData}
-                   turnOffAlert={this.turnOffAlert}
-                   isInfoAlert={this.props.isInfoAlert}
-                   isQuestionAlert={this.props.isQuestionAlert}
-                   pageInfo={this.props.pageInfo}
-                   pageQuestion={this.props.pageQuestion}
-                   turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
-                   deleteUserProfile={this.deleteUserProfile}
-                   getDiscogsWantlist={this.getDiscogsWantlist}
-      />
+        <EditProfile initialValues={this.props.initialValues}
+                     onSubmit={this.changeProfileData}
+                     turnOffAlert={this.turnOffAlert}
+                     isInfoAlert={this.props.isInfoAlert}
+                     isQuestionAlert={this.props.isQuestionAlert}
+                     pageInfo={this.props.pageInfo}
+                     pageQuestion={this.props.pageQuestion}
+                     turnOnDeleteProfileAlert={this.turnOnDeleteProfileAlert}
+                     deleteUserProfile={this.deleteUserProfile}
+                     getDiscogsWantlist={this.getDiscogsWantlist}
+                     isWaitResponse={this.props.isWaitResponse}
+        />
     );
   }
 }
@@ -57,7 +58,8 @@ const mapStateToProps = (state) => ({
   isInfoAlert: state.alert.isInfoAlert,
   isQuestionAlert: state.alert.isQuestionAlert,
   pageInfo: state.alert.pageInfo,
-  pageQuestion: state.alert.pageQuestion
+  pageQuestion: state.alert.pageQuestion,
+  isWaitResponse: state.preloader.isWaitResponse
 });
 
 export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {

@@ -18,11 +18,12 @@ class RegistrationContainer extends React.Component {
 
   render() {
     return (
-      <Registration isInfoAlert={this.props.isInfoAlert}
-                    pageInfo={this.props.pageInfo}
-                    turnOffAlert={this.turnOffAlert}
-                    onSubmit={this.sendSignUpCredentials}
-      />
+        <Registration isInfoAlert={this.props.isInfoAlert}
+                      pageInfo={this.props.pageInfo}
+                      turnOffAlert={this.turnOffAlert}
+                      onSubmit={this.sendSignUpCredentials}
+                      isWaitResponse={this.props.isWaitResponse}
+        />
     );
   }
 
@@ -31,9 +32,10 @@ class RegistrationContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     isInfoAlert: state.alert.isInfoAlert,
-    pageInfo: state.alert.pageInfo
+    pageInfo: state.alert.pageInfo,
+    isWaitResponse: state.preloader.isWaitResponse
   };
 };
 
 export default compose(withRouter, connect(mapStateToProps,
-  {activateInfoAlert, registerUser}))(RegistrationContainer);
+    {activateInfoAlert, registerUser}))(RegistrationContainer);

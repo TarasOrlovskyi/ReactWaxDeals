@@ -42,7 +42,7 @@ let EditProfileForm = (props) => {
         </div>
         <div className={userStyle.user__submitButtons}>
           <label className={userStyle.user__submitLabel}>
-            <button className={userStyle.user__submitInput}>SAVE</button>
+            <button className={userStyle.user__submitInput} disabled={props.isWaitResponse}>SAVE</button>
           </label>
         </div>
       </form>
@@ -50,7 +50,9 @@ let EditProfileForm = (props) => {
               onClick={props.turnOnDeleteProfileAlert}
       >Delete Profile
       </button>
-      <button className={editProfileStyle.getDiscogsButton} onClick={props.getDiscogsWantlist}>GET DISCOGS WANTLIST</button>
+      <button className={editProfileStyle.getDiscogsButton}
+              onClick={props.getDiscogsWantlist}
+              disabled={props.isWaitResponse}>GET DISCOGS WANTLIST</button>
     </>
   );
 };
