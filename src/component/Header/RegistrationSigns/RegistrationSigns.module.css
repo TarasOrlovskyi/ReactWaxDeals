@@ -71,6 +71,10 @@
     position: unset;
   }
 
+  .header__userIcon {
+    bottom: 0em;
+  }
+
   .header__loginButtons__button_signUpButton {
     display: none;
   }

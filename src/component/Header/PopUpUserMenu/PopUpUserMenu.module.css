@@ -53,3 +53,10 @@
     top: 1.65em;
   }
 }
+
+@media (max-width: 768px) {
+  .popUp__body {
+    top: 3.4em;
+    right: 2em;
+  }
+}
