@@ -21,7 +21,7 @@ const EmptyListPage = () => {
                 show vinyls according to your discogs want list
               </li>
               <li>You can add the record on the website <a href="https://www.discogs.com/" className="underlineLink"
-                                                           target="_blank">www.discogs.com</a> to the want list
+                                                           target="_blank" rel="noreferrer">www.discogs.com</a> to the want list
               </li>
               <li>Or <a href="/catalog?wantlist=empty" className="underlineLink">on our website</a> click the star on
                 the record
