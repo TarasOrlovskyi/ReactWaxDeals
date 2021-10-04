@@ -7,8 +7,7 @@ import letterImage from "../../../assets/img/alertImg/message_letter.png";
 
 const Registration = (props) => {
 
-  let firstAlertString = <p>Please confirm your registration</p>
-  let secondAlertString = <p>by clicking the link in the email we've just send you.</p>
+  let alertString = <p>Please confirm your registration by clicking the link in the email we've just send you.</p>
 
   return (
     <main className="main">
@@ -19,7 +18,7 @@ const Registration = (props) => {
           (props.isInfoAlert && props.pageInfo === "Registration") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
-            messages={[firstAlertString, secondAlertString]}
+            messages={alertString}
             letterImage={letterImage}
           />
         }

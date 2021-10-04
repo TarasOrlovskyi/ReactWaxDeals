@@ -22,15 +22,16 @@ class NewPasswordContainer extends React.Component {
   }
 
   render() {
+
     if (this.props.isInfoAlert && this.props.pageInfo === "NewPasswordUpdated") {
       return <Redirect to='/signIn'/>
     } else if (!this.props.isWaitRecoveryResponse && !this.props.isRecoveryTokenValid) {
-      let firstAlertString = <p>Sorry, but your link is incorrect!</p>
-      let secondAlertString = <p>
-        Please, <NavLink to='/contact' className={alertsStyle.alert_navLink}>contact us</NavLink> or <NavLink
+      let alertString = <p>Sorry, but your link is incorrect! &nbsp; Please, <NavLink to='/contact'
+                                                                                      className={alertsStyle.alert_navLink}>contact
+        us</NavLink> or <NavLink
         to='/signUp' className={alertsStyle.alert_navLink}>sing up</NavLink>
       </p>
-      return <MessageAlert messages={[firstAlertString, secondAlertString]}/>
+      return <MessageAlert messages={alertString}/>
     }
 
     if (this.props.isRecoveryTokenValid) {

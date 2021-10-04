@@ -1,5 +1,5 @@
 .contentContactUsPage {
-  height: 34.06em;
+  height: 33.39em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -16,7 +16,7 @@
 
 @media (max-width: 768px) {
   .contentContactUsPage {
-    height: 27.56em;
+    height: 26.28em;
   }
 
   .contactUsPageUser {

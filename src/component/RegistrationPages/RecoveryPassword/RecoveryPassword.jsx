@@ -7,8 +7,7 @@ import RecoveryPasswordForm from "./RecoveryPasswordForm/RecoveryPasswordForm";
 
 const RecoveryPassword = (props) => {
 
-  let firstAlertString = <p>In order to recovery your password</p>
-  let secondAlertString = <p>click the link in the email we've just send you.</p>
+  let alertString = <p>In order to recovery your password click the link in the email we've just send you.</p>
 
   return (
     <main className="main">
@@ -19,7 +18,7 @@ const RecoveryPassword = (props) => {
           {(props.isInfoAlert && props.pageInfo === "RecoveryPassword") &&
           <MessageAlert
             turnOffAlert={props.turnOffAlert}
-            messages={[firstAlertString, secondAlertString]}
+            messages={alertString}
             letterImage={letterImage}
           />
           }

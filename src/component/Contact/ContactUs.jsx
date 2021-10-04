@@ -6,6 +6,9 @@ import MessageAlert from "../Common/Alert/MessageAlert";
 import letterImage from "../../assets/img/alertImg/message_letter.png";
 
 const ContactUs = (props) => {
+
+  let alertString = <p>Your letter has been sent.&nbsp; We will contact you as soon as possible.</p>
+
   return (
     <main>
       <div className="container">
@@ -16,7 +19,7 @@ const ContactUs = (props) => {
             (props.isInfoAlert && props.pageInfo === "ContactUs") &&
             <MessageAlert
               turnOffAlert={props.turnOffAlert}
-              messages={["Your letter has been sent.", "We will contact you as soon as possible."]}
+              messages={alertString}
               letterImage={letterImage}
             />
           }

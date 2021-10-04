@@ -12,6 +12,11 @@
   background-color: #1D1D1D;
 }
 
+.commonAlert_big {
+  width: 47.22em;
+  height: 13.33em;
+}
+
 .pageAlert {
   font-weight: 700;
   display: flex;
@@ -21,8 +26,26 @@
   position: relative;
 }
 
+.pageAlert__picture {
+  width: 1.67em;
+  height: 2.33em;
+  align-self: center;
+}
+
+.pageAlert__picture img {
+  width: 100%;
+}
+
 .pageAlert__message {
-  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 24.6em;
+}
+
+.pageAlert__message_big {
+  width: 30.5em;
 }
 
 .pageAlert__closeButton {
@@ -37,9 +60,10 @@
 }
 
 .pageAlert__buttonsRow {
-  height: 84px;
+  height: 81px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .pageAlert__yesNoButtons {
@@ -58,4 +82,56 @@
 
 .pageAlert__answerButton:hover {
   background-color: #8D8989;
+}
+
+@media (max-width: 920px) {
+  .commonAlert_big {
+    width: 40em;
+  }
+}
+
+@media (max-width: 768px) {
+  .commonAlert_big {
+    width: 16.67em;
+    height: 16.11em;
+  }
+
+  .pageAlert__message_big {
+    width: 15.39em;
+  }
+
+  .pageAlert__buttonsRow {
+    height: 3.61em;
+  }
+
+  .commonAlert {
+    width: 16.67em;
+  }
+
+  .pageAlert__message {
+    width: 15.39em;
+  }
+
+  .pageAlert__closeButton {
+    right: 0.83em;
+    top: 0.83em;
+  }
+}
+
+@media (max-width: 335px) {
+  .commonAlert_big {
+    width: 14.44em;
+  }
+
+  .pageAlert__message_big {
+    width: 13.33em;
+  }
+
+  .commonAlert {
+    width: 14.44em;
+  }
+
+  .pageAlert__message {
+    width: 13.33em;
+  }
 }

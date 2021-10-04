@@ -39,27 +39,25 @@
 
 @media (max-width: 768px) {
   .aboutContent {
-    height: 24.67em;
+    height: unset;
   }
 
   .searchAreaContainer {
     display: none;
   }
 
-  .aboutBody {
-    height: 20.5em;
-  }
-
   .aboutBody__title {
-    height: 3.25em;
+    padding: 4.17em 0 2.5em 0;
   }
 
   .aboutBody__text {
     font-size: 0.78em;
-    height: 5.14em;
+    padding-bottom: 0.83em;
+    height: unset;
   }
 
   .aboutBody__image {
-    height: 8.17em;
+    padding-top: 3.5em;
+    height: unset;
   }
 }

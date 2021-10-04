@@ -4,8 +4,8 @@ import closeButton from "../../../assets/img/alertImg/close_button.png";
 const MessageAlert = (props) => {
   return (
     <div className={alertsStyle.alertWrapper}>
-      <div className={alertsStyle.pageAlert + ' ' + alertsStyle.commonAlert}>
-        <div className={alertsStyle.pageAlert__message}>
+      <div className={alertsStyle.pageAlert + ' ' + alertsStyle.commonAlert + ' ' + alertsStyle.commonAlert_big}>
+        <div className={alertsStyle.pageAlert__message + ' ' + alertsStyle.pageAlert__message_big}>
           {props.letterImage &&
           <div className={alertsStyle.pageAlert__picture}>
             <img src={props.letterImage} alt='letter'/>
