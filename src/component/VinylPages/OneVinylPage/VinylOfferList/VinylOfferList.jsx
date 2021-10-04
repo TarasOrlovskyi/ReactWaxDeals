@@ -13,6 +13,7 @@ const VinylOfferList = (props) => {
         {
           (props.vinylOffersList.length > 0)
             ? props.vinylOffersList.map(offer => <VinylOfferItem
+              key={offer.id}
               vinylOffer={offer}
             />)
             : "Sorry, but there is no offers"

@@ -9,5 +9,4 @@ const RegistrationSigns = (props) => {
   />
   return <NotAuthedSigns/>
 }
-
 export default RegistrationSigns;
