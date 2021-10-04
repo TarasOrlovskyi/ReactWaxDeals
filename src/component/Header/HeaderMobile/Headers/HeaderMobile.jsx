@@ -20,6 +20,7 @@ const HeaderMobile = (props) => {
             props.headerForRender === "registrationHeader" &&
             <img src={closeButton} alt="close button"/>
           }
+        </NavLink>
           {
             props.headerForRender === "homeHeader" &&
             <RegistrationSigns
@@ -29,7 +30,7 @@ const HeaderMobile = (props) => {
                 switchAuthedUserWindow={props.switchAuthedUserWindow}
             />
           }
-        </NavLink>
+
       </div>
   )
 }
