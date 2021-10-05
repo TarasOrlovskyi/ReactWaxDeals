@@ -3,7 +3,7 @@ import userStyle from '../User.module.css';
 import React from "react";
 import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 
-const ChangePassword = (props) => {
+const ChangePassword = ({onSubmit, isWaitResponse}) => {
 
   return (
       <main>
@@ -15,7 +15,7 @@ const ChangePassword = (props) => {
               <div className={userStyle.contentUser__title}>
                 <h2>Change Password</h2>
               </div>
-              <ChangePasswordForm onSubmit={props.onSubmit} isWaitResponse={props.isWaitResponse}/>
+              <ChangePasswordForm onSubmit={onSubmit} isWaitResponse={isWaitResponse}/>
             </div>
           </div>
         </div>

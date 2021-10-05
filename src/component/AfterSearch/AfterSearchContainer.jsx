@@ -29,11 +29,11 @@ class AfterSearchContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => (
-  {
-    vinyls: state.afterSearchPage.vinyls,
-    isAuth: state.auth.isAuth,
-    isWaitResponse: state.preloader.isWaitResponse
-  }
+    {
+      vinyls: state.afterSearchPage.vinyls,
+      isAuth: state.auth.isAuth,
+      isWaitResponse: state.preloader.isWaitResponse
+    }
 );
 
 export default compose(withRouter, connect(mapStateToProps, {getSearchResult}), withRouter)(AfterSearchContainer);

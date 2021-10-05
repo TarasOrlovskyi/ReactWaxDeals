@@ -5,7 +5,7 @@ import React from "react";
 import MessageAlert from "../Common/Alert/MessageAlert";
 import letterImage from "../../assets/img/alertImg/message_letter.png";
 
-const ContactUs = (props) => {
+const ContactUs = ({onSubmit, turnOffAlert, isInfoAlert, pageInfo, isWaitResponse}) => {
 
   let alertString = <p>Your letter has been sent.&nbsp; We will contact you as soon as possible.</p>
 
@@ -16,9 +16,9 @@ const ContactUs = (props) => {
           </div>
           <div className={contactStyle.contentContactUsPage}>
             {
-              (props.isInfoAlert && props.pageInfo === "ContactUs") &&
+              (isInfoAlert && pageInfo === "ContactUs") &&
               <MessageAlert
-                  turnOffAlert={props.turnOffAlert}
+                  turnOffAlert={turnOffAlert}
                   messages={alertString}
                   letterImage={letterImage}
               />
@@ -27,7 +27,7 @@ const ContactUs = (props) => {
               <div className={userStyle.contentUser__title}>
                 <h2>Contact us</h2>
               </div>
-              <ContactUsForm onSubmit={props.onSubmit} isWaitResponse={props.isWaitResponse}/>
+              <ContactUsForm onSubmit={onSubmit} isWaitResponse={isWaitResponse}/>
             </div>
           </div>
         </div>

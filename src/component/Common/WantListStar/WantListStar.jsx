@@ -1,19 +1,20 @@
 import wantListStarStyle from "./WantListStar.module.css";
 
-const WantListStar = (props) => {
+const WantListStar = ({isWantListItem, switchStarToTrue, switchStarToFalse, vinylType}) => {
+
   return (
-      <div className={props.vinylType === "firstVinyl"
+      <div className={vinylType === "firstVinyl"
           ? wantListStarStyle.wantListStar + ' ' + wantListStarStyle.wantListStar_position
           : wantListStarStyle.wantListStar
       }>
-        {props.isWantListItem
+        {isWantListItem
             ? <div
                 className={wantListStarStyle.wantListStar__imageSettings + ' ' + wantListStarStyle.wantListStar__imageFilledStar}
-                onClick={props.switchStarToFalse}
+                onClick={switchStarToFalse}
             />
             : <div
                 className={wantListStarStyle.wantListStar__imageSettings + ' ' + wantListStarStyle.wantListStar__imageEmptyStar}
-                onClick={props.switchStarToTrue}
+                onClick={switchStarToTrue}
             />
         }
       </div>

@@ -42,7 +42,7 @@
   text-decoration: none;
 }
 
-.getDiscogsButton{
+.getDiscogsButton {
   background-color: #8D8989;
   width: 70%;
   height: 2.22em;
@@ -53,11 +53,11 @@
   cursor: pointer;
 }
 
-.getDiscogsButton:hover{
+.getDiscogsButton:hover {
   background-color: #C4C4C4;
 }
 
-.getDiscogsButton:disabled{
+.getDiscogsButton:disabled {
   background-color: #282c34;
   cursor: default;
 }

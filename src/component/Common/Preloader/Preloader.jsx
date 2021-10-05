@@ -1,7 +1,7 @@
 import preloaderStyle from './Preloader.module.css';
 import preloaderImage from '../../../assets/img/gif/preloader.gif';
 
-const Preloader = (props) => {
+const Preloader = () => {
   return (
       <div className={preloaderStyle.preloaderContent}>
         <div>

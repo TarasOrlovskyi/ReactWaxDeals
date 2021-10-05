@@ -7,38 +7,38 @@ import {maxLength, passwordValidation, required} from "../../../../utils/validat
 
 let maxLength50 = maxLength(50);
 
-const NewPasswordForm = (props) => {
+const NewPasswordForm = ({handleSubmit, error}) => {
   return (
-    <form className={userStyle.user + ' ' + newPasswordStyle.newPasswordUser} onSubmit={props.handleSubmit}>
-      <div className={userStyle.user__fieldsWrapper}>
-        <div className={userStyle.user__fields + ' ' + newPasswordStyle.newPasswordUser__fields}>
-          <label className={userStyle.user__label}>
-            <Field className={userStyle.user__input}
-                   type="password"
-                   name="newPassword"
-                   placeholder="Password"
-                   component={Input}
-                   validate={[required, maxLength50, passwordValidation]}
-            />
-          </label>
-          <label className={userStyle.user__label}>
-            <Field className={userStyle.user__input}
-                   type="password"
-                   name="confirmNewPassword"
-                   placeholder="Confirm password"
-                   component={Input}
-                   validate={[required]}
-            />
-          </label>
+      <form className={userStyle.user + ' ' + newPasswordStyle.newPasswordUser} onSubmit={handleSubmit}>
+        <div className={userStyle.user__fieldsWrapper}>
+          <div className={userStyle.user__fields + ' ' + newPasswordStyle.newPasswordUser__fields}>
+            <label className={userStyle.user__label}>
+              <Field className={userStyle.user__input}
+                     type="password"
+                     name="newPassword"
+                     placeholder="Password"
+                     component={Input}
+                     validate={[required, maxLength50, passwordValidation]}
+              />
+            </label>
+            <label className={userStyle.user__label}>
+              <Field className={userStyle.user__input}
+                     type="password"
+                     name="confirmNewPassword"
+                     placeholder="Confirm password"
+                     component={Input}
+                     validate={[required]}
+              />
+            </label>
+          </div>
         </div>
-      </div>
-      <div>
-        {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
-      </div>
-      <label className={userStyle.user__submitLabel}>
-        <button className={userStyle.user__submitInput}>OK</button>
-      </label>
-    </form>
+        <div>
+          {error && <div className={userStyle.summaryError}>{error}</div>}
+        </div>
+        <label className={userStyle.user__submitLabel}>
+          <button className={userStyle.user__submitInput}>OK</button>
+        </label>
+      </form>
   );
 }
 

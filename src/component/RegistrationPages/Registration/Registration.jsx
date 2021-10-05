@@ -1,11 +1,11 @@
-import s from './Registration.module.css';
+import registrationStyle from './Registration.module.css';
 import userStyle from './../User.module.css';
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 import React from "react";
 import letterImage from "../../../assets/img/alertImg/message_letter.png";
 
-const Registration = (props) => {
+const Registration = ({isInfoAlert, pageInfo, turnOffAlert, onSubmit, isWaitResponse}) => {
 
   let alertString = <p>Please confirm your registration by clicking the link in the email we've just send you.</p>
 
@@ -15,25 +15,25 @@ const Registration = (props) => {
           <div className="searchArea unsetHeight">
           </div>
           {
-            (props.isInfoAlert && props.pageInfo === "Registration") &&
+            (isInfoAlert && pageInfo === "Registration") &&
             <MessageAlert
-                turnOffAlert={props.turnOffAlert}
+                turnOffAlert={turnOffAlert}
                 messages={alertString}
                 letterImage={letterImage}
             />
           }
-          {(props.isInfoAlert && props.pageInfo === "ProfileDeleted") &&
+          {(isInfoAlert && pageInfo === "ProfileDeleted") &&
           <MessageAlert
-              turnOffAlert={props.turnOffAlert}
+              turnOffAlert={turnOffAlert}
               messages="Your profile has been deleted already"
           />
           }
-          <div className={s.contentRegistrationPage}>
-            <div className={s.contentRegistrationPage__column + ' contentColumn'}>
+          <div className={registrationStyle.contentRegistrationPage}>
+            <div className={registrationStyle.contentRegistrationPage__column + ' contentColumn'}>
               <div className={userStyle.contentUser__title}>
                 <h2>Registration</h2>
               </div>
-              <RegistrationForm onSubmit={props.onSubmit} isWaitResponse={props.isWaitResponse}/>
+              <RegistrationForm onSubmit={onSubmit} isWaitResponse={isWaitResponse}/>
             </div>
           </div>
         </div>

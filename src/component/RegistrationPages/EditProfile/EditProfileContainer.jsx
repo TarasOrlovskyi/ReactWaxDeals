@@ -69,4 +69,3 @@ export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {
   deleteUserProfile,
   getDiscogsWantlist
 }))(EditProfileContainer);
-

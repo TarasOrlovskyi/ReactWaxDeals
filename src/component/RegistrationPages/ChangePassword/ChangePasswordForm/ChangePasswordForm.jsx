@@ -7,51 +7,51 @@ import {maxLength, passwordValidation, required} from "../../../../utils/validat
 
 const maxLength50 = maxLength(50);
 
-const ChangePasswordForm = (props) => {
+const ChangePasswordForm = ({handleSubmit, error, isWaitResponse}) => {
   return (
-    <form className={userStyle.user + ' ' + editProfileStyle.changePasswordUser}
-          onSubmit={props.handleSubmit}>
-      <div className={userStyle.user__fieldsWrapper}>
-        <div className={userStyle.user__fields + ' ' + editProfileStyle.changePasswordUser__fields}>
-          <label className={userStyle.user__label}>
-            <Field className={userStyle.user__input}
-                   type="password"
-                   name="oldPassword"
-                   placeholder="Old password"
-                   component={Input}
-                   validate={[required, maxLength50, passwordValidation]}
-            />
-          </label>
-          <div className={editProfileStyle.changePasswordUser__border}></div>
-          <label className={userStyle.user__label}>
-            <Field className={userStyle.user__input}
-                   type="password"
-                   name="newPassword"
-                   placeholder="New password"
-                   component={Input}
-                   validate={[required, maxLength50, passwordValidation]}
-            />
-          </label>
-          <label className={userStyle.user__label}>
-            <Field className={userStyle.user__input}
-                   type="password"
-                   name="confirmNewPassword"
-                   placeholder="Confirm new password"
-                   component={Input}
-                   validate={[required, maxLength50, passwordValidation]}
-            />
+      <form className={userStyle.user + ' ' + editProfileStyle.changePasswordUser}
+            onSubmit={handleSubmit}>
+        <div className={userStyle.user__fieldsWrapper}>
+          <div className={userStyle.user__fields + ' ' + editProfileStyle.changePasswordUser__fields}>
+            <label className={userStyle.user__label}>
+              <Field className={userStyle.user__input}
+                     type="password"
+                     name="oldPassword"
+                     placeholder="Old password"
+                     component={Input}
+                     validate={[required, maxLength50, passwordValidation]}
+              />
+            </label>
+            <div className={editProfileStyle.changePasswordUser__border}></div>
+            <label className={userStyle.user__label}>
+              <Field className={userStyle.user__input}
+                     type="password"
+                     name="newPassword"
+                     placeholder="New password"
+                     component={Input}
+                     validate={[required, maxLength50, passwordValidation]}
+              />
+            </label>
+            <label className={userStyle.user__label}>
+              <Field className={userStyle.user__input}
+                     type="password"
+                     name="confirmNewPassword"
+                     placeholder="Confirm new password"
+                     component={Input}
+                     validate={[required, maxLength50, passwordValidation]}
+              />
+            </label>
+          </div>
+        </div>
+        <div>
+          {error && <div className={userStyle.summaryError}>{error}</div>}
+        </div>
+        <div className={userStyle.user__submitButtons}>
+          <label className={userStyle.user__submitLabel}>
+            <button className={userStyle.user__submitInput} disabled={isWaitResponse}>SAVE</button>
           </label>
         </div>
-      </div>
-      <div>
-        {props.error && <div className={userStyle.summaryError}>{props.error}</div>}
-      </div>
-      <div className={userStyle.user__submitButtons}>
-        <label className={userStyle.user__submitLabel}>
-          <button className={userStyle.user__submitInput} disabled={props.isWaitResponse}>SAVE</button>
-        </label>
-      </div>
-    </form>
+      </form>
   );
 }
 

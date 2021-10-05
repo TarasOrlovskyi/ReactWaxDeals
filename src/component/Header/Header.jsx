@@ -4,30 +4,40 @@ import HeaderOneVinyl from "./HeaderMobile/HeaderOneVinyl/HeaderOneVinyl";
 import s from "./HeaderLaptop/HeaderLaptop.module.css";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
-const Header = (props) => {
+const Header = ({
+                  isAuth,
+                  logOut,
+                  headerForRender,
+                  isBurgerActivate,
+                  activateBurger,
+                  turnOffBurger,
+                  isAuthedUserWindow,
+                  switchAuthedUserWindow
+                }) => {
+
   return (
       <header className={s.header}>
         <div className="container">
-          {props.headerForRender === "oneVinylHeader" &&
-          <HeaderOneVinyl activateBurger={props.activateBurger}/>
+          {headerForRender === "oneVinylHeader" &&
+          <HeaderOneVinyl activateBurger={activateBurger}/>
           }
-          {(props.headerForRender === "headerWithLogo"
-              || props.headerForRender === "registrationHeader"
-              || props.headerForRender === "homeHeader") &&
-          <HeaderMobile headerForRender={props.headerForRender}
-                        isAuth={props.isAuth}
-                        logOut={props.logOut}
-                        activateBurger={props.activateBurger}
-                        isAuthedUserWindow={props.isAuthedUserWindow}
-                        switchAuthedUserWindow={props.switchAuthedUserWindow}
+          {(headerForRender === "headerWithLogo"
+              || headerForRender === "registrationHeader"
+              || headerForRender === "homeHeader") &&
+          <HeaderMobile headerForRender={headerForRender}
+                        isAuth={isAuth}
+                        logOut={logOut}
+                        activateBurger={activateBurger}
+                        isAuthedUserWindow={isAuthedUserWindow}
+                        switchAuthedUserWindow={switchAuthedUserWindow}
           />
           }
-          <HeaderLaptop isAuth={props.isAuth}
-                        logOut={props.logOut}
-                        isAuthedUserWindow={props.isAuthedUserWindow}
-                        switchAuthedUserWindow={props.switchAuthedUserWindow}
+          <HeaderLaptop isAuth={isAuth}
+                        logOut={logOut}
+                        isAuthedUserWindow={isAuthedUserWindow}
+                        switchAuthedUserWindow={switchAuthedUserWindow}
           />
-          <BurgerMenu turnOffBurger={props.turnOffBurger} isBurgerActivate={props.isBurgerActivate}/>
+          <BurgerMenu turnOffBurger={turnOffBurger} isBurgerActivate={isBurgerActivate}/>
         </div>
       </header>
   );

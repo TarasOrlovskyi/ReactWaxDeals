@@ -19,7 +19,8 @@ const EmptyPageAfterSearch = () => {
               </div>
               <div className={EmptyPageStyle.EmptyPageImage}>
                 <p>Thank you.</p>
-                <img className={EmptyPageStyle.vinylImage} src={noResultSearchImage} alt="no result search"/>
+                <img className={EmptyPageStyle.vinylImage} src={noResultSearchImage}
+                     alt="no result search"/>
               </div>
             </div>
           </div>

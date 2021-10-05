@@ -1,29 +1,29 @@
-import s from './Footer.module.css';
+import footerStyle from './Footer.module.css';
 import SocialNav from "./SocialNav/SocialNav";
 import Copyright from "./Copyright/Copyright";
 
-const Footer = (props) => {
+const Footer = ({headerForRender}) => {
   return (
-    <footer>
-      <div className="container">
-        <div className={s.footer__body}>
-          <span className={s.footer__mobile}>
-          {props.headerForRender==="homeHeader"
-            ? <>
-              <SocialNav/>
-              <Copyright/>
-            </>
-            : <Copyright/>
+      <footer>
+        <div className="container">
+          <div className={footerStyle.footer__body}>
+          <span className={footerStyle.footer__mobile}>
+          {headerForRender === "homeHeader"
+              ? <>
+                <SocialNav/>
+                <Copyright/>
+              </>
+              : <Copyright/>
           }
           </span>
-          <span className={s.footer__row}>
+            <span className={footerStyle.footer__row}>
             <SocialNav/>
             <Copyright/>
           </span>
 
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
   );
 }
 

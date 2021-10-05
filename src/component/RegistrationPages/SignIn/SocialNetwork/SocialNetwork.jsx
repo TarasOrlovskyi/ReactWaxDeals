@@ -6,7 +6,7 @@ import socialGoogle from "../../../../assets/img/socialNetwork/google.png";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
-const SocialNetwork = (props) => {
+const SocialNetwork = ({doGoogleLogIn}) => {
 
   const responseFacebook = (response) => {
     console.log(response);
@@ -14,7 +14,7 @@ const SocialNetwork = (props) => {
 
   const responseGoogle = (response) => {
     // response.setHeader("Cache-Control", "no-store");
-    props.doGoogleLogIn(response.tokenId);
+    doGoogleLogIn(response.tokenId);
   }
 
   return <div className={socialNetworkStyle.contentSignIn__socialNetwork}>

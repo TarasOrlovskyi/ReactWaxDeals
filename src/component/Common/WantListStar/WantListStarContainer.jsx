@@ -5,7 +5,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {switchVinylInWantList} from "../../../redux/actions/catalogActions";
 
-class WantListStarContainer extends React.Component{
+class WantListStarContainer extends React.Component {
 
   switchStarToTrue = () => {
     this.props.switchVinylInWantList(true, this.props.vinylId, this.props.history.push);
@@ -16,7 +16,7 @@ class WantListStarContainer extends React.Component{
   }
 
   render() {
-    return(
+    return (
         <WantListStar isWantListItem={this.props.isWantListItem}
                       switchStarToTrue={this.switchStarToTrue}
                       switchStarToFalse={this.switchStarToFalse}

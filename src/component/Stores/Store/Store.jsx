@@ -1,12 +1,13 @@
-import s from './Store.module.css';
+import storeStyle from './Store.module.css';
 
-const Store = (props) => {
+const Store = ({linkToShop, imageLink}) => {
   return (
-    <div className={s.allShops__item}>
-      <a href={props.linkToShop} target="_blank" rel="noopener noreferrer">
-        <img className={s.allShops__images} src={'../' + process.env.PUBLIC_URL + 'assets/' + props.imageLink} alt="shop item"/>
-      </a>
-    </div>
+      <div className={storeStyle.allShops__item}>
+        <a href={linkToShop} target="_blank" rel="noopener noreferrer">
+          <img className={storeStyle.allShops__images} src={'../' + process.env.PUBLIC_URL + 'assets/' + imageLink}
+               alt="shop item"/>
+        </a>
+      </div>
   );
 }
 

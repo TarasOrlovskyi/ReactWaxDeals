@@ -1,9 +1,9 @@
-.burger{
+.burger {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .burger{
+  .burger {
     display: block;
     position: fixed;
     top: -200%;
@@ -16,32 +16,36 @@
     transition: all 0.3s ease 0s;
   }
 
-  .burger_active{
+  .burger_active {
     top: 0;
   }
 
-  .burgerBody{
+  .burgerBody {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100%;
   }
-  .burgerBody__header{
+
+  .burgerBody__header {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     padding: 25px 30px 15px 0;
   }
-  .burgerBody__column{
+
+  .burgerBody__column {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .burgerBody__columnItem{
+
+  .burgerBody__columnItem {
     padding-top: 35px;
   }
-  .burgerBody__row{
+
+  .burgerBody__row {
     max-width: 10.3em;
     width: 100%;
     display: flex;
@@ -49,7 +53,8 @@
     padding-top: 65px;
     flex: 1 1 auto;
   }
-  .burgerBody__rowItemColor{
+
+  .burgerBody__rowItemColor {
     color: #F6A325;
   }
 }

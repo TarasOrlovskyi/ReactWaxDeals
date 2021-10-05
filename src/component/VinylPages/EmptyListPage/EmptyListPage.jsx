@@ -1,4 +1,4 @@
-import s from './EmptyListPage.module.css';
+import emptyListPageStyle from './EmptyListPage.module.css';
 import vinylStyle from './../Vinyl.module.css'
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 import React from "react";
@@ -14,10 +14,10 @@ const EmptyListPage = () => {
           </div>
         </div>
         <div className={vinylStyle.vinylsContentWrapper}>
-          <div className={s.searchNone}>
-            <p className={s.searchNone__one}>Now your want list is empty.</p>
-            <p className={s.searchNone__two}>Useful tips:</p>
-            <ul className={s.searchNone__ulSearch}>
+          <div className={emptyListPageStyle.searchNone}>
+            <p className={emptyListPageStyle.searchNone__one}>Now your want list is empty.</p>
+            <p className={emptyListPageStyle.searchNone__two}>Useful tips:</p>
+            <ul className={emptyListPageStyle.searchNone__ulSearch}>
               <li>You can <NavLink to="/edit-profile" className="underlineLink">add your discogs username</NavLink> and we will
                 show vinyls according to your discogs want list
               </li>
@@ -27,7 +27,7 @@ const EmptyListPage = () => {
               <li>Or on our website click the star on the record
               </li>
             </ul>
-            <p className={s.searchNone__three}>Thank you.</p>
+            <p className={emptyListPageStyle.searchNone__three}>Thank you.</p>
           </div>
         </div>
       </div>

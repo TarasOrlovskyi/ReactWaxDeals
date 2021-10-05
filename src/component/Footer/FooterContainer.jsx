@@ -6,7 +6,7 @@ import Footer from "./Footer";
 class FooterContainer extends React.Component {
   render() {
     return (
-      <Footer headerForRender={this.props.headerForRender}/>
+        <Footer headerForRender={this.props.headerForRender}/>
     );
   }
 }
