@@ -14,7 +14,9 @@ class HeaderContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    this.checkHeader()
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.checkHeader();
+    }
   }
 
   logOut = () => {
