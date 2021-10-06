@@ -3,7 +3,7 @@ import userStyle from "../User.module.css";
 import NewPasswordForm from "./NewPasswordForm/NewPasswordForm";
 import React from "react";
 
-const NewPassword = ({onSubmit}) => {
+const NewPassword = React.memo(({onSubmit}) => {
   return (
       <main className="main">
         <div className="container">
@@ -18,6 +18,6 @@ const NewPassword = ({onSubmit}) => {
         </div>
       </main>
   );
-}
+})
 
 export default NewPassword;

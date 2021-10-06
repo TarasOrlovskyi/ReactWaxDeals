@@ -9,7 +9,7 @@ import {NavLink} from "react-router-dom";
 
 const maxLength50 = maxLength(50);
 
-const RegistrationForm = ({handleSubmit, error, isWaitResponse}) => {
+const RegistrationForm = React.memo(({handleSubmit, error, isWaitResponse}) => {
   return (
       <form className={userStyle.user + ' ' + registrationStyle.registrationPageUser}
             onSubmit={handleSubmit}>
@@ -60,6 +60,6 @@ const RegistrationForm = ({handleSubmit, error, isWaitResponse}) => {
         </label>
       </form>
   );
-}
+})
 
-export default reduxForm({form: "registrationForm"})(RegistrationForm);
+export default reduxForm({form: "registrationForm"})(RegistrationForm)

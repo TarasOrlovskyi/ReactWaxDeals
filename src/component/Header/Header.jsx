@@ -1,22 +1,23 @@
 import HeaderMobile from "./HeaderMobile/Headers/HeaderMobile";
 import HeaderLaptop from "./HeaderLaptop/HeaderLaptop";
 import HeaderOneVinyl from "./HeaderMobile/HeaderOneVinyl/HeaderOneVinyl";
-import s from "./HeaderLaptop/HeaderLaptop.module.css";
+import headerLaptopStyle from "./HeaderLaptop/HeaderLaptop.module.css";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import React from "react";
 
-const Header = ({
-                  isAuth,
-                  logOut,
-                  headerForRender,
-                  isBurgerActivate,
-                  activateBurger,
-                  turnOffBurger,
-                  isAuthedUserWindow,
-                  switchAuthedUserWindow
-                }) => {
+const Header = React.memo(    ({
+                                 isAuth,
+                                 logOut,
+                                 headerForRender,
+                                 isBurgerActivate,
+                                 activateBurger,
+                                 turnOffBurger,
+                                 isAuthedUserWindow,
+                                 switchAuthedUserWindow
+                               }) => {
 
   return (
-      <header className={s.header}>
+      <header className={headerLaptopStyle.header}>
         <div className="container">
           {headerForRender === "oneVinylHeader" &&
           <HeaderOneVinyl activateBurger={activateBurger}/>
@@ -41,6 +42,6 @@ const Header = ({
         </div>
       </header>
   );
-}
+})
 
 export default Header;

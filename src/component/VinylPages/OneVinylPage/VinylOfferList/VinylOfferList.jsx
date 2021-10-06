@@ -4,7 +4,7 @@ import ShopListNav from "./ShopListNav/ShopListNav";
 import ShopListHeader from "./ShopListHeader/ShopListHeader";
 import VinylOfferItem from "./VinylOfferItem/VinylOfferItem";
 
-const VinylOfferList = ({discogsLink, vinylOffersList}) => {
+const VinylOfferList = React.memo(({discogsLink, vinylOffersList}) => {
   return (
       <div className={vinylOfferListStyle.shopsList}>
         <ShopListNav discogsLink={discogsLink}/>
@@ -21,5 +21,6 @@ const VinylOfferList = ({discogsLink, vinylOffersList}) => {
         </div>
       </div>
   );
-}
+})
+
 export default VinylOfferList;

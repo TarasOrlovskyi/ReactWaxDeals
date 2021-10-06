@@ -5,7 +5,7 @@ import React from "react";
 import MessageAlert from "../Common/Alert/MessageAlert";
 import letterImage from "../../assets/img/alertImg/message_letter.png";
 
-const ContactUs = ({onSubmit, turnOffAlert, isInfoAlert, pageInfo, isWaitResponse}) => {
+const ContactUs = React.memo(({onSubmit, turnOffAlert, isInfoAlert, pageInfo, isWaitResponse}) => {
 
   let alertString = <p>Your letter has been sent.&nbsp; We will contact you as soon as possible.</p>
 
@@ -33,6 +33,6 @@ const ContactUs = ({onSubmit, turnOffAlert, isInfoAlert, pageInfo, isWaitRespons
         </div>
       </main>
   );
-}
+})
 
 export default ContactUs;

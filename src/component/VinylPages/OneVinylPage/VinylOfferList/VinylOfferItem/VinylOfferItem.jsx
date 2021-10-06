@@ -2,7 +2,7 @@ import vinylOfferListStyle from "../VinylOfferList.module.css";
 import vinylOfferItemStyle from "./VinylOfferItem.module.css";
 import React from "react";
 
-const VinylOfferItem = ({vinylOffer}) => {
+const VinylOfferItem = React.memo(({vinylOffer}) => {
   return (
       <div className={vinylOfferListStyle.shopList__row}>
         <div className={vinylOfferItemStyle.itemBody + ' ' + vinylOfferItemStyle.shopList__itemImage}>
@@ -27,5 +27,6 @@ const VinylOfferItem = ({vinylOffer}) => {
         </div>
       </div>
   );
-}
+})
+
 export default VinylOfferItem;

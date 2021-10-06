@@ -1,6 +1,7 @@
 import s from './SocialNav.module.css';
+import React from "react";
 
-const SocialNav = () => {
+const SocialNav = React.memo(() => {
   return (
       <nav className={s.footer__socialNav}>
         <ul className={s.footer__socialIcons}>
@@ -16,6 +17,6 @@ const SocialNav = () => {
         </ul>
       </nav>
   );
-}
+})
 
 export default SocialNav;

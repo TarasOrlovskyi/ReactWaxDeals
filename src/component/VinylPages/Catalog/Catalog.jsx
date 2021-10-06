@@ -3,7 +3,7 @@ import vinylStyle from './../Vinyl.module.css'
 import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
-const Catalog = ({vinylList, isAuth}) => {
+const Catalog = React.memo(({vinylList, isAuth}) => {
   return (
       <main className="main">
         <div className="container subContainer">
@@ -32,6 +32,6 @@ const Catalog = ({vinylList, isAuth}) => {
         </div>
       </main>
   );
-}
+})
 
 export default Catalog;

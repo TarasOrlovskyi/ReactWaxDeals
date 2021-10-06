@@ -2,8 +2,9 @@ import notFoundPageStyle from './NotFoundPage.module.css';
 import notFoundPageImage from "../../../assets/img/not_found_logo.png";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const NotFoundPage = () => {
+const NotFoundPage = React.memo(() => {
   return (
       <main className="main">
         <div className="container subContainer">
@@ -32,6 +33,6 @@ const NotFoundPage = () => {
         </div>
       </main>
   )
-}
+})
 
 export default NotFoundPage;

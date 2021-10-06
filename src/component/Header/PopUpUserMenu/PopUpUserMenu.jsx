@@ -1,8 +1,9 @@
 import popUpUserPict from '../../../assets/img/popUpUserPict.png';
 import popUpUserMenuStyle from "./PopUpUserMenu.module.css";
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const PopUpUserMenu = ({logOut}) => {
+const PopUpUserMenu = React.memo(({logOut}) => {
   return (
       <div className={popUpUserMenuStyle.popUp__body}>
         <div className={popUpUserMenuStyle.popUp__image}>
@@ -18,6 +19,6 @@ const PopUpUserMenu = ({logOut}) => {
         </NavLink>
       </div>
   );
-}
+})
 
 export default PopUpUserMenu;

@@ -1,8 +1,9 @@
 import aboutStyle from './About.module.css';
 import aboutImage from "../../../assets/img/aboutImage.png";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
+import React from "react";
 
-const About = () => {
+const About = React.memo(() => {
   return (
       <main className="main">
         <div className="container subContainer">
@@ -27,6 +28,6 @@ const About = () => {
         </div>
       </main>
   )
-}
+})
 
 export default About;

@@ -2,8 +2,9 @@ import profileStyle from './Profile.module.css';
 import userStyle from '../User.module.css';
 import discogsLogo from "../../../assets/img/svg/discogs_logo.svg";
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const Profile = ({email, discogsUserName}) => {
+const Profile = React.memo(({email, discogsUserName}) => {
 
   return (
       <main className="main">
@@ -45,6 +46,6 @@ const Profile = ({email, discogsUserName}) => {
         </div>
       </main>
   );
-}
+})
 
 export default Profile;

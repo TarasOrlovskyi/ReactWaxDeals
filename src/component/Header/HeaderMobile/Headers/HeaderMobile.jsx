@@ -4,15 +4,16 @@ import logo from "../../../../assets/img/wax_deals.png"
 import closeButton from "../../../../assets/img/close_header.png"
 import {NavLink} from "react-router-dom";
 import RegistrationSigns from "../../RegistrationSigns/RegistrationSigns";
+import React from "react";
 
-const HeaderMobile = ({
-                        headerForRender,
-                        isAuth,
-                        logOut,
-                        activateBurger,
-                        isAuthedUserWindow,
-                        switchAuthedUserWindow
-                      }) => {
+const HeaderMobile = React.memo( ({
+                                    headerForRender,
+                                    isAuth,
+                                    logOut,
+                                    activateBurger,
+                                    isAuthedUserWindow,
+                                    switchAuthedUserWindow
+                                  }) => {
 
   return (
       <div className={headerBurgerStyle.header__mobile}>
@@ -39,5 +40,7 @@ const HeaderMobile = ({
         }
       </div>
   )
-}
+})
+
+
 export default HeaderMobile;

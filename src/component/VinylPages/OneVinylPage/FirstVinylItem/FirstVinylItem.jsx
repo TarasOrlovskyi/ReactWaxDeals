@@ -5,7 +5,7 @@ import React from "react";
 import WantListStarContainer from "../../../Common/WantListStar/WantListStarContainer";
 import DiscogsLink from "../VinylOfferList/ShopListNav/DiscogsLink/DiscogsLink";
 
-const FirstVinylItem = ({firstVinyl, isAuth, discogsLink}) => {
+const FirstVinylItem = React.memo(({firstVinyl, isAuth, discogsLink}) => {
 
   return (
 
@@ -41,5 +41,6 @@ const FirstVinylItem = ({firstVinyl, isAuth, discogsLink}) => {
         </div>
       </div>
   );
-}
+})
+
 export default FirstVinylItem;

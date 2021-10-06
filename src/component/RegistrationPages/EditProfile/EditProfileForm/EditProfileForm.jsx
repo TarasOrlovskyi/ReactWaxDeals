@@ -5,10 +5,11 @@ import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../Common/FormsControl/FormsControl";
 import {emailValidation, maxLength, required} from "../../../../utils/validators/validators";
+import React from "react";
 
 const maxLength50 = maxLength(50);
 
-let EditProfileForm = ({handleSubmit, isWaitResponse, turnOnDeleteProfileAlert, getDiscogsWantlist}) => {
+let EditProfileForm = React.memo(({handleSubmit, isWaitResponse, turnOnDeleteProfileAlert, getDiscogsWantlist}) => {
   return (
       <>
         <form className={userStyle.user + ' ' + editProfileStyle.editProfileUser} onSubmit={handleSubmit}>
@@ -56,6 +57,6 @@ let EditProfileForm = ({handleSubmit, isWaitResponse, turnOnDeleteProfileAlert, 
         </button>
       </>
   );
-};
+})
 
 export default reduxForm({form: "editProfileForm", enableReinitialize: true})(EditProfileForm)

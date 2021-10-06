@@ -5,7 +5,7 @@ import letterImage from "../../../assets/img/alertImg/message_letter.png";
 import React from "react";
 import RecoveryPasswordForm from "./RecoveryPasswordForm/RecoveryPasswordForm";
 
-const RecoveryPassword = ({isInfoAlert, pageInfo, turnOffAlert, onSubmit}) => {
+const RecoveryPassword = React.memo(({isInfoAlert, pageInfo, turnOffAlert, onSubmit}) => {
 
   let alertString = <p>In order to recovery your password click the link in the email we've just send you.</p>
 
@@ -32,6 +32,6 @@ const RecoveryPassword = ({isInfoAlert, pageInfo, turnOffAlert, onSubmit}) => {
         </div>
       </main>
   );
-}
+})
 
 export default RecoveryPassword;

@@ -1,8 +1,9 @@
 import homeStyle from './Home.module.css';
 import SearchFieldContainer from "../SearchField/SearchFieldContainer";
 import waxDealsLogo from "../../assets/img/Wax_Deals_logo_mobile.png";
+import React from "react";
 
-const Home = () => {
+const Home = React.memo(() => {
   return (
       <main className="main">
         <div className="container">
@@ -29,6 +30,6 @@ const Home = () => {
         </div>
       </main>
   );
-}
+})
 
 export default Home;

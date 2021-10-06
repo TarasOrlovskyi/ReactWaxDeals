@@ -1,8 +1,9 @@
 import registrationSignsStyle from "../RegistrationSigns.module.css";
 import loggedInIcon from '../../../../assets/img/loggedInIcon.png';
 import PopUpLoggedInUserMenu from "../../PopUpUserMenu/PopUpUserMenu";
+import React from "react";
 
-const AuthedSigns = ({logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
+const AuthedSigns = React.memo(({logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
 
   return (
       <div className={registrationSignsStyle.header__loginSigns}>
@@ -18,6 +19,6 @@ const AuthedSigns = ({logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
 
       </div>
   );
-}
+})
 
 export default AuthedSigns;

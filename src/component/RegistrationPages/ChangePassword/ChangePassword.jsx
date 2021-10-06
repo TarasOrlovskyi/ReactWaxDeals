@@ -3,7 +3,7 @@ import userStyle from '../User.module.css';
 import React from "react";
 import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 
-const ChangePassword = ({onSubmit, isWaitResponse}) => {
+const ChangePassword = React.memo(({onSubmit, isWaitResponse}) => {
 
   return (
       <main>
@@ -21,6 +21,6 @@ const ChangePassword = ({onSubmit, isWaitResponse}) => {
         </div>
       </main>
   );
-}
+})
 
 export default ChangePassword;

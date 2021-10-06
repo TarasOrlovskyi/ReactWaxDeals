@@ -1,8 +1,9 @@
 import s from "./HeaderLaptop.module.css";
 import HeaderNav from "./HeaderNav/HeaderNav";
 import RegistrationSigns from "../RegistrationSigns/RegistrationSigns";
+import React from "react";
 
-const HeaderLaptop = ({isAuth, logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
+const HeaderLaptop = React.memo(({isAuth, logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
   return (
       <div className={s.header__row}>
         <HeaderNav isAuth={isAuth}/>
@@ -13,6 +14,6 @@ const HeaderLaptop = ({isAuth, logOut, isAuthedUserWindow, switchAuthedUserWindo
         />
       </div>
   );
-}
+})
 
 export default HeaderLaptop;

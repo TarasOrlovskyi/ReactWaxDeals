@@ -7,7 +7,7 @@ import {maxLength, passwordValidation, required} from "../../../../utils/validat
 
 const maxLength50 = maxLength(50);
 
-const ChangePasswordForm = ({handleSubmit, error, isWaitResponse}) => {
+const ChangePasswordForm = React.memo (({handleSubmit, error, isWaitResponse}) => {
   return (
       <form className={userStyle.user + ' ' + editProfileStyle.changePasswordUser}
             onSubmit={handleSubmit}>
@@ -53,6 +53,6 @@ const ChangePasswordForm = ({handleSubmit, error, isWaitResponse}) => {
         </div>
       </form>
   );
-}
-
+})
+    
 export default reduxForm({form: "changePasswordForm"})(ChangePasswordForm);

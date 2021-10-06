@@ -2,7 +2,7 @@ import vinylOfferListStyle from "../VinylOfferList.module.css";
 import shopListHeader from "./ShopListHeader.module.css";
 import React from "react";
 
-const ShopListHeader = () => {
+const ShopListHeader = React.memo(() => {
   return (
       <div className={vinylOfferListStyle.shopList__row + ' ' + shopListHeader.shopList__rowSecondTitle}>
         <div className={shopListHeader.shopList__secondItemTitle}>
@@ -35,6 +35,6 @@ const ShopListHeader = () => {
         </div>
       </div>
   );
-}
+})
 
 export default ShopListHeader;

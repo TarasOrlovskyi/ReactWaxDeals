@@ -1,6 +1,7 @@
 import storeStyle from './Store.module.css';
+import React from "react";
 
-const Store = ({linkToShop, imageLink}) => {
+const Store = React.memo(({linkToShop, imageLink}) => {
   return (
       <div className={storeStyle.allShops__item}>
         <a href={linkToShop} target="_blank" rel="noopener noreferrer">
@@ -9,6 +10,6 @@ const Store = ({linkToShop, imageLink}) => {
         </a>
       </div>
   );
-}
+})
 
 export default Store;

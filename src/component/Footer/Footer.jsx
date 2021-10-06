@@ -1,8 +1,9 @@
 import footerStyle from './Footer.module.css';
 import SocialNav from "./SocialNav/SocialNav";
 import Copyright from "./Copyright/Copyright";
+import React from "react";
 
-const Footer = ({headerForRender}) => {
+const Footer = React.memo(({headerForRender}) => {
   return (
       <footer>
         <div className="container">
@@ -25,6 +26,6 @@ const Footer = ({headerForRender}) => {
         </div>
       </footer>
   );
-}
+})
 
 export default Footer;

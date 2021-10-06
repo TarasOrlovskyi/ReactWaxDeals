@@ -1,7 +1,8 @@
 import preloaderStyle from './Preloader.module.css';
 import preloaderImage from '../../../assets/img/gif/preloader.gif';
+import React from "react";
 
-const Preloader = () => {
+const Preloader = React.memo(() => {
   return (
       <div className={preloaderStyle.preloaderContent}>
         <div>
@@ -9,6 +10,6 @@ const Preloader = () => {
         </div>
       </div>
   )
-}
+})
 
 export default Preloader;

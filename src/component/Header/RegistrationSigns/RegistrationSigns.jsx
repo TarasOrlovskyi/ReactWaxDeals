@@ -1,7 +1,8 @@
 import AuthedSigns from "./AuthedSigns/AuthedSigns";
 import NotAuthedSigns from "./NotAuthedSigns/NotAuthedSigns";
+import React from "react";
 
-const RegistrationSigns = ({isAuth, logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
+const RegistrationSigns = React.memo(({isAuth, logOut, isAuthedUserWindow, switchAuthedUserWindow}) => {
 
   if (isAuth) return <AuthedSigns
       logOut={logOut}
@@ -9,5 +10,6 @@ const RegistrationSigns = ({isAuth, logOut, isAuthedUserWindow, switchAuthedUser
       switchAuthedUserWindow={switchAuthedUserWindow}
   />
   return <NotAuthedSigns/>
-}
+})
+
 export default RegistrationSigns;

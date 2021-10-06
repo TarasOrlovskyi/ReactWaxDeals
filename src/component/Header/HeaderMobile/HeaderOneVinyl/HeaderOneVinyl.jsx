@@ -3,8 +3,9 @@ import burger from "../../../../assets/img/nav_mobile_header.png";
 import {NavLink} from "react-router-dom";
 import logo from "../../../../assets/img/wax_deals.png";
 import backButton from "../../../../assets/img/back_button.png";
+import React from "react";
 
-const HeaderOneVinyl = ({activateBurger}) => {
+const HeaderOneVinyl = React.memo(({activateBurger}) => {
   return (
       <div className={headerBurgerStyle.header__mobile}>
         <NavLink to='/catalog'>
@@ -18,6 +19,6 @@ const HeaderOneVinyl = ({activateBurger}) => {
         </div>
       </div>
   )
-}
+})
 
 export default HeaderOneVinyl;

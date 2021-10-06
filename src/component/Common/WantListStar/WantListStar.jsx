@@ -1,6 +1,7 @@
 import wantListStarStyle from "./WantListStar.module.css";
+import React from "react";
 
-const WantListStar = ({isWantListItem, switchStarToTrue, switchStarToFalse, vinylType}) => {
+const WantListStar = React.memo(({isWantListItem, switchStarToTrue, switchStarToFalse, vinylType}) => {
 
   return (
       <div className={vinylType === "firstVinyl"
@@ -19,6 +20,6 @@ const WantListStar = ({isWantListItem, switchStarToTrue, switchStarToFalse, viny
         }
       </div>
   )
-}
+})
 
 export default WantListStar;

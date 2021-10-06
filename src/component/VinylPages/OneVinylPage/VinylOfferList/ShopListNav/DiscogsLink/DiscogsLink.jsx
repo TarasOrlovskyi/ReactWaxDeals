@@ -2,7 +2,7 @@ import shopListNavStyle from "../ShopListNav.module.css";
 import vinylOfferListStyle from "../../VinylOfferList.module.css";
 import React from "react";
 
-const DiscogsLink = ({discogsLink}) => {
+const DiscogsLink = React.memo(({discogsLink}) => {
   if (discogsLink == null) {
     return <div/>
   }
@@ -15,5 +15,6 @@ const DiscogsLink = ({discogsLink}) => {
              alt="Discogs link"/>
       </a>
   );
-}
+})
+
 export default DiscogsLink;

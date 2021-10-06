@@ -7,7 +7,7 @@ import {emailValidation, maxLength, required} from "../../../../utils/validators
 
 const maxLength50 = maxLength(50);
 
-const RecoveryPasswordForm = ({handleSubmit, error}) => {
+const RecoveryPasswordForm = React.memo(({handleSubmit, error}) => {
   return (
       <form className={userStyle.user + ' ' + recoveryPasswordStyle.recoveryUser} onSubmit={handleSubmit}>
         <div className={userStyle.user__fieldsWrapper}>
@@ -31,6 +31,6 @@ const RecoveryPasswordForm = ({handleSubmit, error}) => {
         </label>
       </form>
   );
-}
+})
 
 export default reduxForm({form: "recoveryPasswordForm"})(RecoveryPasswordForm)

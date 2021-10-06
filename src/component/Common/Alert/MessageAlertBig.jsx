@@ -1,7 +1,8 @@
 import alertsStyle from "./Alert.module.css";
 import closeButtonImage from "../../../assets/img/alertImg/close_button.png";
+import React from "react";
 
-const MessageAlert = ({letterImage, messages, agreeButtons, closeButton, turnOffAlert}) => {
+const MessageAlert = React.memo(({letterImage, messages, agreeButtons, closeButton, turnOffAlert}) => {
   return (
       <div className={alertsStyle.alertWrapper}>
         <div className={alertsStyle.pageAlert + ' ' + alertsStyle.commonAlert + ' ' + alertsStyle.commonAlert_big}>
@@ -29,6 +30,6 @@ const MessageAlert = ({letterImage, messages, agreeButtons, closeButton, turnOff
         </div>
       </div>
   );
-}
+})
 
 export default MessageAlert;

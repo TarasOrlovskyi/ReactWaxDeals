@@ -1,8 +1,9 @@
 import headerNavStyle from './HeaderNav.module.css';
 import logo from '../../../../assets/img/svg/wax_deals.svg';
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const HeaderNav = ({isAuth}) => {
+const HeaderNav = React.memo(({isAuth}) => {
   return (
       <nav className={headerNavStyle.header__menu} role="navigation">
         <ul className={headerNavStyle.header__menuList}>
@@ -35,6 +36,6 @@ const HeaderNav = ({isAuth}) => {
         </ul>
       </nav>
   );
-}
+})
 
 export default HeaderNav;

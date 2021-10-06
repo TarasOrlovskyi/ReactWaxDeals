@@ -3,7 +3,7 @@ import shopListNavStyle from "./ShopListNav.module.css";
 import React from "react";
 import DiscogsLink from "./DiscogsLink/DiscogsLink";
 
-const ShopListNav = ({discogsLink}) => {
+const ShopListNav = React.memo(({discogsLink}) => {
   return (
       <div className={shopListNavStyle.shopList__rowFirstTitle}>
         <div className={shopListNavStyle.shopList__item + ' ' + shopListNavStyle.shopList__firstItemTitle}>
@@ -16,5 +16,6 @@ const ShopListNav = ({discogsLink}) => {
 
       </div>
   );
-}
+})
+
 export default ShopListNav;

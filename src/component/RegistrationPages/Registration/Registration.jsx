@@ -5,7 +5,7 @@ import MessageAlert from "../../Common/Alert/MessageAlert";
 import React from "react";
 import letterImage from "../../../assets/img/alertImg/message_letter.png";
 
-const Registration = ({isInfoAlert, pageInfo, turnOffAlert, onSubmit, isWaitResponse}) => {
+const Registration = React.memo(({isInfoAlert, pageInfo, turnOffAlert, onSubmit, isWaitResponse}) => {
 
   let alertString = <p>Please confirm your registration by clicking the link in the email we've just send you.</p>
 
@@ -39,6 +39,6 @@ const Registration = ({isInfoAlert, pageInfo, turnOffAlert, onSubmit, isWaitResp
         </div>
       </main>
   );
-}
+})
 
 export default Registration;

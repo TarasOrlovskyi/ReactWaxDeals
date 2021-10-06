@@ -4,8 +4,9 @@ import closeButton from "../../../assets/img/close_header.png";
 import Footer from "../../Footer/Footer";
 import {NavLink} from "react-router-dom";
 import SocialNav from "../../Footer/SocialNav/SocialNav";
+import React from "react";
 
-const BurgerMenu = ({isBurgerActivate, turnOffBurger}) => {
+const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger}) => {
   return (
       <div className={
         isBurgerActivate ? burgerMenuStyle.burger + ' ' + burgerMenuStyle.burger_active : burgerMenuStyle.burger
@@ -38,6 +39,6 @@ const BurgerMenu = ({isBurgerActivate, turnOffBurger}) => {
 
       </div>
   )
-}
+})
 
 export default BurgerMenu;

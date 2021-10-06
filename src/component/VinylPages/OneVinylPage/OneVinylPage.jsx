@@ -6,7 +6,7 @@ import FirstVinylItem from "./FirstVinylItem/FirstVinylItem";
 import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
-const OneVinylPage = ({firstVinyl, discogsLink, vinylOffersList, vinylsByArtist, loadOneVinyl, isAuth}) => {
+const OneVinylPage = React.memo(({firstVinyl, discogsLink, vinylOffersList, vinylsByArtist, loadOneVinyl, isAuth}) => {
 
   return (
       <main className="main">
@@ -45,6 +45,6 @@ const OneVinylPage = ({firstVinyl, discogsLink, vinylOffersList, vinylsByArtist,
         </div>
       </main>
   );
-}
+})
 
 export default OneVinylPage;
