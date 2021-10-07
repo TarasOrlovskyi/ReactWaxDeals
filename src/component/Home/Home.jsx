@@ -15,14 +15,17 @@ const Home = React.memo(() => {
             </div>
             <div className={homeStyle.contentHome__column + ' contentColumn'}>
               <div className={homeStyle.contentHome__title}>
-                <h1>COMPARE PRICES of VINYL RECORDS</h1>
+                <h1 className={homeStyle.contentHome__title_titleRow}>
+                  <p>ENHANCE YOUR VINYL SHOPPING</p>
+                  <p>and SAVE MONEY</p>
+                </h1>
               </div>
               <SearchFieldContainer/>
               <div className={homeStyle.contentHome__subtitle}>
-                <h2>
-                  You can find here a huge number of records from<br/>
-                  trusted stores, so you can find the best price<br/>
-                  Welcome!
+                <h2 className={homeStyle.contentHome__subtitle_rows}>
+                  Here you can easily find the best price of a record
+                  you looking for and get notified when it drops
+                  or a record gets back in stock
                 </h2>
               </div>
             </div>
