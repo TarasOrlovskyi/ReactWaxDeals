@@ -12,7 +12,7 @@ class AfterSearchContainer extends React.Component {
   componentDidMount() {
     const search = this.props.location.search;
     const searchQuery = new URLSearchParams(search).get("matcher");
-    if (searchQuery) {
+    if (searchQuery && !this.props.isWaitResponse) {
       this.props.getSearchResult(searchQuery, this.props.history.push);
     }
   }
