@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {deleteUserProfile, editUserProfile} from "../../../redux/actions/authActions";
+import {deleteUserProfile, editUserProfile} from "../../../redux/actions/profileActions";
 import {activateInfoAlert, activateQuestionAlert} from "../../../redux/actions/alertActions";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {getDiscogsWantlist} from "../../../redux/actions/wantlistActions";

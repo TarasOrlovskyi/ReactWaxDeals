@@ -1,20 +1,12 @@
 import * as actionTypes from './actionTypes';
 import {authApi} from "../../api/api";
-import store from "../redux";
 import {handleFormsError, unhandledError} from "../../utils/handleErrors/handleErrors";
-import {activateInfoAlert} from "./alertActions";
 import {expireCheckingRefreshToken, logOut} from "../../utils/actionUtils/actionUtils";
 import {setIsWaitResponse} from "./preloaderActions";
 
 export const setAuthUserData = (id, email, discogsUserName, role, status, isAuth) => ({
   type: actionTypes.SET_USER_DATA,
   payload: {id, email, discogsUserName, role, status, isAuth}
-})
-
-export const setEditProfileData = (email, discogsUserName) => ({
-  type: actionTypes.SET_EDIT_PROFILE_DATA,
-  email,
-  discogsUserName
 })
 
 export const getUserAuthData = () => async dispatch => {
@@ -67,7 +59,7 @@ export const getUserLogInData = (email, password, historyPush, googleTokenId = n
   dispatch(setIsWaitResponse(true));
   try {
     let responseData;
-    if (googleTokenId != null){
+    if (googleTokenId != null) {
       responseData = await authApi.userGoogleLogIn(googleTokenId);
     } else {
       responseData = await authApi.userLogIn(email, password);
@@ -86,68 +78,6 @@ export const getUserLogInData = (email, password, historyPush, googleTokenId = n
       handleFormsError("signInForm", dispatch, error.response.data.message);
     } else {
       unhandledError(errorStatus, "login", historyPush);
-    }
-  }
-}
-
-export const editUserProfile = (email, discogsUserName, historyPush) => async dispatch => {
-  dispatch(setIsWaitResponse(true));
-  try {
-    let responseData = await authApi.editProfileRequest(email, discogsUserName);
-    if (responseData.status === 200) {
-      dispatch(setEditProfileData(email, discogsUserName));
-      dispatch(activateInfoAlert(true, "EditProfile"));
-    }
-    dispatch(setIsWaitResponse(false));
-  } catch (error) {
-    let errorStatus = error.response.status;
-    dispatch(setIsWaitResponse(false));
-    if (errorStatus === 403 || errorStatus === 401) {
-      logOut(dispatch, setAuthUserData)
-    } else if (errorStatus === 400) {
-      handleFormsError("editProfileForm", dispatch, error.response.data.message);
-    } else {
-      unhandledError(errorStatus, "edit profile", historyPush);
-    }
-  }
-}
-
-export const deleteUserProfile = (historyPush) => async dispatch => {
-  dispatch(setIsWaitResponse(true));
-  try {
-    let userId = store.getState().auth.id;
-    let responseData = await authApi.deleteProfileRequest(userId);
-    if (responseData.status === 200) {
-      logOut(dispatch, setAuthUserData)
-      dispatch(activateInfoAlert(true, "ProfileDeleted"));
-    }
-    dispatch(setIsWaitResponse(false));
-  } catch (error) {
-    let errorStatus = error.response.status;
-    dispatch(setIsWaitResponse(false));
-    if (errorStatus === 403 || errorStatus === 401) {
-      logOut(dispatch, setAuthUserData)
-    } else if (errorStatus === 400) {
-      handleFormsError("editProfileForm", dispatch, error.response.data.message);
-    } else {
-      unhandledError(errorStatus, "delete profile", historyPush);
-    }
-  }
-}
-
-export const confirmEmail = (confirmToken, historyPush) => async dispatch => {
-  dispatch(setIsWaitResponse(true));
-  try {
-    let responseData = await authApi.confirmEmailRequest(confirmToken)
-    if (responseData.status === 200) {
-      dispatch(activateInfoAlert(true, "ConfirmEmail"));
-    }
-    dispatch(setIsWaitResponse(false));
-  } catch (error) {
-    let errorStatus = error.response.status;
-    dispatch(setIsWaitResponse(false));
-    if (errorStatus !== 403) {
-      unhandledError(errorStatus, "confirmation email", historyPush);
     }
   }
 }

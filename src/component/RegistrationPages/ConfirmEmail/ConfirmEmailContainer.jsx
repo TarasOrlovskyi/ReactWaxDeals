@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 import {NavLink, Redirect, withRouter} from "react-router-dom";
 import alertsStyle from "../../Common/Alert/Alert.module.css";
-import {confirmEmail} from "../../../redux/actions/authActions";
+import {confirmEmail} from "../../../redux/actions/confirmEmailActions";
 import Preloader from "../../Common/Preloader/Preloader";
 
 class ConfirmEmailContainer extends React.Component {
