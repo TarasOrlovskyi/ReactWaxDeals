@@ -1,5 +1,5 @@
 .aboutContent {
-  height: 29.17em;
+  height: 38.5em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -9,11 +9,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 23.33em;
+  width: 41.67em;
+  margin: 0 auto;
 }
 
 .aboutBody__title {
-  height: 2.75em;
+  height: 2.33em;
 }
 
 .aboutBody__image {
@@ -24,10 +25,40 @@
 }
 
 .aboutBody__text {
-  max-width: 31.25em;
-  font-size: 1.33em;
-  text-align: center;
-  height: 3.79em;
+  align-self: flex-start;
+  line-height: 1.37em;
+}
+
+.aboutBody__text_intro {
+  height: 5.4em;
+}
+
+.aboutBody__text_discogs {
+  height: 8.17em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul {
+  color: #F6A325;
+}
+
+.aboutBody__list {
+  align-self: flex-start;
+}
+
+.aboutBody__list_features {
+  height: 5.44em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.aboutBody__list li, span {
+  list-style-type: '- ';
+  margin-left: 11px;
+  color: white;
 }
 
 .searchAreaContainer {
@@ -39,7 +70,11 @@
 
 @media (max-width: 768px) {
   .aboutContent {
-    height: unset;
+    height: 34.33em;
+  }
+
+  .aboutBody {
+    width: 17.22em;
   }
 
   .searchAreaContainer {
@@ -47,17 +82,70 @@
   }
 
   .aboutBody__title {
-    padding: 4.17em 0 2.5em 0;
+    height: 2.6em;
   }
 
+  .aboutBody__text_intro {
+    height: 9.37em;
+  }
+
+  .aboutBody__text_discogs {
+    height: 13.39em;
+  }
+
+
   .aboutBody__text {
-    font-size: 0.78em;
-    padding-bottom: 0.83em;
-    height: unset;
+    font-size: 0.83em;
+  }
+
+  .aboutBody__list {
+    font-size: 0.83em;
+  }
+
+  .aboutBody__list_features {
+    height: 6.76em;
+
+  }
+
+  .aboutBody__list span {
+    margin-left: 0;
   }
 
   .aboutBody__image {
-    padding-top: 3.5em;
-    height: unset;
+    display: none;
+  }
+}
+
+@media (max-width: 382px) {
+
+  .aboutBody {
+    width: 13.89em;
+  }
+
+  .aboutBody__text {
+    font-size: 0.7em;
+  }
+
+  .aboutBody__text_intro {
+    height: 10.37em;
+  }
+
+  .aboutBody__text_discogs {
+    height: 15.39em;
+  }
+
+  .aboutBody__list {
+    font-size: 0.7em;
+  }
+
+  .aboutContent {
+    height: 31.78em;
+  }
+}
+
+@media (max-width: 300px) {
+
+  .aboutBody {
+    width: 13.06em;
   }
 }
