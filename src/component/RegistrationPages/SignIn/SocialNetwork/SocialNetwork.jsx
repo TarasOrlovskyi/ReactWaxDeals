@@ -44,9 +44,6 @@ const SocialNetwork = ({doGoogleLogIn}) => {
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
     />
-    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-      <img alt="social Twitter" src={socialTwitter}/>
-    </a>
   </div>
 }
 export default SocialNetwork;
