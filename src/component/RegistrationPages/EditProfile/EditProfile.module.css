@@ -1,5 +1,5 @@
 .contentEditProfile {
-  height: 29.77em;
+  height: 31.5em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -12,7 +12,7 @@
 }
 
 .editProfileUser__nav {
-  height: 4.39em;
+  height: 8.27em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,10 +27,10 @@
 
 .editProfileUser__deleteProfile {
   margin: 0 auto;
-  font-size: 0.77em;
+  font-size: 0.89em;
   text-decoration: underline;
   position: absolute;
-  bottom: 6.57em;
+  bottom: 9.6em;
   background: transparent no-repeat;
   border: none;
   cursor: pointer;
@@ -44,17 +44,19 @@
 
 .getDiscogsButton {
   background-color: #8D8989;
-  width: 70%;
-  height: 2.22em;
   font-weight: bold;
   font-size: 1em;
   line-height: 1.39;
   color: #ffffff;
   cursor: pointer;
+  position: absolute;
+  bottom: 4.72em;
+  width: 15.56em;
+  height: 2.78em;
 }
 
 .getDiscogsButton:hover {
-  background-color: #C4C4C4;
+  color: #333333;
 }
 
 .getDiscogsButton:disabled {
@@ -69,22 +71,23 @@
   }
 
   .editProfileUser__nav {
-    height: 3.78em;
+    height: 167px;
+    padding-top: 21px;
   }
 
   .contentEditProfile {
-    height: 26.58em;
-  }
-
-  .editProfileUser {
-    height: 17.77em;
+    height: 27em;
   }
 
   .editProfileUser__deleteProfile {
-    bottom: 5.56em;
+    bottom: 9.14em;
   }
 
   .editProfileUser__deleteProfile:hover {
     text-decoration: none;
+  }
+
+  .getDiscogsButton {
+    bottom: 3.89em;
   }
 }
