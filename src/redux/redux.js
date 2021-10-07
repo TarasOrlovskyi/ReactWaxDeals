@@ -1,7 +1,6 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import searchFieldReducer from "./reducers/search-field-reducer";
 import catalogReducer from "./reducers/catalog-reducer";
-import changePasswordReducer from "./reducers/change-password-reducer";
 import oneVinylReducer from "./reducers/one-vinyl-reducer";
 import storesReducer from "./reducers/stores-reducer";
 import afterSearchReducer from "./reducers/after-search-reducer";
@@ -13,12 +12,12 @@ import appReducer from "./reducers/app-reducer";
 import alertReducer from "./reducers/alert-reducer";
 import mobileReducer from "./reducers/mobile-reducer";
 import authedUserWindowsReducer from "./reducers/authed-user-window-reducer";
+import preloaderReducer from "./reducers/preloader-reducer";
 
 let reducers = combineReducers(
     {
       catalogPage: catalogReducer,
       searchField: searchFieldReducer,
-      changePasswordPage: changePasswordReducer,
       oneVinylPage: oneVinylReducer,
       storesPage: storesReducer,
       afterSearchPage: afterSearchReducer,
@@ -28,14 +27,15 @@ let reducers = combineReducers(
       alert: alertReducer,
       mobileVersion: mobileReducer,
       authedUserWindows: authedUserWindowsReducer,
+      preloader: preloaderReducer,
       form: formReducer
     }
 );
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
   trace: true,
   traceLimit: 25
-}) || compose;
+}) ) || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
 ));
 

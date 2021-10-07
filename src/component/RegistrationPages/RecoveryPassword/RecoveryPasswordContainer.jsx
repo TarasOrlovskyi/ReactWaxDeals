@@ -18,11 +18,11 @@ class RecoveryPasswordContainer extends React.Component {
 
   render() {
     return (
-      <RecoveryPassword isInfoAlert={this.props.isInfoAlert}
-                        pageInfo={this.props.pageInfo}
-                        turnOffAlert={this.turnOffAlert}
-                        onSubmit={this.sendRecoveryMail}
-      />
+        <RecoveryPassword isInfoAlert={this.props.isInfoAlert}
+                          pageInfo={this.props.pageInfo}
+                          turnOffAlert={this.turnOffAlert}
+                          onSubmit={this.sendRecoveryMail}
+        />
     );
   }
 }

@@ -1,7 +1,8 @@
 import {NavLink} from "react-router-dom";
 import registrationSignsStyle from "../RegistrationSigns.module.css";
+import React from "react";
 
-const NotAuthedSigns = () => {
+const NotAuthedSigns = React.memo(() => {
   return (
       <div className={registrationSignsStyle.header__loginSigns}>
         <NavLink to="/signIn" className={registrationSignsStyle.header__loginButtons}>
@@ -15,6 +16,6 @@ const NotAuthedSigns = () => {
         </NavLink>
       </div>
   );
-}
+})
 
 export default NotAuthedSigns;

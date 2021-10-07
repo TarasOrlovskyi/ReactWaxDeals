@@ -1,8 +1,9 @@
 import EmptyPageStyle from "./EmptyPageAfterSearch.module.css";
 import noResultSearchImage from "../../../assets/img/corrupted_vinyl.png";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
+import React from "react";
 
-const EmptyPageAfterSearch = () => {
+const EmptyPageAfterSearch = React.memo(() => {
   return (
       <main className="main">
         <div className="container subContainer">
@@ -19,13 +20,15 @@ const EmptyPageAfterSearch = () => {
               </div>
               <div className={EmptyPageStyle.EmptyPageImage}>
                 <p>Thank you.</p>
-                <img className={EmptyPageStyle.vinylImage} src={noResultSearchImage} alt="no result search"/>
+                <img className={EmptyPageStyle.vinylImage} src={noResultSearchImage}
+                     alt="no result search"/>
               </div>
             </div>
           </div>
         </div>
       </main>
   )
-}
+})
+
 
 export default EmptyPageAfterSearch;

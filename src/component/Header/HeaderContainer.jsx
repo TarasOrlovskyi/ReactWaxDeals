@@ -14,7 +14,9 @@ class HeaderContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    this.checkHeader()
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.checkHeader();
+    }
   }
 
   logOut = () => {
@@ -31,7 +33,9 @@ class HeaderContainer extends React.Component {
 
   checkHeader = () => {
     let path = this.props.location.pathname;
-    if (path.includes("/oneVinyl")) {
+    let pathArray = path.split("/");
+    let integer = Number.isInteger(parseInt(pathArray[pathArray.length - 1]));
+    if (path.includes("/catalog") && integer) {
       this.props.setHeaderForRender("oneVinylHeader")
     } else if (path === "/") {
       this.props.setHeaderForRender("homeHeader")

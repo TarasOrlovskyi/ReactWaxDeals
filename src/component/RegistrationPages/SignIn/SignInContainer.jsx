@@ -26,13 +26,14 @@ class SignInContainer extends React.Component {
     }
 
     return (
-      <SignIn isAuth={this.props.isAuth}
-              onSubmit={this.doLogIn}
-              isInfoAlert={this.props.isInfoAlert}
-              pageInfo={this.props.pageInfo}
-              turnOffAlert={this.turnOffAlert}
-              doGoogleLogIn={this.doGoogleLogIn}
-      />
+        <SignIn isAuth={this.props.isAuth}
+                onSubmit={this.doLogIn}
+                isInfoAlert={this.props.isInfoAlert}
+                pageInfo={this.props.pageInfo}
+                turnOffAlert={this.turnOffAlert}
+                doGoogleLogIn={this.doGoogleLogIn}
+                isWaitResponse={this.props.isWaitResponse}
+        />
     );
   }
 
@@ -42,7 +43,8 @@ let mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
     isInfoAlert: state.alert.isInfoAlert,
-    pageInfo: state.alert.pageInfo
+    pageInfo: state.alert.pageInfo,
+    isWaitResponse: state.preloader.isWaitResponse
   };
 };
 

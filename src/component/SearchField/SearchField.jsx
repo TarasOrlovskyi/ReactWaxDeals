@@ -1,25 +1,27 @@
-import s from './SearchField.module.css';
+import searchFieldStyle from './SearchField.module.css';
 import {NavLink} from "react-router-dom";
+import React from "react";
 
-const SearchField = (props) => {
+const SearchField = React.memo(({searchFieldValue, updateSearchField, loadSearchResult}) => {
+
   let onChangeSearchField = (event) => {
-    props.updateSearchField(event.target.value);
+    updateSearchField(event.target.value);
   };
   return (
-    <form onSubmit={(e) => e.preventDefault()} className={s.search__form}>
-      <label className={s.search}>
-        <input className={s.search__input} type="text" name="matcher"
-               onChange={onChangeSearchField}
-               placeholder="Search by artist or title..."
-               value={props.searchFieldValue}
-               required/>
-        <NavLink to={'/search?matcher=' + props.searchFieldValue}>
-          <input type="submit" value="" className={s.search__button}
-                 onClick={() => props.loadSearchResult(props.searchFieldValue)}/>
-        </NavLink>
-      </label>
-    </form>
+      <form onSubmit={(e) => e.preventDefault()} className={searchFieldStyle.search__form}>
+        <label className={searchFieldStyle.search}>
+          <input className={searchFieldStyle.search__input} type="text" name="matcher"
+                 onChange={onChangeSearchField}
+                 placeholder="Search by artist or title..."
+                 value={searchFieldValue}
+                 required/>
+          <NavLink to={'/search?matcher=' + searchFieldValue}>
+            <input type="submit" value="" className={searchFieldStyle.search__button}
+                   onClick={() => loadSearchResult(searchFieldValue)}/>
+          </NavLink>
+        </label>
+      </form>
   );
-};
+})
 
 export default SearchField;

@@ -1,28 +1,28 @@
-import s from './Stores.module.css';
+import storesStyle from './Stores.module.css';
 import Store from './Store/Store';
+import React from "react";
 
-const Stores = (props) => {
-
+const Stores = React.memo(({stores}) => {
   return (
-    <main className="main">
-      <div className="container subContainer">
-        <div className="searchArea unsetHeightStores">
-        </div>
-        <div className={s.shopsContent}>
-          <div className={s.shopsContent__row}>
-            <div className={s.allShops}>
-              {
-                !(props.stores + '').includes('undefined') &&
-                props.stores.map(store => <Store linkToShop={store.mainPageLink}
-                                                 imageLink={store.imageLink}
-                                                 key={store.id}/>)
-              }
+      <main className="main">
+        <div className="container subContainer">
+          <div className="searchArea unsetHeightStores">
+          </div>
+          <div className={storesStyle.shopsContent}>
+            <div className={storesStyle.shopsContent__row}>
+              <div className={storesStyle.allShops}>
+                {
+                  !(stores + '').includes('undefined') &&
+                  stores.map(store => <Store linkToShop={store.mainPageLink}
+                                             imageLink={store.imageLink}
+                                             key={store.id}/>)
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
   );
-}
+})
 
 export default Stores;

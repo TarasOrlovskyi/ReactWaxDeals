@@ -42,7 +42,7 @@
   text-decoration: none;
 }
 
-.getDiscogsButton{
+.getDiscogsButton {
   background-color: #8D8989;
   width: 70%;
   height: 2.22em;
@@ -50,6 +50,16 @@
   font-size: 1em;
   line-height: 1.39;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.getDiscogsButton:hover {
+  background-color: #C4C4C4;
+}
+
+.getDiscogsButton:disabled {
+  background-color: #282c34;
+  cursor: default;
 }
 
 @media (max-width: 768px) {

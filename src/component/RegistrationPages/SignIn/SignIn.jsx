@@ -7,43 +7,48 @@ import SignInForm from "./SignInForm/SignInForm";
 import {NavLink, Redirect} from "react-router-dom";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 
-const SignIn = (props) => {
+const SignIn = ({isAuth, onSubmit, isInfoAlert, pageInfo, turnOffAlert, doGoogleLogIn, isWaitResponse}) => {
 
-  if (props.isAuth) {
+  if (isAuth) {
     return <Redirect to={"/profile"}/>
   }
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="searchArea unsetHeight">
-        </div>
-        <div className={signInStyle.contentSignIn}>
-          {
-            (props.isInfoAlert && props.pageInfo === "ConfirmEmail") &&
-            <MessageAlert turnOffAlert={props.turnOffAlert}
-                          messages={"Your email is verified. You can log in now."}
-            />
-          }
-          {
-            (props.isInfoAlert && props.pageInfo === "NewPasswordUpdated") &&
-            <MessageAlert turnOffAlert={props.turnOffAlert}
-                          messages={"Your password has been changed."}
-            />
-          }
-          <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
-            <div className={userStyle.contentUser__title}>
-              <h2>Login</h2>
-            </div>
-            <SignInForm onSubmit={props.onSubmit}/>
+      <main className="main">
+        <div className="container">
+          <div className="searchArea unsetHeight">
           </div>
-          <RectangleLine/>
-          <SocialNetwork doGoogleLogIn={props.doGoogleLogIn}/>
-          <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
+          <div className={signInStyle.contentSignIn}>
+            {
+              (isInfoAlert && pageInfo === "ConfirmEmail") &&
+              <MessageAlert turnOffAlert={turnOffAlert}
+                            messages={"Your email is verified. You can log in now."}
+              />
+            }
+            {
+              (isInfoAlert && pageInfo === "NewPasswordUpdated") &&
+              <MessageAlert turnOffAlert={turnOffAlert}
+                            messages={"Your password has been changed."}
+              />
+            }
+            {(isInfoAlert && pageInfo === "ChangePassword") &&
+            <MessageAlert turnOffAlert={turnOffAlert}
+                          messages={"Your password has been changed. Please, login with new password"}
+            />
+            }
+            <div className={signInStyle.contentSignIn__column + ' contentColumn'}>
+              <div className={userStyle.contentUser__title}>
+                <h2>Login</h2>
+              </div>
+              <SignInForm onSubmit={onSubmit} isWaitResponse={isWaitResponse}/>
+            </div>
+            <RectangleLine/>
+            <SocialNetwork doGoogleLogIn={doGoogleLogIn}/>
+            <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
 
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
   );
 
 }

@@ -6,7 +6,8 @@ import FirstVinylItem from "./FirstVinylItem/FirstVinylItem";
 import VinylOfferList from "./VinylOfferList/VinylOfferList";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
-const OneVinylPage = (props) => {
+const OneVinylPage = React.memo(({firstVinyl, discogsLink, vinylOffersList, vinylsByArtist, loadOneVinyl, isAuth}) => {
+
   return (
       <main className="main">
         <div className="container sub-container">
@@ -16,26 +17,26 @@ const OneVinylPage = (props) => {
           <div className={vinylStyle.vinylsContent}>
             <div className={vinylStyle.vinylsContent__row}>
               <div className={oneVinylPageStyle.firstVinylsRow + ' ' + oneVinylPageStyle.firstVinylsRowOneVinyl}>
-                <FirstVinylItem discogsLink={props.discogsLink} firstVinyl={props.firstVinyl} isAuth={props.isAuth}/>
-                <VinylOfferList discogsLink={props.discogsLink} vinylOffersList={props.vinylOffersList}/>
+                <FirstVinylItem discogsLink={discogsLink} firstVinyl={firstVinyl} isAuth={isAuth}/>
+                <VinylOfferList discogsLink={discogsLink} vinylOffersList={vinylOffersList}/>
               </div>
             </div>
             <p className={oneVinylPageStyle.contentTitle}>
-              {(props.vinylsByArtist.length > 0) ? `More by ${props.firstVinyl.artist}` : 'No more release'}
+              {(vinylsByArtist.length > 0) ? `More by ${firstVinyl.artist}` : 'No more release'}
             </p>
             <div className={vinylStyle.vinylsContent__row}>
               <div className={vinylStyle.otherVinyls}>
                 {
-                  (props.vinylsByArtist.length > 0) &&
-                  props.vinylsByArtist.map(vinyl => <VinylItem
+                  (vinylsByArtist.length > 0) &&
+                  vinylsByArtist.map(vinyl => <VinylItem
+                      key={vinyl.id}
                       imageLink={vinyl.imageLink}
                       id={vinyl.id}
                       artist={vinyl.artist}
                       vinylRelease={vinyl.release}
-                      loadOneVinyl={props.loadOneVinyl}
-                      key={vinyl.id}
+                      loadOneVinyl={loadOneVinyl}
                       isWantListItem={vinyl.isWantListItem}
-                      isAuth={props.isAuth}
+                      isAuth={isAuth}
                   />)
                 }
               </div>
@@ -44,6 +45,6 @@ const OneVinylPage = (props) => {
         </div>
       </main>
   );
-}
+})
 
 export default OneVinylPage;

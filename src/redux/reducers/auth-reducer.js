@@ -6,8 +6,7 @@ let initialAuthUserData = {
   discogsUserName: null,
   role: null,
   status: false,
-  isAuth: false,
-  isWaitResponse: false
+  isAuth: false
 }
 
 const authReducer = (state = initialAuthUserData, action) => {
@@ -16,11 +15,6 @@ const authReducer = (state = initialAuthUserData, action) => {
       return {
         ...state,
         ...action.payload
-      }
-    case actionTypes.SET_IS_WAIT_RESPONSE:
-      return {
-        ...state,
-        isWaitResponse: action.isWaitResponse
       }
     case actionTypes.SET_EDIT_PROFILE_DATA:
       return {

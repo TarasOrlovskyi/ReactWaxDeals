@@ -9,6 +9,7 @@
   position: absolute;
   right: 0em;
   top: 4em;
+  z-index: 100;
 }
 
 .popUp__image {
@@ -51,5 +52,12 @@
 @media (max-width: 945px) {
   .popUp__body {
     top: 1.65em;
+  }
+}
+
+@media (max-width: 768px) {
+  .popUp__body {
+    top: 3.4em;
+    right: 2em;
   }
 }

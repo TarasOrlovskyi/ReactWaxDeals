@@ -13,10 +13,11 @@ class SearchFieldContainer extends React.Component {
   }
 
   render() {
+    const {searchFieldValue, updateSearchField} = this.props;
     return <SearchField
-      searchFieldValue={this.props.searchFieldValue}
-      updateSearchField={this.props.updateSearchField}
-      loadSearchResult={this.loadSearchResult}
+        searchFieldValue={searchFieldValue}
+        updateSearchField={updateSearchField}
+        loadSearchResult={this.loadSearchResult}
     />
   }
 }

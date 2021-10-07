@@ -5,41 +5,42 @@ import React from "react";
 import WantListStarContainer from "../../../Common/WantListStar/WantListStarContainer";
 import DiscogsLink from "../VinylOfferList/ShopListNav/DiscogsLink/DiscogsLink";
 
-const FirstVinylItem = (props) => {
+const FirstVinylItem = React.memo(({firstVinyl, isAuth, discogsLink}) => {
 
   return (
 
-    <div className={firstVinylItemStyle.firstVinyl__wrapper}>
-      <div className={firstVinylItemStyle.firstVinyl__item + ' ' + vinylStyle.vinyl}>
-        <div className={firstVinylItemStyle.firstVinyl__image}>
-          <img src=
-                 {
-                   (props.firstVinyl.imageLink + '').includes('http') ? props.firstVinyl.imageLink : noImage
-                 }
-               alt="first vinyl"/>
-          {props.isAuth &&
-          <WantListStarContainer vinylId={props.firstVinyl.id}
-                                 isWantListItem={props.firstVinyl.isWantListItem}
-                                 vinylType="firstVinyl"
-          />
-          }
-        </div>
-        <div className={firstVinylItemStyle.firstVinyl__artist}>
-          {props.firstVinyl.artist}
-          <span
-            className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{props.firstVinyl.artist}</span>
-        </div>
-        <div className={firstVinylItemStyle.firstVinyl__release}>
-          <span>{props.firstVinyl.release} </span>
-          <div className={firstVinylItemStyle.firstVinyl__releaseLink}>
-            <DiscogsLink discogsLink={props.discogsLink}/>
+      <div className={firstVinylItemStyle.firstVinyl__wrapper}>
+        <div className={firstVinylItemStyle.firstVinyl__item + ' ' + vinylStyle.vinyl}>
+          <div className={firstVinylItemStyle.firstVinyl__image}>
+            <img src=
+                     {
+                       (firstVinyl.imageLink + '').includes('http') ? firstVinyl.imageLink : noImage
+                     }
+                 alt="first vinyl"/>
+            {isAuth &&
+            <WantListStarContainer vinylId={firstVinyl.id}
+                                   isWantListItem={firstVinyl.isWantListItem}
+                                   vinylType="firstVinyl"
+            />
+            }
           </div>
-          <span
-            className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{props.firstVinyl.release}</span>
-        </div>
+          <div className={firstVinylItemStyle.firstVinyl__artist}>
+            {firstVinyl.artist}
+            <span
+                className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{firstVinyl.artist}</span>
+          </div>
+          <div className={firstVinylItemStyle.firstVinyl__release}>
+            <span>{firstVinyl.release} </span>
+            <div className={firstVinylItemStyle.firstVinyl__releaseLink}>
+              <DiscogsLink discogsLink={discogsLink}/>
+            </div>
+            <span
+                className={firstVinylItemStyle.vinylTipText + ' ' + vinylStyle.tipText}>{firstVinyl.release}</span>
+          </div>
 
+        </div>
       </div>
-    </div>
   );
-}
+})
+
 export default FirstVinylItem;
