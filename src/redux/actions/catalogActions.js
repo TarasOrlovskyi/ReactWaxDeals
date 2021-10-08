@@ -50,7 +50,7 @@ export const getVinylsCatalog = (historyPush) => async dispatch => {
 }
 
 export const switchVinylInWantList = (isWantListItem, vinylId, historyPush) => async dispatch => {
-  // dispatch(setIsWaitResponse(true));
+  dispatch(setIsWaitResponse(true));
   try {
     dispatch(setVinylInWantList(isWantListItem, vinylId));
     let responseData = await vinylApi.switchVinylInWantList(vinylId)
@@ -59,9 +59,9 @@ export const switchVinylInWantList = (isWantListItem, vinylId, historyPush) => a
     } else if (responseData.status !== 200) {
       dispatch(setVinylInWantList(!isWantListItem, vinylId));
     }
-    // dispatch(setIsWaitResponse(false));
+    dispatch(setIsWaitResponse(false));
   } catch (error) {
-    // dispatch(setIsWaitResponse(false));
+    dispatch(setIsWaitResponse(false));
     dispatch(setVinylInWantList(!isWantListItem, vinylId));
     let errorStatus = error.response.status;
     if (errorStatus === 403 || errorStatus === 401) {
