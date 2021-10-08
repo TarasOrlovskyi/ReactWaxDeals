@@ -1,7 +1,6 @@
 import React from "react";
 import socialNetworkStyle from "./SocialNetwork.module.css";
 import socialFacebook from "../../../../assets/img/socialNetwork/facebook.png";
-import socialTwitter from "../../../../assets/img/socialNetwork/Twitter.png";
 import socialGoogle from "../../../../assets/img/socialNetwork/google.png";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'

@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 import SocialNav from "../../Footer/SocialNav/SocialNav";
 import React from "react";
 
-const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger}) => {
+const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger, isAuth, logOut}) => {
   return (
       <div className={
         isBurgerActivate ? burgerMenuStyle.burger + ' ' + burgerMenuStyle.burger_active : burgerMenuStyle.burger
@@ -28,15 +28,28 @@ const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger}) => {
             <NavLink to="/contact" className={burgerMenuStyle.burgerBody__columnItem}
                      onClick={turnOffBurger}>CONTACT</NavLink>
           </div>
-          <div className={burgerMenuStyle.burgerBody__row}>
-            <NavLink to="/signIn" onClick={turnOffBurger}>LOG IN</NavLink>
-            <NavLink to="/signUp" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={turnOffBurger}>SIGN
-              UP</NavLink>
-          </div>
+
+          {
+            !isAuth && <div className={burgerMenuStyle.burgerBody__row}>
+              <NavLink to="/signIn" onClick={turnOffBurger}>LOG IN</NavLink>
+              <NavLink to="/signUp" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={turnOffBurger}>SIGN
+                UP</NavLink>
+            </div>
+          }
+
+          {
+            isAuth && <div className={burgerMenuStyle.burgerBody__row}>
+              <NavLink to="/profile" onClick={turnOffBurger}>PROFILE</NavLink>
+              <NavLink to="/" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={() => {
+                turnOffBurger();
+                logOut()
+              }}>LOGOUT</NavLink>
+            </div>
+          }
+
           <SocialNav/>
           <Footer/>
         </div>
-
       </div>
   )
 })

@@ -33,7 +33,6 @@ const About = React.memo(() => {
               <ul className={aboutStyle.aboutBody__list}>
                 <span>* - coming soon</span>
               </ul>
-              <p className={aboutStyle.aboutBody__text}></p>
               <ul className={aboutStyle.aboutBody__list + ' ' + aboutStyle.aboutBody__list_features}>More features to
                 come:
                 <li>import your favourite artists from facebook and spotify</li>
