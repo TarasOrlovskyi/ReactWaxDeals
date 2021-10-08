@@ -49,20 +49,3 @@ const About = React.memo(() => {
 })
 
 export default About;
-
-/*
-We created this service to make your (and our) shopping experience easier and cheaper.
-    Thousands of records aggregated from the most popular vinyl record stores for you
-  to compare prices, add records to your wantlist and get notified when:
-
-    ⁃ the price drops*
- ⁃ the record is back in stock
- ⁃ your favourite artist has a new release available for order*
-
-                                                         If you are a Discogs user you can import your Discogs wantlist here and compare prices between the marketplace, record stores and directly from artist via Bandcamp. Sometimes considering the shipping price and occasional discounts it may be cheaper to buy a brand new record rather than a used one from Discogs.
-
-* - coming soon
-
-More features to come:
-    ⁃ import your favourite artists from facebook and spotify
- ⁃ compare prices including shipping*/
