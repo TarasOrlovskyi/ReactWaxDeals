@@ -4,7 +4,6 @@ import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
 const Catalog = React.memo(({vinylList, isAuth}) => {
-  debugger
   return (
       <main className="main">
         <div className="container subContainer">
