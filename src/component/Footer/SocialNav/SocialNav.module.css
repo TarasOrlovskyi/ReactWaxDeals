@@ -9,11 +9,7 @@
 }
 
 .footer__socialIcons {
-  display: flex;
-  width: 16.5em;
-  justify-content: space-between;
-  margin: 0 auto;
-  align-items: center;
+  display: none;
 }
 
 .footer__socialIcon {

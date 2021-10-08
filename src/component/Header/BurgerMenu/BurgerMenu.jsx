@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 import SocialNav from "../../Footer/SocialNav/SocialNav";
 import React from "react";
 
-const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger}) => {
+const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger, isAuth, logOut}) => {
   return (
       <div className={
         isBurgerActivate ? burgerMenuStyle.burger + ' ' + burgerMenuStyle.burger_active : burgerMenuStyle.burger
@@ -22,21 +22,28 @@ const BurgerMenu = React.memo(({isBurgerActivate, turnOffBurger}) => {
             <NavLink to="/about" className={burgerMenuStyle.burgerBody__columnItem}
                      onClick={turnOffBurger}>ABOUT</NavLink>
             <NavLink to="/catalog" className={burgerMenuStyle.burgerBody__columnItem}
-                     onClick={turnOffBurger}>CATALOG</NavLink>
+                     onClick={turnOffBurger}>{isAuth ? "WANTLIST" : "CATALOG"}</NavLink>
             <NavLink to="/stores" className={burgerMenuStyle.burgerBody__columnItem}
                      onClick={turnOffBurger}>STORES</NavLink>
             <NavLink to="/contact" className={burgerMenuStyle.burgerBody__columnItem}
                      onClick={turnOffBurger}>CONTACT</NavLink>
           </div>
+
           <div className={burgerMenuStyle.burgerBody__row}>
-            <NavLink to="/signIn" onClick={turnOffBurger}>LOG IN</NavLink>
-            <NavLink to="/signUp" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={turnOffBurger}>SIGN
-              UP</NavLink>
+            {isAuth
+                ? <><NavLink to="/profile" onClick={turnOffBurger}>PROFILE</NavLink>
+                  <NavLink to="/" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={() => {
+                    turnOffBurger();
+                    logOut()
+                  }}>LOGOUT</NavLink></>
+                : <><NavLink to="/signIn" onClick={turnOffBurger}>LOG IN</NavLink>
+                  <NavLink to="/signUp" className={burgerMenuStyle.burgerBody__rowItemColor} onClick={turnOffBurger}>SIGN
+                    UP</NavLink></>
+            }
           </div>
           <SocialNav/>
           <Footer/>
         </div>
-
       </div>
   )
 })

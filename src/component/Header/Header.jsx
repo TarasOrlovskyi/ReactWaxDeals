@@ -38,7 +38,7 @@ const Header = React.memo(    ({
                         isAuthedUserWindow={isAuthedUserWindow}
                         switchAuthedUserWindow={switchAuthedUserWindow}
           />
-          <BurgerMenu turnOffBurger={turnOffBurger} isBurgerActivate={isBurgerActivate}/>
+          <BurgerMenu turnOffBurger={turnOffBurger} isBurgerActivate={isBurgerActivate} isAuth={isAuth} logOut={logOut}/>
         </div>
       </header>
   );
