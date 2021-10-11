@@ -59,5 +59,6 @@
   .popUp__body {
     top: 3.4em;
     right: 2em;
+    display: none;
   }
 }
