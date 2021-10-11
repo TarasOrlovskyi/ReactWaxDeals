@@ -5,22 +5,21 @@ import socialGoogle from "../../../../assets/img/socialNetwork/google.png";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
-const SocialNetwork = ({doGoogleLogIn}) => {
+const SocialNetwork = ({doGoogleLogIn, doFacebookLogIn}) => {
 
   const responseFacebook = (response) => {
-    console.log(response);
+    doFacebookLogIn(response.accessToken);
   }
 
   const responseGoogle = (response) => {
-    // response.setHeader("Cache-Control", "no-store");
     doGoogleLogIn(response.tokenId);
   }
 
   return <div className={socialNetworkStyle.contentSignIn__socialNetwork}>
 
     <FacebookLogin
+        fields="name,email,picture"
         appId="4355604367855488"
-        //secret 7653460ff238524b9bbf345ee15e99a5
         callback={responseFacebook}
         render={renderProps => (
             <img alt="social Facebook"
