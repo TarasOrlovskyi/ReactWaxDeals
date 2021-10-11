@@ -20,7 +20,6 @@ const SocialNetwork = ({doGoogleLogIn}) => {
 
     <FacebookLogin
         fields="name,email,picture"
-        scope="public_profile,email,user_birthday,user_friends,user_posts,user_likes"
         appId="4355604367855488"
         //secret 7653460ff238524b9bbf345ee15e99a5
         callback={responseFacebook}
