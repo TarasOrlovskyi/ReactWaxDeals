@@ -60,6 +60,9 @@ export const authApi = {
   userGoogleLogIn(token) {
     return axiosWithSetting.post(`google/auth`, {token});
   },
+  userFacebookLogIn(token) {
+    return axiosWithSetting.post(`facebook/auth`, {token});
+  },
   refreshToken(refreshToken) {
     return axiosWithSetting.post(`token/refresh-token`, {refreshToken});
   },

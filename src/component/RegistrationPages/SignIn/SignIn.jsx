@@ -7,7 +7,7 @@ import SignInForm from "./SignInForm/SignInForm";
 import {NavLink, Redirect} from "react-router-dom";
 import MessageAlert from "../../Common/Alert/MessageAlert";
 
-const SignIn = ({isAuth, onSubmit, isInfoAlert, pageInfo, turnOffAlert, doGoogleLogIn, isWaitResponse}) => {
+const SignIn = ({isAuth, onSubmit, isInfoAlert, pageInfo, turnOffAlert, doGoogleLogIn, doFacebookLogIn, isWaitResponse}) => {
 
   if (isAuth) {
     return <Redirect to={"/profile"}/>
@@ -43,7 +43,7 @@ const SignIn = ({isAuth, onSubmit, isInfoAlert, pageInfo, turnOffAlert, doGoogle
               <SignInForm onSubmit={onSubmit} isWaitResponse={isWaitResponse}/>
             </div>
             <RectangleLine/>
-            <SocialNetwork doGoogleLogIn={doGoogleLogIn}/>
+            <SocialNetwork doGoogleLogIn={doGoogleLogIn} doFacebookLogIn={doFacebookLogIn}/>
             <NavLink className={signInStyle.signInUser__register} to="/signUp">Register by email</NavLink>
 
           </div>

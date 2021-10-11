@@ -55,12 +55,14 @@ export const getUserLogOutData = () => async dispatch => {
   }
 }
 
-export const getUserLogInData = (email, password, historyPush, googleTokenId = null) => async dispatch => {
+export const getUserLogInData = (email, password, historyPush, googleTokenId = null, facebookToken = null) => async dispatch => {
   dispatch(setIsWaitResponse(true));
   try {
     let responseData;
     if (googleTokenId != null) {
       responseData = await authApi.userGoogleLogIn(googleTokenId);
+    } else if(facebookToken != null){
+      responseData = await authApi.userFacebookLogIn(facebookToken);
     } else {
       responseData = await authApi.userLogIn(email, password);
     }

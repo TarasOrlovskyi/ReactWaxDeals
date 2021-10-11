@@ -17,7 +17,11 @@ class SignInContainer extends React.Component {
   }
 
   doGoogleLogIn = (googleTokenId) => {
-    this.props.getUserLogInData(null, null, this.props.history.push, googleTokenId);
+    this.props.getUserLogInData(null, null, this.props.history.push, googleTokenId, null);
+  }
+
+  doFacebookLogIn = (facebookToken) => {
+    this.props.getUserLogInData(null, null, this.props.history.push, null, facebookToken);
   }
 
   render() {
@@ -32,6 +36,7 @@ class SignInContainer extends React.Component {
                 pageInfo={this.props.pageInfo}
                 turnOffAlert={this.turnOffAlert}
                 doGoogleLogIn={this.doGoogleLogIn}
+                doFacebookLogIn={this.doFacebookLogIn}
                 isWaitResponse={this.props.isWaitResponse}
         />
     );
