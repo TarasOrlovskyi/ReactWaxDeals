@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-ul {
+ul.aboutBody__list_features {
   color: #F6A325;
 }
 
@@ -55,7 +55,7 @@ ul {
   justify-content: flex-end;
 }
 
-.aboutBody__list li, span {
+.aboutBody__list li {
   list-style-type: '- ';
   margin-left: 11px;
   color: white;

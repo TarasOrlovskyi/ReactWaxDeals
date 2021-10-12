@@ -23,6 +23,10 @@ export const deleteVinylFromWantList = (vinylId) => ({
   type: actionTypes.DELETE_VINYL_FROM_WANTLIST,
   vinylId
 })
+export const setVinylFilter = (vinylFilter) => ({
+  type: actionTypes.SET_VINYL_FILTER,
+  vinylFilter
+})
 
 export const getVinylsCatalog = (historyPush) => async dispatch => {
   dispatch(setIsWaitResponse(true));
@@ -54,7 +58,7 @@ export const switchVinylInWantList = (isWantListItem, vinylId, historyPush) => a
   try {
     dispatch(setVinylInWantList(isWantListItem, vinylId));
     let responseData = await vinylApi.switchVinylInWantList(vinylId)
-    if (!isWantListItem && responseData.status === 200){
+    if (!isWantListItem && responseData.status === 200) {
       dispatch(deleteVinylFromWantList(vinylId));
     } else if (responseData.status !== 200) {
       dispatch(setVinylInWantList(!isWantListItem, vinylId));

@@ -2,12 +2,12 @@ import React from "react";
 import vinylStyle from './../Vinyl.module.css'
 import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
-import {NavLink} from "react-router-dom";
-import burgerMenuStyle from "../../Header/BurgerMenu/BurgerMenu.module.css";
 
-const Catalog = React.memo(({vinylList, isAuth}) => {
-  /*debugger*/
-    return (
+const Catalog = React.memo(({vinylList, isAuth, vinylListWithOffers, setVinylFilter, vinylFilter}) => {
+
+  let vinyls = (vinylFilter === "inStockVinyls") ? vinylListWithOffers : vinylList;
+
+  return (
       <main className="main">
         <div className="container subContainer">
           <div className="searchAreaWrapper">
@@ -17,15 +17,21 @@ const Catalog = React.memo(({vinylList, isAuth}) => {
           </div>
           <div className={vinylStyle.vinylsContent}>
 
-            {isAuth
-                ? <div>ALL/IN STOCK</div>
-                : null
+            {
+              (isAuth && vinylListWithOffers) &&
+              <div className={vinylStyle.vinylsContent__filter}>
+                <span className={vinylFilter === "allVinyls" && vinylStyle.vinylsContent__filter_active}
+                      onClick={() => setVinylFilter("allVinyls")}>ALL</span>
+                <span>&nbsp;/&nbsp;</span>
+                <span className={vinylFilter === "inStockVinyls" && vinylStyle.vinylsContent__filter_active}
+                      onClick={() => setVinylFilter("inStockVinyls")}>IN STOCK</span>
+              </div>
             }
 
             <div className={vinylStyle.vinylsContent__row}>
               <div className={vinylStyle.otherVinyls}>
                 {
-                  vinylList.map(vinyl => <VinylItem
+                  vinyls.map(vinyl => <VinylItem
                       imageLink={vinyl.imageLink}
                       id={vinyl.id}
                       artist={vinyl.artist}

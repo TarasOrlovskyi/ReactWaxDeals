@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 import {setVinylAsWantListItem} from "../../utils/actionUtils/actionUtils";
 
 let initialCatalogState = {
-  vinyls: []
+  vinyls: [],
+  vinylFilter: "allVinyls"
 };
 
 const catalogReducer = (state = initialCatalogState, action) => {
@@ -21,6 +22,11 @@ const catalogReducer = (state = initialCatalogState, action) => {
       return {
         ...state,
         vinyls: state.vinyls.filter(vinyl => vinyl.id !== action.vinylId)
+      }
+    case actionTypes.SET_VINYL_FILTER:
+      return {
+        ...state,
+        vinylFilter: action.vinylFilter
       }
     default:
       return state;

@@ -9,6 +9,24 @@
   padding-top: 3.44em;
 }
 
+.vinylsContent__filter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 12.7%;
+  height: 3.61em;
+  top: 11.89em;
+}
+
+.vinylsContent__filter span {
+  cursor: pointer;
+}
+
+.vinylsContent__filter_active {
+  color: #F7A325;
+}
+
 .vinylsContent__row {
   display: flex;
   justify-content: center;
@@ -107,14 +125,19 @@
 .otherVinyls__imageNoOffers span {
   display: unset;
   position: absolute;
-/*  right: 3.33em;
-  top: 6.28em;*/
   z-index: 100;
 }
 
 @media (max-width: 768px) {
   .vinylsContent {
-    padding: 1.39em 0;
+    padding: 3.11em 0;
+  }
+
+  .vinylsContent__filter {
+    font-size: 0.78em;
+    right: 2.45em;
+    height: 3.28em;
+    top: 9.62em;
   }
 
   .vinylsContentWrapper {
@@ -136,8 +159,6 @@
   }
 
   .otherVinyls__imageNoOffers span {
-/*    right: 2.65em;
-    top: 5.56em;*/
     font-size: 0.67em;
   }
 
