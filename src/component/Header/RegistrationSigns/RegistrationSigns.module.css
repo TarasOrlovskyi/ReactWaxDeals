@@ -73,6 +73,7 @@
 
   .header__userIcon {
     bottom: 0em;
+    right: 0;
   }
 
   .header__loginButtons__button_signUpButton {

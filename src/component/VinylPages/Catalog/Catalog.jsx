@@ -3,7 +3,10 @@ import vinylStyle from './../Vinyl.module.css'
 import VinylItem from "../VinylItem/VinylItem";
 import SearchFieldContainer from "../../SearchField/SearchFieldContainer";
 
-const Catalog = React.memo(({vinylList, isAuth}) => {
+const Catalog = React.memo(({vinylList, isAuth, vinylListWithOffers, setVinylFilter, vinylFilter}) => {
+
+  let vinyls = (vinylFilter === "inStockVinyls") ? vinylListWithOffers : vinylList;
+
   return (
       <main className="main">
         <div className="container subContainer">
@@ -13,10 +16,22 @@ const Catalog = React.memo(({vinylList, isAuth}) => {
             </div>
           </div>
           <div className={vinylStyle.vinylsContent}>
+
+            {
+              (isAuth && vinylListWithOffers) &&
+              <div className={vinylStyle.vinylsContent__filter}>
+                <span className={vinylFilter === "allVinyls" && vinylStyle.vinylsContent__filter_active}
+                      onClick={() => setVinylFilter("allVinyls")}>ALL</span>
+                <span>&nbsp;/&nbsp;</span>
+                <span className={vinylFilter === "inStockVinyls" && vinylStyle.vinylsContent__filter_active}
+                      onClick={() => setVinylFilter("inStockVinyls")}>IN STOCK</span>
+              </div>
+            }
+
             <div className={vinylStyle.vinylsContent__row}>
               <div className={vinylStyle.otherVinyls}>
                 {
-                  vinylList.map(vinyl => <VinylItem
+                  vinyls.map(vinyl => <VinylItem
                       imageLink={vinyl.imageLink}
                       id={vinyl.id}
                       artist={vinyl.artist}
@@ -24,6 +39,7 @@ const Catalog = React.memo(({vinylList, isAuth}) => {
                       key={vinyl.id}
                       isWantListItem={vinyl.isWantListItem}
                       isAuth={isAuth}
+                      hasOffers={vinyl.hasOffers}
                   />)
                 }
               </div>
