@@ -6,7 +6,7 @@ import {getVinylsCatalog, setVinylFilter} from "../../../redux/actions/catalogAc
 import {withRouter} from "react-router-dom";
 import EmptyListPage from "../EmptyListPage/EmptyListPage";
 import Preloader from "../../Common/Preloader/Preloader";
-import {getAndFilterVinyls, getVinyls} from "../../../redux/selectors/vinylSelector";
+import {getInStockVinyls, getAllVinyls} from "../../../redux/selectors/vinylSelector";
 
 class CatalogRequestContainer extends React.Component {
 
@@ -38,8 +38,8 @@ class CatalogRequestContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    vinylList: getVinyls(state),
-    vinylListWithOffers: getAndFilterVinyls(state),
+    vinylList: getAllVinyls(state),
+    vinylListWithOffers: getInStockVinyls(state),
     isAuth: state.auth.isAuth,
     isWaitResponse: state.preloader.isWaitResponse,
     vinylFilter: state.catalogPage.vinylFilter

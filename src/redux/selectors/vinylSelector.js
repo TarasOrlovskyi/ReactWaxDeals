@@ -1,9 +1,9 @@
 import {createSelector} from "reselect";
 
-export const getVinyls = (state) => {
+export const getAllVinyls = (state) => {
   return state.catalogPage.vinyls
 }
 
-export const getAndFilterVinyls = createSelector(getVinyls, (vinyls) => {
+export const getInStockVinyls = createSelector(getAllVinyls, (vinyls) => {
   return vinyls.filter(vinyl => vinyl.hasOffers !== false)
 })
