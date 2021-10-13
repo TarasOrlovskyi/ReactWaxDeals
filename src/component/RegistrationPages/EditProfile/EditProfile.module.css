@@ -64,6 +64,11 @@
   cursor: default;
 }
 
+.getDiscogsButton:disabled:hover {
+  color: #ffffff;
+ }
+
+
 @media (max-width: 768px) {
   .contentEditProfile__column {
     max-width: 17.22em;
