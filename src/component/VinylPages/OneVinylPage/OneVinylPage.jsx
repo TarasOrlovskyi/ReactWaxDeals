@@ -37,6 +37,7 @@ const OneVinylPage = React.memo(({firstVinyl, discogsLink, vinylOffersList, viny
                       loadOneVinyl={loadOneVinyl}
                       isWantListItem={vinyl.isWantListItem}
                       isAuth={isAuth}
+                      hasOffers={vinyl.hasOffers}
                   />)
                 }
               </div>
